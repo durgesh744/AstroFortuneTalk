@@ -14,7 +14,7 @@ import LinearGradient from 'react-native-linear-gradient';
 import { Divider, Input } from '@rneui/themed';
 import {
     astrologer_login,
-    base_url2,
+    base_url,
 } from '../../config/Constants';
 import axios from 'axios';
 import AsyncStorage from '@react-native-async-storage/async-storage';
@@ -58,7 +58,7 @@ const Login = ({ navigation, dispatch }) => {
         setIsLoading(true);
         await axios({
             method: 'post',
-            url: base_url2 + astrologer_login,
+            url: base_url + astrologer_login,
             headers: {
                 'Content-Type': 'application/json',
             },
@@ -68,9 +68,8 @@ const Login = ({ navigation, dispatch }) => {
             },
         })
             .then(async res => {
-                console.log(res.data.user, "response addedee")
                 if (res.data?.success) {
-                    await AsyncStorage.setItem('user', JSON.stringify(res.data));
+                    await AsyncStorage.setItem('user', JSON.stringify(res?.data?.user?.data));
                     setIsLoading(false);
                     navigation.navigate("Home");
                 } else {

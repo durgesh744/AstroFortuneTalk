@@ -1,9 +1,11 @@
 import { Text, View } from 'react-native'
+import AcceptChat from '../AcceptChat'
 
-const Home = () => {
+const Home = ({ navigation, route }) => {
   return (
     <View>
-        <Text>Astrologer DashBoard </Text>
+      <Text>Astrologer DashBoard </Text>
+      <AcceptChat/>
     </View>
   )
 }

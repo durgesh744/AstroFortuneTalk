@@ -3,6 +3,7 @@ import Home from '../screen/Home/Home';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import Splash from '../screen/Splash';
 import Login from '../screen/Login/Login';
+import ChatScreen from '../screen/ChatScreen';
 
 const Stack = createNativeStackNavigator();
 
@@ -15,6 +16,7 @@ const StackNavigator = () => {
       <Stack.Screen name="splash" component={Splash} />
       <Stack.Screen name="login" component={Login} />
       <Stack.Screen name="Home" component={Home} />
+      <Stack.Screen name="chat" component={ChatScreen} />
     </Stack.Navigator>
   );
 };
