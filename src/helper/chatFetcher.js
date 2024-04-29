@@ -18,9 +18,8 @@ chatFetcher.interceptors.request.use(
         let user = await getItemFromLocalStorage("user");
 
         // console.log("Logged User name >>>> ", {user?.user?.jwt?.token)
-        config.headers.Authorization = `Bearer ${user?.user?.jwt?.token}`;
-
-        // console.log("Async >>>> ", config.headers.Authorization);
+        config.headers.Authorization = `Bearer ${user?.data?.jwt?.token}`;
+        // console.log("Async >>>> ", user?.data?.jwt?.token);
 
         return config;
     },

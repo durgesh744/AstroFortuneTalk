@@ -14,8 +14,7 @@ export const AuthProvider = ({ children }) => {
   const isLoggedIn = () => {
     AsyncStorage.getItem("user")
       .then((res) => {
-        const userData = JSON.parse(res)
-        setUser(userData.user.data)
+        setUser(JSON.parse(res))
         setIsLoading(true)
       })
       .catch((error) => {

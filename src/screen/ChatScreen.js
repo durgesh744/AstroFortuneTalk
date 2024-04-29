@@ -6,7 +6,7 @@ import {
   KeyboardAvoidingView,
   ImageBackground,
 } from 'react-native';
-import React, { useState, } from 'react';
+import React, { useCallback, useEffect, useState, } from 'react';
 import { Colors, Fonts, Sizes } from '../assets/style';
 import AntDesign from 'react-native-vector-icons/AntDesign';
 import MyStatusBar from '../component/MyStatusBar';
@@ -19,9 +19,7 @@ const ChatScreen = ({
 }) => {
   const [userData] = useState(route?.params?.customerData);
   const [chatData, setChatData] = useState(null);
-  const [state, setState] = useState({
-    isLoading: false,
-  });
+
   const [messages, setMessages] = useState([])
 
   const onSend = useCallback((messages = []) => {
@@ -29,14 +27,26 @@ const ChatScreen = ({
       setMessages(previousMessages =>
         GiftedChat.append(previousMessages, messages),
       )
-      let message = messages[0].text
-      socket.emit(NEW_MESSAGE, { chatId, members, message })
+      // let message = messages[0].text
+      // socket.emit(NEW_MESSAGE, { chatId, members, message })
     }
   }, [])
 
-  const {
-    isLoading,
-  } = state;
+  
+  useEffect(() => {
+    setMessages([
+      {
+        _id: 1,
+        text: 'Hello developer',
+        createdAt: new Date(),
+        user: {
+          _id: 2,
+          name: 'React Native',
+          avatar: 'https://placeimg.com/140/140/any',
+        },
+      },
+    ])
+  }, [])
 
   const go_home = () => {
   }
@@ -48,7 +58,7 @@ const ChatScreen = ({
         barStyle={'light-content'}
       />
 
-      <Loader visible={isLoading} />
+      {/* <Loader visible={isLoading} /> */}
       {header()}
 
       <KeyboardAvoidingView keyboardVerticalOffset={64} style={{ flex: 1 }}>
@@ -57,7 +67,7 @@ const ChatScreen = ({
           style={{ width: '100%', height: '100%' }}>
           <GiftedChat
             alwaysShowSend
-            messages={chatData}
+            messages={messages}
             onSend={messages => onSend(messages)}
             scrollToBottom
             user={{

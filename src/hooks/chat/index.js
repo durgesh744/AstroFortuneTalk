@@ -85,5 +85,5 @@ export const useGetOldChat = () => {
             })
     }
 
-    return { oldChat, isLoading, setIsLoading , fetchOldMessages}
+    return { oldChat, isLoading, setIsLoading, fetchOldMessages }
 }

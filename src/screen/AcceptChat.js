@@ -24,12 +24,11 @@ import { useGetGroupChatDetails } from '../hooks/chat';
 
 const { width, height } = Dimensions.get('screen');
 
-const AcceptChat = ({ navigation, route, providerData }) => {
+const AcceptChat = ({ navigation, route }) => {
 
   const [message] = useState(route?.params?.message);
   const [isLoading, setIsLoading] = useState(false);
   const { handleChat, chat } = useGetGroupChatDetails()
-
 
   useFocusEffect(
     React.useCallback(() => {
@@ -67,10 +66,9 @@ const AcceptChat = ({ navigation, route, providerData }) => {
   console.log(chat)
 
   const handleChatWithUser = () => {
-    console.log("662a2069efa3d158a4f936ef")
-    handleChat("662a2069efa3d158a4f936ef")
+    handleChat("662f835474e5e8e4c8dd838f")
     if (chat.length > 0) {
-      navigation.navigate("chat", {
+      navigation.navigate("Chat", {
         chatId: chat[0]?._id,
         members: chat[0]?.members
       })

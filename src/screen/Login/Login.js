@@ -69,7 +69,7 @@ const Login = ({ navigation, dispatch }) => {
         })
             .then(async res => {
                 if (res.data?.success) {
-                    await AsyncStorage.setItem('user', JSON.stringify(res?.data?.user?.data));
+                    await AsyncStorage.setItem('user', JSON.stringify(res?.data));
                     setIsLoading(false);
                     navigation.navigate("Home");
                 } else {

@@ -6,7 +6,7 @@ const sendRequest = (formData) => {
     })
 }
 const getChatId = (otherMemberId) => {
-    return chatFetcher.get(`/api/v1/chat/my/groups?otherMemberId=${otherMemberId}`).then((res) => {
+    return chatFetcher.get(`/api/v1/chat/astrologer/group?otherMemberId=${otherMemberId}`).then((res) => {
         return res.data
     })
 }
