@@ -12,41 +12,52 @@ import AntDesign from 'react-native-vector-icons/AntDesign';
 import MyStatusBar from '../component/MyStatusBar';
 import Loader from '../component/Loader';;
 import { GiftedChat } from 'react-native-gifted-chat';
+import { NEW_MESSAGE } from '../config/Constants';
+import { getSocket } from '../context/socket';
+import { useGetOldChat } from '../hooks/chat';
+import { convertToNewFormat } from '../utils/function';
+import { useAuth } from '../context/AuthContext';
 
 const ChatScreen = ({
   navigation,
   route,
 }) => {
+  const {user} = useAuth()
+// console.log(, "lkjkhjgg")
+  // console.log(route.params.chatId, "route.params.chatId",);
+  const chatId = route.params.chatId
+  const members = route.params.members
+  const [page, setPage] = useState(1)
+
+  // state
   const [userData] = useState(route?.params?.customerData);
-  const [chatData, setChatData] = useState(null);
+  const socket = getSocket()
+  const { oldChat, fetchOldMessages } = useGetOldChat(chatId, page)
 
   const [messages, setMessages] = useState([])
+
 
   const onSend = useCallback((messages = []) => {
     if (messages.length > 0) {
       setMessages(previousMessages =>
         GiftedChat.append(previousMessages, messages),
       )
-      // let message = messages[0].text
-      // socket.emit(NEW_MESSAGE, { chatId, members, message })
+      let message = messages[0].text
+      socket.emit(NEW_MESSAGE, { chatId, members, message })
     }
   }, [])
 
-  
+
   useEffect(() => {
-    setMessages([
-      {
-        _id: 1,
-        text: 'Hello developer',
-        createdAt: new Date(),
-        user: {
-          _id: 2,
-          name: 'React Native',
-          avatar: 'https://placeimg.com/140/140/any',
-        },
-      },
-    ])
-  }, [])
+    if (oldChat?.messages) {
+      const oldMessages = convertToNewFormat(oldChat?.messages)
+      setMessages(oldMessages.reverse())
+    }
+  }, [oldChat])
+
+  useEffect(() => {
+    fetchOldMessages(chatId, page)
+}, [chatId])
 
   const go_home = () => {
   }
@@ -71,7 +82,7 @@ const ChatScreen = ({
             onSend={messages => onSend(messages)}
             scrollToBottom
             user={{
-              _id: 1,
+              _id: user.data.user.id,
               // avatar: img_url_2 + providerData?.img_url,
               // name: providerData?.owner_name,
             }}

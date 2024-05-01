@@ -63,10 +63,8 @@ const AcceptChat = ({ navigation, route }) => {
       });
   };
 
-  console.log(chat)
-
   const handleChatWithUser = () => {
-    handleChat("662f835474e5e8e4c8dd838f")
+    handleChat("66308c8fea571b010a3464d5")
     if (chat.length > 0) {
       navigation.navigate("Chat", {
         chatId: chat[0]?._id,

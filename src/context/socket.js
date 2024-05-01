@@ -8,8 +8,7 @@ const getSocket = () => useContext(SocketContext);
 
 const SocketProvider = ({ children }) => {
     const { user } = useAuth();
-    const token = user;
-    console.log(user)
+    const token = user?.data?.jwt?.token;
 
     const createSocket = () => {
         if (token) {
