@@ -1,58 +1,31 @@
-import {View, Text, Dimensions, FlatList, StyleSheet} from 'react-native';
-import {useEffect, useState} from 'react';
+import { View, Text, Dimensions, FlatList, StyleSheet } from 'react-native';
+import { useEffect, useState } from 'react';
 import MyStatusBar from '../../component/MyStatusBar';
 import MyHeader from '../component/MyHeader';
-import {connect} from 'react-redux';
-import {Colors, Fonts, Sizes} from '../assets/style';
-import {Image} from '@rneui/base';
+import { connect } from 'react-redux';
+import { Colors, Fonts, Sizes } from '../assets/style';
+import { Image } from '@rneui/base';
 import Loader from '../../component/Loader';
+import { getAstrologerProfile } from '../../hooks/Profile/Profile';
 
-const {width, height} = Dimensions.get('screen');
+const { width, height } = Dimensions.get('screen');
 
 const Profile = props => {
   const [isLoading, setIsLoading] = useState();
-  const [profileData, setProfileData] = useState();
-
-  useEffect(() => {
-    fetch_user_details();
-  }, []);
-
-  const fetch_user_details = async () => {
-    setIsLoading(true);
-    // await axios({
-    //   method: 'post',
-    //   url: api_url + get_provider_details,
-    //   headers: {
-    //     'Content-Type': 'multipart/form-data',
-    //   },
-    //   data: {
-    //     astrologer_id: props.providerData.id,
-    //   },
-    // })
-    //   .then(async res => {
-    //     console.log(res.data);
-    //     if (res.data?.status) {
-    //       setProfileData(res.data.data);
-    //       setIsLoading(false);
-    //     }
-    //   })
-    //   .catch(err => {
-    //     setIsLoading(false);
-    //   });
-  };
+  const { profile } = getAstrologerProfile()
 
   return (
-    <View style={{flex: 1, backgroundColor: Colors.gray4}}>
+    <View style={{ flex: 1, backgroundColor: Colors.gray4 }}>
       <MyStatusBar
         backgroundColor={Colors.primaryLight}
         barStyle={'light-content'}
       />
       <MyHeader title={'Astrologer Profile'} navigation={props.navigation} />
       <Loader visible={isLoading} />
-      <View style={{flex: 1, marginTop: Sizes.fixPadding * 1.5}}>
+      <View style={{ flex: 1, marginTop: Sizes.fixPadding * 1.5 }}>
         <FlatList
           ListHeaderComponent={
-            <>{profileData && <>{profileDetailsAndImage()}</>}</>
+            <>{profile && <>{profileDetailsAndImage()}</>}</>
           }
         />
       </View>
@@ -62,7 +35,7 @@ const Profile = props => {
   function profileDetailsAndImage() {
     return (
       <>
-        {profileData !== null ? (
+        {profile !== null ? (
           <>
             <View
               style={{
@@ -83,14 +56,14 @@ const Profile = props => {
                 }}>
                 {profileData?.img_url && (
                   <Image
-                    source={{uri: img_url_2 + profileData.img_url}}
+                    source={{ uri: img_url_2 + profileData.img_url }}
                     resizeMode="cover"
-                    style={{height: '100%', width: '100%'}}
+                    style={{ height: '100%', width: '100%' }}
                   />
                 )}
               </View>
             </View>
-            <View style={{padding: 10}}>
+            <View style={{ padding: 10 }}>
               <View
                 style={{
                   height: 1.5,
@@ -98,7 +71,7 @@ const Profile = props => {
                   width: '100%',
                 }}></View>
             </View>
-            <View style={{flex: 0.7, padding: 20}}>
+            <View style={{ flex: 0.7, padding: 20 }}>
               <View
                 style={{
                   backgroundColor: Colors.grayLight,
@@ -150,12 +123,12 @@ const mapStateToProps = state => ({
   providerData: state.provider.providerData,
 });
 
-const mapDispatchToProps = dispatch => ({dispatch});
+const mapDispatchToProps = dispatch => ({ dispatch });
 
 export default connect(mapStateToProps, mapDispatchToProps)(Profile);
 
 const styles = StyleSheet.create({
-  txt: {marginBottom: width * 0.03},
+  txt: { marginBottom: width * 0.03 },
   container: {
     backgroundColor: 'white',
     width: '70%',

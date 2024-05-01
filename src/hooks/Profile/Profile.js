@@ -1,14 +1,15 @@
 import { useEffect } from "react"
 import { ProfileServices } from "../../services/profile/profile"
 
-export const getAstroloProfile = (astrologerId) => {
-    const [profile, setProfile] = useState([])
+export const getAstrologerProfile = (astrologerId) => {
+    const [profile, setProfile] = useState()
     const [isLoading, setIsLoading] = useState(false)
 
     useEffect(() => {
         ProfileServices.getProfile(astrologerId)
             .then((res) => {
-                setProfile(res.groups)
+             console.log(res)
+                setProfile(res.data)
             })
             .catch((err) => {
                 console.log(err, "error")
@@ -21,7 +22,6 @@ export const getAstroloProfile = (astrologerId) => {
     return {
         profile,
         isLoading,
-        handleChat,
         setIsLoading
     }
 }

@@ -1,15 +1,18 @@
 import { useState } from 'react';
-import { Button } from 'react-native'
-import AsyncStorage from '@react-native-async-storage/async-storage'
-import { GestureHandlerRootView } from 'react-native-gesture-handler';
 import { Colors } from '../../assets/style';
-import MyStatusBar from '../../component/MyStatusBar';
 import Loader from '../../component/Loader';
+import Offer from '../../component/Home/Offer/Offer';
+import MyStatusBar from '../../component/MyStatusBar';
 import Header from '../../component/Home/Header/Header';
 import AstriInfo from '../../component/Home/AstriInfo/AstriInfo';
-import GoForPolicies from '../../component/Home/GoForPolicies/GoForPolicies';
+import { GestureHandlerRootView } from 'react-native-gesture-handler';
 import Performance from '../../component/Home/Performance/Performance';
-import Offer from '../../component/Home/Offer/Offer';
+import GoForPolicies from '../../component/Home/GoForPolicies/GoForPolicies';
+import HomeBannerInfo from '../../component/Home/HomeBannerInfo/HomeBannerInfo';
+import ChatCallStatusInfo from '../../component/Home/ChatCallStatusInfo/ChatCallStatusInfo';
+import TrandingInfoOnOf from '../../component/Home/TrandingInfoOnOf/TrandingInfoOnOf';
+import { ScrollView } from 'react-native';
+import GoLiveNowInfo from '../../component/Home/GoLiveNowInfo/GoLiveNowInfo';
 
 const Home = ({ navigation, route }) => {
 
@@ -38,6 +41,8 @@ const Home = ({ navigation, route }) => {
     bannerData
   } = state;
 
+
+
   return (
     <GestureHandlerRootView style={{ flex: 1 }}>
       <MyStatusBar
@@ -46,10 +51,18 @@ const Home = ({ navigation, route }) => {
       />
       <Loader visible={isLoading} />
       <Header />
-      <AstriInfo />
-      <GoForPolicies />
-      <Performance />
-      <Offer />
+      <ScrollView>
+
+        <AstriInfo />
+        <GoForPolicies />
+        <Performance />
+        <Offer />
+        {/* <HomeBannerInfo/> */}
+        <ChatCallStatusInfo />
+        <TrandingInfoOnOf />
+        <GoLiveNowInfo />
+        
+      </ScrollView>
       {/* <Button title={"Logout"} onPress={handleLogout} /> */}
       {/* <AcceptChat navigation={navigation} /> */}
     </GestureHandlerRootView>
