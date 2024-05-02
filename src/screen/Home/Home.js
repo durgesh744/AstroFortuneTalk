@@ -13,6 +13,11 @@ import ChatCallStatusInfo from '../../component/Home/ChatCallStatusInfo/ChatCall
 import TrandingInfoOnOf from '../../component/Home/TrandingInfoOnOf/TrandingInfoOnOf';
 import { ScrollView } from 'react-native';
 import GoLiveNowInfo from '../../component/Home/GoLiveNowInfo/GoLiveNowInfo';
+import TrainingReelsInfo from '../../component/Home/TrainingReelsInfo/TrainingReelsInfo';
+import ScheduleCourse from '../../component/Home/ScheduleCourse/ScheduleCourse';
+import FortuneStoreInfo from '../../component/Home/FortuneStoreInfo/FortuneStoreInfo';
+import TabsInfo from '../../component/Home/TabsInfo/TabsInfo';
+import SendView from '../../component/Home/SendView/SendView';
 
 const Home = ({ navigation, route }) => {
 
@@ -61,7 +66,11 @@ const Home = ({ navigation, route }) => {
         <ChatCallStatusInfo />
         <TrandingInfoOnOf />
         <GoLiveNowInfo />
-        
+        <TrainingReelsInfo />
+        <ScheduleCourse />
+        <FortuneStoreInfo />
+        <TabsInfo/>
+        <SendView/>
       </ScrollView>
       {/* <Button title={"Logout"} onPress={handleLogout} /> */}
       {/* <AcceptChat navigation={navigation} /> */}

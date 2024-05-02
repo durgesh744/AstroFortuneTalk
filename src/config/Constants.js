@@ -37,3 +37,5 @@ export {
   CHAT_LEAVED,
   ONLINE_USERS,
 };
+
+export const provider_img_url = 'https://fortunetest.fortunetalk.co.in/admin/';
