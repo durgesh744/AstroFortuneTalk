@@ -1,9 +1,9 @@
-import { Text, TouchableOpacity, View } from "react-native";
 import { SCREEN_WIDTH } from "../../../config/Screen";
+import { Text, TouchableOpacity, View } from "react-native";
 import { Colors, Fonts, Sizes } from "../../../assets/style";
-import { tabsData } from "../../../config/store";
 import { FlatList } from "react-native";
 import { Image } from "react-native";
+import { tabsData } from "../../../config/data";
 
 const TabsInfo = ({ navigation }) => {
     const renderItem = ({ item, index, navigation }) => {
