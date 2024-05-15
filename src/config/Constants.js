@@ -12,6 +12,10 @@ export const get_request = 'api/get_call_chat_req';
 export const astrologer_login = '/astrologer/login';
 export const get_PDF = 'AstroController/getAstrologerPdf';
 export const update_mobile_mumber = 'AstroController/mobileNoUpdate';
+export const upload_gallery_photo = 'AstroController/uploadImage';
+export const get_gallery_photo = 'AstroController/getImage';
+export const delete_gallery_photo_status = 'AstroController/deleteImage';
+export const update_gallery_photo_status = 'AstroController/updateImageStatus';
 
 const ALERT = "ALERT";
 const REFETCH_CHATS = "REFETCH_CHATS";

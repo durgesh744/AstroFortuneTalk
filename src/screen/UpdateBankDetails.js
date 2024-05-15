@@ -4,7 +4,6 @@ import {
   FlatList,
   Dimensions,
   TouchableOpacity,
-  StyleSheet,
   TextInput,
   Alert,
 } from 'react-native';
@@ -19,6 +18,7 @@ import Ionicons from 'react-native-vector-icons/Ionicons';
 import { Menu, MenuItem, MenuDivider } from 'react-native-material-menu';
 import { api_url, update_bank_details } from '../config/Constants';
 import { Checkbox } from 'react-native-paper';
+import { commonStyles } from '../assets/commonStyle';
 
 const { width, height } = Dimensions.get('screen');
 
@@ -128,14 +128,14 @@ const UpdateBankDetails = props => {
           <TextInput
             value={bankName}
             onChangeText={e => setBankName(e)}
-            style={styles.inputbox3}
+            style={commonStyles.inputbox1}
             placeholder="Enter Bank Name"
           />
           <Text style={[Fonts.black14InterMedium]}>Account Holder's Name</Text>
           <TextInput
             value={name}
             onChangeText={e => setName(e)}
-            style={styles.inputbox3}
+            style={commonStyles.inputbox1}
             placeholder="Enter Name"
           />
           <Text style={[Fonts.black14InterMedium]}>IFSC Code</Text>
@@ -143,7 +143,7 @@ const UpdateBankDetails = props => {
             value={ifsc}
             maxLength={11}
             onChangeText={e => setIfsc(e)}
-            style={styles.inputbox3}
+            style={commonStyles.inputbox1}
             placeholder="Enter IFSC Code"
           />
           <Text style={[Fonts.black14InterMedium]}>Account Number</Text>
@@ -152,13 +152,13 @@ const UpdateBankDetails = props => {
             maxLength={16}
             inputMode="numeric"
             onChangeText={e => setAccountNumber(e)}
-            style={styles.inputbox3}
+            style={commonStyles.inputbox1}
             placeholder="Enter Account Number"
           />
           <Text style={[Fonts.black14InterMedium]}>Account type</Text>
           <TouchableOpacity
             activeOpacity={0.7}
-            style={styles.inputbox3}
+            style={commonStyles.inputbox1}
             onPress={() => setVisible(true)}>
             <Text>{accountType == null ? 'Account type' : accountType?.title}</Text>
             <Menu
@@ -228,31 +228,3 @@ const mapStateToProps = state => ({
 const mapDispatchToProps = dispatch => ({ dispatch });
 
 export default connect(mapStateToProps, mapDispatchToProps)(UpdateBankDetails);
-
-const styles = StyleSheet.create({
-  container: {
-    marginHorizontal: 20,
-    marginBottom: width * 0.05,
-    marginTop: 10,
-  },
-  button: {
-    borderRadius: 20,
-    borderRadius: width * 0.04,
-    elevation: 3,
-    width: '48%',
-    height: width * 0.25,
-  },
-  inputbox3: {
-    backgroundColor: Colors.whiteDark,
-    flexDirection: 'row',
-    alignItems: 'center',
-    justifyContent: 'space-between',
-    borderRadius: 15,
-    elevation: 5,
-    height: width * 0.14,
-    width: '100%',
-    marginVertical: 10,
-    paddingHorizontal: 10,
-    position: 'relative',
-  },
-});

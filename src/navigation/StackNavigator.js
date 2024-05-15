@@ -11,6 +11,8 @@ import PriceChangeRequest from '../screen/PriceChangeRequest';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import UpdateBankDetails from '../screen/UpdateBankDetails';
 import DownloadForm16A from '../screen/DownloadForm16A';
+import PhotoGallery from '../screen/PhotoGallery';
+import ReferAnAstrologer from '../screen/ReferAnAstrologer';
 
 const Stack = createNativeStackNavigator();
 
@@ -31,6 +33,8 @@ const StackNavigator = () => {
       <Stack.Screen name="priceChange" component={PriceChange} />
       <Stack.Screen name="updateBankDetails" component={UpdateBankDetails} />
       <Stack.Screen name="downloadForm16A" component={DownloadForm16A} />
+      <Stack.Screen name="photoGallery" component={PhotoGallery} />
+      <Stack.Screen name="referAnAstrologer" component={ReferAnAstrologer} />
 
     </Stack.Navigator>
   );
