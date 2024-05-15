@@ -6,7 +6,7 @@ import { Image } from "react-native";
 import { tabsData } from "../../../config/data";
 
 const TabsInfo = ({ navigation }) => {
-    const renderItem = ({ item, index, navigation }) => {
+    const renderItem = ({ item, index }) => {
         return (
             <TouchableOpacity
                 activeOpacity={0.8}
@@ -35,8 +35,7 @@ const TabsInfo = ({ navigation }) => {
                         ...Fonts.white14RobotoMedium,
                         marginTop: Sizes.fixPadding * 0.5,
                     }}>
-                    {/* {item.name} */}
-                    Durgesh chaudhary
+                    {item.name}
                 </Text>
             </TouchableOpacity>
         );

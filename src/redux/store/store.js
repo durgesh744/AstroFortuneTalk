@@ -5,3 +5,4 @@ import appReducer from '../reducer/root';
 const sagaMiddleware = createSagaMiddleware();
 
 export const store = createStore(appReducer, applyMiddleware(sagaMiddleware));
+

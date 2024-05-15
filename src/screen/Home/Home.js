@@ -10,8 +10,8 @@ import Performance from '../../component/Home/Performance/Performance';
 import GoForPolicies from '../../component/Home/GoForPolicies/GoForPolicies';
 import HomeBannerInfo from '../../component/Home/HomeBannerInfo/HomeBannerInfo';
 import ChatCallStatusInfo from '../../component/Home/ChatCallStatusInfo/ChatCallStatusInfo';
-import TrandingInfoOnOf from '../../component/Home/TrandingInfoOnOf/TrandingInfoOnOf';
-import { ScrollView } from 'react-native';
+import TrandingInfoOnOff from '../../component/Home/TrandingInfoOnOff/TrandingInfoOnOff';
+import { FlatList, ScrollView } from 'react-native';
 import GoLiveNowInfo from '../../component/Home/GoLiveNowInfo/GoLiveNowInfo';
 import TrainingReelsInfo from '../../component/Home/TrainingReelsInfo/TrainingReelsInfo';
 import ScheduleCourse from '../../component/Home/ScheduleCourse/ScheduleCourse';
@@ -56,24 +56,30 @@ const Home = ({ navigation, route }) => {
       />
       <Loader visible={isLoading} />
       <Header />
-      <ScrollView>
+      <FlatList
+        scrollEnabled={true}
+        ListHeaderComponent={
+          <>
+            <AstriInfo />
+            <GoForPolicies />
+            <Performance />
+            <Offer />
+            {/* <HomeBannerInfo/> */}
+            <ChatCallStatusInfo />
+            <TrandingInfoOnOff />
+            <GoLiveNowInfo />
+            <TrainingReelsInfo />
+            <ScheduleCourse />
+            <FortuneStoreInfo />
+            <TabsInfo navigation={navigation} />
+            <SendView />
 
-        <AstriInfo />
-        <GoForPolicies />
-        <Performance />
-        <Offer />
-        {/* <HomeBannerInfo/> */}
-        <ChatCallStatusInfo />
-        <TrandingInfoOnOf />
-        <GoLiveNowInfo />
-        <TrainingReelsInfo />
-        <ScheduleCourse />
-        <FortuneStoreInfo />
-        <TabsInfo/>
-        <SendView/>
-      </ScrollView>
+          </>
+        }
+      />
       {/* <Button title={"Logout"} onPress={handleLogout} /> */}
       {/* <AcceptChat navigation={navigation} /> */}
+
     </GestureHandlerRootView>
   )
 }

@@ -11,6 +11,7 @@ export const Colors = {
   gray3: '#C0C0C0',
   gray4: '#FCFCFC',
   grayDark: '#9C9797',
+  grayMedium: '#f4f4f4c2',
   gray_light: '#B4B4B4',
   blackLight: '#717171',
   black: '#090A0A',

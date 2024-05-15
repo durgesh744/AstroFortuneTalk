@@ -1,9 +1,11 @@
 import {combineReducers} from 'redux';
 import {CLEAN_STORE} from '../actionTypes/ProviderActionTypes';
+import provider from './provider';
 import chat from './chat';
 
 const rootReducer = combineReducers({
-  chat
+  chat,
+  provider,
 });
 
 const appReducer = (state, action) => {
