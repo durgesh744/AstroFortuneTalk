@@ -16,6 +16,10 @@ export const upload_gallery_photo = 'AstroController/uploadImage';
 export const get_gallery_photo = 'AstroController/getImage';
 export const delete_gallery_photo_status = 'AstroController/deleteImage';
 export const update_gallery_photo_status = 'AstroController/updateImageStatus';
+export const refer_an_astrologer = 'api/astrologer_inquiry';
+export const category_pooja_list = 'api/category_pooja_list';
+export const schedule_a_pooja = 'api/schedule_a_pooja';
+export const schedule_a_pooja_astro = 'api/schedule_a_pooja_astro';
 
 const ALERT = "ALERT";
 const REFETCH_CHATS = "REFETCH_CHATS";
