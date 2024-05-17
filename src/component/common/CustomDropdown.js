@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { StyleSheet, View } from 'react-native';
 import { Dropdown } from 'react-native-element-dropdown';
+import { Colors } from '../../assets/style';
 
 const CustomDropdown = ({ data, value, setValue }) => {
     const [isFocus, setIsFocus] = useState(false);
@@ -11,6 +12,7 @@ const CustomDropdown = ({ data, value, setValue }) => {
                 placeholderStyle={styles.placeholderStyle}
                 selectedTextStyle={styles.selectedTextStyle}
                 iconStyle={styles.iconStyle}
+                itemTextStyle={styles.itemTextStyle}
                 data={data}
                 maxHeight={300}
                 labelField="label"
@@ -41,6 +43,7 @@ const styles = StyleSheet.create({
         borderWidth: 0.5,
         borderRadius: 8,
         paddingHorizontal: 8,
+        color:Colors.Dark_grayish_red,
     },
     label: {
         position: 'absolute',
@@ -50,9 +53,11 @@ const styles = StyleSheet.create({
         zIndex: 999,
         paddingHorizontal: 8,
         fontSize: 14,
+        color: Colors.Dark_grayish_red 
     },
     placeholderStyle: {
         fontSize: 16,
+        color: Colors.Dark_grayish_red 
     },
     selectedTextStyle: {
         fontSize: 16,
@@ -60,5 +65,9 @@ const styles = StyleSheet.create({
     iconStyle: {
         width: 20,
         height: 20,
+    },
+    itemTextStyle: {
+        fontSize: 16,
+        color: Colors.Dark_grayish_red 
     },
 });

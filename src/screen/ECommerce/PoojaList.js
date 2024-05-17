@@ -3,18 +3,17 @@ import {
   Text,
   FlatList,
   TouchableOpacity,
-  Image,
   StyleSheet,
   ImageBackground,
 } from 'react-native';
+import axios from 'axios';
+import Loader from '../../component/Loader';
 import React, { useEffect, useState } from 'react';
 import MyHeader from '../../component/MyHeader';
 import { Colors, Sizes, Fonts } from '../../assets/style';
 import MyStatusBar from '../../component/MyStatusBar';
 import { SCREEN_WIDTH } from '../../config/Screen';
 import LinearGradient from 'react-native-linear-gradient';
-import axios from 'axios';
-import Loader from '../../component/Loader';
 import {
   api_url,
   category_pooja_list,

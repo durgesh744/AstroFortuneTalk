@@ -82,7 +82,7 @@ const PriceChangeRequest = ({ navigation, providerData }) => {
           <Text style={styles.custom}>Price</Text>
         </View>
         <View style={{ width: "33%" }} >
-          <Text style={{ paddingLeft: 10 }} >Select Type</Text>
+          <Text style={{ paddingLeft: 10, color: Colors.Dark_grayish_red  }} >Select Type</Text>
           <CustomDropdown data={data} setValue={setDropdown} value={dropdown} />
         </View>
         <TextInput style={styles.txtInput} />
@@ -98,7 +98,7 @@ const PriceChangeRequest = ({ navigation, providerData }) => {
           borderTopWidth: 1,
           borderColor: Colors.gray_light,
           justifyContent: 'center',
-          marginBottom: height * 0.04,
+          marginBottom: height * 0.07,
         }}>
         <View
           style={{
@@ -124,15 +124,15 @@ const PriceChangeRequest = ({ navigation, providerData }) => {
   function policy() {
     return (
       <View style={{ paddingTop: 20, paddingHorizontal: 20 }}>
-        <Text>1. Eligibility for Price Increase?</Text>
-        <Text style={{ paddingVertical: 5 }} >a. Customer Satisfaction must be Excellent which means &gt;= 64%.</Text>
-        <Text style={{ paddingVertical: 5 }} >b. Retention Rate must be Excellent which means &gt;=17.</Text>
-        <Text style={{ paddingVertical: 5 }} >c. Average Call Rating must be Excellent which means &gt;=4.75.</Text>
-        <Text style={{ paddingVertical: 5 }} >d. Average Chat Rating must be Excellent which means &gt;=4.75. e. PO rating 4.2</Text>
-        <Text style={{ paddingVertical: 5 }} >f. PO served properly percentage must be excellent &gt; 85%. g. Last 30 days busy time must be &gt;=4 hours.</Text>
-        <Text style={{ paddingVertical: 5 }} >If customer price is Rs 20: Customer Price can be increased by upto Rs 4 after 30 days. after every 3 months.</Text>
-        <Text style={{ paddingVertical: 5 }} >ii. If customer price &gt;= Rs 20 and Rs 30: Customer price can be increased by upto Rs 4,</Text>
-        <Text style={{ paddingVertical: 5 }} >iii. If customer price &gt;= Rs 30: Customer price can be increased by upto 10% (or Rs 4) with a maximum by Rs 10, after every 6 months</Text>
+        <Text style={{color: Colors.Dark_grayish_red }} >1. Eligibility for Price Increase?</Text>
+        <Text style={{ paddingVertical: 5, color: Colors.Dark_grayish_red }} >a. Customer Satisfaction must be Excellent which means &gt;= 64%.</Text>
+        <Text style={{ paddingVertical: 5, color: Colors.Dark_grayish_red }} >b. Retention Rate must be Excellent which means &gt;=17.</Text>
+        <Text style={{ paddingVertical: 5, color: Colors.Dark_grayish_red }} >c. Average Call Rating must be Excellent which means &gt;=4.75.</Text>
+        <Text style={{ paddingVertical: 5, color: Colors.Dark_grayish_red }} >d. Average Chat Rating must be Excellent which means &gt;=4.75. e. PO rating 4.2</Text>
+        <Text style={{ paddingVertical: 5, color: Colors.Dark_grayish_red }} >f. PO served properly percentage must be excellent &gt; 85%. g. Last 30 days busy time must be &gt;=4 hours.</Text>
+        <Text style={{ paddingVertical: 5, color: Colors.Dark_grayish_red }} >If customer price is Rs 20: Customer Price can be increased by upto Rs 4 after 30 days. after every 3 months.</Text>
+        <Text style={{ paddingVertical: 5, color: Colors.Dark_grayish_red }} >ii. If customer price &gt;= Rs 20 and Rs 30: Customer price can be increased by upto Rs 4,</Text>
+        <Text style={{ paddingVertical: 5, color: Colors.Dark_grayish_red }} >iii. If customer price &gt;= Rs 30: Customer price can be increased by upto 10% (or Rs 4) with a maximum by Rs 10, after every 6 months</Text>
       </View>
     )
   }

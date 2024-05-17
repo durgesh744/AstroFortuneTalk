@@ -5,7 +5,6 @@ import {
   TouchableOpacity,
   Image,
   StyleSheet,
-  ImageBackground,
 } from 'react-native';
 import React, {useEffect, useState} from 'react';
 import MyHeader from '../../component/MyHeader';

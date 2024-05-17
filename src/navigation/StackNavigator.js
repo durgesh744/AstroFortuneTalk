@@ -13,6 +13,8 @@ import UpdateBankDetails from '../screen/UpdateBankDetails';
 import DownloadForm16A from '../screen/DownloadForm16A';
 import PhotoGallery from '../screen/PhotoGallery';
 import ReferAnAstrologer from '../screen/ReferAnAstrologer';
+import PoojaList from '../screen/ECommerce/PoojaList';
+import PoojaDetails from '../screen/ECommerce/PoojaDetails';
 
 const Stack = createNativeStackNavigator();
 
@@ -35,6 +37,8 @@ const StackNavigator = () => {
       <Stack.Screen name="downloadForm16A" component={DownloadForm16A} />
       <Stack.Screen name="photoGallery" component={PhotoGallery} />
       <Stack.Screen name="referAnAstrologer" component={ReferAnAstrologer} />
+      <Stack.Screen name="poojaList" component={PoojaList} />
+      <Stack.Screen name="poojaDetails" component={PoojaDetails} />
 
     </Stack.Navigator>
   );
