@@ -15,6 +15,7 @@ import PhotoGallery from '../screen/PhotoGallery';
 import ReferAnAstrologer from '../screen/ReferAnAstrologer';
 import PoojaList from '../screen/ECommerce/PoojaList';
 import PoojaDetails from '../screen/ECommerce/PoojaDetails';
+import RegisterPooja from '../screen/ECommerce/RegisterPooja';
 
 const Stack = createNativeStackNavigator();
 
@@ -39,6 +40,7 @@ const StackNavigator = () => {
       <Stack.Screen name="referAnAstrologer" component={ReferAnAstrologer} />
       <Stack.Screen name="poojaList" component={PoojaList} />
       <Stack.Screen name="poojaDetails" component={PoojaDetails} />
+      <Stack.Screen name="registerPooja" component={RegisterPooja} />
 
     </Stack.Navigator>
   );

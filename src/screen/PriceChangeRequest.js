@@ -82,10 +82,14 @@ const PriceChangeRequest = ({ navigation, providerData }) => {
           <Text style={styles.custom}>Price</Text>
         </View>
         <View style={{ width: "33%" }} >
-          <Text style={{ paddingLeft: 10, color: Colors.Dark_grayish_red  }} >Select Type</Text>
+          <Text style={{ paddingLeft: 10, color: Colors.Dark_grayish_red }} >Select Type</Text>
           <CustomDropdown data={data} setValue={setDropdown} value={dropdown} />
         </View>
-        <TextInput style={styles.txtInput} />
+        <TextInput
+          placeholder='Price'
+          style={styles.txtInput}
+          placeholderTextColor={Colors.Dark_grayish_red}
+        />
       </View>
     );
   }
@@ -124,7 +128,7 @@ const PriceChangeRequest = ({ navigation, providerData }) => {
   function policy() {
     return (
       <View style={{ paddingTop: 20, paddingHorizontal: 20 }}>
-        <Text style={{color: Colors.Dark_grayish_red }} >1. Eligibility for Price Increase?</Text>
+        <Text style={{ color: Colors.Dark_grayish_red }} >1. Eligibility for Price Increase?</Text>
         <Text style={{ paddingVertical: 5, color: Colors.Dark_grayish_red }} >a. Customer Satisfaction must be Excellent which means &gt;= 64%.</Text>
         <Text style={{ paddingVertical: 5, color: Colors.Dark_grayish_red }} >b. Retention Rate must be Excellent which means &gt;=17.</Text>
         <Text style={{ paddingVertical: 5, color: Colors.Dark_grayish_red }} >c. Average Call Rating must be Excellent which means &gt;=4.75.</Text>
@@ -162,7 +166,8 @@ const styles = StyleSheet.create({
     shadowColor: Colors.black,
     borderRadius: 5,
     elevation: 5,
-    width: "25%"
+    width: "25%",
+    color: Colors.Dark_grayish_red
   },
   custom: {
     color: Colors.primaryDark,

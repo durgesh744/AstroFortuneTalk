@@ -130,6 +130,8 @@ const UpdateBankDetails = props => {
             onChangeText={e => setBankName(e)}
             style={commonStyles.inputbox1}
             placeholder="Enter Bank Name"
+            placeholderTextColor={Colors.Dark_grayish_red}
+
           />
           <Text style={[Fonts.black14InterMedium]}>Account Holder's Name</Text>
           <TextInput
@@ -137,6 +139,7 @@ const UpdateBankDetails = props => {
             onChangeText={e => setName(e)}
             style={commonStyles.inputbox1}
             placeholder="Enter Name"
+            placeholderTextColor={Colors.Dark_grayish_red}
           />
           <Text style={[Fonts.black14InterMedium]}>IFSC Code</Text>
           <TextInput
@@ -145,6 +148,8 @@ const UpdateBankDetails = props => {
             onChangeText={e => setIfsc(e)}
             style={commonStyles.inputbox1}
             placeholder="Enter IFSC Code"
+            placeholderTextColor={Colors.Dark_grayish_red}
+
           />
           <Text style={[Fonts.black14InterMedium]}>Account Number</Text>
           <TextInput
@@ -154,13 +159,15 @@ const UpdateBankDetails = props => {
             onChangeText={e => setAccountNumber(e)}
             style={commonStyles.inputbox1}
             placeholder="Enter Account Number"
+            placeholderTextColor={Colors.Dark_grayish_red}
+
           />
           <Text style={[Fonts.black14InterMedium]}>Account type</Text>
           <TouchableOpacity
             activeOpacity={0.7}
             style={commonStyles.inputbox1}
             onPress={() => setVisible(true)}>
-            <Text>{accountType == null ? 'Account type' : accountType?.title}</Text>
+            <Text style={{color:Colors.Dark_grayish_red}} >{accountType == null ? 'Account type' : accountType?.title}</Text>
             <Menu
               visible={visible}
               animationDuration={100}
@@ -194,7 +201,7 @@ const UpdateBankDetails = props => {
                 setChecked(!checked);
               }}
             />
-            <Text>Save bank details by default</Text>
+            <Text style={{color:"black"}}>Save bank details by default</Text>
           </View>
         </View>
         <View

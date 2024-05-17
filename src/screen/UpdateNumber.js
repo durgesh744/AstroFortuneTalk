@@ -102,7 +102,7 @@ const UpdateNumber = props => {
           paddingHorizontal: width * 0.05,
           paddingVertical: width * 0.05,
         }}>
-        <Text style={[Fonts.black12RobotoMedium, { textAlign: 'center' }]}>
+        <Text style={[Fonts.black12RobotoMedium, { textAlign: 'center', color:"black" }]}>
           You will get call and chat alerts on these numbers
         </Text>
       </View>
@@ -148,7 +148,7 @@ const UpdateNumber = props => {
               justifyContent: 'space-around',
               alignItems: 'center',
             }}>
-            <Text style={Fonts.grayDark16RobotoMedium}>+91</Text>
+            <Text style={[Fonts.grayDark16RobotoMedium, {color:Colors.Dark_grayish_red}]}>+91</Text>
             <View
               style={{
                 height: '80%',
@@ -166,6 +166,7 @@ const UpdateNumber = props => {
               placeholder="Enter Mobile Number"
               maxLength={10}
               onChangeText={text => setMobileNumber(text)}
+              placeholderTextColor={Colors.Dark_grayish_red}
             />
           </View>
         </View>

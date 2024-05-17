@@ -3,29 +3,24 @@ import {
   Text,
   FlatList,
   TouchableOpacity,
-  Image,
   StyleSheet,
-  ImageBackground,
 } from 'react-native';
-import React, {useState} from 'react';
-import MyHeader from '../../component/MyHeader';
-import {Colors, Sizes, Fonts} from '../../assets/style';
-import MyStatusBar from '../../component/MyStatusBar';
-import {SCREEN_WIDTH} from '../../config/Screen';
-import Ionicons from 'react-native-vector-icons/Ionicons';
-import * as ImagePicker from 'react-native-image-picker';
-import AntDesign from 'react-native-vector-icons/AntDesign';
-import LinearGradient from 'react-native-linear-gradient';
-import {DateTimePickerAndroid} from '@react-native-community/datetimepicker';
-import {Input} from '@rneui/themed';
-import {showToastWithGravityAndOffset} from '../../methods/toastMessage';
 import axios from 'axios';
-import {api_url, schedule_a_pooja} from '../../config/Constants';
-import {connect} from 'react-redux';
 import moment from 'moment';
+import { Input } from '@rneui/themed';
+import { connect } from 'react-redux';
+import React, { useState } from 'react';
 import Loader from '../../component/Loader';
+import MyHeader from '../../component/MyHeader';
+import { Colors, Sizes, Fonts } from '../../assets/style';
+import MyStatusBar from '../../component/MyStatusBar';
+import Ionicons from 'react-native-vector-icons/Ionicons';
+import LinearGradient from 'react-native-reanimated-carousel';
+import { DateTimePickerAndroid } from '@react-native-community/datetimepicker';
+import { showToastWithGravityAndOffset } from '../../methods/toastMessage';
+import { api_url, schedule_a_pooja } from '../../config/Constants';
 
-const RegisterPooja = ({navigation, route, providerData}) => {
+const RegisterPooja = ({ navigation, route, providerData }) => {
   const [state, setState] = useState({
     imageData: null,
     date: null,
@@ -51,7 +46,7 @@ const RegisterPooja = ({navigation, route, providerData}) => {
 
   const update_pooja_details = async () => {
     if (validation()) {
-      updateState({isLoading: true});
+      updateState({ isLoading: true });
       await axios({
         method: 'post',
         url: api_url + schedule_a_pooja,
@@ -67,62 +62,42 @@ const RegisterPooja = ({navigation, route, providerData}) => {
         },
       })
         .then(res => {
-          updateState({isLoading: false});
+          updateState({ isLoading: false });
           if (res.data.status) {
             showToastWithGravityAndOffset('Pooja scheduled');
             navigation.navigate('sceduledList');
           }
         })
         .catch(err => {
-          updateState({isLoading: false});
+          updateState({ isLoading: false });
           console.log(err);
         });
     }
   };
 
-  const openImageLibrary = () => {
-    const options = {
-      mediaType: 'photo',
-      includeBase64: false,
-      quality: 1,
-      selectionLimit: 10,
-    }; // Add any camera options you need
-
-    ImagePicker.launchImageLibrary(options, response => {
-      if (response.didCancel) {
-        console.log('User cancelled image library');
-      } else if (response.errorCode) {
-        console.log(response.errorCode, response.errorMessage, 'asdfghjk');
-      } else {
-        updateState({imageData: response.assets});
-      }
-    });
-  };
-
   const updateState = data => {
     setState(prevState => {
-      const newData = {...prevState, ...data};
+      const newData = { ...prevState, ...data };
       return newData;
     });
   };
 
-  const {imageData, date, time, price, isLoading} = state;
+  const { imageData, date, time, price, isLoading } = state;
 
   return (
-    <View style={{flex: 1, backgroundColor: Colors.bodyColor}}>
+    <View style={{ flex: 1, backgroundColor: Colors.bodyColor }}>
       <MyStatusBar
         backgroundColor={Colors.primaryDark}
         barStyle={'light-content'}
       />
       <Loader visible={isLoading} />
-      <View style={{flex: 1}}>
+      <View style={{ flex: 1 }}>
         <FlatList
           ListHeaderComponent={
             <>
               {header()}
               {dateTimeInfo()}
               {priceInfo()}
-              {/* {imageUploadInfo()} */}
             </>
           }
         />
@@ -144,8 +119,8 @@ const RegisterPooja = ({navigation, route, providerData}) => {
         }}>
         <LinearGradient
           colors={[Colors.primaryDark, Colors.primaryDark]}
-          style={{paddingVertical: Sizes.fixPadding}}>
-          <Text style={{...Fonts.white16RobotoMedium, textAlign: 'center'}}>
+          style={{ paddingVertical: Sizes.fixPadding }}>
+          <Text style={{ ...Fonts.white16RobotoMedium, textAlign: 'center' }}>
             Submit
           </Text>
         </LinearGradient>
@@ -155,25 +130,25 @@ const RegisterPooja = ({navigation, route, providerData}) => {
 
   function priceInfo() {
     return (
-      <View style={{margin: Sizes.fixPadding * 2}}>
+      <View style={{ margin: Sizes.fixPadding * 2 }}>
         <View
           style={[
             styles.row,
-            {justifyContent: 'space-between', marginTop: Sizes.fixPadding * 2},
+            { justifyContent: 'space-between', marginTop: Sizes.fixPadding * 2 },
           ]}>
-          <Text style={{...Fonts.black16RobotoRegular}}>Price of Pooja</Text>
+          <Text style={{ ...Fonts.black16RobotoRegular }}>Price of Pooja</Text>
           <Input
             placeholder="0"
             placeholderTextColor={Colors.gray}
             keyboardType="number-pad"
-            onChangeText={text => updateState({price: text})}
-            rightIcon={<Text style={{...Fonts.gray16RobotoMedium}}>/-</Text>}
-            inputStyle={{...Fonts.gray14RobotoMedium, textAlign: 'right'}}
-            containerStyle={{margin: 0, height: 45}}
+            onChangeText={text => updateState({ price: text })}
+            rightIcon={<Text style={{ ...Fonts.gray16RobotoMedium }}>/-</Text>}
+            inputStyle={{ ...Fonts.gray14RobotoMedium, textAlign: 'right' }}
+            containerStyle={{ margin: 0, height: 45 }}
             inputContainerStyle={styles.input}
             leftIcon={
               <View style={styles.row}>
-                <Text style={{...Fonts.gray18RobotoRegular}}>₹</Text>
+                <Text style={{ ...Fonts.gray18RobotoRegular }}>₹</Text>
                 <View
                   style={{
                     width: 1,
@@ -189,9 +164,9 @@ const RegisterPooja = ({navigation, route, providerData}) => {
             activeOpacity={0.8}
             style={[
               styles.dataTimeContainer,
-              {width: '60%', justifyContent: 'flex-start'},
+              { width: '60%', justifyContent: 'flex-start' },
             ]}>
-            <Text style={{...Fonts.gray18RobotoRegular}}>₹</Text>
+            <Text style={{ ...Fonts.gray18RobotoRegular }}>₹</Text>
             <View
               style={{
                 width: 1,
@@ -200,7 +175,7 @@ const RegisterPooja = ({navigation, route, providerData}) => {
                 marginHorizontal: Sizes.fixPadding * 2,
               }}
             />
-            <Text style={{...Fonts.gray16RobotoMedium}}>21199/-</Text>
+            <Text style={{ ...Fonts.gray16RobotoMedium }}>21199/-</Text>
           </TouchableOpacity>
         </View>
       </View>
@@ -213,7 +188,7 @@ const RegisterPooja = ({navigation, route, providerData}) => {
         value: date == null ? new Date() : date,
         onChange: (event, date) => {
           if (event.type == 'set') {
-            updateState({date: date});
+            updateState({ date: date });
           }
         },
         minimumDate: new Date(),
@@ -227,7 +202,7 @@ const RegisterPooja = ({navigation, route, providerData}) => {
         value: time == null ? new Date() : time,
         onChange: (event, time) => {
           if (event.type == 'set') {
-            updateState({time: time});
+            updateState({ time: time });
           }
         },
         mode: 'time',
@@ -236,20 +211,20 @@ const RegisterPooja = ({navigation, route, providerData}) => {
     };
 
     return (
-      <View style={{margin: Sizes.fixPadding * 2}}>
-        <Text style={{...Fonts.black16RobotoRegular}}>
+      <View style={{ margin: Sizes.fixPadding * 2 }}>
+        <Text style={{ ...Fonts.black16RobotoRegular }}>
           Schedule a Date and time
         </Text>
         <View
           style={[
             styles.row,
-            {justifyContent: 'space-between', marginTop: Sizes.fixPadding * 2},
+            { justifyContent: 'space-between', marginTop: Sizes.fixPadding * 2 },
           ]}>
           <TouchableOpacity
             activeOpacity={0.8}
             onPress={() => open_date_picker()}
             style={styles.dataTimeContainer}>
-            <Text style={{...Fonts.gray14RobotoMedium}}>
+            <Text style={{ ...Fonts.gray14RobotoMedium }}>
               {date == null ? 'Date' : moment(date).format('Do MMM YYYY')}
             </Text>
             <Ionicons name="chevron-down" color={Colors.gray} size={20} />
@@ -258,7 +233,7 @@ const RegisterPooja = ({navigation, route, providerData}) => {
             activeOpacity={0.8}
             onPress={() => open_time_picker()}
             style={styles.dataTimeContainer}>
-            <Text style={{...Fonts.gray14RobotoMedium}}>
+            <Text style={{ ...Fonts.gray14RobotoMedium }}>
               {time == null ? 'Time' : moment(time).format('hh:mm A')}
             </Text>
             <Ionicons name="chevron-down" color={Colors.gray} size={20} />

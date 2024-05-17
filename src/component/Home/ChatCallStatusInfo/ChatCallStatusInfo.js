@@ -93,7 +93,6 @@ const ChatCallStatusInfo = () => {
                     style={{ flex: 0.5, alignItems: 'flex-end' }}>
                     <Text
                         style={{ ...Fonts.black12RobotoRegular, color: Colors.blackLight }}>
-                        {/* {dashboard?.data?.chat_login} */}
                         chat
                     </Text>
                 </TouchableOpacity>
@@ -137,7 +136,6 @@ const ChatCallStatusInfo = () => {
                     style={{ flex: 0.5, alignItems: 'flex-end' }}>
                     <Text
                         style={{ ...Fonts.black12RobotoRegular, color: Colors.blackLight }}>
-                        {/* {dashboard?.data?.call_login} */}
                          durgesh
                     </Text>
                 </TouchableOpacity>

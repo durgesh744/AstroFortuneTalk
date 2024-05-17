@@ -75,7 +75,7 @@ const DownloadForm16A = props => {
         onPress={() => Linking.openURL(provider_img_url + item.pdf)}
         activeOpacity={0.9}
         style={styles.button}>
-        <Text numberOfLines={1} style={{ ...Fonts.grayDark16RobotoMedium }}>
+        <Text numberOfLines={1} style={{ ...Fonts.grayDark16RobotoMedium , color:Colors.Dark_grayish_red}}>
           {item.title}
         </Text>
         <Image source={require('../../src/assets/icon/download_purple.png')} />

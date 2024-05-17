@@ -131,6 +131,7 @@ const ReferAnAstrologer = props => {
             onChangeText={e => setName(e)}
             style={commonStyles.inputbox2}
             placeholder="Name of Astrologer"
+            placeholderTextColor={Colors.Dark_grayish_red}
           />
 
           <TextInput
@@ -138,6 +139,7 @@ const ReferAnAstrologer = props => {
             onChangeText={e => setEmail(e)}
             style={commonStyles.inputbox2}
             placeholder="Email ID"
+            placeholderTextColor={Colors.Dark_grayish_red}
           />
 
           <View style={styles.inputContainer}>
@@ -183,6 +185,7 @@ const ReferAnAstrologer = props => {
                 placeholder="Enter Mobile Number"
                 maxLength={10}
                 onChangeText={text => setMobileNumber(text)}
+                placeholderTextColor={Colors.Dark_grayish_red}
               />
             </View>
           </View>
@@ -191,6 +194,7 @@ const ReferAnAstrologer = props => {
             onChangeText={e => setExpertise(e)}
             style={commonStyles.inputbox2}
             placeholder="Expertise of Astrologer"
+            placeholderTextColor={Colors.Dark_grayish_red}
           />
           <TextInput
             value={experience}
@@ -198,6 +202,7 @@ const ReferAnAstrologer = props => {
             onChangeText={e => setExperience(e)}
             style={commonStyles.inputbox2}
             placeholder="Years of Experience"
+            placeholderTextColor={Colors.Dark_grayish_red}
           />
         </View>
         <CustomButton btnName={"Submit"} handleSend={handleSend} />

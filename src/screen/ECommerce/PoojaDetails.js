@@ -5,42 +5,45 @@ import {
   TouchableOpacity,
   Image,
   StyleSheet,
+  Dimensions,
 } from 'react-native';
-import React, {useEffect, useState} from 'react';
+import React, { useEffect, useState } from 'react';
 import MyHeader from '../../component/MyHeader';
-import {Colors, Sizes, Fonts} from '../../assets/style';
+import { Colors, Sizes, Fonts } from '../../assets/style';
 import MyStatusBar from '../../component/MyStatusBar';
-import {SCREEN_WIDTH} from '../../config/Screen';
+import { SCREEN_WIDTH } from '../../config/Screen';
 import LinearGradient from 'react-native-linear-gradient';
-import {SafeAreaView} from 'react-native-safe-area-context';
-import {useSharedValue} from 'react-native-reanimated';
+import { SafeAreaView } from 'react-native-safe-area-context';
+import { useSharedValue } from 'react-native-reanimated';
 import Carousel from 'react-native-reanimated-carousel';
-import {provider_img_url} from '../../config/Constants';
+import { provider_img_url } from '../../config/Constants';
 
-const PoojaDetails = ({navigation, route}) => {
+const { width, height } = Dimensions.get('screen');
+
+const PoojaDetails = ({ navigation, route }) => {
   const progressValue = useSharedValue(0);
   const [state, setState] = useState({
     paginationIndex: 0,
     poojaData: route?.params?.poojaData,
   });
-  useEffect(() => {}, [paginationIndex]);
+  useEffect(() => { }, [paginationIndex]);
 
   const updateState = data => {
     setState(prevState => {
-      const newData = {...prevState, ...data};
+      const newData = { ...prevState, ...data };
       return newData;
     });
   };
 
-  const {paginationIndex, poojaData} = state;
+  const { paginationIndex, poojaData } = state;
 
   return (
-    <View style={{flex: 1, backgroundColor: Colors.bodyColor}}>
+    <View style={{ flex: 1, backgroundColor: Colors.bodyColor }}>
       <MyStatusBar
         backgroundColor={Colors.primaryDark}
         barStyle={'light-content'}
       />
-      <View style={{flex: 1}}>
+      <View style={{ flex: 1 }}>
         <FlatList
           ListHeaderComponent={
             <>
@@ -63,7 +66,7 @@ const PoojaDetails = ({navigation, route}) => {
       <TouchableOpacity
         activeOpacity={0.8}
         onPress={() =>
-          navigation.navigate('registerPooja', {pooja_id: poojaData?.id})
+          navigation.navigate('registerPooja', { pooja_id: poojaData?.id })
         }
         style={{
           marginHorizontal: Sizes.fixPadding * 3,
@@ -73,8 +76,8 @@ const PoojaDetails = ({navigation, route}) => {
         }}>
         <LinearGradient
           colors={[Colors.primaryDark, Colors.primaryDark]}
-          style={{paddingVertical: Sizes.fixPadding}}>
-          <Text style={{...Fonts.white18RobotMedium, textAlign: 'center'}}>
+          style={{ paddingVertical: Sizes.fixPadding }}>
+          <Text style={{ ...Fonts.white18RobotMedium, textAlign: 'center' }}>
             Schedule a Pooja
           </Text>
         </LinearGradient>
@@ -89,7 +92,7 @@ const PoojaDetails = ({navigation, route}) => {
           marginHorizontal: Sizes.fixPadding * 2,
           marginTop: Sizes.fixPadding * 2,
         }}>
-        <Text style={{...Fonts.gray16RobotoMedium, color: Colors.blackLight}}>
+        <Text style={{ ...Fonts.gray16RobotoMedium, color: Colors.blackLight }}>
           About the Pooja
         </Text>
         <Text
@@ -110,7 +113,7 @@ const PoojaDetails = ({navigation, route}) => {
           marginHorizontal: Sizes.fixPadding * 2,
           marginTop: Sizes.fixPadding * 0.5,
         }}>
-        <Text style={{...Fonts.primaryDark18RobotoMedium}}>
+        <Text style={{ ...Fonts.primaryDark18RobotoMedium }}>
           {poojaData?.title}
         </Text>
       </View>
@@ -125,7 +128,7 @@ const PoojaDetails = ({navigation, route}) => {
           marginTop: Sizes.fixPadding,
         }}>
         <Text
-          style={{...Fonts.gray14RobotoRegular, textTransform: 'capitalize'}}>
+          style={{ ...Fonts.gray14RobotoRegular, textTransform: 'capitalize' }}>
           Category - {poojaData?.category_pooja}
         </Text>
       </View>
@@ -154,13 +157,8 @@ const PoojaDetails = ({navigation, route}) => {
   }
 
   function bannerInfo() {
-    const baseOptions = {
-      vertical: false,
-      width: SCREEN_WIDTH,
-      height: SCREEN_WIDTH * 0.7,
-    };
 
-    const renderItem = ({index}) => {
+    const renderItem = ({ index }) => {
       return (
         <View
           style={{
@@ -171,7 +169,7 @@ const PoojaDetails = ({navigation, route}) => {
             alignSelf: 'center',
           }}>
           <Image
-            source={{uri: provider_img_url + poojaData?.collection[index]}}
+            source={{ uri: provider_img_url + poojaData?.collection[index] }}
             resizeMode="cover"
             style={{
               width: '100%',
@@ -183,9 +181,11 @@ const PoojaDetails = ({navigation, route}) => {
     };
 
     return (
-      <SafeAreaView edges={['bottom']} style={{flex: 1}}>
+      <SafeAreaView edges={['bottom']} style={{ flex: 1 }}>
         <Carousel
-          {...baseOptions}
+          width={width}
+          vertical={false}
+          height={SCREEN_WIDTH * 0.7}
           loop
           testID={'xxx'}
           style={{
@@ -207,7 +207,7 @@ const PoojaDetails = ({navigation, route}) => {
           data={poojaData?.collection}
           pagingEnabled={true}
           onSnapToItem={index => {
-            updateState({paginationIndex: index});
+            updateState({ paginationIndex: index });
           }}
           renderItem={renderItem}
         />
