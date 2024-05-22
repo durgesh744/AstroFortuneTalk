@@ -42,7 +42,7 @@ const AstriInfo = ({providerData}) => {
                         />
                     ) : (
                         <Image
-                            source={require('../../../assets/images/person.png')}
+                            source={require('../../../../assets/images/person.png')}
                             resizeMode="contain"
                             style={{
                                 width: 30,

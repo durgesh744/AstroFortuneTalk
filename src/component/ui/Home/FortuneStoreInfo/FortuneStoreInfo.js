@@ -18,7 +18,7 @@ const FortuneStoreInfo =({navigation})=> {
           backgroundColor: Colors.white
         }}>
         <Image
-          source={require('../../../assets/images/fortune_store.png')}
+          source={require('../../../../assets/images/fortune_store.png')}
           resizeMode="contain"
           style={{height: '100%', width: '100%', justifyContent: 'center'}}/>
       </TouchableOpacity>

@@ -25,7 +25,7 @@ const HomeBannerInfo = ({ bannerData }) => {
                     padding: Sizes.fixPadding * 0.5,
                 }}>
                 <Image
-                    source={require("../../../assets/images/home_banner.png")}
+                    source={require("../../../../assets/images/home_banner.png")}
                     resizeMode="cover"
                     style={{
                         width: '100%',

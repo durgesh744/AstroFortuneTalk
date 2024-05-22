@@ -8,7 +8,6 @@ import Icon from 'react-native-vector-icons/MaterialCommunityIcons';
 
 const SendView = () => {
     const submit_rating = () => {
-
     }
     return (
         <View
@@ -108,7 +107,7 @@ const SendView = () => {
                 }}>
                 <TouchableOpacity activeOpacity={0.8} onPress={submit_rating}>
                     <Image
-                        source={require('../../../assets/images/send.png')}
+                        source={require('../../../../assets/images/send.png')}
                         style={{ width: 40, height: 40 }}
                     />
                 </TouchableOpacity>

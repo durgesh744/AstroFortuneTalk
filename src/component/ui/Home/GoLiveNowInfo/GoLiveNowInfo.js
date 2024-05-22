@@ -33,7 +33,7 @@ const GoLiveNowInfo = () => {
                     },
                 ]}>
                 <Image
-                    source={require('../../../assets/images/live_icon.png')}
+                    source={require('../../../../assets/images/live_icon.png')}
                     style={{ width: 50, height: 50 }}
                 />
                 <Text

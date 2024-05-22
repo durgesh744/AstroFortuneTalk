@@ -62,9 +62,6 @@ const Offer = () => {
                     </View>
                     <View>
                         <Switch
-                            // value={moa}
-                            // disabled={parseInt(providerData?.interaction_count) != 3}
-                            // onValueChange={() => update_moa_status(moa)}
                             renderActiveText={false}
                             renderInActiveText={false}
                             circleBorderWidth={4}

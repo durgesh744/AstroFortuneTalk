@@ -6,8 +6,8 @@ import {
 } from 'react-native';
 import React from 'react';
 import AntDesign from 'react-native-vector-icons/AntDesign';
-import { Colors, Sizes, Fonts } from '../assets/style';
-import { SCREEN_WIDTH } from '../config/Screen';
+import { Colors, Sizes, Fonts } from '../../assets/style';
+import { SCREEN_WIDTH } from '../../config/Screen';
 
 const MyHeader = ({ navigation, title }) => {
   return (

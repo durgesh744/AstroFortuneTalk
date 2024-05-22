@@ -14,7 +14,7 @@ function TrainingReelsInfo() {
     };
 
     const [trainingVedioData, setTrainingVedioData] = useState([
-        { id: '1', image: '../../../assets/images/ReelImg.jpeg' },
+        { id: '1', image: '../../../../assets/images/ReelImg.jpeg' },
         { id: '2', image: 'https://yt3.googleusercontent.com/4JmWfgEiUAhyV9id6ys4o9_Fl0TYevULhKZFhDWVGFg_K9vwF0IpEVKepLJDvrbUERkeDAsouQ=s160-c-k-c0x00ffffff-no-rj' },
         { id: '3', image: 'https://yt3.googleusercontent.com/4JmWfgEiUAhyV9id6ys4o9_Fl0TYevULhKZFhDWVGFg_K9vwF0IpEVKepLJDvrbUERkeDAsouQ=s160-c-k-c0x00ffffff-no-rj' },
         // Add more training reel items as needed
@@ -34,7 +34,6 @@ function TrainingReelsInfo() {
                     borderColor: Colors.primaryLight,
                     justifyContent: 'center',
                     alignItems: 'center',
-                    // backgroundColor: 'red',
                 }}>
                 <Image
                     source={{ uri: provider_img_url + item.image }}

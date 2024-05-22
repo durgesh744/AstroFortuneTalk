@@ -30,7 +30,7 @@ const GoForPolicies = ({ navigation }) => {
                     }}>
                     <View style={{ justifyContent: 'center' }}>
                         <Image
-                            source={require('../../../assets/icon/danger.png')}
+                            source={require('../../../../assets/icon/danger.png')}
                             resizeMode="contain"
                             style={{
                                 width: 26,
@@ -59,7 +59,7 @@ const GoForPolicies = ({ navigation }) => {
                         </Text>
                     </View>
                     <View style={{ justifyContent: 'center' }}>
-                        <Image source={require('../../../assets/icon/BottomArrow.png')} />
+                        <Image source={require('../../../../assets/icon/BottomArrow.png')} />
                     </View>
                 </View>
             </View>

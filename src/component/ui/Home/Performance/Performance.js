@@ -14,7 +14,7 @@ const Performance = ({ navigation }) => {
             }}>
             <View style={{ borderRadius: Sizes.fixPadding, overflow: 'hidden' }}>
                 <ImageBackground
-                    source={require('../../../assets/images/performance.png')}
+                    source={require('../../../../assets/images/performance.png')}
                     style={{
                         height: '100%',
                         width: '100%',

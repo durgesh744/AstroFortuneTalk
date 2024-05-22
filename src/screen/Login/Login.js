@@ -17,13 +17,14 @@ import {
     base_url,
 } from '../../config/Constants';
 import axios from 'axios';
-import AsyncStorage from '@react-native-async-storage/async-storage';
-import MyStatusBar from '../../component/common/MyStatusBar';
 import Loader from '../../component/common/Loader';
+import MyStatusBar from '../../component/common/MyStatusBar';
+import AsyncStorage from '@react-native-async-storage/async-storage';
 
 const { width, height } = Dimensions.get('screen');
 
 const Login = ({ navigation, dispatch }) => {
+
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
     const [isLoading, setIsLoading] = useState(false);
@@ -145,7 +146,6 @@ const Login = ({ navigation, dispatch }) => {
         return (
             <TouchableOpacity
                 onPress={() => (validation() ? login() : null)}
-                // onPress={()=>navigation.navigate('customerLiveClass')}
                 style={{
                     width: '70%',
                     marginVertical: Sizes.fixPadding * 2,
@@ -215,6 +215,7 @@ const Login = ({ navigation, dispatch }) => {
             />
         );
     }
+    
     function topTitleInfo() {
         return (
             <Text

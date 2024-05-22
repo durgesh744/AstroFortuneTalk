@@ -17,7 +17,7 @@ const ScheduleCourse =({navigation})=> {
           alignSelf: 'center',
         }}>
         <ImageBackground
-          source={require('../../../assets/images/homedownbanner.png')}
+          source={require('../../../../assets/images/homedownbanner.png')}
           resizeMode="cover"
           style={{height: '100%', width: '100%', justifyContent: 'center'}}>
         
