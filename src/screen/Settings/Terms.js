@@ -5,7 +5,7 @@ import MyStatusBar from '../component/MyStatusBar';
 import MyHeader from '../component/MyHeader';
 import Loader from '../component/Loader';
 import {FlatList} from 'react-native';
-import {ApiRequests} from '../config/requests';
+import {ApiRequests} from '../config/Requests';
 import {api_url, terms} from '../config/Constants';
 import RenderHtml from 'react-native-render-html';
 import {SCREEN_WIDTH} from '../config/Screen';

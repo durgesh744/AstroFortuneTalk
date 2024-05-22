@@ -7,11 +7,8 @@ import {
   ImageBackground,
 } from 'react-native';
 import axios from 'axios';
-import Loader from '../../component/Loader';
 import React, { useEffect, useState } from 'react';
-import MyHeader from '../../component/MyHeader';
 import { Colors, Sizes, Fonts } from '../../assets/style';
-import MyStatusBar from '../../component/MyStatusBar';
 import { SCREEN_WIDTH } from '../../config/Screen';
 import LinearGradient from 'react-native-linear-gradient';
 import {
@@ -19,6 +16,8 @@ import {
   category_pooja_list,
   provider_img_url,
 } from '../../config/Constants';
+import MyStatusBar from '../../component/common/MyStatusBar';
+import Loader from '../../component/common/Loader';
 
 const PoojaList = ({ navigation }) => {
   const [state, setState] = useState({

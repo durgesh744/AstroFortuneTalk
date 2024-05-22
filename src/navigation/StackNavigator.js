@@ -1,21 +1,20 @@
 import React from 'react';
-import Terms from '../screen/Terms';
 import Splash from '../screen/Splash';
 import Home from '../screen/Home/Home';
 import Login from '../screen/Login/Login';
-import Settings from '../screen/Settings';
-import ChatScreen from '../screen/ChatScreen';
-import PriceChange from '../screen/PriceChange';
-import UpdateNumber from '../screen/UpdateNumber';
-import PriceChangeRequest from '../screen/PriceChangeRequest';
+import Settings from '../screen/Settings/Settings';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
-import UpdateBankDetails from '../screen/UpdateBankDetails';
-import DownloadForm16A from '../screen/DownloadForm16A';
-import PhotoGallery from '../screen/PhotoGallery';
-import ReferAnAstrologer from '../screen/ReferAnAstrologer';
 import PoojaList from '../screen/ECommerce/PoojaList';
 import PoojaDetails from '../screen/ECommerce/PoojaDetails';
 import RegisterPooja from '../screen/ECommerce/RegisterPooja';
+import Terms from '../screen/Settings/Terms';
+import PriceChange from '../screen/Settings/PriceChange';
+import UpdateBankDetails from '../screen/Settings/UpdateBankDetails';
+import DownloadForm16A from '../screen/Settings/DownloadForm16A';
+import PhotoGallery from '../screen/Login/PhotoGallery';
+import ReferAnAstrologer from '../screen/Settings/ReferAnAstrologer';
+import UpdateNumber from '../screen/Settings/UpdateNumber';
+import PriceChangeRequest from '../screen/Settings/PriceChangeRequest';
 
 const Stack = createNativeStackNavigator();
 
@@ -28,7 +27,6 @@ const StackNavigator = () => {
       <Stack.Screen name="splash" component={Splash} />
       <Stack.Screen name="login" component={Login} />
       <Stack.Screen name="Home" component={Home} />
-      <Stack.Screen name="Chat" component={ChatScreen} />
       <Stack.Screen name="Settings" component={Settings} />
       <Stack.Screen name="updateNumber" component={UpdateNumber} />
       <Stack.Screen name="terms" component={Terms} />

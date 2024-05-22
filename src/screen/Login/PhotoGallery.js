@@ -15,7 +15,7 @@ import {Switch} from 'react-native-switch';
 import React, {useState, useEffect} from 'react';
 import MyStatusBar from '../component/MyStatusBar';
 import MyHeader from '../component/MyHeader';
-import {Colors, Fonts} from '../assets/style';
+import {Colors, Fonts} from '../../assets/style';
 import AntDesign from 'react-native-vector-icons/AntDesign';
 import * as ImagePicker from 'react-native-image-picker';
 import Ionicons from 'react-native-vector-icons/Ionicons';
@@ -25,10 +25,10 @@ import {
   get_gallery_photo,
   update_gallery_photo_status,
   upload_gallery_photo,
-} from '../config/Constants';
+} from '../../config/Constants';
 import Loader from '../component/Loader';
 import RNFetchBlob from 'rn-fetch-blob';
-import { useAuth } from '../context/AuthContext';
+import { useAuth } from '../../context/AuthContext';
 
 const {width, height} = Dimensions.get('screen');
 
