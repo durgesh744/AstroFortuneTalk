@@ -13,8 +13,6 @@ import {connect} from 'react-redux';
 import Modal from 'react-native-modal';
 import {Switch} from 'react-native-switch';
 import React, {useState, useEffect} from 'react';
-import MyStatusBar from '../component/MyStatusBar';
-import MyHeader from '../component/MyHeader';
 import {Colors, Fonts} from '../../assets/style';
 import AntDesign from 'react-native-vector-icons/AntDesign';
 import * as ImagePicker from 'react-native-image-picker';
@@ -26,9 +24,11 @@ import {
   update_gallery_photo_status,
   upload_gallery_photo,
 } from '../../config/Constants';
-import Loader from '../component/Loader';
 import RNFetchBlob from 'rn-fetch-blob';
 import { useAuth } from '../../context/AuthContext';
+import MyStatusBar from '../../component/common/MyStatusBar';
+import MyHeader from '../../component/common/MyHeader';
+import Loader from '../../component/common/Loader';
 
 const {width, height} = Dimensions.get('screen');
 
@@ -244,7 +244,7 @@ const PhotoGallery = props => {
               <Text style={[Fonts.grayDark14RobotoMedium]}>Verify</Text>
               <Image
                 style={{width: 15, height: 15}}
-                source={require('../../src/assets/icon/verify.png')}
+                source={require('../../assets/icon/verify.png')}
               />
             </View>
             <View

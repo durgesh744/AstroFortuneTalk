@@ -10,15 +10,14 @@ import moment from 'moment';
 import { Input } from '@rneui/themed';
 import { connect } from 'react-redux';
 import React, { useState } from 'react';
-import Loader from '../../component/Loader';
-import MyHeader from '../../component/MyHeader';
 import { Colors, Sizes, Fonts } from '../../assets/style';
-import MyStatusBar from '../../component/MyStatusBar';
 import Ionicons from 'react-native-vector-icons/Ionicons';
 import LinearGradient from 'react-native-reanimated-carousel';
 import { DateTimePickerAndroid } from '@react-native-community/datetimepicker';
 import { showToastWithGravityAndOffset } from '../../methods/toastMessage';
 import { api_url, schedule_a_pooja } from '../../config/Constants';
+import MyStatusBar from '../../component/common/MyStatusBar';
+import Loader from '../../component/common/Loader';
 
 const RegisterPooja = ({ navigation, route, providerData }) => {
   const [state, setState] = useState({

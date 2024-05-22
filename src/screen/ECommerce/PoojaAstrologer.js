@@ -2,16 +2,13 @@ import {
   View,
   Text,
   TouchableOpacity,
-  StyleSheet,
   Image,
   ImageBackground,
 } from 'react-native';
 import React, {useEffect, useState} from 'react';
-import AntDesign from 'react-native-vector-icons/AntDesign';
 import {FlatList} from 'react-native';
 import {SCREEN_WIDTH} from '../../config/Screen';
 import LinearGradient from 'react-native-linear-gradient';
-import {Input} from '@rneui/themed';
 import axios from 'axios';
 import moment from 'moment';
 import {
@@ -20,10 +17,9 @@ import {
   provider_img_url,
   schedule_a_pooja_id,
 } from '../../config/Constants';
-import MyStatusBar from '../../component/MyStatusBar';
-import Loader from '../../component/Loader';
 import {Colors, Sizes, Fonts} from '../../assets/style';
-import MyHeader from '../../component/MyHeader';
+import MyStatusBar from '../../component/common/MyStatusBar';
+import Loader from '../../component/common/Loader';
 
 const PoojaAstrologer = ({navigation, route}) => {
   console.log(route.params);

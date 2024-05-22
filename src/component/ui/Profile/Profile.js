@@ -1,12 +1,12 @@
-import { View, Text, Dimensions, FlatList, StyleSheet } from 'react-native';
-import { useEffect, useState } from 'react';
-import MyStatusBar from '../../component/MyStatusBar';
-import MyHeader from '../component/MyHeader';
-import { connect } from 'react-redux';
-import { Colors, Fonts, Sizes } from '../assets/style';
+import { useState } from 'react';
 import { Image } from '@rneui/base';
-import Loader from '../../component/Loader';
-import { getAstrologerProfile } from '../../hooks/Profile/Profile';
+import { connect } from 'react-redux';
+import Loader from '../../common/Loader';
+import MyHeader from '../../common/MyHeader';
+import MyStatusBar from '../../common/MyStatusBar';
+import { Colors, Fonts, Sizes } from '../../../assets/style';
+import { getAstrologerProfile } from '../../../hooks/Profile/Profile';
+import { View, Text, Dimensions, FlatList, StyleSheet } from 'react-native';
 
 const { width, height } = Dimensions.get('screen');
 

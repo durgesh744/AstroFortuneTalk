@@ -8,9 +8,9 @@ import {
   Dimensions,
 } from 'react-native';
 import React, { useEffect, useState } from 'react';
-import MyHeader from '../../component/MyHeader';
+import MyHeader from '../../component/common/MyHeader';
 import { Colors, Sizes, Fonts } from '../../assets/style';
-import MyStatusBar from '../../component/MyStatusBar';
+import MyStatusBar from '../../component/common/MyStatusBar';
 import { SCREEN_WIDTH } from '../../config/Screen';
 import LinearGradient from 'react-native-linear-gradient';
 import { SafeAreaView } from 'react-native-safe-area-context';

@@ -1,5 +1,5 @@
 import { Image, StyleSheet, Text, TouchableOpacity, View } from 'react-native';
-import { Colors, Sizes, Fonts } from '../../../assets/style';
+import { Colors, Sizes, Fonts } from '../../../../assets/style';
 import LinearGradient from 'react-native-linear-gradient';
 import AntDesign from 'react-native-vector-icons/AntDesign';
 

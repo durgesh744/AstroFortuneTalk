@@ -7,7 +7,6 @@ import {
   ImageBackground,
 } from 'react-native';
 import React, {useEffect, useState} from 'react';
-import AntDesign from 'react-native-vector-icons/AntDesign';
 import {FlatList} from 'react-native';
 import LinearGradient from 'react-native-linear-gradient';
 import {Input} from '@rneui/themed';
@@ -18,11 +17,10 @@ import {
   category_pooja_list,
   provider_img_url,
 } from '../../config/Constants';
-import MyStatusBar from '../../component/MyStatusBar';
-import Loader from '../../component/Loader';
 import {Colors, Sizes, Fonts} from '../../assets/style';
 import {SCREEN_WIDTH} from '../../config/Screen';
-import MyHeader from '../../component/MyHeader';
+import MyStatusBar from '../../component/common/MyStatusBar';
+import Loader from '../../component/common/Loader';
 
 const BookPooja = ({navigation, route}) => {
   const [state, setState] = useState({

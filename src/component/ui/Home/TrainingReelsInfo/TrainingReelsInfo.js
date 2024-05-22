@@ -2,9 +2,9 @@ import { Image } from "react-native";
 import { useState } from "react";
 import { FlatList } from "react-native";
 import { Text, TouchableOpacity, View } from "react-native";
-import { SCREEN_WIDTH } from "../../../config/Screen";
-import { Colors, Fonts, Sizes } from "../../../assets/style";
-import { provider_img_url } from "../../../config/Constants";
+import { SCREEN_WIDTH } from "../../../../config/Screen";
+import { Colors, Fonts, Sizes } from "../../../../assets/style";
+import { provider_img_url } from "../../../../config/Constants";
 
 function TrainingReelsInfo() {
     const on_navigate = item => {

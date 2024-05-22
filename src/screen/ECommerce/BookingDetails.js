@@ -7,17 +7,17 @@ import {
   StyleSheet,
   ImageBackground,
 } from 'react-native';
-import React, {useState, useEffect} from 'react';
+import React, { useState, useEffect } from 'react';
 import MyHeader from '../../component/MyHeader';
-import {Colors, Sizes, Fonts} from '../../assets/style';
+import { Colors, Sizes, Fonts } from '../../assets/style';
 import MyStatusBar from '../../component/MyStatusBar';
 import LinearGradient from 'react-native-linear-gradient';
 import axios from 'axios';
-import {api_url, pooja_booking_customer_detail} from '../../config/Constants';
+import { api_url, pooja_booking_customer_detail } from '../../config/Constants';
 import Loader from '../../component/Loader';
 import moment from 'moment';
 
-const BookingDetailes = ({navigation, route}) => {
+const BookingDetails = ({ navigation, route }) => {
   const [state, setState] = useState({
     isLoading: false,
     bookingData: null,
@@ -29,7 +29,7 @@ const BookingDetailes = ({navigation, route}) => {
   }, []);
 
   const get_booking_data = async () => {
-    updateState({isLoading: true});
+    updateState({ isLoading: true });
     await axios({
       method: 'post',
       url: api_url + pooja_booking_customer_detail,
@@ -42,33 +42,33 @@ const BookingDetailes = ({navigation, route}) => {
     })
       .then(res => {
         console.log(res.data);
-        updateState({isLoading: false});
+        updateState({ isLoading: false });
         if (res.data.status) {
-          updateState({bookingData: res.data.data[0]});
+          updateState({ bookingData: res.data.data[0] });
         }
       })
       .catch(err => {
-        updateState({isLoading: false});
+        updateState({ isLoading: false });
         console.log(err);
       });
   };
 
   const updateState = data => {
     setState(prevState => {
-      const newData = {...prevState, ...data};
+      const newData = { ...prevState, ...data };
       return newData;
     });
   };
-  const {isLoading, bookingData, poojaData} = state;
+  const { isLoading, bookingData, poojaData } = state;
 
   return (
-    <View style={{flex: 1, backgroundColor: Colors.bodyColor}}>
+    <View style={{ flex: 1, backgroundColor: Colors.bodyColor }}>
       <MyStatusBar
         backgroundColor={Colors.primaryDark}
         barStyle={'light-content'}
       />
       <Loader visible={isLoading} />
-      <View style={{flex: 1}}>
+      <View style={{ flex: 1 }}>
         {header()}
         <FlatList
           ListHeaderComponent={
@@ -90,7 +90,7 @@ const BookingDetailes = ({navigation, route}) => {
       <TouchableOpacity
         activeOpacity={0.8}
         onPress={() =>
-          navigation.navigate('uploadEcommerce', {poojaData: poojaData})
+          navigation.navigate('uploadEcommerce', { poojaData: poojaData })
         }
         style={{
           marginHorizontal: Sizes.fixPadding * 3,
@@ -100,8 +100,8 @@ const BookingDetailes = ({navigation, route}) => {
         }}>
         <LinearGradient
           colors={[Colors.primaryDark, Colors.primaryDark]}
-          style={{paddingVertical: Sizes.fixPadding}}>
-          <Text style={{...Fonts.white16RobotoMedium, textAlign: 'center'}}>
+          style={{ paddingVertical: Sizes.fixPadding }}>
+          <Text style={{ ...Fonts.white16RobotoMedium, textAlign: 'center' }}>
             Upload a Attachment
           </Text>
         </LinearGradient>
@@ -121,10 +121,10 @@ const BookingDetailes = ({navigation, route}) => {
           backgroundColor: Colors.whiteDark,
           borderRadius: Sizes.fixPadding * 1.5,
         }}>
-        <Text style={{...Fonts.black18RobotoMedium, color: Colors.blackLight}}>
+        <Text style={{ ...Fonts.black18RobotoMedium, color: Colors.blackLight }}>
           Paid Amount
         </Text>
-        <Text style={{...Fonts.black18RobotoMedium, color: Colors.blackLight}}>
+        <Text style={{ ...Fonts.black18RobotoMedium, color: Colors.blackLight }}>
           ₹ {poojaData?.price}/-
         </Text>
       </View>
@@ -133,8 +133,8 @@ const BookingDetailes = ({navigation, route}) => {
 
   function profileDetailsInfo() {
     return (
-      <View style={{margin: Sizes.fixPadding * 2}}>
-        <Text style={{...Fonts.primaryLight14RobotoRegular}}>
+      <View style={{ margin: Sizes.fixPadding * 2 }}>
+        <Text style={{ ...Fonts.primaryLight14RobotoRegular }}>
           Profile Details:
         </Text>
         <View style={styles.itemContainer}>
@@ -149,8 +149,8 @@ const BookingDetailes = ({navigation, route}) => {
             {bookingData?.gender == '1'
               ? 'Male'
               : bookingData?.gender == '2'
-              ? 'Female'
-              : bookingData?.gender}
+                ? 'Female'
+                : bookingData?.gender}
           </Text>
         </View>
         <View style={styles.itemContainer}>
@@ -235,7 +235,7 @@ const BookingDetailes = ({navigation, route}) => {
 
   function topMessageInfo() {
     return (
-      <View style={{margin: Sizes.fixPadding * 2}}>
+      <View style={{ margin: Sizes.fixPadding * 2 }}>
         <Text
           style={{
             ...Fonts.black18RobotoMedium,
@@ -253,7 +253,7 @@ const BookingDetailes = ({navigation, route}) => {
   }
 };
 
-export default BookingDetailes;
+export default BookingDetails;
 
 const styles = StyleSheet.create({
   itemContainer: {
@@ -266,7 +266,7 @@ const styles = StyleSheet.create({
     ...Fonts.black14RobotoRegular,
     fontSize: 13,
   },
-  colon: {...Fonts.black16RobotoMedium},
+  colon: { ...Fonts.black16RobotoMedium },
   childValue: {
     flex: 0.6,
     ...Fonts.black14RobotoRegular,

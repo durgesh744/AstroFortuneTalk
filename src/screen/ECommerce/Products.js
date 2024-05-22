@@ -6,22 +6,20 @@ import {
   Image,
   ImageBackground,
 } from 'react-native';
+import {Input} from '@rneui/themed';
+import {FlatList} from 'react-native';
 import React, {useEffect, useState} from 'react';
 import {Colors, Fonts, Sizes} from '../../assets/style';
-import AntDesign from 'react-native-vector-icons/AntDesign';
-import {FlatList} from 'react-native';
 import {SCREEN_WIDTH} from '../../config/Screen';
 import LinearGradient from 'react-native-linear-gradient';
-import {Input} from '@rneui/themed';
 import {
   api_url,
   base_url,
   post_mall_sub_category,
 } from '../../config/Constants';
 import axios from 'axios';
-import MyStatusBar from '../../component/MyStatusBar';
-import Loader from '../../component/Loader';
-import MyHeader from '../../component/MyHeader';
+import MyStatusBar from '../../component/common/MyStatusBar';
+import Loader from '../../component/common/Loader';
 
 const Products = ({navigation, route}) => {
   const [state, setState] = useState({

@@ -5,12 +5,9 @@ import {
   TouchableOpacity,
   Image,
   StyleSheet,
-  ImageBackground,
 } from 'react-native';
 import React, {useEffect, useState} from 'react';
-import MyHeader from '../../component/MyHeader';
 import {Colors, Sizes, Fonts} from '../../assets/style';
-import MyStatusBar from '../../component/MyStatusBar';
 import {SCREEN_WIDTH} from '../../config/Screen';
 import LinearGradient from 'react-native-linear-gradient';
 import {SafeAreaView} from 'react-native-safe-area-context';
@@ -19,6 +16,8 @@ import Carousel from 'react-native-reanimated-carousel';
 import {provider_img_url} from '../../config/Constants';
 import database from '@react-native-firebase/database';
 import {connect} from 'react-redux';
+import MyStatusBar from '../../component/common/MyStatusBar';
+import MyHeader from '../../component/common/MyHeader';
 
 const SuggestedPoojaDetails = ({
   navigation,

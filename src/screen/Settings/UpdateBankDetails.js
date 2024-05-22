@@ -10,15 +10,15 @@ import {
 import axios from 'axios';
 import { connect } from 'react-redux';
 import React, { useState } from 'react';
-import Loader from '../component/Loader';
-import MyHeader from '../component/MyHeader';
-import { Colors, Fonts } from '../assets/style';
-import MyStatusBar from '../component/MyStatusBar';
+import { Colors, Fonts } from '../../assets/style';
 import Ionicons from 'react-native-vector-icons/Ionicons';
 import { Menu, MenuItem, MenuDivider } from 'react-native-material-menu';
-import { api_url, update_bank_details } from '../config/Constants';
+import { api_url, update_bank_details } from '../../config/Constants';
 import { Checkbox } from 'react-native-paper';
-import { commonStyles } from '../assets/commonStyle';
+import { commonStyles } from '../../assets/commonStyle';
+import MyStatusBar from '../../component/common/MyStatusBar';
+import MyHeader from '../../component/common/MyHeader';
+import Loader from '../../component/common/Loader';
 
 const { width, height } = Dimensions.get('screen');
 

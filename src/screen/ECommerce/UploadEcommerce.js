@@ -5,12 +5,9 @@ import {
   TouchableOpacity,
   Image,
   StyleSheet,
-  ImageBackground,
 } from 'react-native';
 import React, {useState} from 'react';
-import MyHeader from '../../component/MyHeader';
 import {Colors, Sizes, Fonts} from '../../assets/style';
-import MyStatusBar from '../../component/MyStatusBar';
 import {SCREEN_HEIGHT, SCREEN_WIDTH} from '../../config/Screen';
 import * as ImagePicker from 'react-native-image-picker';
 import AntDesign from 'react-native-vector-icons/AntDesign';
@@ -27,7 +24,9 @@ import {
 import {showToastWithGravityAndOffset} from '../../methods/toastMessage';
 import axios from 'axios';
 import {CommonActions} from '@react-navigation/native';
-import Loader from '../../component/Loader';
+import MyStatusBar from '../../component/common/MyStatusBar';
+import Loader from '../../component/common/Loader';
+import MyHeader from '../../component/common/MyHeader';
 
 const UploadEcommerce = ({navigation, route}) => {
   console.log(route?.params?.poojaData);
@@ -455,10 +454,6 @@ const UploadEcommerce = ({navigation, route}) => {
           marginTop: Sizes.fixPadding,
         }}>
         <Progress.Bar progress={uploadProgress} width={SCREEN_WIDTH * 0.9} />
-        {/* <Text
-          style={{...Fonts.black14InterMedium, marginTop: Sizes.fixPadding}}>
-          1/2
-        </Text> */}
       </View>
     );
   }

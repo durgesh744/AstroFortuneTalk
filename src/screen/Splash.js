@@ -3,7 +3,7 @@ import {
   Image,
 } from 'react-native';
 import React, { useEffect } from 'react';
-import MyStatusBar from '../component/MyStatusBar';
+import MyStatusBar from '../component/common/MyStatusBar';
 import LinearGradient from 'react-native-linear-gradient';
 import { SCREEN_WIDTH } from '../config/Screen';
 import { Colors } from '../assets/style';

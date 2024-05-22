@@ -1,8 +1,7 @@
 import React from 'react'
-import { Dimensions, View } from 'react-native'
+import { View } from 'react-native'
 import { Colors } from '../../assets/style';
-
-const { width, height } = Dimensions.get('screen');
+import { SCREEN_HEIGHT } from '../../config/Screen';
 
 const CustomLine = () => {
     return (
@@ -10,7 +9,7 @@ const CustomLine = () => {
             style={{
                 justifyContent: 'center',
                 alignItems: 'center',
-                height: height * 0.01,
+                height: SCREEN_HEIGHT * 0.01,
                 borderBottomWidth: 1,
                 borderColor: Colors.gray3,
             }}>

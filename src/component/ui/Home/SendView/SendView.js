@@ -2,7 +2,7 @@ import Stars from 'react-native-stars';
 import { Image, StyleSheet, TextInput } from 'react-native';
 import LinearGradient from 'react-native-linear-gradient';
 import { Text, TouchableOpacity, View } from 'react-native';
-import { Colors, Sizes, Fonts } from '../../../assets/style';
+import { Colors, Sizes, Fonts } from '../../../../assets/style';
 import MaterialIcons from 'react-native-vector-icons/MaterialIcons';
 import Icon from 'react-native-vector-icons/MaterialCommunityIcons';
 

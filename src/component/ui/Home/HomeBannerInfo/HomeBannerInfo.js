@@ -1,6 +1,6 @@
 import { Dimensions, SafeAreaView } from "react-native";
-import { Colors, Sizes } from "../../../assets/style";
-import { SCREEN_WIDTH } from "../../../config/Screen";
+import { Colors, Sizes } from "../../../../assets/style";
+import { SCREEN_WIDTH } from "../../../../config/Screen";
 import Carousel from 'react-native-reanimated-carousel';
 
 const width = Dimensions.get('window').width;

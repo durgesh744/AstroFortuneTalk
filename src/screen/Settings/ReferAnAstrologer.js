@@ -11,13 +11,13 @@ import {
 import axios from 'axios';
 import React, { useState } from 'react';
 import { connect } from 'react-redux';
-import Loader from '../component/Loader';
-import MyHeader from '../component/MyHeader';
-import MyStatusBar from '../component/MyStatusBar';
-import { Colors, Fonts } from '../assets/style';
-import { api_url, refer_an_astrologer } from '../config/Constants';
-import { commonStyles } from '../assets/commonStyle';
-import CustomButton from '../component/common/CustomButton';
+import { Colors, Fonts } from '../../assets/style';
+import { api_url, refer_an_astrologer } from '../../config/Constants';
+import { commonStyles } from '../../assets/commonStyle';
+import CustomButton from '../../component/common/CustomButton';
+import MyStatusBar from '../../component/common/MyStatusBar';
+import MyHeader from '../../component/common/MyHeader';
+import Loader from '../../component/common/Loader';
 
 const { width, height } = Dimensions.get('screen');
 
@@ -150,7 +150,7 @@ const ReferAnAstrologer = props => {
                 justifyContent: 'space-between',
               }}>
               <Image
-                source={require('../assets/icon/india_flag.png')}
+                source={require('../../assets/icon/india_flag.png')}
                 resizeMode="cover"
                 style={{
                   width: '70%',

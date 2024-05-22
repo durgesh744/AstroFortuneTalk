@@ -10,13 +10,13 @@ import {
 } from 'react-native';
 import axios from 'axios';
 import { connect } from 'react-redux';
-import Loader from '../component/Loader';
-import MyHeader from '../component/MyHeader';
 import React, { useEffect, useState } from 'react';
-import MyStatusBar from '../component/MyStatusBar';
-import { Colors, Fonts, Sizes } from '../assets/style';
-import { api_url, get_PDF, provider_img_url } from '../config/Constants';
-import { useAuth } from '../context/AuthContext';
+import { Colors, Fonts, Sizes } from '../../assets/style';
+import Loader from '../../component/common/Loader';
+import MyHeader from '../../component/common/MyHeader';
+import MyStatusBar from '../../component/common/MyStatusBar';
+import { api_url, get_PDF, provider_img_url } from '../../config/Constants';
+import { useAuth } from '../../context/AuthContext';
 
 const { width, height } = Dimensions.get('screen');
 
@@ -78,7 +78,7 @@ const DownloadForm16A = props => {
         <Text numberOfLines={1} style={{ ...Fonts.grayDark16RobotoMedium , color:Colors.Dark_grayish_red}}>
           {item.title}
         </Text>
-        <Image source={require('../../src/assets/icon/download_purple.png')} />
+        <Image source={require('../../assets/icon/download_purple.png')} />
       </TouchableOpacity>
     );
 

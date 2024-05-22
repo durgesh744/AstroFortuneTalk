@@ -1,5 +1,5 @@
 import { Dimensions, Text, View } from "react-native";
-import { Colors, Sizes } from "../../../assets/style";
+import { Colors, Sizes } from "../../../../assets/style";
 import { Switch } from 'react-native-switch';
 
 const { width, height } = Dimensions.get('screen');

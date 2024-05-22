@@ -7,18 +7,16 @@ import {
   StyleSheet,
   ImageBackground,
 } from 'react-native';
-import React, {useState, useEffect} from 'react';
-import MyHeader from '../../component/MyHeader';
-import {Colors, Sizes, Fonts} from '../../assets/style';
-import MyStatusBar from '../../component/MyStatusBar';
-import LinearGradient from 'react-native-linear-gradient';
 import moment from 'moment';
+import React, {useState, useEffect} from 'react';
+import {Colors, Sizes, Fonts} from '../../assets/style';
+import LinearGradient from 'react-native-linear-gradient';
 import {SCREEN_WIDTH} from '../../config/Screen';
-import {img_url} from '../../config/Constants';
 import ImageView from '../../component/ImageView';
 import VedioPlayer from '../../component/VedioPlayer';
 import {createThumbnail} from 'react-native-create-thumbnail';
 import {ActivityIndicator} from 'react-native-paper';
+import MyStatusBar from '../../component/common/MyStatusBar';
 
 const VedioComponent = ({item, updateState}) => {
   const [imageData, setImageData] = useState(null);

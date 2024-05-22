@@ -1,5 +1,5 @@
 import { ImageBackground, TouchableOpacity } from 'react-native';
-import { Sizes } from '../../../assets/style';
+import { Sizes } from '../../../../assets/style';
 
 
 const ScheduleCourse =({navigation})=> {

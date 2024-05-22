@@ -1,5 +1,5 @@
 import { Text, TouchableOpacity, View } from "react-native";
-import { Colors, Fonts, Sizes } from "../../../assets/style";
+import { Colors, Fonts, Sizes } from "../../../../assets/style";
 import { Switch } from 'react-native-switch';
 import { useState } from "react";
 

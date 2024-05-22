@@ -18,8 +18,8 @@ import {
 } from '../../config/Constants';
 import axios from 'axios';
 import AsyncStorage from '@react-native-async-storage/async-storage';
-import MyStatusBar from '../../component/MyStatusBar';
-import Loader from '../../component/Loader';
+import MyStatusBar from '../../component/common/MyStatusBar';
+import Loader from '../../component/common/Loader';
 
 const { width, height } = Dimensions.get('screen');
 

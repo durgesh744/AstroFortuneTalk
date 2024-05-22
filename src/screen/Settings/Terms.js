@@ -1,14 +1,14 @@
 import {View} from 'react-native';
 import React, {useEffect, useState} from 'react';
-import {Colors, Sizes} from '../assets/style';
-import MyStatusBar from '../component/MyStatusBar';
-import MyHeader from '../component/MyHeader';
-import Loader from '../component/Loader';
+import {Colors, Sizes} from '../../assets/style';
 import {FlatList} from 'react-native';
-import {ApiRequests} from '../config/Requests';
-import {api_url, terms} from '../config/Constants';
+import {ApiRequests} from '../../config/Requests';
+import {api_url, terms} from '../../config/Constants';
 import RenderHtml from 'react-native-render-html';
-import {SCREEN_WIDTH} from '../config/Screen';
+import {SCREEN_WIDTH} from '../../config/Screen';
+import MyStatusBar from '../../component/common/MyStatusBar';
+import MyHeader from '../../component/common/MyHeader';
+import Loader from '../../component/common/Loader';
 
 const Terms = ({navigation}) => {
   const [state, setState] = useState({

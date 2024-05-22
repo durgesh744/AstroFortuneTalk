@@ -1,7 +1,7 @@
 import { ImageBackground, TouchableOpacity, View } from 'react-native';
 import LinearGradient from 'react-native-linear-gradient';
 import AntDesign from 'react-native-vector-icons/AntDesign';
-import { Colors, Sizes } from '../../../assets/style';
+import { Colors, Sizes } from '../../../../assets/style';
 
 const Performance = ({ navigation }) => {
     return (

@@ -11,12 +11,12 @@ import {
   TextInput,
 } from 'react-native';
 import React, { useState } from 'react';
-import MyStatusBar from '../component/MyStatusBar';
-import MyHeader from '../component/MyHeader';
-import { Colors, Fonts } from '../assets/style';
-import { api_url, update_mobile_mumber } from '../config/Constants';
-import Loader from '../component/Loader';
-import { useAuth } from '../context/AuthContext';
+import { Colors, Fonts } from '../../assets/style';
+import { api_url, update_mobile_mumber } from '../../config/Constants';
+import { useAuth } from '../../context/AuthContext';
+import Loader from '../../component/common/Loader';
+import MyStatusBar from '../../component/common/MyStatusBar';
+import MyHeader from '../../component/common/MyHeader';
 
 const { width, height } = Dimensions.get('screen');
 
@@ -102,7 +102,7 @@ const UpdateNumber = props => {
           paddingHorizontal: width * 0.05,
           paddingVertical: width * 0.05,
         }}>
-        <Text style={[Fonts.black12RobotoMedium, { textAlign: 'center', color:"black" }]}>
+        <Text style={[Fonts.black12RobotoMedium, { textAlign: 'center', color: "black" }]}>
           You will get call and chat alerts on these numbers
         </Text>
       </View>
@@ -131,7 +131,7 @@ const UpdateNumber = props => {
               justifyContent: 'space-between',
             }}>
             <Image
-              source={require('../assets/icon/india_flag.png')}
+              source={require('../../assets/icon/india_flag.png')}
               style={{
                 width: '90%',
                 height: '50%',
@@ -148,7 +148,7 @@ const UpdateNumber = props => {
               justifyContent: 'space-around',
               alignItems: 'center',
             }}>
-            <Text style={[Fonts.grayDark16RobotoMedium, {color:Colors.Dark_grayish_red}]}>+91</Text>
+            <Text style={[Fonts.grayDark16RobotoMedium, { color: Colors.Dark_grayish_red }]}>+91</Text>
             <View
               style={{
                 height: '80%',

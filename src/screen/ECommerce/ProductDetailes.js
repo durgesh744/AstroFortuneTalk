@@ -6,20 +6,17 @@ import {
   StyleSheet,
   Image,
 } from 'react-native';
+import {connect} from 'react-redux';
 import React, {useState} from 'react';
 import {Colors, Fonts, Sizes} from '../../assets/style';
-import AntDesign from 'react-native-vector-icons/AntDesign';
 import {SCREEN_WIDTH} from '../../config/Screen';
 import Ionicons from 'react-native-vector-icons/Ionicons';
 import Stars from 'react-native-stars';
 import LinearGradient from 'react-native-linear-gradient';
 import {base_url} from '../../config/Constants';
-import AsyncStorage from '@react-native-async-storage/async-storage';
-import MyStatusBar from '../../component/MyStatusBar';
-import MyHeader from '../../component/MyHeader';
 import database from '@react-native-firebase/database';
-import {connect} from 'react-redux';
 import {MyMethods} from '../../methods/MyMethods';
+import MyStatusBar from '../../component/common/MyStatusBar';
 
 const astrologerData = [
   {

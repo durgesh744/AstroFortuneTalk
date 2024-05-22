@@ -6,15 +6,13 @@ import {
   Image,
   StyleSheet,
 } from 'react-native';
-import React, {useState, useEffect} from 'react';
-import MyHeader from '../../component/MyHeader';
-import {Colors, Sizes, Fonts} from '../../assets/style';
-import MyStatusBar from '../../component/MyStatusBar';
-import {SCREEN_WIDTH} from '../../config/Screen';
 import axios from 'axios';
+import React, {useState, useEffect} from 'react';
+import {Colors, Sizes, Fonts} from '../../assets/style';
 import {api_url, base_url, get_mall_cat} from '../../config/Constants';
-import Loader from '../../component/Loader';
-import LinearGradient from 'react-native-linear-gradient';
+import {SCREEN_WIDTH} from '../../config/Screen';
+import MyStatusBar from '../../component/common/MyStatusBar';
+import Loader from '../../component/common/Loader';
 
 const Astromall = ({navigation, route}) => {
   const [state, setState] = useState({

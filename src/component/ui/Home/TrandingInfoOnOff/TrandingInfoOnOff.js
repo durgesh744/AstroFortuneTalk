@@ -1,8 +1,8 @@
-import { Text, View } from "react-native";
-import { Colors, Fonts, Sizes } from "../../../assets/style";
-import Ionicons from 'react-native-vector-icons/Ionicons';
-import { Switch } from 'react-native-switch';
 import { useState } from "react";
+import { Text, View } from "react-native";
+import { Switch } from 'react-native-switch';
+import Ionicons from 'react-native-vector-icons/Ionicons';
+import { Colors, Fonts, Sizes } from "../../../../assets/style";
 
 const TrandingInfoOnOf = () => {
     const [chatTrendingStatus, setChatTrendingStatus] = useState()

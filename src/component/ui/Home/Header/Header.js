@@ -1,5 +1,5 @@
-import { Colors, Sizes, Fonts } from '../../../assets/style';
-import {  View, Image, Text } from 'react-native';
+import { View, Image, Text } from 'react-native';
+import { Colors } from '../../../../assets/style';
 
 const Header = () => {
   return (
@@ -16,7 +16,7 @@ const Header = () => {
         width: '100%',
       }}>
       <Image
-        source={require('../../../assets/images/logo2.png')}
+        source={require('../../../../assets/images/logo2.png')}
         style={{ width: 25, height: 25, borderRadius: 100 }}
       />
       <Text

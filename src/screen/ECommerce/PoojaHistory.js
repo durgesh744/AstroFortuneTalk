@@ -3,20 +3,16 @@ import {
   Text,
   FlatList,
   TouchableOpacity,
-  Image,
   StyleSheet,
-  ImageBackground,
 } from 'react-native';
-import React, {useState, useEffect} from 'react';
-import MyHeader from '../../component/MyHeader';
-import {Colors, Sizes, Fonts} from '../../assets/style';
-import MyStatusBar from '../../component/MyStatusBar';
 import axios from 'axios';
-import {api_url, astro_history_pooja} from '../../config/Constants';
-import {connect} from 'react-redux';
-import {err} from 'react-native-svg/lib/typescript/xml';
-import Loader from '../../component/Loader';
 import moment from 'moment';
+import {connect} from 'react-redux';
+import React, {useState, useEffect} from 'react';
+import {Colors, Sizes, Fonts} from '../../assets/style';
+import {api_url, astro_history_pooja} from '../../config/Constants';
+import MyStatusBar from '../../component/common/MyStatusBar';
+import Loader from '../../component/common/Loader';
 
 const listData = [
   {

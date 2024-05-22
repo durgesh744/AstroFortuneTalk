@@ -11,7 +11,7 @@ import Terms from '../screen/Settings/Terms';
 import PriceChange from '../screen/Settings/PriceChange';
 import UpdateBankDetails from '../screen/Settings/UpdateBankDetails';
 import DownloadForm16A from '../screen/Settings/DownloadForm16A';
-import PhotoGallery from '../screen/Login/PhotoGallery';
+import PhotoGallery from '../screen/Settings/PhotoGallery';
 import ReferAnAstrologer from '../screen/Settings/ReferAnAstrologer';
 import UpdateNumber from '../screen/Settings/UpdateNumber';
 import PriceChangeRequest from '../screen/Settings/PriceChangeRequest';

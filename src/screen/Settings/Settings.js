@@ -8,15 +8,15 @@ import {
 } from 'react-native';
 import React, { useState } from 'react';
 import axios from 'axios';
-import MyStatusBar from '../component/MyStatusBar';
-import MyHeader from '../component/MyHeader';
-import { Colors, Sizes, Fonts } from '../../assets/style';
+import Loader from '../../component/common/Loader';
+import { settingsTabsData } from '../../config/Data';
 import { SCREEN_WIDTH } from '../../config/Screen';
+import { useAuth } from '../../context/AuthContext';
+import MyHeader from '../../component/common/MyHeader';
+import { Colors, Sizes, Fonts } from '../../assets/style';
+import MyStatusBar from '../../component/common/MyStatusBar';
 import { api_url, astrologer_logout } from '../../config/Constants';
 import AsyncStorage from '@react-native-async-storage/async-storage';
-import Loader from '../component/Loader';
-import { useAuth } from '../../context/AuthContext';
-import { settingsTabsData } from '../../config/Data';
 
 const Settings = ({ navigation }) => {
   const { user } = useAuth()
