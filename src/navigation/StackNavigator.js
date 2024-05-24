@@ -15,6 +15,7 @@ import PhotoGallery from '../screen/Settings/PhotoGallery';
 import ReferAnAstrologer from '../screen/Settings/ReferAnAstrologer';
 import UpdateNumber from '../screen/Settings/UpdateNumber';
 import PriceChangeRequest from '../screen/Settings/PriceChangeRequest';
+import CallHistory from '../screen/History/CallHistory';
 
 const Stack = createNativeStackNavigator();
 
@@ -39,6 +40,7 @@ const StackNavigator = () => {
       <Stack.Screen name="poojaList" component={PoojaList} />
       <Stack.Screen name="poojaDetails" component={PoojaDetails} />
       <Stack.Screen name="registerPooja" component={RegisterPooja} />
+      <Stack.Screen name="callHistory" component={CallHistory} />
 
     </Stack.Navigator>
   );

@@ -2,181 +2,87 @@ import {
   View,
   Text,
   FlatList,
-  Dimensions,
-  TouchableOpacity, 
-  StyleSheet,
+  TouchableOpacity,
 } from 'react-native';
-import axios from 'axios';
 import moment from 'moment';
-import React, {useState, useEffect} from 'react';
-import {Sizes, Colors, Fonts} from '../../assets/style';
-import Ionicons from 'react-native-vector-icons/Ionicons';
-import {ImageBackground} from 'react-native';
-import {connect} from 'react-redux';
-import {
-  api_url,
-  call_history_astro,
-  customer_kundli_chart,
-  kundli_basic_details,
-  kundli_dosha,
-  kundli_get_panchang,
-  kundli_numerology_detailes,
-} from '../../config/Constants';
-import database from '@react-native-firebase/database';
-import MyStatusBar from '../../component/common/MyStatusBar';
+import { connect } from 'react-redux';
+import React, { useState } from 'react';
+import { ImageBackground } from 'react-native';
 import Loader from '../../component/common/Loader';
 import MyHeader from '../../component/common/MyHeader';
+import { Sizes, Colors, Fonts } from '../../assets/style';
+import Ionicons from 'react-native-vector-icons/Ionicons';
+import MyStatusBar from '../../component/common/MyStatusBar';
+import { SCREEN_HEIGHT, SCREEN_WIDTH } from '../../config/Screen';
 
-const {width, height} = Dimensions.get('screen');
+const CallHistory = ({ navigation, providerData }) => {
+  const [CallHistoryData, setCallHistoryData] = useState(
+    [
+      {
+        country: 'USA',
+        moa: '1',
+        order_id: '123456',
+        username: 'John Doe',
+        gender: 'Male',
+        date_of_birth: '1990-01-01',
+        time_of_birth: '12:00',
+        place_of_birth: 'New York',
+        current_address: '123 Main St, New York, NY',
+        problem: 'Financial Issues',
+        created_datetime: '2023-05-20T14:30:00Z',
+        duration: '30 minutes',
+        rate: '20',
+        deductAmt: '50.00',
+        user_id: '7890',
+        customer_id: 4680
+      },
+      {
+        country: 'USA',
+        moa: '1',
+        order_id: '123456',
+        username: 'John Doe',
+        gender: 'Male',
+        date_of_birth: '1990-01-01',
+        time_of_birth: '12:00',
+        place_of_birth: 'New York',
+        current_address: '123 Main St, New York, NY',
+        problem: 'Financial Issues',
+        created_datetime: '2023-05-20T14:30:00Z',
+        duration: '30 minutes',
+        rate: '20',
+        deductAmt: '50.00',
+        user_id: 531,
+        customer_id: 4680
+      },
+    ]
+  );
 
-const CallHistory = ({navigation, providerData}) => {
-  const [CallHistoryData, setCallHistoryData] = useState(null);
+
   const [state, setState] = useState({
     isLoading: false,
-    activeCallData: null,
     isActiveCall: false,
+    activeCallData: null,
   });
-
-  useEffect(() => {
-    check_is_active_call();
-    get_order_history();
-    return () => {
-      database().ref(`CurrentCallRequest/${providerData?.id}`).off();
-    };
-  }, []);
-
-  const check_is_active_call = () => {
-    database()
-      .ref(`CurrentCallRequest/${providerData?.id}`)
-      .on('value', snapshot => {
-        if (snapshot.val()?.status == 'active') {
-          updateState({isActiveCall: true, activeCallData: snapshot.val()});
-        } else {
-          updateState({isActiveCall: false, activeCallData: null});
-        }
-      });
-  };
-
-  const get_order_history = async () => {
-    updateState({isLoading: true});
-    await axios({
-      method: 'post',
-      url: api_url + call_history_astro,
-      headers: {
-        'Content-Type': 'multipart/form-data',
-      },
-      data: {
-        astro_id: providerData.id,
-      },
-    })
-      .then(res => {
-        setCallHistoryData(res.data.data);
-        updateState({isLoading: false});
-      })
-      .catch(err => {
-        console.log(err);
-        updateState({isLoading: false});
-      });
-  };
 
   const get_kundli_details = async user_id => {
     try {
-      updateState({isLoading: true});
-      const basic_details = await axios({
-        method: 'post',
-        url: api_url + kundli_basic_details,
-        headers: {
-          'Content-Type': 'multipart/form-data',
-        },
-        data: {
-          user_id: user_id,
-        },
-      });
-
-      const kundli_dosha_data = await axios({
-        method: 'post',
-        url: api_url + kundli_dosha,
-        headers: {
-          'Content-Type': 'multipart/form-data',
-        },
-        data: {
-          user_id: user_id,
-        },
-      });
-
-      const kundli_panchang = await axios({
-        method: 'post',
-        url: api_url + kundli_get_panchang,
-        headers: {
-          'Content-Type': 'multipart/form-data',
-        },
-        data: {
-          user_id: user_id, //kundliData?.kundali_id,
-        },
-      });
-
-      const kundli_chart = await axios({
-        method: 'post',
-        url: api_url + customer_kundli_chart,
-        headers: {
-          'Content-Type': 'multipart/form-data',
-        },
-        data: {
-          user_id: user_id, //kundliData?.kundali_id,
-          chartid: 'D1',
-        },
-      });
-
-      navigation.navigate('userKundli', {
-        basicKundliData: basic_details.data,
-        kundliDoshaData: kundli_dosha_data.data,
-        panchangData: kundli_panchang.data,
-        chartData: kundli_chart.data?.svg_code,
-      });
-      updateState({isLoading: false});
+      navigation.navigate('kundliInfo', { kundli_id: 221, user_id: user_id })
     } catch (e) {
-      console.log(e);
-      updateState({isLoading: false});
+      console.log(e)
     }
-  };
-
-  const get_numerology_details = async user_id => {
-    updateState({isLoading: true});
-    await axios({
-      method: 'post',
-      url: api_url + kundli_numerology_detailes,
-      headers: {
-        'Content-Type': 'multipart/form-data',
-      },
-      data: {
-        user_id: user_id,
-      },
-    })
-      .then(res => {
-        updateState({isLoading: false});
-        if (res.data.status) {
-          navigation.navigate('numerology', {
-            numerologyData: res.data.getNumeroTable,
-          });
-        }
-      })
-      .catch(err => {
-        updateState({isLoading: false});
-        console.log(err);
-      });
   };
 
   const updateState = data => {
     setState(prevState => {
-      const newData = {...prevState, ...data};
+      const newData = { ...prevState, ...data };
       return newData;
     });
   };
 
-  const {isLoading, isActiveCall, activeCallData} = state;
+  const { isLoading, isActiveCall, activeCallData } = state;
 
   return (
-    <View style={{flex: 1}}>
+    <View style={{ flex: 1 }}>
       <Loader visible={isLoading} />
       <MyStatusBar
         backgroundColor={Colors.primaryLight}
@@ -184,11 +90,10 @@ const CallHistory = ({navigation, providerData}) => {
       />
       <Loader visible={isLoading} />
       <MyHeader title="Call History" navigation={navigation} />
-      <View style={{flex: 1, marginTop: Sizes.fixPadding * 1.5}}>
+      <View style={{ flex: 1, marginTop: Sizes.fixPadding * 1.5 }}>
         <FlatList
           ListHeaderComponent={
             <>
-              {isActiveCall && ongoingCallInfo()}
               {chatHistoryInfo()}
             </>
           }
@@ -198,7 +103,7 @@ const CallHistory = ({navigation, providerData}) => {
   );
 
   function chatHistoryInfo() {
-    const renderItem = ({item}) => (
+    const renderItem = ({ item }) => (
       <View
         style={{
           marginHorizontal: 15,
@@ -219,7 +124,7 @@ const CallHistory = ({navigation, providerData}) => {
               flexDirection: 'row',
               justifyContent: 'space-between',
               paddingRight: 15,
-              width: width * 0.9,
+              width: SCREEN_WIDTH * 0.9,
             }}>
             <View>
               <Text
@@ -227,7 +132,7 @@ const CallHistory = ({navigation, providerData}) => {
                   fontWeight: '400',
                   ...Fonts.black16RobotoMedium,
                 }}>
-                New ({item?.country}) {item?.moa == '1' && <Text style={{color: Colors.primaryLight}}>MO@0</Text>}
+                New ({item?.country}) {item?.moa == '1' && <Text style={{ color: Colors.primaryLight }}>MO@0</Text>}
               </Text>
               <Text
                 style={{
@@ -237,23 +142,23 @@ const CallHistory = ({navigation, providerData}) => {
                 Order id: {item.order_id}
               </Text>
             </View>
-            <View style={{flexDirection: 'row', alignItems: 'center'}}>
+            <View style={{ flexDirection: 'row', alignItems: 'center' }}>
               <Ionicons
                 name="copy-outline"
                 size={26}
                 color={Colors.Dark_grayish_red}
-                style={{marginHorizontal: 15}}
+                style={{ marginHorizontal: 15 }}
               />
-              {/* <TouchableOpacity
+              <TouchableOpacity
+                onPress={() => get_kundli_details(item?.customer_id)}
                 style={{
                   borderRadius: 30,
                   backgroundColor: Colors.gray_light,
                   paddingHorizontal: Sizes.fixPadding * 1.5,
                   paddingVertical: 3,
-                  // bottom: 7,
                 }}>
-                <Text style={{...Fonts.white14RobotoMedium}}>Open Kundli</Text>
-              </TouchableOpacity> */}
+                <Text style={{ ...Fonts.white14RobotoMedium }}>Open Kundli</Text>
+              </TouchableOpacity>
             </View>
           </View>
           <View
@@ -263,25 +168,25 @@ const CallHistory = ({navigation, providerData}) => {
               justifyContent: 'space-between',
             }}>
             <View>
-              <Text style={{...Fonts.gray14RobotoMedium}}>
+              <Text style={{ ...Fonts.gray14RobotoMedium }}>
                 Name-{item?.username}
               </Text>
-              <Text style={{...Fonts.gray14RobotoMedium}}>
+              <Text style={{ ...Fonts.gray14RobotoMedium }}>
                 Gender-{item.gender}
               </Text>
-              <Text style={{...Fonts.gray14RobotoMedium}}>
+              <Text style={{ ...Fonts.gray14RobotoMedium }}>
                 Birth Date-{item.date_of_birth}
               </Text>
-              <Text style={{...Fonts.gray14RobotoMedium}}>
+              <Text style={{ ...Fonts.gray14RobotoMedium }}>
                 Birth Time-{item.time_of_birth}
               </Text>
-              <Text style={{...Fonts.gray14RobotoMedium}}>
+              <Text style={{ ...Fonts.gray14RobotoMedium }}>
                 Birth Place-{item.place_of_birth}
               </Text>
-              <Text style={{...Fonts.gray14RobotoMedium}}>
+              <Text style={{ ...Fonts.gray14RobotoMedium }}>
                 Current Address-{item.current_address}
               </Text>
-              <Text style={{...Fonts.gray14RobotoMedium}}>
+              <Text style={{ ...Fonts.gray14RobotoMedium }}>
                 Problem Area-{item.problem}
               </Text>
               <Text
@@ -293,14 +198,14 @@ const CallHistory = ({navigation, providerData}) => {
                 Order Time-
                 {moment(item.created_datetime).format('DD MMM YYYY, hh:mm A')}
               </Text>
-              <Text style={{...Fonts.gray14RobotoMedium}}>
+              <Text style={{ ...Fonts.gray14RobotoMedium }}>
                 Duration - {item.duration}
               </Text>
-              <Text style={{...Fonts.gray14RobotoMedium}}>
+              <Text style={{ ...Fonts.gray14RobotoMedium }}>
                 Rate - {item.rate}
                 {'/min'}
               </Text>
-              <View style={{flexDirection: 'row'}}>
+              <View style={{ flexDirection: 'row' }}>
                 <Text
                   style={{
                     ...Fonts.black14InterMedium,
@@ -322,7 +227,7 @@ const CallHistory = ({navigation, providerData}) => {
                 source={require('../../assets/images/back.png')}
                 resizeMode="contain"
                 style={{
-                  width: width * 0.3,
+                  width: SCREEN_WIDTH * 0.3,
                   height: 70,
                   justifyContent: 'center',
                   alignItems: 'center',
@@ -347,7 +252,7 @@ const CallHistory = ({navigation, providerData}) => {
           <View
             style={{
               flexDirection: 'row',
-              marginTop: height * 0.03,
+              marginTop: SCREEN_HEIGHT * 0.03,
               justifyContent: 'space-between',
             }}>
             <Text
@@ -357,207 +262,43 @@ const CallHistory = ({navigation, providerData}) => {
                   screen_type: 'not_during_chat'
                 })
               }
-              style={{...Fonts.primaryLight14RobotoMedium, textDecorationLine: 'underline'}}>
+              style={{ ...Fonts.primaryLight14RobotoMedium, textDecorationLine: 'underline' }}>
+              View Chat
+            </Text>
+            <Text
+              onPress={() =>
+                navigation.navigate('Remedy', {
+                  customer_id: item?.user_id,
+                  screen_type: 'not_during_chat'
+                })
+              }
+              style={{ ...Fonts.primaryLight14RobotoMedium, textDecorationLine: 'underline' }}>
               Suggest Remedy
             </Text>
-            <Text style={{...Fonts.primaryLight14RobotoMedium, textDecorationLine: 'underline'}}>Refund Amount</Text>
+            <Text style={{ ...Fonts.primaryLight14RobotoMedium, textDecorationLine: 'underline' }}>Refund Amount</Text>
           </View>
         </View>
       </View>
     );
+    console.log("CallHistoryData ====>>>>", CallHistoryData[0].customer_id)
     return (
-      <View style={{}}>
+      <View>
+
         <FlatList
           data={CallHistoryData}
           renderItem={renderItem}
-          contentContainerStyle={{paddingVertical: 15}}
+          contentContainerStyle={{ paddingVertical: 15 }}
         />
       </View>
     );
   }
-
-  function ongoingCallInfo() {
-    return (
-      <View
-        style={{
-          marginHorizontal: 15,
-          backgroundColor: Colors.white,
-          marginBottom: 10,
-        }}>
-        <View
-          style={{
-            borderRadius: 20,
-            flex: 0,
-            backgroundColor: Colors.dullWhite,
-            borderRadius: 10,
-            padding: 15,
-            elevation: 5,
-          }}>
-          <View
-            style={{
-              flexDirection: 'row',
-              justifyContent: 'space-between',
-              paddingRight: 15,
-              width: width * 0.9,
-            }}>
-            <View>
-              <Text
-                style={{
-                  fontWeight: '400',
-                  ...Fonts.black16RobotoMedium,
-                }}>
-                India
-              </Text>
-              <Text
-                style={{
-                  fontWeight: '400',
-                  ...Fonts.black16RobotoMedium,
-                }}>
-                Order id: {activeCallData?.order_id}
-              </Text>
-            </View>
-            <Ionicons
-              name="copy-outline"
-              size={26}
-              color={Colors.Dark_grayish_red}
-              style={{marginHorizontal: 15}}
-            />
-          </View>
-          <View
-            style={{
-              flexDirection: 'row',
-              alignItems: 'center',
-              justifyContent: 'space-between',
-              marginVertical: Sizes.fixPadding,
-            }}>
-            <TouchableOpacity
-              activeOpacity={0.8}
-              onPress={() => get_kundli_details(activeCallData?.customer_id)}
-              style={styles.buttonContainer}>
-              <Text style={{...Fonts.black12RobotoRegular}}>Open Kundli</Text>
-            </TouchableOpacity>
-            <TouchableOpacity
-              activeOpacity={0.8}
-              onPress={() =>
-                get_numerology_details(activeCallData?.customer_id)
-              }
-              style={styles.buttonContainer}>
-              <Text style={{...Fonts.black12RobotoRegular}}>Numerology</Text>
-            </TouchableOpacity>
-            <TouchableOpacity
-              activeOpacity={0.8}
-              onPress={() => navigation.navigate('CallTarot')}
-              style={styles.buttonContainer}>
-              <Text style={{...Fonts.black12RobotoRegular}}>Tarot</Text>
-            </TouchableOpacity>
-          </View>
-          <View
-            style={{
-              flexDirection: 'row',
-              marginTop: 5,
-              justifyContent: 'space-between',
-            }}>
-            <View>
-              <Text style={{...Fonts.gray14RobotoMedium}}>
-                Name - {activeCallData?.customer_name}
-              </Text>
-              <Text
-                style={{
-                  ...Fonts.gray14RobotoMedium,
-                  textTransform: 'capitalize',
-                }}>
-                Gender - {activeCallData?.gender}
-              </Text>
-              <Text style={{...Fonts.gray14RobotoMedium}}>
-                Birth Date -{' '}
-                {moment(activeCallData?.birth_date).format('DD-MM-YYYY')}
-              </Text>
-              <Text style={{...Fonts.gray14RobotoMedium}}>
-                Birth Time - {activeCallData?.birth_time}
-              </Text>
-              <Text style={{...Fonts.gray14RobotoMedium}}>
-                Birth Place - {activeCallData?.birth_place}
-              </Text>
-              <Text style={{...Fonts.gray14RobotoMedium}}>
-                Current Address - {activeCallData?.current_address}
-              </Text>
-              <Text style={{...Fonts.gray14RobotoMedium}}>
-                Problem Area - {activeCallData?.problem_area}
-              </Text>
-              <Text
-                style={{
-                  ...Fonts.gray14RobotoMedium,
-                  marginTop: 20,
-                  color: Colors.gray3,
-                }}>
-                Order Time -{' '}
-                {moment(activeCallData?.order_time).format(
-                  'DD MMM YYYY, hh:mm A',
-                )}
-              </Text>
-              <Text style={{...Fonts.gray14RobotoMedium}}>
-                Max Duration -{' '}
-                {(parseFloat(activeCallData?.total_duration) / 60).toFixed(2)}{' '}
-                mins
-              </Text>
-              <Text style={{...Fonts.gray14RobotoMedium}}>
-                Rate-2 min
-                {'/min'}
-              </Text>
-              <View style={{flexDirection: 'row'}}>
-                <Text
-                  style={{
-                    ...Fonts.black14InterMedium,
-                  }}>
-                  Status-
-                </Text>
-                <Text
-                  style={{
-                    ...Fonts.gray14RobotoMedium,
-                    color: Colors.green,
-                  }}>
-                  Ongoing
-                </Text>
-              </View>
-            </View>
-          </View>
-          <View
-            style={{
-              flexDirection: 'row',
-              marginTop: height * 0.03,
-              justifyContent: 'space-between',
-            }}>
-            <Text
-              style={{
-                ...Fonts.primaryLight14RobotoMedium,
-                textDecorationLine: 'underline',
-              }}>
-              Suggest Remedy
-            </Text>
-          </View>
-        </View>
-      </View>
-    );
-  }
 };
+
 const mapStateToProps = state => ({
   providerData: state.provider.providerData,
   dashboard: state.provider.dashboard,
 });
 
-const mapDispatchToProps = dispatch => ({dispatch});
+const mapDispatchToProps = dispatch => ({ dispatch });
 
 export default connect(mapStateToProps, mapDispatchToProps)(CallHistory);
-
-const styles = StyleSheet.create({
-  buttonContainer: {
-    width: '30%',
-    justifyContent: 'center',
-    alignItems: 'center',
-    backgroundColor: Colors.gray4,
-    paddingVertical: Sizes.fixPadding * 0.5,
-    borderRadius: 1000,
-    elevation: 5,
-    shadowColor: Colors.blackLight + '30',
-  },
-});
