@@ -4,7 +4,6 @@ import {
   FlatList,
   TouchableOpacity,
   StyleSheet,
-  Dimensions,
 } from 'react-native';
 import axios from 'axios';
 import { connect } from 'react-redux';
@@ -16,8 +15,7 @@ import MyStatusBar from '../../component/common/MyStatusBar';
 import Loader from '../../component/common/Loader';
 import MyHeader from '../../component/common/MyHeader';
 import CustomLine from '../../component/common/CustomLine';
-
-const { width, height } = Dimensions.get('screen');
+import { SCREEN_HEIGHT, SCREEN_WIDTH } from '../../config/Screen';
 
 const PriceChange = ({ navigation, providerData }) => {
   const [isLoading, setIsLoading] = useState(false);
@@ -113,7 +111,7 @@ const PriceChange = ({ navigation, providerData }) => {
           borderTopWidth: 1,
           borderColor: Colors.gray_light,
           justifyContent: 'center',
-          marginBottom: height * 0.04,
+          marginBottom: SCREEN_HEIGHT * 0.04,
         }}>
         <View
           style={{
@@ -239,7 +237,7 @@ const styles = StyleSheet.create({
     padding: 10,
     marginBottom: 20,
     zIndex: -1,
-    width: width * 0.4,
+    width: SCREEN_WIDTH * 0.4,
     backgroundColor: Colors.white,
     elevation: 15,
     shadowColor: Colors.black,

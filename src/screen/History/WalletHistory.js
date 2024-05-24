@@ -2,31 +2,29 @@ import {
   View,
   Text,
   FlatList,
-  Dimensions,
   TouchableOpacity,
   StyleSheet,
   Platform,
 } from 'react-native';
-import React, {useState, useEffect} from 'react';
-import MyStatusBar from '../../component/MyStatusBar';
-import MyHeader from '../../component/MyHeader';
+import axios from 'axios';
+import moment from 'moment';
 import {connect} from 'react-redux';
+import React, {useState, useEffect} from 'react';
+import MyStatusBar from '../../component/common/MyStatusBar';
+import MyHeader from '../../component/common/MyHeader';
 import {Colors, Fonts, Sizes} from '../../assets/style';
-const {width, height} = Dimensions.get('screen');
 import {Dropdown} from 'react-native-element-dropdown';
 import {ImageBackground} from 'react-native';
 import {MyMethods} from '../../methods/MyMethods';
 import {Modal} from 'react-native-paper';
-import axios from 'axios';
 import {
   api_url,
-  astro_all_wallet_history,
   astro_all_wallet_history_new,
-  set_dnd,
 } from '../../config/Constants';
-import Loader from '../../component/Loader';
-import moment from 'moment';
+import Loader from '../../component/common/Loader';
+import { SCREEN_WIDTH } from '../../config/Screen';
 import {DateTimePickerAndroid} from '@react-native-community/datetimepicker';
+
 const WalletHistory = ({navigation, providerData, dashboard}) => {
   const [value, setValue] = useState(null);
   const [isFocus, setIsFocus] = useState(false);
@@ -74,7 +72,6 @@ const WalletHistory = ({navigation, providerData, dashboard}) => {
       });
   };
 
-  //console.log(providerData);
   const updateState = data => {
     setState(prevState => {
       const newData = {...prevState, ...data};
@@ -117,7 +114,6 @@ const WalletHistory = ({navigation, providerData, dashboard}) => {
               updateState({startDate: date});
             }
           },
-          // minimumDate: endDate != null ? endDate : null,
           maximumDate: endDate != null ? endDate : new Date(),
           mode: 'date',
           display: 'calendar',
@@ -142,8 +138,7 @@ const WalletHistory = ({navigation, providerData, dashboard}) => {
           display: 'calendar',
           is24Hour: true,
         });
-      } else {
-      }
+      } 
     };
 
     return (
@@ -281,7 +276,6 @@ const WalletHistory = ({navigation, providerData, dashboard}) => {
          <View style={[styles.balance, {backgroundColor: Colors.greenLight}]}>
          <Text style={[styles.viwTxt, {color: Colors.white}]}>Available Amount</Text>
           <Text style={[styles.viwTxt, {color: Colors.white}]}>
-            {/* ₹ {historyData && historyData.amount_astrologer} */}
             ₹ {dashboard.data.Walletbalance}
           </Text>
         </View>
@@ -342,7 +336,7 @@ const WalletHistory = ({navigation, providerData, dashboard}) => {
               flexDirection: 'row',
               justifyContent: 'space-between',
               paddingRight: 15,
-              width: width * 0.9,
+              width: SCREEN_WIDTH * 0.9,
             }}>
             <View>
               <Text
@@ -358,7 +352,7 @@ const WalletHistory = ({navigation, providerData, dashboard}) => {
                 source={require('../../assets/images/green.png')}
                 resizeMode="contain"
                 style={{
-                  width: width * 0.3,
+                  width: SCREEN_WIDTH * 0.3,
                   height: 70,
                   justifyContent: 'center',
                   alignItems: 'center',
@@ -461,10 +455,8 @@ export default connect(mapStateToProps, mapDispatchToProps)(WalletHistory);
 const styles = StyleSheet.create({
   txt: {paddingVertical: Sizes.fixPadding - 4, paddingHorizontal: 6},
   container: {
-    //backgroundColor: 'red',
     borderColor: Colors.primaryLight,
     paddingVertical: 18,
-    // borderWidth: 2.5,
     borderRadius: 20,
     justifyContent: 'center',
     width: '90%',
@@ -506,7 +498,6 @@ const styles = StyleSheet.create({
     height: 20,
   },
   balance: {
-    // borderWidth: 1,
     borderRadius: 10,
     backgroundColor: Colors.gray,
     padding: 8,
@@ -526,8 +517,4 @@ const styles = StyleSheet.create({
     borderBottomColor: Colors.gray,
     marginTop: Sizes.fixPadding,
   },
-  //   inputSearchStyle: {
-  //     height: 40,
-  //     fontSize: 16,
-  //   },
 });

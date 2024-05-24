@@ -68,8 +68,8 @@ const KundliCategory = ({ navigation, route }) => {
           ListHeaderComponent={
             <>
               {categoryInfo()}
-              {selectedItem == 1 && <BirthDetails user_id={user_id} id={kundli_id}  />}
-              {selectedItem == 2 && <HoroscopeChart id={kundli_id} />}
+              {selectedItem == 1 && <BirthDetails user_id={user_id} id={kundli_id}/>}
+              {selectedItem == 2 && <HoroscopeChart id={kundli_id}/>}
               {selectedItem == 3 && <PlanetaryDetails id={kundli_id} />}
               {selectedItem == 4 && <Favourable id={kundli_id} />}
               {selectedItem == 5 && <KPChart id={kundli_id} />}

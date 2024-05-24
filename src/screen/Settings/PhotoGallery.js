@@ -3,17 +3,15 @@ import {
   Text,
   FlatList,
   Image,
-  Dimensions,
   TouchableOpacity,
   StyleSheet,
 } from 'react-native';
 import axios from 'axios';
-import {useCallback} from 'react';
-import {connect} from 'react-redux';
+import { useCallback } from 'react';
+import { connect } from 'react-redux';
 import Modal from 'react-native-modal';
-import {Switch} from 'react-native-switch';
-import React, {useState, useEffect} from 'react';
-import {Colors, Fonts} from '../../assets/style';
+import React, { useState, useEffect } from 'react';
+import { Colors, Fonts } from '../../assets/style';
 import AntDesign from 'react-native-vector-icons/AntDesign';
 import * as ImagePicker from 'react-native-image-picker';
 import Ionicons from 'react-native-vector-icons/Ionicons';
@@ -29,11 +27,11 @@ import { useAuth } from '../../context/AuthContext';
 import MyStatusBar from '../../component/common/MyStatusBar';
 import MyHeader from '../../component/common/MyHeader';
 import Loader from '../../component/common/Loader';
-
-const {width, height} = Dimensions.get('screen');
+import { SCREEN_WIDTH } from '../../config/Screen';
+import CustomSwitch from '../../component/common/CustomSwitch';
 
 const PhotoGallery = props => {
-   const {user} = useAuth()
+  const { user } = useAuth()
   const [isLoading, setIsLoading] = useState(false);
   const [galleryPhotos, setGalleryPhotos] = useState();
   const [modalVisible, setModalVisible] = useState(false);
@@ -107,7 +105,7 @@ const PhotoGallery = props => {
         'Content-Type': 'multipart/form-data',
       },
       [
-        {name: 'astrologer_id', data: user.data.user.id},
+        { name: 'astrologer_id', data: user.data.user.id },
         {
           name: 'image',
           filename: `${filename}`,
@@ -205,32 +203,32 @@ const PhotoGallery = props => {
   };
 
   return (
-    <View style={{flex: 1}}>
+    <View style={{ flex: 1 }}>
       <MyStatusBar
         backgroundColor={Colors.primaryLight}
         barStyle={'light-content'}
       />
       <MyHeader title="Photo Gallery" navigation={props.navigation} />
       <Loader visible={isLoading} />
-      <View style={{flex: 0.8}}>{photosList()}</View>
-      <View style={{flex: 0.1}}>{notelabel()}</View>
-      <View style={{flex: 0.1}}>{button()}</View>
+      <View style={{ flex: 0.8 }}>{photosList()}</View>
+      <View style={{ flex: 0.1 }}>{notelabel()}</View>
+      <View style={{ flex: 0.1 }}>{button()}</View>
     </View>
   );
 
   function photosList() {
-    const renderItem = ({item}) => {
+    const renderItem = ({ item }) => {
       var image_status = item.status === '1' ? true : false;
       return (
-        <View style={{width: width * 0.48, marginBottom: 20, justifyContent:'space-between'}}>
+        <View style={{ width: SCREEN_WIDTH * 0.48, marginBottom: 20, justifyContent: 'space-between' }}>
           <View style={styles.container}>
             <Image
-            resizeMode='stretch'
-            style={{
+              resizeMode='stretch'
+              style={{
                 height: '100%',
                 width: '100%',
               }}
-              source={{uri: item.url}}
+              source={{ uri: item.url }}
             />
           </View>
           <View style={styles.eventbox}>
@@ -243,7 +241,7 @@ const PhotoGallery = props => {
               }}>
               <Text style={[Fonts.grayDark14RobotoMedium]}>Verify</Text>
               <Image
-                style={{width: 15, height: 15}}
+                style={{ width: 15, height: 15 }}
                 source={require('../../assets/icon/verify.png')}
               />
             </View>
@@ -254,18 +252,10 @@ const PhotoGallery = props => {
                 alignItems: 'center',
                 justifyContent: 'space-around',
               }}>
-              <Switch
-                value={image_status}
-                renderActiveText={false}
-                renderInActiveText={false}
-                circleBorderWidth={4}
-                circleSize={20}
-                onValueChange={() => change_status(item.id, image_status)}
-                circleBorderActiveColor={Colors.primaryLight}
-                backgroundActive={Colors.primaryLight}
-                backgroundInactive={Colors.gray3}
-                circleBorderInactiveColor={Colors.primaryLight}
-              />
+              <CustomSwitch
+                active={image_status}
+                change_status={() => change_status(item.id, image_status)} />
+
               <TouchableOpacity onPress={() => delete_photo(item.id)}>
                 <AntDesign name="delete" size={15} color={Colors.gray} />
               </TouchableOpacity>
@@ -276,7 +266,7 @@ const PhotoGallery = props => {
     };
 
     return (
-      <View style={{paddingHorizontal: 10}}>
+      <View style={{ paddingHorizontal: 10 }}>
         {galleryPhotos !== null ? (
           <FlatList
             showsVerticalScrollIndicator={false}
@@ -303,14 +293,14 @@ const PhotoGallery = props => {
     return (
       <View
         style={{
-          width: width * 1,
+          width: SCREEN_WIDTH * 1,
           backgroundColor: Colors.backgr_clr,
           alignItems: 'center',
           justifyContent: 'center',
-          paddingHorizontal: width * 0.05,
-          paddingVertical: width * 0.03,
+          paddingHorizontal: SCREEN_WIDTH * 0.05,
+          paddingVertical: SCREEN_WIDTH * 0.03,
         }}>
-        <Text style={[Fonts.black12RobotoRegular, {textAlign: 'center'}]}>
+        <Text style={[Fonts.black12RobotoRegular, { textAlign: 'center' }]}>
           Admin takes upto 7 days to approve the image. Your image shall be
           visible to customers when you enable at least 3 images
         </Text>
@@ -328,14 +318,14 @@ const PhotoGallery = props => {
         <TouchableOpacity
           style={{
             width: '70%',
-            borderRadius: width * 0.1,
+            borderRadius: SCREEN_WIDTH * 0.1,
             justifyContent: 'center',
             backgroundColor: Colors.primaryDark,
-            paddingVertical: width * 0.04,
-            marginTop: width * 0.02,
+            paddingVertical: SCREEN_WIDTH * 0.04,
+            marginTop: SCREEN_WIDTH * 0.02,
           }}
           onPress={() => setModalVisible(true)}>
-          <Text style={[Fonts.white16RobotoMedium, {textAlign: 'center'}]}>
+          <Text style={[Fonts.white16RobotoMedium, { textAlign: 'center' }]}>
             {' '}
             + Upload Image
           </Text>
@@ -343,7 +333,7 @@ const PhotoGallery = props => {
         <Modal
           isVisible={modalVisible}
           useNativeDriver={true}
-          style={{padding: 0, margin: 0}}
+          style={{ padding: 0, margin: 0 }}
           hideModalContentWhileAnimating={true}
           onBackdropPress={() => setModalVisible(false)}>
           <View
@@ -366,7 +356,7 @@ const PhotoGallery = props => {
                 <TouchableOpacity
                   key={index}
                   onPress={() => get_profile_pick(item.type, item.options)}
-                  style={{flex: 0, flexDirection: 'row', alignItems: 'center'}}>
+                  style={{ flex: 0, flexDirection: 'row', alignItems: 'center' }}>
                   <Ionicons
                     name={item.title == 'Camera' ? 'camera' : 'image'}
                     size={25}
@@ -388,31 +378,31 @@ const mapStateToProps = state => ({
   providerData: state.provider.providerData,
 });
 
-const mapDispatchToProps = dispatch => ({dispatch});
+const mapDispatchToProps = dispatch => ({ dispatch });
 
 export default connect(mapStateToProps, mapDispatchToProps)(PhotoGallery);
 
 const styles = StyleSheet.create({
   container: {
     width: '80%',
-    height: width * 0.4,
+    height: SCREEN_WIDTH * 0.4,
     backgroundColor: Colors.white,
-    marginVertical: width * 0.05,
-    marginHorizontal: width * 0.05,
-    borderTopLeftRadius: width * 0.1,
-    borderTopEndRadius: width * 0.1,
+    marginVertical: SCREEN_WIDTH * 0.05,
+    marginHorizontal: SCREEN_WIDTH * 0.05,
+    borderTopLeftRadius: SCREEN_WIDTH * 0.1,
+    borderTopEndRadius: SCREEN_WIDTH * 0.1,
     overflow: 'hidden',
     position: 'relative',
   },
   eventbox: {
     position: 'absolute',
     width: '90%',
-    height: width * 0.12,
+    height: SCREEN_WIDTH * 0.12,
     backgroundColor: Colors.grayLight,
     elevation: 5,
-    borderRadius: width * 0.03,
+    borderRadius: SCREEN_WIDTH * 0.03,
     bottom: -5,
-    marginHorizontal: width * 0.025,
+    marginHorizontal: SCREEN_WIDTH * 0.025,
     flexDirection: 'row',
     justifyContent: 'space-evenly',
     alignItems: 'center',

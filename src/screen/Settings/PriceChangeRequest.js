@@ -4,7 +4,6 @@ import {
   FlatList,
   TouchableOpacity,
   StyleSheet,
-  Dimensions,
   TextInput,
 } from 'react-native';
 import { useState } from 'react';
@@ -16,8 +15,7 @@ import CustomDropdown from '../../component/common/CustomDropdown';
 import MyStatusBar from '../../component/common/MyStatusBar';
 import Loader from '../../component/common/Loader';
 import MyHeader from '../../component/common/MyHeader';
-
-const { width, height } = Dimensions.get('screen');
+import { SCREEN_HEIGHT } from '../../config/Screen';
 
 const PriceChangeRequest = ({ navigation, providerData }) => {
   const [dropdown, setDropdown] = useState(null)
@@ -102,7 +100,7 @@ const PriceChangeRequest = ({ navigation, providerData }) => {
           borderTopWidth: 1,
           borderColor: Colors.gray_light,
           justifyContent: 'center',
-          marginBottom: height * 0.07,
+          marginBottom: SCREEN_HEIGHT * 0.07,
         }}>
         <View
           style={{
@@ -129,14 +127,14 @@ const PriceChangeRequest = ({ navigation, providerData }) => {
     return (
       <View style={{ paddingTop: 20, paddingHorizontal: 20 }}>
         <Text style={{ color: Colors.Dark_grayish_red }} >1. Eligibility for Price Increase?</Text>
-        <Text style={{ paddingVertical: 5, color: Colors.Dark_grayish_red }} >a. Customer Satisfaction must be Excellent which means &gt;= 64%.</Text>
-        <Text style={{ paddingVertical: 5, color: Colors.Dark_grayish_red }} >b. Retention Rate must be Excellent which means &gt;=17.</Text>
-        <Text style={{ paddingVertical: 5, color: Colors.Dark_grayish_red }} >c. Average Call Rating must be Excellent which means &gt;=4.75.</Text>
-        <Text style={{ paddingVertical: 5, color: Colors.Dark_grayish_red }} >d. Average Chat Rating must be Excellent which means &gt;=4.75. e. PO rating 4.2</Text>
-        <Text style={{ paddingVertical: 5, color: Colors.Dark_grayish_red }} >f. PO served properly percentage must be excellent &gt; 85%. g. Last 30 days busy time must be &gt;=4 hours.</Text>
-        <Text style={{ paddingVertical: 5, color: Colors.Dark_grayish_red }} >If customer price is Rs 20: Customer Price can be increased by upto Rs 4 after 30 days. after every 3 months.</Text>
-        <Text style={{ paddingVertical: 5, color: Colors.Dark_grayish_red }} >ii. If customer price &gt;= Rs 20 and Rs 30: Customer price can be increased by upto Rs 4,</Text>
-        <Text style={{ paddingVertical: 5, color: Colors.Dark_grayish_red }} >iii. If customer price &gt;= Rs 30: Customer price can be increased by upto 10% (or Rs 4) with a maximum by Rs 10, after every 6 months</Text>
+        <Text style={styles.policyTxt}>a. Customer Satisfaction must be Excellent which means &gt;= 64%.</Text>
+        <Text style={styles.policyTxt}>b. Retention Rate must be Excellent which means &gt;=17.</Text>
+        <Text style={styles.policyTxt}>c. Average Call Rating must be Excellent which means &gt;=4.75.</Text>
+        <Text style={styles.policyTxt}>d. Average Chat Rating must be Excellent which means &gt;=4.75. e. PO rating 4.2</Text>
+        <Text style={styles.policyTxt}>f. PO served properly percentage must be excellent &gt; 85%. g. Last 30 days busy time must be &gt;=4 hours.</Text>
+        <Text style={styles.policyTxt}>If customer price is Rs 20: Customer Price can be increased by upto Rs 4 after 30 days. after every 3 months.</Text>
+        <Text style={styles.policyTxt}>ii. If customer price &gt;= Rs 20 and Rs 30: Customer price can be increased by upto Rs 4,</Text>
+        <Text style={styles.policyTxt}>iii. If customer price &gt;= Rs 30: Customer price can be increased by upto 10% (or Rs 4) with a maximum by Rs 10, after every 6 months</Text>
       </View>
     )
   }
@@ -174,4 +172,8 @@ const styles = StyleSheet.create({
     fontSize: 16,
     fontWeight: 'bold',
   },
+  policyTxt: {
+    paddingVertical: 5,
+    color: Colors.Dark_grayish_red
+  }
 });

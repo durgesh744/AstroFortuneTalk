@@ -3,7 +3,6 @@ import {
   View,
   Text,
   FlatList,
-  Dimensions,
   TouchableOpacity,
   Image,
   Alert,
@@ -17,8 +16,7 @@ import { useAuth } from '../../context/AuthContext';
 import Loader from '../../component/common/Loader';
 import MyStatusBar from '../../component/common/MyStatusBar';
 import MyHeader from '../../component/common/MyHeader';
-
-const { width, height } = Dimensions.get('screen');
+import { SCREEN_WIDTH } from '../../config/Screen';
 
 const UpdateNumber = props => {
   const { user } = useAuth()
@@ -95,12 +93,12 @@ const UpdateNumber = props => {
     return (
       <View
         style={{
-          width: width * 1,
+          width: SCREEN_WIDTH * 1,
           backgroundColor: Colors.backgr_clr,
           alignItems: 'center',
           justifyContent: 'center',
-          paddingHorizontal: width * 0.05,
-          paddingVertical: width * 0.05,
+          paddingHorizontal: SCREEN_WIDTH * 0.05,
+          paddingVertical: SCREEN_WIDTH * 0.05,
         }}>
         <Text style={[Fonts.black12RobotoMedium, { textAlign: 'center', color: "black" }]}>
           You will get call and chat alerts on these numbers
@@ -113,10 +111,10 @@ const UpdateNumber = props => {
       <View
         style={{
           backgroundColor: Colors.dullWhite,
-          width: width,
+          width: SCREEN_WIDTH,
           flex: 1,
-          paddingHorizontal: width * 0.1,
-          paddingVertical: width * 0.07,
+          paddingHorizontal: SCREEN_WIDTH * 0.1,
+          paddingVertical: SCREEN_WIDTH * 0.07,
           borderBottomWidth: 1,
           borderBottomColor: Colors.gray3,
         }}>
@@ -135,7 +133,7 @@ const UpdateNumber = props => {
               style={{
                 width: '90%',
                 height: '50%',
-                borderRadius: width * 0.02,
+                borderRadius: SCREEN_WIDTH * 0.02,
                 backgroundColor: 'red',
               }}
             />
@@ -175,9 +173,9 @@ const UpdateNumber = props => {
             onPress={() => handleChange()}
             style={{
               width: '100%',
-              borderRadius: width * 0.1,
+              borderRadius: SCREEN_WIDTH * 0.1,
               backgroundColor: Colors.primaryDark,
-              paddingVertical: width * 0.04,
+              paddingVertical: SCREEN_WIDTH * 0.04,
             }}>
             <Text style={[Fonts.white16RobotoMedium, { textAlign: 'center' }]}>
               Verify
@@ -197,11 +195,11 @@ const styles = StyleSheet.create({
     borderColor: Colors.gray_back,
     paddingHorizontal: 5,
     width: '100%',
-    height: width * 0.15,
-    borderRadius: width * 0.05,
+    height: SCREEN_WIDTH * 0.15,
+    borderRadius: SCREEN_WIDTH * 0.05,
     flexDirection: 'row',
     justifyContent: 'space-between',
     alignItems: 'center',
-    marginVertical: width * 0.05,
+    marginVertical: SCREEN_WIDTH * 0.05,
   },
 });

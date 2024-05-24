@@ -18,8 +18,7 @@ import CustomButton from '../../component/common/CustomButton';
 import MyStatusBar from '../../component/common/MyStatusBar';
 import MyHeader from '../../component/common/MyHeader';
 import Loader from '../../component/common/Loader';
-
-const { width, height } = Dimensions.get('screen');
+import { SCREEN_HEIGHT, SCREEN_WIDTH } from '../../config/Screen';
 
 const ReferAnAstrologer = props => {
   const [isLoading, setIsLoading] = useState(false);
@@ -28,17 +27,6 @@ const ReferAnAstrologer = props => {
   const [mobileNumber, setMobileNumber] = useState('');
   const [expertise, setExpertise] = useState('');
   const [experience, setExperience] = useState('');
-
-  const email_validation = e => {
-    let emailID = email;
-    let filter =
-      /^([a-zA-Z0-9_\.\-])+\@(([a-zA-Z0-9\-])+\.)+([a-zA-Z0-9]{2,4})+$/;
-    if (filter.test(emailID)) {
-      return true;
-    } else {
-      return false;
-    }
-  };
 
   const validation = () => {
     if (name.length == 0) {
@@ -124,7 +112,7 @@ const ReferAnAstrologer = props => {
 
   function astrologerdetailsform() {
     return (
-      <View style={{ justifyContent: 'space-between', height: height * 0.8 }}>
+      <View style={{ justifyContent: 'space-between', height: SCREEN_HEIGHT * 0.8 }}>
         <View style={{ marginHorizontal: 20, paddingTop: 10 }}>
           <TextInput
             value={name}
@@ -155,7 +143,7 @@ const ReferAnAstrologer = props => {
                 style={{
                   width: '70%',
                   height: '50%',
-                  borderRadius: width * 0.02,
+                  borderRadius: SCREEN_WIDTH * 0.02,
                 }}
               />
             </View>
@@ -222,26 +210,26 @@ export default connect(mapStateToProps, mapDispatchToProps)(ReferAnAstrologer);
 const styles = StyleSheet.create({
   container: {
     marginHorizontal: 20,
-    marginBottom: width * 0.05,
+    marginBottom: SCREEN_WIDTH * 0.05,
     marginTop: 10,
   },
   button: {
     borderRadius: 20,
-    borderRadius: width * 0.04,
+    borderRadius: SCREEN_WIDTH * 0.04,
     elevation: 3,
     width: '48%',
-    height: width * 0.25,
+    height: SCREEN_WIDTH * 0.25,
   },
   inputContainer: {
     borderWidth: 1.5,
     borderColor: Colors.gray_back,
     paddingHorizontal: 5,
     width: '100%',
-    height: width * 0.15,
-    borderRadius: width * 0.05,
+    height: SCREEN_WIDTH * 0.15,
+    borderRadius: SCREEN_WIDTH * 0.05,
     flexDirection: 'row',
     justifyContent: 'space-between',
     alignItems: 'center',
-    marginVertical: width * 0.02,
+    marginVertical: SCREEN_WIDTH * 0.02,
   },
 });

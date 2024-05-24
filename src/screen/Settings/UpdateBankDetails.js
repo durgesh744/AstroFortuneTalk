@@ -167,7 +167,7 @@ const UpdateBankDetails = props => {
             activeOpacity={0.7}
             style={commonStyles.inputbox1}
             onPress={() => setVisible(true)}>
-            <Text style={{color:Colors.Dark_grayish_red}} >{accountType == null ? 'Account type' : accountType?.title}</Text>
+            <Text style={{ color: Colors.Dark_grayish_red }} >{accountType == null ? 'Account type' : accountType?.title}</Text>
             <Menu
               visible={visible}
               animationDuration={100}
@@ -201,7 +201,7 @@ const UpdateBankDetails = props => {
                 setChecked(!checked);
               }}
             />
-            <Text style={{color:"black"}}>Save bank details by default</Text>
+            <Text style={{ color: "black" }}>Save bank details by default</Text>
           </View>
         </View>
         <View

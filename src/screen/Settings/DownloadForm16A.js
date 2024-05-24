@@ -3,7 +3,6 @@ import {
   Text,
   FlatList,
   Image,
-  Dimensions,
   TouchableOpacity,
   StyleSheet,
   Linking,
@@ -17,8 +16,7 @@ import MyHeader from '../../component/common/MyHeader';
 import MyStatusBar from '../../component/common/MyStatusBar';
 import { api_url, get_PDF, provider_img_url } from '../../config/Constants';
 import { useAuth } from '../../context/AuthContext';
-
-const { width, height } = Dimensions.get('screen');
+import { SCREEN_WIDTH } from '../../config/Screen';
 
 const DownloadForm16A = props => {
   const { user } = useAuth()
@@ -75,7 +73,7 @@ const DownloadForm16A = props => {
         onPress={() => Linking.openURL(provider_img_url + item.pdf)}
         activeOpacity={0.9}
         style={styles.button}>
-        <Text numberOfLines={1} style={{ ...Fonts.grayDark16RobotoMedium , color:Colors.Dark_grayish_red}}>
+        <Text numberOfLines={1} style={{ ...Fonts.grayDark16RobotoMedium, color: Colors.Dark_grayish_red }}>
           {item.title}
         </Text>
         <Image source={require('../../assets/icon/download_purple.png')} />
@@ -113,6 +111,7 @@ const mapStateToProps = state => ({
 const mapDispatchToProps = dispatch => ({ dispatch });
 
 export default connect(mapStateToProps, mapDispatchToProps)(DownloadForm16A);
+
 const styles = StyleSheet.create({
   button: {
     marginHorizontal: 15,
@@ -121,8 +120,8 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     justifyContent: 'space-between',
     alignItems: 'center',
-    padding: width * 0.05,
-    borderRadius: width * 0.03,
+    padding: SCREEN_WIDTH * 0.05,
+    borderRadius: SCREEN_WIDTH * 0.03,
     elevation: 5,
   },
 });

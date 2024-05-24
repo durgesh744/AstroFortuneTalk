@@ -720,7 +720,6 @@ const VimshottariDasha = ({id}) => {
   }
 
   function currentVimshottari() {
-    // const renderItem = ({item, index}) => {
       return (
         current_vdasha && (
           <View>

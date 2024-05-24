@@ -34,7 +34,6 @@ const Remedy = ({navigation, route}) => {
         <LinearGradient
           colors={[Colors.primaryLight, Colors.primaryDark]}
           style={{
-            //   flex: 1,
             padding: Sizes.fixPadding,
             borderRadius: 30,
             width: '60%',

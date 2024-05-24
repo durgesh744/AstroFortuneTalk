@@ -20,6 +20,8 @@ import CallHistory from '../screen/History/CallHistory';
 import KundliCategory from '../screen/Kundli/KundliInfo';
 import AddRemedy from '../screen/Remedy/AddRemedy';
 import Astromall from '../screen/ECommerce/Astromall';
+import ChatHistory from '../screen/History/ChatHistory';
+import WalletHistory from '../screen/History/WalletHistory';
 
 const Stack = createNativeStackNavigator();
 
@@ -48,9 +50,11 @@ const StackNavigator = () => {
 
       <Stack.Screen name="kundliInfo" component={KundliCategory} />
       <Stack.Screen name="Remedy" component={Remedy} />
-      <Stack.Screen name="addRemedy" component={AddRemedy} />
+      <Stack.Screen name="addRemedy" component={AddRemedy}/>
 
       <Stack.Screen name="astromall" component={Astromall} />
+      <Stack.Screen name="chatHistory" component={ChatHistory} />
+      <Stack.Screen name="walletHistory" component={WalletHistory} />
 
     </Stack.Navigator>
   );

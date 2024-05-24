@@ -39,7 +39,6 @@ const KundliRemedies = ({id}) => {
     selectedItem: 1,
   });
 
-
   const updateState = data => {
     setState(prevState => {
       const newData = {...prevState, ...data};

@@ -199,12 +199,6 @@ const Numerolgy = ({navigation, route, numerologyData}) => {
             <Text style={styles.itemChild}>{numerologyData?.fav_mantra}</Text>
           </View>
         </View>
-
-        {/* <FlatList
-          data={data}
-          renderItem={renderItem}
-          keyExtractor={item => item.id}
-        /> */}
       </View>
     );
   }
