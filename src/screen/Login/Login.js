@@ -4,7 +4,6 @@ import {
     TouchableOpacity,
     Image,
     StyleSheet,
-    Dimensions,
     Alert,
     ScrollView,
 } from 'react-native';
@@ -20,11 +19,9 @@ import axios from 'axios';
 import Loader from '../../component/common/Loader';
 import MyStatusBar from '../../component/common/MyStatusBar';
 import AsyncStorage from '@react-native-async-storage/async-storage';
-
-const { width, height } = Dimensions.get('screen');
+import { SCREEN_HEIGHT, SCREEN_WIDTH } from '../../config/Screen';
 
 const Login = ({ navigation, dispatch }) => {
-
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
     const [isLoading, setIsLoading] = useState(false);
@@ -96,7 +93,7 @@ const Login = ({ navigation, dispatch }) => {
                 style={{ flex: 1 }}>
                 {imageInfo()}
                 <ScrollView style={styles.bottomContainer}>
-                    <View style={{ flex: 1, marginTop: height * 0.04 }}>
+                    <View style={{ flex: 1, marginTop: SCREEN_HEIGHT * 0.04 }}>
                         {topTitleInfo()}
                         {emailInput()}
                         {passwordInput()}
@@ -174,7 +171,7 @@ const Login = ({ navigation, dispatch }) => {
                     style={{
                         ...Fonts.gray14RobotoMedium,
                         textAlign: 'right',
-                        right: width * 0.1,
+                        right: SCREEN_WIDTH * 0.1,
                         marginVertical: Sizes.fixPadding,
                     }}>
                     Forgot password
@@ -215,7 +212,7 @@ const Login = ({ navigation, dispatch }) => {
             />
         );
     }
-    
+
     function topTitleInfo() {
         return (
             <Text
@@ -240,7 +237,7 @@ const Login = ({ navigation, dispatch }) => {
                         height: '100%',
                         resizeMode: 'contain',
                         alignSelf: 'center',
-                        marginTop: height * 0.1,
+                        marginTop: SCREEN_HEIGHT * 0.1,
                     }}
                 />
             </View>
@@ -254,7 +251,7 @@ const styles = StyleSheet.create({
         backgroundColor: Colors.white,
         borderTopLeftRadius: Sizes.fixPadding * 7,
         paddingTop: Sizes.fixPadding * 2,
-        marginTop: height * 0.09,
+        marginTop: SCREEN_HEIGHT * 0.09,
     },
     inputContainer: {
         marginHorizontal: Sizes.fixPadding * 3,

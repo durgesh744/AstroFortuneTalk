@@ -82,17 +82,14 @@ const SendView = () => {
                 </Text>
             </View>
 
-            <View >
+            <View>
                 <TextInput
                     placeholder="Type here..."
                     placeholderTextColor={Colors.gray3}
                     multiline
                     onChangeText={text => updateState({ comments: text })}
                     style={styles.txtInput}
-                >
-                    {/* {comments} */}
-                    Your are Added Your comments here
-                </TextInput>
+                />
             </View>
             <LinearGradient
                 colors={[Colors.primaryLight, Colors.primaryDark]}

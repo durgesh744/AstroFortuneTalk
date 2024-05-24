@@ -17,7 +17,7 @@ const Splash = ({ navigation, route }) => {
     if (data) {
       navigation.navigate("Home");
     } else {
-      navigation.navigate("login");
+      navigation.navigate("Home");
     }
   };
 

@@ -14,7 +14,7 @@ function TrainingReelsInfo() {
     };
 
     const [trainingVedioData, setTrainingVedioData] = useState([
-        { id: '1', image: '../../../../assets/images/ReelImg.jpeg' },
+        { id: '1', image: 'https://yt3.googleusercontent.com/4JmWfgEiUAhyV9id6ys4o9_Fl0TYevULhKZFhDWVGFg_K9vwF0IpEVKepLJDvrbUERkeDAsouQ=s160-c-k-c0x00ffffff-no-rj' },
         { id: '2', image: 'https://yt3.googleusercontent.com/4JmWfgEiUAhyV9id6ys4o9_Fl0TYevULhKZFhDWVGFg_K9vwF0IpEVKepLJDvrbUERkeDAsouQ=s160-c-k-c0x00ffffff-no-rj' },
         { id: '3', image: 'https://yt3.googleusercontent.com/4JmWfgEiUAhyV9id6ys4o9_Fl0TYevULhKZFhDWVGFg_K9vwF0IpEVKepLJDvrbUERkeDAsouQ=s160-c-k-c0x00ffffff-no-rj' },
         // Add more training reel items as needed
@@ -34,9 +34,11 @@ function TrainingReelsInfo() {
                     borderColor: Colors.primaryLight,
                     justifyContent: 'center',
                     alignItems: 'center',
+                    elevation: 5,
+                    shadowColor: Colors.gray,
                 }}>
                 <Image
-                    source={{ uri: provider_img_url + item.image }}
+                    source={{ uri: item.image }}
                     style={{ width: '100%', height: '100%' }}
                 />
             </TouchableOpacity>
@@ -50,6 +52,10 @@ function TrainingReelsInfo() {
                 paddingVertical: Sizes.fixPadding * 1.5,
                 marginTop: Sizes.fixPadding,
                 borderColor: Colors.grayLight,
+                backgroundColor: Colors.white,
+                marginTop: 2,
+                paddingTop: 10,
+                paddingBottom: 15
             }}>
             <View
                 style={{

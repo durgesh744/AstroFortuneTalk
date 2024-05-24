@@ -27,8 +27,9 @@ const TrandingInfoOnOf = () => {
             style={{
                 borderBottomWidth: 0.9,
                 borderColor: Colors.grayLight,
-                marginBottom: 7,
-                backgroundColor: Colors.bordercolor,
+                backgroundColor: Colors.white,
+                marginTop: 2,
+                paddingVertical:10
             }}>
             <Text
                 style={{

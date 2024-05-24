@@ -1,144 +1,117 @@
-import { Text, TouchableOpacity, View } from "react-native";
-import { Colors, Fonts, Sizes } from "../../../../assets/style";
-import { Switch } from 'react-native-switch';
 import { useState } from "react";
+import { Text, View } from "react-native";
+import CustomSwitch from "../../../common/CustomSwitch";
+import { Colors, Fonts, Sizes } from "../../../../assets/style";
 
 const ChatCallStatusInfo = () => {
-    const [chatStatus, setChatStatus] = useState()
-    const [callStatus, setCallStatus] = useState()
+    const [chatStatus, setChatStatus] = useState(false)
+    const [callStatus, setCallStatus] = useState(false)
+
     const change_chat_status = () => {
-
-    }
-
-    const showChatDate = () => {
-
+        setChatStatus(!chatStatus)
     }
 
     const change_call_status = () => {
-
-    }
-
-    const showCallDate = () => {
-
+        setCallStatus(!callStatus)
     }
 
     return (
-        <View
-            style={{
-                marginHorizontal: Sizes.fixPadding * 1.5,
-                marginBottom: Sizes.fixPadding * 1.5,
-                backgroundColor: Colors.grayLight,
-                borderRadius: Sizes.fixPadding,
-            }}>
+        <View style={{
+            backgroundColor: Colors.white,
+            marginTop: 2,
+            paddingTop: 10
+        }}>
             <View
                 style={{
-                    flex: 0,
-                    flexDirection: 'row',
-                    alignItems: 'center',
-                    padding: Sizes.fixPadding,
-                    borderBottomWidth: 1,
-                    borderBottomColor: Colors.blackLight + '50',
+                    marginHorizontal: Sizes.fixPadding * 1.5,
+                    marginBottom: Sizes.fixPadding * 1.5,
+                    backgroundColor: Colors.grayLight,
+                    borderRadius: Sizes.fixPadding,
+                    shadowColor: Colors.blackLight,
+                    elevation: 3,
                 }}>
-                <View style={{ flex: 0.3 }}>
-                    <Text style={{ ...Fonts.primaryLight14RobotoMedium }}>Type</Text>
-                </View>
                 <View
-                    style={{ flex: 0.2, justifyContent: 'center', alignItems: 'center' }}>
-                    <Text style={{ ...Fonts.primaryLight14RobotoMedium }}>Status</Text>
-                </View>
-                <View style={{ flex: 0.5, alignItems: 'flex-end' }}>
+                    style={{
+                        flex: 0,
+                        flexDirection: 'row',
+                        alignItems: 'center',
+                        padding: Sizes.fixPadding,
+                        borderBottomWidth: 1,
+                        borderBottomColor: Colors.blackLight + '50',
+                    }}>
+                    <View style={{ flex: 0.3 }}>
+                        <Text style={{ ...Fonts.primaryLight14RobotoMedium }}>Type</Text>
+                    </View>
+                    <View
+                        style={{ flex: 0.2, justifyContent: 'center', alignItems: 'center' }}>
+                        <Text style={{ ...Fonts.primaryLight14RobotoMedium }}>Status</Text>
+                    </View>
+                    {/* <View style={{ flex: 0.5, alignItems: 'flex-end' }}>
                     <Text style={{ ...Fonts.primaryLight14RobotoMedium }}>
-                        Next Online Time
+                    Next Online Time
                     </Text>
-                </View>
-            </View>
-            <View
-                style={{
-                    flex: 0,
-                    flexDirection: 'row',
-                    alignItems: 'center',
-                    paddingVertical: Sizes.fixPadding * 0.5,
-                    paddingHorizontal: Sizes.fixPadding,
-                    borderBottomWidth: 1,
-                    borderBottomColor: Colors.blackLight + '50',
-                }}>
-                <View style={{ flex: 0.3 }}>
-                    <Text
-                        style={{ ...Fonts.black12RobotoRegular, color: Colors.blackLight }}>
-                        CHAT
-                    </Text>
-                    <Text
-                        style={{ ...Fonts.gray11RobotoRegular, color: Colors.blackLight }}>
-                        India:
-                    </Text>
+                </View> */}
                 </View>
                 <View
-                    style={{ flex: 0.2, justifyContent: 'center', alignItems: 'center' }}>
-                    <Switch
-                        value={chatStatus}
-                        renderActiveText={false}
-                        renderInActiveText={false}
-                        circleBorderWidth={4}
-                        circleSize={20}
-                        onValueChange={change_chat_status}
-                        circleBorderActiveColor={Colors.primaryLight}
-                        backgroundActive={Colors.primaryLight}
-                        backgroundInactive={Colors.white}
-                        circleBorderInactiveColor={Colors.grayLight}
-                    />
-                </View>
-                <TouchableOpacity
+                    style={{
+                        flex: 0,
+                        flexDirection: 'row',
+                        alignItems: 'center',
+                        paddingVertical: Sizes.fixPadding * 0.5,
+                        paddingHorizontal: Sizes.fixPadding,
+                        borderBottomWidth: 1,
+                        borderBottomColor: Colors.blackLight + '50',
+                    }}>
+                    <View style={{ flex: 0.3 }}>
+                        <Text
+                            style={{ ...Fonts.black12RobotoRegular, color: Colors.blackLight }}>
+                            CHAT
+                        </Text>
+                        <Text
+                            style={{ ...Fonts.gray11RobotoRegular, color: Colors.blackLight }}>
+                            India:
+                        </Text>
+                    </View>
+                    <CustomSwitch active={chatStatus} change_status={change_chat_status} />
+                    {/* <TouchableOpacity
                     activeOpacity={0.8}
                     onPress={() => showChatDate()}
                     style={{ flex: 0.5, alignItems: 'flex-end' }}>
                     <Text
-                        style={{ ...Fonts.black12RobotoRegular, color: Colors.blackLight }}>
-                        chat
+                    style={{ ...Fonts.black12RobotoRegular, color: Colors.blackLight }}>
+                    chat
                     </Text>
-                </TouchableOpacity>
-            </View>
-            <View
-                style={{
-                    flex: 0,
-                    flexDirection: 'row',
-                    alignItems: 'center',
-                    paddingVertical: Sizes.fixPadding * 0.5,
-                    paddingHorizontal: Sizes.fixPadding,
-                }}>
-                <View style={{ flex: 0.3 }}>
-                    <Text
-                        style={{ ...Fonts.black12RobotoRegular, color: Colors.blackLight }}>
-                        CALL
-                    </Text>
-                    <Text
-                        style={{ ...Fonts.gray11RobotoRegular, color: Colors.blackLight }}>
-                        India
-                    </Text>
+                </TouchableOpacity> */}
                 </View>
                 <View
-                    style={{ flex: 0.2, justifyContent: 'center', alignItems: 'center' }}>
-                    <Switch
-                        value={callStatus}
-                        renderActiveText={false}
-                        renderInActiveText={false}
-                        circleBorderWidth={4}
-                        circleSize={20}
-                        onValueChange={change_call_status}
-                        circleBorderActiveColor={Colors.primaryLight}
-                        backgroundActive={Colors.primaryLight}
-                        backgroundInactive={Colors.white}
-                        circleBorderInactiveColor={Colors.grayLight}
-                    />
-                </View>
-                <TouchableOpacity
+                    style={{
+                        flex: 0,
+                        flexDirection: 'row',
+                        alignItems: 'center',
+                        paddingVertical: Sizes.fixPadding * 0.5,
+                        paddingHorizontal: Sizes.fixPadding,
+                    }}>
+                    <View style={{ flex: 0.3 }}>
+                        <Text
+                            style={{ ...Fonts.black12RobotoRegular, color: Colors.blackLight }}>
+                            CALL
+                        </Text>
+                        <Text
+                            style={{ ...Fonts.gray11RobotoRegular, color: Colors.blackLight }}>
+                            India
+                        </Text>
+                    </View>
+                    <CustomSwitch active={callStatus} change_status={change_call_status} />
+                    {/* <TouchableOpacity
                     activeOpacity={0.8}
                     onPress={() => showCallDate()}
                     style={{ flex: 0.5, alignItems: 'flex-end' }}>
                     <Text
-                        style={{ ...Fonts.black12RobotoRegular, color: Colors.blackLight }}>
-                         durgesh
+                    style={{ ...Fonts.black12RobotoRegular, color: Colors.blackLight }}>
+                    durgesh
                     </Text>
-                </TouchableOpacity>
+                </TouchableOpacity> */}
+                </View>
             </View>
         </View>
     );

@@ -21,4 +21,11 @@ export const category_pooja_list = 'api/category_pooja_list';
 export const schedule_a_pooja = 'api/schedule_a_pooja';
 export const schedule_a_pooja_astro = 'api/schedule_a_pooja_astro';
 
+export const call_history_astro = 'WalletCalclation/call_history_astro';
+export const customer_kundli_chart = 'api2/get_chart_user';
+export const kundli_basic_details = 'api2/astro_details_user';
+export const kundli_dosha = 'api2/all_dosha_user';
+export const kundli_get_panchang = 'kundli/get_panchang';
+export const kundli_numerology_detailes = 'api2/getNumeroTable_user';
+
 export const provider_img_url = 'https://fortunetest.fortunetalk.co.in/admin/';

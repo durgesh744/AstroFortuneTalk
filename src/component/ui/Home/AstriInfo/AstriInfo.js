@@ -1,22 +1,22 @@
-import { Dimensions, Image, Text, TouchableOpacity, View } from 'react-native';
-import { Colors, Fonts } from '../../../../assets/style';
+import { Divider } from '@rneui/themed';
+import { Image, Text, TouchableOpacity, View } from 'react-native';
+import { Colors, Fonts, Sizes } from '../../../../assets/style';
+import { SCREEN_HEIGHT, SCREEN_WIDTH } from '../../../../config/Screen';
 
-const { width, height } = Dimensions.get('window');
-
-const AstriInfo = ({providerData}) => {
+const AstriInfo = ({ providerData }) => {
     return (
         <View
             style={{
                 backgroundColor: Colors.white,
-                borderBottomWidth: 1,
-                borderBottomColor: Colors.grayLight,
+                borderBottomWidth: 0.8,
+                borderColor: Colors.blackLight + '60',
             }}>
             <View style={{ flexDirection: 'row', backgroundColor: Colors }}>
                 <TouchableOpacity
                     activeOpacity={0.8}
                     onPress={() => navigation.navigate('profile')}
                     style={{
-                        width: width * 0.3,
+                        width: SCREEN_WIDTH * 0.3,
                         justifyContent: 'center',
                         borderBottomRadius: 0.6,
                         alignItems: 'flex-end',
@@ -24,7 +24,7 @@ const AstriInfo = ({providerData}) => {
                         elevation: 10,
 
                         shadowColor: Colors.blackLight,
-                        height: height * 0.08,
+                        height: SCREEN_HEIGHT * 0.08,
                         backgroundColor: Colors.white,
                         left: -40,
                         bottom: 0,
@@ -37,7 +37,7 @@ const AstriInfo = ({providerData}) => {
                                 width: 30,
                                 height: 30,
                                 borderRadius: 25,
-                                marginEnd: width * 0.07,
+                                marginEnd: SCREEN_WIDTH * 0.07,
                             }}
                         />
                     ) : (
@@ -48,7 +48,7 @@ const AstriInfo = ({providerData}) => {
                                 width: 30,
                                 height: 30,
                                 borderRadius: 25,
-                                marginEnd: width * 0.07,
+                                marginEnd: SCREEN_WIDTH * 0.07,
                             }}
                         />
                     )}
@@ -57,11 +57,11 @@ const AstriInfo = ({providerData}) => {
                     style={{
                         flexDirection: 'row',
                         justifyContent: 'space-between',
-                        width: width * 0.8,
+                        width: SCREEN_WIDTH * 0.8,
                         backgroundColor: Colors.white,
                         left: -40,
                         padding: 15,
-                        height: height * 0.08,
+                        height: SCREEN_HEIGHT * 0.08,
                         marginLeft: 10,
                     }}>
                     <View style={{ justifyContent: 'center' }}>
@@ -74,8 +74,20 @@ const AstriInfo = ({providerData}) => {
                         </Text>
                         <Text style={{ ...Fonts.grayA14RobotoMedium }}>
                             ID-
-                             {/* {providerData?.unique_id} */}
+                            {/* {providerData?.unique_id} */}
                         </Text>
+                    </View>
+                    <View style={{ flexDirection: 'row', justifyContent: 'center' }}>
+                        <Divider
+                            orientation="vertical"
+                            style={{ marginHorizontal: Sizes.fixPadding }}
+                            width={1}
+                            color={Colors.grayLight}
+                        />
+                        <Image
+                            source={require('../../../../assets/icon/search.png')}
+                            style={{ alignSelf: 'center' }}
+                        />
                     </View>
                 </View>
             </View>

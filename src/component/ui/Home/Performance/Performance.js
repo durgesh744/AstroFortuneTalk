@@ -11,6 +11,8 @@ const Performance = ({ navigation }) => {
                 width: '100%',
                 height: 130,
                 paddingHorizontal: Sizes.fixPadding,
+                backgroundColor: Colors.white,
+                marginTop: 10,
             }}>
             <View style={{ borderRadius: Sizes.fixPadding, overflow: 'hidden' }}>
                 <ImageBackground

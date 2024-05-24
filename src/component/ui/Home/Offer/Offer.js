@@ -1,12 +1,19 @@
-import { Dimensions, Text, View } from "react-native";
+import { useState } from "react";
+import { Text, View } from "react-native";
 import { Colors, Sizes } from "../../../../assets/style";
-import { Switch } from 'react-native-switch';
-
-const { width, height } = Dimensions.get('screen');
+import { SCREEN_WIDTH } from "../../../../config/Screen";
+import LinearGradient from 'react-native-linear-gradient';
+import CustomSwitch from '../../../common/CustomSwitch';
 
 const Offer = () => {
+    const [free , setFree] = useState(true)
     return (
-        <View style={{ padding: 10 }}>
+        <View
+            style={{
+                padding: 10,
+                backgroundColor: Colors.white,
+                marginTop: 2,
+            }}>
             <Text
                 style={{
                     fontFamily: 'Roboto-Medium',
@@ -16,13 +23,16 @@ const Offer = () => {
                 Marketing offers
             </Text>
 
-            <View
+            <LinearGradient
+                colors={["#F9F1FF", "#fff"]}
                 style={{
                     padding: 15,
-                    backgroundColor: '#FEFDFF',
+                    backgroundColor: Colors.primaryLight,
                     borderRadius: 20,
                     marginVertical: Sizes.fixPadding,
-                }}>
+                    elevation: 3,
+                }}
+            >
                 <Text
                     style={{
                         fontFamily: 'Roboto-Medium',
@@ -32,7 +42,7 @@ const Offer = () => {
                     M0@0-Free Users
                 </Text>
                 <View style={{ flexDirection: 'row', justifyContent: 'space-between' }}>
-                    <View style={{ width: width * 0.7 }}>
+                    <View style={{ width: SCREEN_WIDTH * 0.7 }}>
                         <Text
                             style={{
                                 fontFamily: 'Roboto-Medium',
@@ -60,20 +70,9 @@ const Offer = () => {
                             paid
                         </Text>
                     </View>
-                    <View>
-                        <Switch
-                            renderActiveText={false}
-                            renderInActiveText={false}
-                            circleBorderWidth={4}
-                            circleSize={20}
-                            circleBorderActiveColor={Colors.primaryLight}
-                            backgroundActive={Colors.primaryLight}
-                            backgroundInactive={Colors.white}
-                            circleBorderInactiveColor={Colors.grayLight}
-                        />
-                    </View>
+                    <CustomSwitch active={free} />
                 </View>
-            </View>
+            </LinearGradient>
         </View>
     );
 }
