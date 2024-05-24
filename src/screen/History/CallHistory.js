@@ -56,8 +56,7 @@ const CallHistory = ({ navigation, providerData }) => {
       },
     ]
   );
-
-
+  
   const [state, setState] = useState({
     isLoading: false,
     isActiveCall: false,
@@ -66,7 +65,7 @@ const CallHistory = ({ navigation, providerData }) => {
 
   const get_kundli_details = async user_id => {
     try {
-      navigation.navigate('kundliInfo', { kundli_id: 221, user_id: user_id })
+      navigation.navigate('kundliInfo', { kundli_id: 221, user_id: 531 })
     } catch (e) {
       console.log(e)
     }
@@ -107,7 +106,6 @@ const CallHistory = ({ navigation, providerData }) => {
       <View
         style={{
           marginHorizontal: 15,
-          backgroundColor: Colors.white,
           marginBottom: 10,
         }}>
         <View
@@ -115,7 +113,6 @@ const CallHistory = ({ navigation, providerData }) => {
             borderRadius: 20,
             flex: 0,
             backgroundColor: Colors.dullWhite,
-            borderRadius: 10,
             padding: 15,
             elevation: 5,
           }}>
@@ -280,10 +277,8 @@ const CallHistory = ({ navigation, providerData }) => {
         </View>
       </View>
     );
-    console.log("CallHistoryData ====>>>>", CallHistoryData[0].customer_id)
     return (
       <View>
-
         <FlatList
           data={CallHistoryData}
           renderItem={renderItem}

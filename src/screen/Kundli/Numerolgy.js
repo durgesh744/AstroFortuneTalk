@@ -7,11 +7,11 @@ import {
   TouchableOpacity,
 } from 'react-native';
 import React, {useState} from 'react';
+import { connect } from 'react-redux';
 import {SCREEN_WIDTH} from '../../config/Screen';
 import {Colors, Sizes, Fonts} from '../../assets/style';
 import AntDesign from 'react-native-vector-icons/AntDesign';
-import MyStatusBar from '../../component/MyStatusBar';
-import { connect } from 'react-redux';
+import MyStatusBar from '../../component/common/MyStatusBar';
 
 const numerology_data = [
   {

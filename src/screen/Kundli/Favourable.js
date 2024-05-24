@@ -1,5 +1,4 @@
 import {
-  StyleSheet,
   Text,
   View,
   Image,
@@ -48,8 +47,6 @@ const Favourable = ({ id }) => {
       });
   };
 
-
-
   return (
     <View style={{ flex: 1, backgroundColor: Colors.bodyColor }}>
       <MyStatusBar
@@ -69,22 +66,20 @@ const Favourable = ({ id }) => {
   );
 
   function favourableData() {
-    const renderItem = ({ renderItem }) => {
-      return (
-        <View style={{ borderRadius: Sizes.fixPadding, flexDirection: 'row', justifyContent: 'space-between', paddingVertical: Sizes.fixPadding, paddingHorizontal: Sizes.fixPadding * 2, marginBottom: Sizes.fixPadding, backgroundColor: Colors.orange_light }}>
-          <Text style={{ ...Fonts.gray14RobotoMedium }}>Favourable Day -</Text>
-          <Text style={{ ...Fonts.gray14RobotoMedium }}>Sunday, Monday</Text>
-        </View>
-      )
-    }
+    // const renderItem = ({ renderItem }) => {
+    //   return (
+    //     <View style={{ borderRadius: Sizes.fixPadding, flexDirection: 'row', justifyContent: 'space-between', paddingVertical: Sizes.fixPadding, paddingHorizontal: Sizes.fixPadding * 2, marginBottom: Sizes.fixPadding, backgroundColor: Colors.orange_light }}>
+    //       <Text style={{ ...Fonts.gray14RobotoMedium }}>Favourable Day -</Text>
+    //       <Text style={{ ...Fonts.gray14RobotoMedium }}>Sunday, Monday</Text>
+    //     </View>
+    //   )
+    // }
     return (
       <View style={{ marginVertical: Sizes.fixPadding }}>
-        <View>
-        </View>
         <View style={{ marginVertical: Sizes.fixPadding }}>
           <TouchableOpacity style={{ flexDirection: 'row', marginBottom: Sizes.fixPadding, backgroundColor: Colors.primaryLight, borderRadius: Sizes.fixPadding * 2.5, alignItems: 'center', justifyContent: 'center', padding: Sizes.fixPadding * 0.5 }}>
             <View style={{ marginRight: Sizes.fixPadding, height: 30 }}>
-              <Image source={require('../../../src/assets/images/indian.png')} style={{ width: 40, height: 30, resizeMode: 'cover' }} />
+              <Image source={require('../../assets/images/indian.png')} style={{ width: 40, height: 30, resizeMode: 'cover' }} />
             </View>
             <Text style={{ ...Fonts.white16RobotoMedium }}>Favourable Mantra</Text>
           </TouchableOpacity>

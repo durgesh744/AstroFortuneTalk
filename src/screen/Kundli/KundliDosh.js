@@ -7,9 +7,9 @@ import {
 import axios from 'axios';
 import React, {useState, useEffect} from 'react';
 import {Colors, Fonts, Sizes} from '../../assets/style';
-import MyStatusBar from '../../component/MyStatusBar';
+import MyStatusBar from '../../component/common/MyStatusBar';
 import { SCREEN_WIDTH} from '../../config/Screen';
-import Loader from '../../component/Loader';
+import Loader from '../../component/common/Loader';
 import {
   api_url,
   api2_get_manglik_dosha,

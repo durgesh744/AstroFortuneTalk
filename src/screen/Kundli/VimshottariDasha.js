@@ -5,13 +5,14 @@ import {
   TouchableOpacity,
   FlatList,
 } from 'react-native';
+import axios from 'axios';
 import React, {useEffect, useState} from 'react';
 import {Colors, Fonts, Sizes} from '../../assets/style';
 import AntDesign from 'react-native-vector-icons/AntDesign';
-import MyStatusBar from '../../component/MyStatusBar';
+import MyStatusBar from '../../component/common/MyStatusBar';
 import { SCREEN_WIDTH} from '../../config/Screen';
 import LinearGradient from 'react-native-linear-gradient';
-import Loader from '../../component/Loader';
+import Loader from '../../component/common/Loader';
 import {
   api_url,
   api2_get_vdasha,
@@ -21,7 +22,6 @@ import {
   api2_get_sub_sub_sub_sub_vdasha,
   api2_get_current_vdasha,
 } from '../../config/Constants';
-import axios from 'axios';
 import Entypo from 'react-native-vector-icons/Entypo';
 
 const categoryData = [
@@ -34,7 +34,6 @@ const categoryData = [
     title: 'Vimshottari Dasha',
   },
 ];
-
 
 const VimshottariDasha = ({id}) => {
   const [state, setState] = useState({

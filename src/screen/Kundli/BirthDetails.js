@@ -85,6 +85,7 @@ const BirthDetails = ({ Cname, id, place, }) => {
       },
     })
       .then(res => {
+        console.log(res, "res res res res res res res res res")
         setAstroDetail(res.data.astro_details);
         setIsLoading(false);
       })

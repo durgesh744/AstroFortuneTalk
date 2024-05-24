@@ -18,7 +18,7 @@ import {
   api2_get_house_ruling,
 } from '../../config/Constants';
 import {Dropdown} from 'react-native-element-dropdown';
-import KPShowSvg from '../../component/KPShowSvg';
+import KPShowSvg from '../../component/common/KPShowSvg';
 
 const data = [
   {

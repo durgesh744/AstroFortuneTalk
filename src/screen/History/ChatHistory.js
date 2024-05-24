@@ -2,34 +2,34 @@ import {
   View,
   Text,
   FlatList,
-  Image,
   Dimensions,
   StyleSheet,
-  TouchableOpacity,
 } from 'react-native';
 import React, {useState, useEffect} from 'react';
-const {width, height} = Dimensions.get('screen');
 import Ionicons from 'react-native-vector-icons/Ionicons';
 import {ImageBackground} from 'react-native';
 import axios from 'axios';
 import {connect} from 'react-redux';
 import moment from 'moment';
-import MyStatusBar from '../../component/MyStatusBar';
-import MyHeader from '../../component/MyHeader';
+import MyStatusBar from '../../component/common/MyStatusBar';
+import MyHeader from '../../component/common/MyHeader';
 import {
   api_url,
-  astro_order_history,
   chat_history_astro,
 } from '../../config/Constants';
 import {Sizes, Colors, Fonts} from '../../assets/style';
-import Loader from '../../component/Loader';
+import Loader from '../../component/common/Loader';
+
+const {width, height} = Dimensions.get('screen');
+
 const ChatHistory = ({providerData, navigation}) => {
+
   useEffect(() => {
     get_order_history();
   }, []);
-
+  
   const [ChatHistoryData, setChatHistoryData] = useState(null);
-
+  
   const [state, setState] = useState({
     isLoading: false,
     historyData: null,
@@ -48,7 +48,7 @@ const ChatHistory = ({providerData, navigation}) => {
       },
     })
       .then(res => {
-        console.log(res.data)
+        // console.log(res.data)
         setChatHistoryData(res.data.data.reverse());
         updateState({isLoading: false});
       })

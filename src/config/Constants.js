@@ -28,4 +28,30 @@ export const kundli_dosha = 'api2/all_dosha_user';
 export const kundli_get_panchang = 'kundli/get_panchang';
 export const kundli_numerology_detailes = 'api2/getNumeroTable_user';
 
+// kundli
+export const api2_get_kp_chart = 'api2/bhav_chalit_chart'
+export const api2_get_house_report = 'api2/house_report';
+export const api2_get_house_cusps = 'api2/house_cusps';
+export const api2_get_house_ruling = 'api2/ruling_planet';
+export const api2_get_manglik_dosha = 'api2/check_manglik';
+export const api2_get_kalsarph_dosha = 'api2/kalsarpa_dosha';
+export const api2_get_sadhesati_status = 'api2/sadhesati_status';
+
+export const api2_get_vdasha = 'api2/major_vdasha';
+export const api2_get_sub_vdasha = 'api2/sub_vdasha';
+export const api2_get_sub_sub_vdasha = 'api2/sub_sub_vdasha';
+export const api2_get_sub_sub_sub_vdasha = 'api2/sub_sub_sub_vdasha';
+export const api2_get_sub_sub_sub_sub_vdasha = 'api2/sub_sub_sub_sub_vdasha';
+export const api2_get_current_vdasha = 'api2/current_vdasha';
+
+export const api2_get_planet_details = 'api2/get_planets';
+export const api2_get_rudraksha_sugg = 'api2/rudraksha_suggestion';
+export const api2_get_gemstone_sugg = 'api2/gem_suggestion';
+
+export const api2_get_horo_chart = 'api2/get_horo_chart';
+export const api2_get_planets = 'api2/get_planets';
+
+export const api2_get_birth_details = 'api2/birth_details';
+export const api2_get_astro_detail = 'api2/astro_detail';
+
 export const provider_img_url = 'https://fortunetest.fortunetalk.co.in/admin/';

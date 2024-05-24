@@ -5,20 +5,19 @@ import {
   TouchableOpacity,
   FlatList,
 } from 'react-native';
+import axios from 'axios';
 import React, {useCallback, useEffect, useState} from 'react';
 import {Colors, Fonts, Sizes} from '../../assets/style';
-import MyStatusBar from '../../component/MyStatusBar';
+import MyStatusBar from '../../component/common/MyStatusBar';
 import { SCREEN_WIDTH} from '../../config/Screen';
 import LinearGradient from 'react-native-linear-gradient';
-import Loader from '../../component/Loader';
+import Loader from '../../component/common/Loader';
 import {
   api_url,
   api2_get_rudraksha_sugg,
   api2_get_gemstone_sugg,
   img_url_3,
-  
 } from '../../config/Constants';
-import axios from 'axios';
 
 
 const remediesInfo = [

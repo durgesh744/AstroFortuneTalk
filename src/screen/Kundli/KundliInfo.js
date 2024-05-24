@@ -1,17 +1,17 @@
-import { StyleSheet, Text, View, TouchableOpacity, FlatList, TextBase } from 'react-native'
+import { StyleSheet, Text, View, TouchableOpacity, FlatList } from 'react-native'
 import React, { useState } from 'react'
 import { Colors, Fonts, Sizes } from '../../../src/assets/style';
 import AntDesign from 'react-native-vector-icons/AntDesign';
-import MyStatusBar from '../../component/MyStatusBar';
-import Loader from '../../component/Loader';
+import MyStatusBar from '../../component/common/MyStatusBar';
+import Loader from '../../component/common/Loader';
 import LinearGradient from 'react-native-linear-gradient';
 import { SCREEN_WIDTH } from '../../config/Screen';
+import KPChart from './KPChart';
+import KundliDosh from './KundliDosh';
+import Favourable from './Favourable';
 import BirthDetails from './BirthDetails';
 import HoroscopeChart from './HoroscopeChart';
 import PlanetaryDetails from './PlanetaryDetails';
-import Favourable from './Favourable';
-import KPChart from './KPChart';
-import KundliDosh from './KundliDosh';
 import VimshottariDasha from './VimshottariDasha';
 import KundliRemedies from './KundliRemedies';
 
