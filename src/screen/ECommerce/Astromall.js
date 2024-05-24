@@ -4,15 +4,15 @@ import {
   FlatList,
   TouchableOpacity,
   Image,
-  StyleSheet,
 } from 'react-native';
 import axios from 'axios';
+import {SCREEN_WIDTH} from '../../config/Screen';
 import React, {useState, useEffect} from 'react';
+import Loader from '../../component/common/Loader';
 import {Colors, Sizes, Fonts} from '../../assets/style';
 import {api_url, base_url, get_mall_cat} from '../../config/Constants';
-import {SCREEN_WIDTH} from '../../config/Screen';
 import MyStatusBar from '../../component/common/MyStatusBar';
-import Loader from '../../component/common/Loader';
+import MyHeader from '../../component/common/MyHeader';
 
 const Astromall = ({navigation, route}) => {
   const [state, setState] = useState({
@@ -159,31 +159,3 @@ const Astromall = ({navigation, route}) => {
 };
 
 export default Astromall;
-
-const styles = StyleSheet.create({
-  itemContainer: {
-    width: SCREEN_WIDTH * 0.43,
-    backgroundColor: Colors.grayLight,
-    justifyContent: 'center',
-    alignItems: 'center',
-    marginBottom: Sizes.fixPadding * 2,
-    paddingVertical: Sizes.fixPadding,
-    borderRadius: Sizes.fixPadding * 2,
-  },
-  itemImageContainer: {
-    width: SCREEN_WIDTH * 0.35,
-    height: SCREEN_WIDTH * 0.4,
-    borderRadius: Sizes.fixPadding * 2,
-    overflow: 'hidden',
-    elevation: 8,
-    shadowColor: Colors.blackLight,
-  },
-  itemImage: {
-    width: '100%',
-    height: '100%',
-  },
-  itemText: {
-    ...Fonts.black16RobotoRegular,
-    marginTop: Sizes.fixPadding * 0.4,
-  },
-});

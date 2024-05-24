@@ -66,14 +66,6 @@ const Favourable = ({ id }) => {
   );
 
   function favourableData() {
-    // const renderItem = ({ renderItem }) => {
-    //   return (
-    //     <View style={{ borderRadius: Sizes.fixPadding, flexDirection: 'row', justifyContent: 'space-between', paddingVertical: Sizes.fixPadding, paddingHorizontal: Sizes.fixPadding * 2, marginBottom: Sizes.fixPadding, backgroundColor: Colors.orange_light }}>
-    //       <Text style={{ ...Fonts.gray14RobotoMedium }}>Favourable Day -</Text>
-    //       <Text style={{ ...Fonts.gray14RobotoMedium }}>Sunday, Monday</Text>
-    //     </View>
-    //   )
-    // }
     return (
       <View style={{ marginVertical: Sizes.fixPadding }}>
         <View style={{ marginVertical: Sizes.fixPadding }}>

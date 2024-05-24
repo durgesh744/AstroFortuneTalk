@@ -1,6 +1,8 @@
 // export const base_url = 'http://10.0.2.2:6000/api/v1';
-export const base_url = 'https://fortunetalk-backend.onrender.com/api/v1';
-export const api_url = 'http://fortunetest.fortunetalk.co.in/api/';
+// export const base_url = 'https://fortunetalk-backend.onrender.com/api/v1';
+export const base_url = 'https://fortunetalk.co/fortunetalktest/'
+
+export const api_url = 'https://fortunetest.fortunetalk.co.in/api/';
 
 // export const chat_base_url = 'https://chat-backend-yiwj.onrender.com';
 export const chat_base_url = "http://10.0.2.2:3000/";
@@ -53,5 +55,6 @@ export const api2_get_planets = 'api2/get_planets';
 
 export const api2_get_birth_details = 'api2/birth_details';
 export const api2_get_astro_detail = 'api2/astro_detail';
+export const get_mall_cat = 'api/get_mall_cat';
 
 export const provider_img_url = 'https://fortunetest.fortunetalk.co.in/admin/';
