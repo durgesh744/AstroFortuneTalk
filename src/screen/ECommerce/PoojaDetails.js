@@ -5,7 +5,6 @@ import {
   TouchableOpacity,
   Image,
   StyleSheet,
-  Dimensions,
 } from 'react-native';
 import React, { useEffect, useState } from 'react';
 import MyHeader from '../../component/common/MyHeader';
@@ -17,8 +16,6 @@ import { SafeAreaView } from 'react-native-safe-area-context';
 import { useSharedValue } from 'react-native-reanimated';
 import Carousel from 'react-native-reanimated-carousel';
 import { provider_img_url } from '../../config/Constants';
-
-const { width, height } = Dimensions.get('screen');
 
 const PoojaDetails = ({ navigation, route }) => {
   const progressValue = useSharedValue(0);
@@ -183,7 +180,7 @@ const PoojaDetails = ({ navigation, route }) => {
     return (
       <SafeAreaView edges={['bottom']} style={{ flex: 1 }}>
         <Carousel
-          width={width}
+          width={SCREEN_WIDTH}
           vertical={false}
           height={SCREEN_WIDTH * 0.7}
           loop

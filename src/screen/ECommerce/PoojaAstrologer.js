@@ -20,9 +20,9 @@ import {
 import {Colors, Sizes, Fonts} from '../../assets/style';
 import MyStatusBar from '../../component/common/MyStatusBar';
 import Loader from '../../component/common/Loader';
+import MyHeader from '../../component/common/MyHeader';
 
 const PoojaAstrologer = ({navigation, route}) => {
-  console.log(route.params);
   const [state, setState] = useState({
     isLoading: false,
     astrologerData: null,
@@ -135,12 +135,14 @@ const PoojaAstrologer = ({navigation, route}) => {
               width: '100%',
               height: SCREEN_WIDTH * 0.4,
             }}>
+
             <LinearGradient
               colors={[Colors.black, Colors.black + '00']}
               locations={[0.1, 1]}
               style={{width: '100%', height: '35%', padding: Sizes.fixPadding}}>
               <Text style={{...Fonts.white14RobotoMedium}}>{item?.title}</Text>
             </LinearGradient>
+
           </ImageBackground>
           <LinearGradient
             colors={[Colors.primaryLight, Colors.primaryDark]}
@@ -177,8 +179,7 @@ const PoojaAstrologer = ({navigation, route}) => {
             <View style={{flex: 1}}>
               <View style={{alignSelf: 'flex-end', alignItems: 'center'}}>
                 <Text style={{...Fonts.white11InterMedium}}>
-                  {moment(item.time).format('hh:mm A')} ({getDayPart(item.time)}
-                  )
+                  {moment(item.time).format('hh:mm A')} ({getDayPart(item.time)})
                 </Text>
                 <TouchableOpacity
                   disabled
