@@ -56,5 +56,7 @@ export const api2_get_planets = 'api2/get_planets';
 export const api2_get_birth_details = 'api2/birth_details';
 export const api2_get_astro_detail = 'api2/astro_detail';
 export const get_mall_cat = 'api/get_mall_cat';
-
+export const astro_all_wallet_history_new =
+  'WalletCalclation/astro_all_wallet_history_new';
+  
 export const provider_img_url = 'https://fortunetest.fortunetalk.co.in/admin/';

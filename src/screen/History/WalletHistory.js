@@ -8,31 +8,40 @@ import {
 } from 'react-native';
 import axios from 'axios';
 import moment from 'moment';
-import {connect} from 'react-redux';
-import React, {useState, useEffect} from 'react';
-import MyStatusBar from '../../component/common/MyStatusBar';
+import { connect } from 'react-redux';
+import React, { useState, useEffect } from 'react';
 import MyHeader from '../../component/common/MyHeader';
-import {Colors, Fonts, Sizes} from '../../assets/style';
-import {Dropdown} from 'react-native-element-dropdown';
-import {ImageBackground} from 'react-native';
-import {MyMethods} from '../../methods/MyMethods';
-import {Modal} from 'react-native-paper';
+import MyStatusBar from '../../component/common/MyStatusBar';
+import { Colors, Fonts, Sizes } from '../../assets/style';
+import { Dropdown } from 'react-native-element-dropdown';
+import { ImageBackground } from 'react-native';
+import { MyMethods } from '../../methods/MyMethods';
+import { Modal } from 'react-native-paper';
 import {
   api_url,
   astro_all_wallet_history_new,
 } from '../../config/Constants';
 import Loader from '../../component/common/Loader';
 import { SCREEN_WIDTH } from '../../config/Screen';
-import {DateTimePickerAndroid} from '@react-native-community/datetimepicker';
+import LinearGradient from 'react-native-linear-gradient';
+import { DateTimePickerAndroid } from '@react-native-community/datetimepicker';
+import AmountInfo from '../../component/ui/History/AmountInfo';
 
-const WalletHistory = ({navigation, providerData, dashboard}) => {
+const WalletHistory = ({ navigation, providerData }) => {
+  const dashboard = {
+    data: {
+      Walletbalance: 100
+    }
+  }
+  const astroId = 2403531
+
   const [value, setValue] = useState(null);
   const [isFocus, setIsFocus] = useState(false);
   const [monthsData, setMonthsData] = useState(null);
   const [state, setState] = useState({
     modalVisible: false,
     isLoading: false,
-    historyData: null,
+    // historyData: null,
     startDate: null,
     endDate: null,
   });
@@ -40,61 +49,88 @@ const WalletHistory = ({navigation, providerData, dashboard}) => {
   useEffect(() => {
     const data = MyMethods.get_calender_months();
     setMonthsData(data);
-    get_wallet_history({startDate: new Date(), endDate: new Date()});
+    get_wallet_history({ startDate: new Date(), endDate: new Date() });
   }, []);
 
-  const get_wallet_history = async ({startDate, endDate}) => {
-    updateState({isLoading: true, modalVisible: false});
-    console.log( {
-      astro_id: providerData.id,
-      startDate: moment(startDate).format('YYYY-MM-DD'),
-      endDate: moment(endDate).format('YYYY-MM-DD'),
-    })
-    await axios({
-      method: 'post',
-      url: api_url + astro_all_wallet_history_new,
-      headers: {
-        'Content-Type': 'multipart/form-data',
-      },
-      data: {
-        astro_id: providerData.id,
-        startDate: moment(startDate).format('YYYY-MM-DD'),
-        endDate: moment(endDate).format('YYYY-MM-DD'),
-      },
-    })
-      .then(res => {
-        updateState({isLoading: false});
-        updateState({historyData: res.data.data});
-      })
-      .catch(err => {
-        updateState({isLoading: false});
-        console.log(err);
-      });
+  const get_wallet_history = async ({ startDate, endDate }) => {
+    // updateState({ isLoading: true, modalVisible: false });
+    // await axios({
+    //   method: 'post',
+    //   url: api_url + astro_all_wallet_history_new,
+    //   headers: {
+    //     'Content-Type': 'multipart/form-data',
+    //   },
+    //   data: {
+    //     astro_id: astroId,
+    //     startDate: moment(startDate).format('YYYY-MM-DD'),
+    //     endDate: moment(endDate).format('YYYY-MM-DD'),
+    //   },
+    // })
+    //   .then(res => {
+    //     updateState({ isLoading: false });
+    //     updateState({ historyData: res.data.data });
+    //   })
+    //   .catch(err => {
+    //     updateState({ isLoading: false });
+    //     console.log(err);
+    //   });
   };
 
   const updateState = data => {
     setState(prevState => {
-      const newData = {...prevState, ...data};
+      const newData = { ...prevState, ...data };
       return newData;
     });
   };
 
-  const {isLoading, modalVisible, historyData, startDate, endDate} = state;
+  const { isLoading, modalVisible, startDate, endDate } = state;
+
+  const historyData = [
+    {
+      order_id: '123456',
+      cramount: 100,
+      type_for: 'service',
+      username: 'JohnDoe',
+      customer_id: '78910',
+      duration: '15.25',
+      transdate: '11 Aug 23, 12:18 AM',
+    },
+    {
+      order_id: '123457',
+      cramount: 50.00,
+      type_for: 'product',
+      username: 'JaneDoe',
+      customer_id: '78911',
+      duration: '0.00',
+      transdate: '11 Aug 23, 12:18 AM',
+    },
+    {
+      order_id: '123457',
+      cramount: -50.00,
+      type_for: 'product',
+      username: 'JaneDoe',
+      customer_id: '78911',
+      duration: '0.00',
+      transdate: '11 Aug 23, 12:18 AM',
+    },
+  ];
+
 
   return (
-    <View style={{flex: 1}}>
+    <View style={{ flex: 1 }}>
       <MyStatusBar
         backgroundColor={Colors.primaryLight}
         barStyle={'light-content'}
       />
       <Loader visible={isLoading} />
       <MyHeader title="Wallet History" navigation={navigation} />
-      <View style={{flex: 1, marginTop: Sizes.fixPadding * 1.5}}>
+      <View style={{ flex: 1, marginTop: Sizes.fixPadding * 1.5 }}>
         <FlatList
           ListHeaderComponent={
             <>
-              {monthsData && filterInfo()}
               {balnceShow()}
+              {monthsData && filterInfo()}
+              <AmountInfo />
               {historyData && chatHistoryInfo()}
             </>
           }
@@ -111,7 +147,7 @@ const WalletHistory = ({navigation, providerData, dashboard}) => {
           value: startDate == null ? new Date() : startDate,
           onChange: (event, date) => {
             if (event.type == 'set') {
-              updateState({startDate: date});
+              updateState({ startDate: date });
             }
           },
           maximumDate: endDate != null ? endDate : new Date(),
@@ -129,7 +165,7 @@ const WalletHistory = ({navigation, providerData, dashboard}) => {
           value: endDate == null ? new Date() : endDate,
           onChange: (event, date) => {
             if (event.type == 'set') {
-              updateState({endDate: date});
+              updateState({ endDate: date });
             }
           },
           minimumDate: startDate != null ? startDate : new Date(),
@@ -138,7 +174,7 @@ const WalletHistory = ({navigation, providerData, dashboard}) => {
           display: 'calendar',
           is24Hour: true,
         });
-      } 
+      }
     };
 
     return (
@@ -151,7 +187,7 @@ const WalletHistory = ({navigation, providerData, dashboard}) => {
             alignSelf: 'center',
           }}>
           <Text
-            style={{...Fonts.primaryLight15RobotoMedium, textAlign: 'center'}}>
+            style={{ ...Fonts.primaryLight15RobotoMedium, textAlign: 'center' }}>
             Select Dates
           </Text>
           <View
@@ -160,28 +196,28 @@ const WalletHistory = ({navigation, providerData, dashboard}) => {
               justifyContent: 'space-evenly',
               marginTop: Sizes.fixPadding * 2,
             }}>
-            <View style={{alignItems: 'center', width: '40%'}}>
-              <Text style={{...Fonts.black14RobotoRegular}}>Start Date</Text>
+            <View style={{ alignItems: 'center', width: '40%' }}>
+              <Text style={{ ...Fonts.black14RobotoRegular }}>Start Date</Text>
               <TouchableOpacity
                 activeOpacity={0.8}
                 onPress={() => select_start_date()}
                 style={styles.buttonContainer}>
                 <Text
-                  style={{...Fonts.gray14RobotoRegular, textAlign: 'center'}}>
+                  style={{ ...Fonts.gray14RobotoRegular, textAlign: 'center' }}>
                   {startDate != null
                     ? moment(startDate).format('DD-MM-YYYY')
                     : 'Select'}
                 </Text>
               </TouchableOpacity>
             </View>
-            <View style={{alignItems: 'center', width: '40%'}}>
-              <Text style={{...Fonts.black14RobotoRegular}}>End Date</Text>
+            <View style={{ alignItems: 'center', width: '40%' }}>
+              <Text style={{ ...Fonts.black14RobotoRegular }}>End Date</Text>
               <TouchableOpacity
                 activeOpacity={0.8}
                 onPress={() => select_end_date()}
                 style={styles.buttonContainer}>
                 <Text
-                  style={{...Fonts.gray14RobotoRegular, textAlign: 'center'}}>
+                  style={{ ...Fonts.gray14RobotoRegular, textAlign: 'center' }}>
                   {endDate != null
                     ? moment(endDate).format('DD-MM-YYYY')
                     : 'Select'}
@@ -192,7 +228,7 @@ const WalletHistory = ({navigation, providerData, dashboard}) => {
           <TouchableOpacity
             activeOpacity={0.8}
             onPress={() =>
-              get_wallet_history({startDate: startDate, endDate: endDate})
+              get_wallet_history({ startDate: startDate, endDate: endDate })
             }
             style={{
               width: '60%',
@@ -200,7 +236,7 @@ const WalletHistory = ({navigation, providerData, dashboard}) => {
               marginBottom: Sizes.fixPadding,
               marginTop: Sizes.fixPadding * 2,
             }}>
-            <Text style={{...Fonts.black14RobotoRegular, textAlign: 'center'}}>
+            <Text style={{ ...Fonts.black14RobotoRegular, textAlign: 'center' }}>
               Submit
             </Text>
           </TouchableOpacity>
@@ -216,12 +252,12 @@ const WalletHistory = ({navigation, providerData, dashboard}) => {
           style={[styles.dropdown]}
           placeholderStyle={styles.placeholderStyle}
           selectedTextStyle={styles.selectedTextStyle}
-          itemTextStyle={{...Fonts.primaryLight14RobotoMedium, textAlign: 'center'}}
+          itemTextStyle={{ ...Fonts.primaryLight14RobotoMedium, textAlign: 'center' }}
           containerStyle={{
             marginTop: Sizes.fixPadding,
             borderRadius: Sizes.fixPadding,
           }}
-          itemContainerStyle={{borderRadius: Sizes.fixPadding, justifyContent: 'center', alignItems: 'center'}}
+          itemContainerStyle={{ borderRadius: Sizes.fixPadding, justifyContent: 'center', alignItems: 'center' }}
           iconStyle={styles.iconStyle}
           data={monthsData}
           maxHeight={400}
@@ -234,8 +270,8 @@ const WalletHistory = ({navigation, providerData, dashboard}) => {
           onChange={item => {
             setValue(item.value);
             setIsFocus(false);
-            if (item.label == 'Custom') { 
-              updateState({modalVisible: true});
+            if (item.label == 'Custom') {
+              updateState({ modalVisible: true });
             } else if (
               item.label != 'Today' &&
               item.label != 'Yesterday' &&
@@ -245,15 +281,15 @@ const WalletHistory = ({navigation, providerData, dashboard}) => {
               const year = date.getUTCFullYear();
               const month = date.getUTCMonth();
               const firstdate = new Date(Date.UTC(year, month, 1));
-              var  fdate = firstdate.toISOString().split('T')[0]
+              var fdate = firstdate.toISOString().split('T')[0]
               const lastdate = new Date(Date.UTC(year, month + 1, 0));
               var ldate = lastdate.toISOString().split('T')[0]
-              get_wallet_history({startDate: fdate, endDate: ldate});
+              get_wallet_history({ startDate: fdate, endDate: ldate });
             } else if (item.label == 'Yesterday') {
-              get_wallet_history({startDate: item.value, endDate: item.value});
+              get_wallet_history({ startDate: item.value, endDate: item.value });
               // get_wallet_history({startDate: yesterday, endDate: new Date()});
             } else {
-              get_wallet_history({startDate: new Date(), endDate: new Date()});
+              get_wallet_history({ startDate: new Date(), endDate: new Date() });
             }
           }}
         />
@@ -262,63 +298,69 @@ const WalletHistory = ({navigation, providerData, dashboard}) => {
   }
 
   function balnceShow() {
-    const wallet_balance = parseFloat(dashboard?.data?.Walletbalance.replace(',', ''))
-    const pg_charge = wallet_balance -  (wallet_balance * 2.5 /100)
-    const payable_amount = pg_charge - (pg_charge * 10 /100)
+    const wallet_balance = dashboard?.data?.Walletbalance
+    const pg_charge = wallet_balance - (wallet_balance * 2.5 / 100)
+    const payable_amount = pg_charge - (pg_charge * 10 / 100)
     return (
-      <View
+      <LinearGradient
+        colors={[Colors.primaryLight, Colors.primaryDark]}
         style={{
-          flexDirection: 'row',
-          justifyContent: 'space-between',
-          paddingVertical: 10,
-          paddingHorizontal: 10,
-        }}>
-         <View style={[styles.balance, {backgroundColor: Colors.greenLight}]}>
-         <Text style={[styles.viwTxt, {color: Colors.white}]}>Available Amount</Text>
-          <Text style={[styles.viwTxt, {color: Colors.white}]}>
-            ₹ {dashboard.data.Walletbalance}
-          </Text>
+          paddingVertical: 15,
+        }}
+      >
+        <View
+          style={{
+            flexDirection: 'row',
+            justifyContent: 'center',
+            paddingVertical: 10,
+            paddingHorizontal: 10,
+            columnGap: 10
+          }}>
+          <View style={{ width: SCREEN_WIDTH * 0.4, paddingBottom: 5 }} >
+            <Text style={styles.viwTxt}>Lifetime Earning</Text>
+            <View style={styles.balance} >
+              <Text style={{ color: Colors.black, fontWeight: "600" }} >₹ 13,85,880</Text>
+            </View>
+          </View>
+
+          <View style={{ width: SCREEN_WIDTH * 0.4, paddingBottom: 5 }}>
+            <Text style={styles.viwTxt}>Monthly Earning</Text>
+            <View style={styles.balance} >
+              <Text style={{ color: Colors.black, fontWeight: "600" }}>₹ 13,85,880</Text>
+            </View>
+          </View>
         </View>
-        <View style={styles.balance}>
-          <Text style={styles.viwTxt}>PG Charge</Text>
-          <Text style={styles.viwTxt}>
-            ₹ {'2.5%'}
-          </Text>
+
+        <View
+          style={{
+            flexDirection: 'row',
+            justifyContent: 'center',
+            paddingHorizontal: 10,
+            columnGap: 10
+          }}>
+          <View style={{ width: SCREEN_WIDTH * 0.4 }}>
+            <Text style={styles.viwTxt}>Weekly Earning</Text>
+            <View style={styles.balance} >
+              <Text style={{ color: Colors.black, fontWeight: "600" }}>₹ 13,85,880</Text>
+            </View>
+          </View>
+
+          <View style={{ width: SCREEN_WIDTH * 0.4, paddingBottom: 5 }}>
+            <Text style={styles.viwTxt}>Rank</Text>
+            <View style={styles.balance} >
+              <Text style={{ color: Colors.black, fontWeight: "600" }}>₹ 13,85,880</Text>
+            </View>
+          </View>
         </View>
-        <View style={styles.balance}>
-          <Text style={styles.viwTxt}>Sub total</Text>
-          <Text style={styles.viwTxt}>
-            ₹ {pg_charge.toFixed(1)}
-          </Text>
-        </View>
-        <View style={styles.balance}>
-          <Text style={styles.viwTxt}>TDS</Text>
-          <Text style={styles.viwTxt}>
-            ₹ {`10%`}
-          </Text>
-        </View>
-        {/* <View style={styles.balance}>
-          <Text style={styles.viwTxt}>GST</Text>
-          <Text style={styles.viwTxt}>
-            ₹ {historyData && historyData.gst_charge}
-          </Text>
-        </View> */}
-        <View style={[styles.balance, {backgroundColor: Colors.primaryDark}]}>
-          <Text style={[styles.viwTxt, {color: Colors.white}]}>Payable Amount</Text>
-          <Text style={[styles.viwTxt, {color: Colors.white}]}>
-            ₹ {payable_amount.toFixed(1)}
-          </Text>
-        </View>
-      </View>
+      </LinearGradient>
     );
   }
 
   function chatHistoryInfo() {
-    const renderItem = ({item}) => (
+    const renderItem = ({ item }) => (
       <View
         style={{
           marginHorizontal: 15,
-          backgroundColor: Colors.white,
           marginBottom: 10,
           marginTop: 18,
         }}>
@@ -338,18 +380,18 @@ const WalletHistory = ({navigation, providerData, dashboard}) => {
               paddingRight: 15,
               width: SCREEN_WIDTH * 0.9,
             }}>
-            <View>
-              <Text
-                style={{
-                  fontWeight: '400',
-                  ...Fonts.black16RobotoMedium,
-                }}>
-                Order ID: {item?.order_id}
-              </Text>
-            </View>
+
+            <Text
+              style={{
+                fontWeight: '400',
+                ...Fonts.black16RobotoMedium,
+              }}>
+              Order ID: {item?.order_id}
+            </Text>
+
             <View>
               <ImageBackground
-                source={require('../../assets/images/green.png')}
+                source={item.cramount > 0 ? require('../../assets/images/green.png') : require('../../assets/images/redWallet.png')}
                 resizeMode="contain"
                 style={{
                   width: SCREEN_WIDTH * 0.3,
@@ -370,8 +412,7 @@ const WalletHistory = ({navigation, providerData, dashboard}) => {
                     textAlign: 'center',
                     bottom: 6,
                   }}>
-                  + ₹ {item?.cramount == '0.000' ? 0.000 : item?.cramount}
-                  {/* + ₹ {item?.cramount} */}
+                  {item.cramount > 0 ? "+" : "-"} ₹ {item?.cramount == '0.000' ? 0.000 : Math.abs(item?.cramount)}
                 </Text>
               </ImageBackground>
             </View>
@@ -386,33 +427,25 @@ const WalletHistory = ({navigation, providerData, dashboard}) => {
                 fontSize: 16,
                 textTransform: 'capitalize'
               }}>
-                {item?.type_for}
+              {item?.type_for}
             </Text>
             <View
-              style={{flexDirection: 'row', justifyContent: 'space-between'}}>
-              <Text style={{...Fonts.gray14RobotoMedium}}>
+              style={{ flexDirection: 'row', justifyContent: 'space-between' }}>
+              <Text style={{ ...Fonts.gray14RobotoMedium }}>
                 with {item?.username}({item?.customer_id})
               </Text>
-              {/* <Text
-                style={{
-                  ...Fonts.gray14RobotoMedium,
-                  color: Colors.red2,
-                  top: -13,
-                }}>
-                Refund
-              </Text> */}
             </View>
-            {item?.type_for != 'pooja' &&  item?.type_for != 'Remedy' &&  item?.type_for != 'gift' && item?.type_for != 'product' &&  <Text style={{...Fonts.gray14RobotoMedium,}}>
+            {item?.type_for != 'pooja' && item?.type_for != 'Remedy' && item?.type_for != 'gift' && item?.type_for != 'product' && <Text style={{ ...Fonts.gray14RobotoMedium, }}>
               for {parseFloat(item?.duration).toFixed(2)} minutes
             </Text>}
-         
+
             <View
               style={{
                 flexDirection: 'row',
                 marginTop: 5,
                 justifyContent: 'space-between',
               }}>
-              <Text style={{...Fonts.gray14RobotoMedium}}>
+              <Text style={{ ...Fonts.gray14RobotoMedium }}>
                 Userld: {item?.customer_id}
               </Text>
               <Text
@@ -421,9 +454,6 @@ const WalletHistory = ({navigation, providerData, dashboard}) => {
                   color: Colors.primaryLight,
                 }}>
                 {item?.transdate}
-                {/* {moment(item?.transdate, 'HH:mm A').format(
-                  'DD MMM YY, hh:mm A',
-                )} */}
               </Text>
             </View>
           </View>
@@ -431,11 +461,11 @@ const WalletHistory = ({navigation, providerData, dashboard}) => {
       </View>
     );
     return (
-      <View style={{}}>
+      <View>
         <FlatList
           data={historyData}
           renderItem={renderItem}
-          contentContainerStyle={{paddingVertical: 15}}
+          contentContainerStyle={{ paddingVertical: 15 }}
         />
       </View>
     );
@@ -447,29 +477,32 @@ const mapStateToProps = state => ({
   dashboard: state.provider.dashboard,
 });
 
-const mapDispatchToProps = dispatch => ({dispatch});
+const mapDispatchToProps = dispatch => ({ dispatch });
 
 export default connect(mapStateToProps, mapDispatchToProps)(WalletHistory);
 
 // export default WalletHistory;
 const styles = StyleSheet.create({
-  txt: {paddingVertical: Sizes.fixPadding - 4, paddingHorizontal: 6},
+  txt: {
+    paddingVertical: Sizes.fixPadding - 4,
+    paddingHorizontal: 6
+  },
   container: {
-    borderColor: Colors.primaryLight,
+    borderColor: Colors.primaryDark,
     paddingVertical: 18,
     borderRadius: 20,
     justifyContent: 'center',
     width: '90%',
     paddingVertical: 3,
-    marginLeft: 22,
-    flex: 0.4,
+    marginLeft: 18,
+    marginTop: 10
   },
   dropdown: {
     height: 50,
     borderColor: Colors.primaryLight,
     borderWidth: 2,
     borderRadius: Sizes.fixPadding,
-    width: '90%',
+    width: '100%',
     alignSelf: 'center',
     paddingHorizontal: 8,
   },
@@ -499,16 +532,19 @@ const styles = StyleSheet.create({
   },
   balance: {
     borderRadius: 10,
-    backgroundColor: Colors.gray,
+    backgroundColor: Colors.white,
     padding: 8,
     justifyContent: 'center',
     alignItems: 'center',
+    elevation: 20,
   },
   viwTxt: {
     ...Fonts.white8RobotBold,
-    fontSize: 8,
-    fontWeight: '700',
-    lineHeight: 12,
+    color: Colors.white,
+    fontSize: 16,
+    fontWeight: "700",
+    marginBottom: 5,
+    textAlign: "center"
   },
   buttonContainer: {
     paddingVertical: Sizes.fixPadding * 0.5,
