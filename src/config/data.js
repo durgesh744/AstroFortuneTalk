@@ -110,6 +110,12 @@ export const tabsData = [
     icon: require('../assets/icon/history_icon.png'),
     navigate_to: 'classHistory',
   },
+  {
+    id: 14,
+    name: 'Poojs',
+    icon: require('../assets/icon/kalasha.png'),
+    navigate_to: 'pooja',
+  },
 ];
 
 export const settingsTabsData = [

@@ -22,6 +22,7 @@ import AddRemedy from '../screen/Remedy/AddRemedy';
 import Astromall from '../screen/ECommerce/Astromall';
 import ChatHistory from '../screen/History/ChatHistory';
 import WalletHistory from '../screen/History/WalletHistory';
+import Pooja from '../screen/Pooja/Pooja';
 
 const Stack = createNativeStackNavigator();
 
@@ -55,6 +56,7 @@ const StackNavigator = () => {
       <Stack.Screen name="astromall" component={Astromall} />
       <Stack.Screen name="chatHistory" component={ChatHistory} />
       <Stack.Screen name="walletHistory" component={WalletHistory} />
+      <Stack.Screen name="pooja" component={Pooja} />
 
     </Stack.Navigator>
   );

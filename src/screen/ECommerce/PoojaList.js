@@ -18,6 +18,7 @@ import {
 } from '../../config/Constants';
 import MyStatusBar from '../../component/common/MyStatusBar';
 import Loader from '../../component/common/Loader';
+import MyHeader from '../../component/common/MyHeader';
 
 const PoojaList = ({ navigation }) => {
   const [state, setState] = useState({
