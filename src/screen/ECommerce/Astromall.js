@@ -6,15 +6,15 @@ import {
   Image,
 } from 'react-native';
 import axios from 'axios';
-import {SCREEN_WIDTH} from '../../config/Screen';
-import React, {useState, useEffect} from 'react';
+import { SCREEN_WIDTH } from '../../config/Screen';
+import React, { useState, useEffect } from 'react';
 import Loader from '../../component/common/Loader';
-import {Colors, Sizes, Fonts} from '../../assets/style';
-import {api_url, base_url, get_mall_cat} from '../../config/Constants';
-import MyStatusBar from '../../component/common/MyStatusBar';
+import { Colors, Sizes, Fonts } from '../../assets/style';
 import MyHeader from '../../component/common/MyHeader';
+import MyStatusBar from '../../component/common/MyStatusBar';
+import { api_url, base_url, get_mall_cat } from '../../config/Constants';
 
-const Astromall = ({navigation, route}) => {
+const Astromall = ({ navigation, route }) => {
   const [state, setState] = useState({
     categoryData: null,
     isLoading: false,
@@ -26,40 +26,40 @@ const Astromall = ({navigation, route}) => {
   }, []);
 
   const get_category = async () => {
-    updateState({isLoading: false});
+    updateState({ isLoading: false });
     axios({
       method: 'get',
       url: api_url + get_mall_cat,
     })
       .then(res => {
-        updateState({isLoading: false});
+        updateState({ isLoading: false });
         if (res.data.status) {
-          updateState({categoryData: res.data.data});
+          updateState({ categoryData: res.data.data });
         }
       })
       .catch(err => {
         console.log(err);
-        updateState({isLoading: false});
+        updateState({ isLoading: false });
       });
   };
 
   const updateState = data => {
     setState(prevState => {
-      const newState = {...prevState, ...data};
+      const newState = { ...prevState, ...data };
       return newState;
     });
   };
 
-  const {categoryData, isLoading, selectedItem} = state;
+  const { categoryData, isLoading, selectedItem } = state;
 
   return (
-    <View style={{flex: 1, backgroundColor: Colors.bodyColor}}>
+    <View style={{ flex: 1, backgroundColor: Colors.bodyColor }}>
       <MyStatusBar
         backgroundColor={Colors.primaryDark}
         barStyle={'light-content'}
       />
       <Loader visible={isLoading} />
-      <View style={{flex: 1}}>
+      <View style={{ flex: 1 }}>
         {header()}
         <FlatList
           ListHeaderComponent={<>{categoryData && astromallInfo()}</>}
@@ -97,7 +97,7 @@ const Astromall = ({navigation, route}) => {
       }
     };
 
-    const renderItem = ({item, index}) => {
+    const renderItem = ({ item, index }) => {
       return (
         <TouchableOpacity
           activeOpacity={1}
@@ -121,7 +121,7 @@ const Astromall = ({navigation, route}) => {
               overflow: 'hidden',
             }}>
             <Image
-              source={{uri: base_url + 'admin/' + item.image}}
+              source={{ uri: base_url + 'admin/' + item.image }}
               style={{
                 width: '100%',
                 height: '100%',
@@ -129,7 +129,7 @@ const Astromall = ({navigation, route}) => {
             />
           </View>
 
-          <Text style={[{...Fonts.black14InterMedium}, {textAlign: 'center'}]}>
+          <Text style={[{ ...Fonts.black14InterMedium }, { textAlign: 'center' }]}>
             {item.name}
           </Text>
         </TouchableOpacity>

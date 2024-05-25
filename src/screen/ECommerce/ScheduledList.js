@@ -16,47 +16,13 @@ import MyStatusBar from '../../component/common/MyStatusBar';
 import Loader from '../../component/common/Loader';
 import MyHeader from '../../component/common/MyHeader';
 
-const SceduledList = ({ navigation, providerData }) => {
+const ScheduledList = ({ navigation, providerData }) => {
   const [state, setState] = useState({
     isLoading: false,
     poojaData: null,
     isSpell: false,
     spellData: null,
   });
-
-  useEffect(() => {
-    get_sceduled_list();
-  }, []);
-
-  const get_sceduled_list = async () => {
-    updateState({ isLoading: true });
-    await axios({
-      method: 'post',
-      url: api_url + schedule_a_pooja_astro,
-      headers: {
-        'Content-Type': 'multipart/form-data',
-      },
-      data: {
-        astro_id: providerData?.id,
-      },
-    })
-      .then(res => {
-        updateState({ isLoading: false });
-        if (res.data.status) {
-          const sData = res.data.data.filter(
-            item => item.category_pooja == 'spell',
-          );
-          const nPoojaData = res.data.data.filter(
-            item => item.category_pooja != 'spell',
-          );
-          updateState({ poojaData: nPoojaData, spellData: sData });
-        }
-      })
-      .catch(err => {
-        console.log(err);
-        updateState({ isLoading: false });
-      });
-  };
 
   const updateState = data => {
     setState(prevState => {
@@ -65,7 +31,61 @@ const SceduledList = ({ navigation, providerData }) => {
     });
   };
 
-  const { isLoading, poojaData, isSpell, spellData } = state;
+  const { isLoading, isSpell } = state;
+
+  const spellData = [
+    {
+      id: '1',
+      title: 'Morning Pooja',
+      date: '2024-06-01',
+      time: '08:00 AM',
+      price: '500',
+      is_booked: '1',
+    },
+    {
+      id: '2',
+      title: 'Afternoon Pooja',
+      date: '2024-06-02',
+      time: '02:00 PM',
+      price: '700',
+      is_booked: '0',
+    },
+    {
+      id: '3',
+      title: 'Evening Pooja',
+      date: '2024-06-03',
+      time: '06:00 PM',
+      price: '600',
+      is_booked: '1',
+    },
+  ];
+
+  const poojaData = [
+    {
+      id: '1',
+      title: 'Morning Pooja',
+      date: '2024-06-01',
+      time: '08:00 AM',
+      price: '500',
+      is_booked: '1',
+    },
+    {
+      id: '2',
+      title: 'Afternoon Pooja',
+      date: '2024-06-02',
+      time: '02:00 PM',
+      price: '700',
+      is_booked: '0',
+    },
+    {
+      id: '3',
+      title: 'Evening Pooja',
+      date: '2024-06-03',
+      time: '06:00 PM',
+      price: '600',
+      is_booked: '1',
+    },
+  ];
 
   return (
     <View style={{ flex: 1, backgroundColor: Colors.bodyColor }}>
@@ -75,13 +95,18 @@ const SceduledList = ({ navigation, providerData }) => {
       />
       <Loader visible={isLoading} />
       <View style={{ flex: 1 }}>
-        <MyHeader navigation={navigation} title={'Scheduled list'} />;        {categoryInfo()}
+        <MyHeader navigation={navigation} title={'Scheduled list'} />
+        {categoryInfo()}
         <FlatList
           ListHeaderComponent={
             <>
-              {!isSpell
-                ? poojaData && poojaDataInfo()
-                : spellData && spellDataInfo()}
+              {
+                !isSpell
+                  ?
+                  poojaData && poojaDataInfo()
+                  :
+                  spellData && spellDataInfo()
+              }
             </>
           }
         />
@@ -96,7 +121,7 @@ const SceduledList = ({ navigation, providerData }) => {
           activeOpacity={0.8}
           disabled={item?.is_booked != '1'}
           onPress={() =>
-            navigation.navigate('bookingDetailes', { poojaData: item })
+            navigation.navigate('bookingDetails', { poojaData: item })
           }
           style={styles.itemContainer}>
           <Text
@@ -169,7 +194,7 @@ const SceduledList = ({ navigation, providerData }) => {
           activeOpacity={0.8}
           disabled={item?.is_booked != '1'}
           onPress={() =>
-            navigation.navigate('bookingDetailes', { poojaData: item })
+            navigation.navigate('bookingDetails', { poojaData: item })
           }
           style={styles.itemContainer}>
           <Text
@@ -296,7 +321,7 @@ const mapStateToProps = state => ({
   dashboard: state.provider.dashboard,
 });
 
-export default connect(mapStateToProps, null)(SceduledList);
+export default connect(mapStateToProps, null)(ScheduledList);
 
 const styles = StyleSheet.create({
   itemContainer: {

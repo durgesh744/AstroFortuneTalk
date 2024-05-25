@@ -23,6 +23,9 @@ import Astromall from '../screen/ECommerce/Astromall';
 import ChatHistory from '../screen/History/ChatHistory';
 import WalletHistory from '../screen/History/WalletHistory';
 import Pooja from '../screen/Pooja/Pooja';
+import ScheduledList from '../screen/ECommerce/ScheduledList';
+import BookingDetails from '../screen/ECommerce/BookingDetails';
+import UploadEcommerce from '../screen/ECommerce/UploadEcommerce';
 
 const Stack = createNativeStackNavigator();
 
@@ -56,7 +59,10 @@ const StackNavigator = () => {
       <Stack.Screen name="astromall" component={Astromall} />
       <Stack.Screen name="chatHistory" component={ChatHistory} />
       <Stack.Screen name="walletHistory" component={WalletHistory} />
-      <Stack.Screen name="pooja" component={Pooja} />
+      <Stack.Screen name="pooja" component={Pooja}/>
+      <Stack.Screen name="scheduledList" component={ScheduledList} />
+      <Stack.Screen name="bookingDetails" component={BookingDetails} />
+      <Stack.Screen name="UploadEcommerce" component={UploadEcommerce} />
 
     </Stack.Navigator>
   );

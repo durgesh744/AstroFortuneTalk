@@ -1,9 +1,9 @@
 import React from 'react'
-import { FlatList, Text, View, TouchableOpacity } from 'react-native'
 import { Colors } from '../../assets/style'
 import MyHeader from '../../component/common/MyHeader'
-import MyStatusBar from '../../component/common/MyStatusBar'
 import LinearGradient from 'react-native-linear-gradient'
+import MyStatusBar from '../../component/common/MyStatusBar'
+import { FlatList, Text, View, TouchableOpacity } from 'react-native'
 
 const Pooja = ({ navigation }) => {
 
@@ -16,7 +16,7 @@ const Pooja = ({ navigation }) => {
         {
             id: 1,
             name: 'List of Scheduled Pooja/Spell',
-            navigate_to: 'poojaList',
+            navigate_to: 'scheduledList',
         },
         {
             id: 2,

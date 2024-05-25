@@ -3,19 +3,17 @@ import {
   Text,
   FlatList,
   TouchableOpacity,
-  Image,
   StyleSheet,
-  ImageBackground,
 } from 'react-native';
-import React, { useState, useEffect } from 'react';
-import MyHeader from '../../component/MyHeader';
-import { Colors, Sizes, Fonts } from '../../assets/style';
-import MyStatusBar from '../../component/MyStatusBar';
-import LinearGradient from 'react-native-linear-gradient';
-import axios from 'axios';
-import { api_url, pooja_booking_customer_detail } from '../../config/Constants';
-import Loader from '../../component/Loader';
 import moment from 'moment';
+import axios from 'axios';
+import React, { useState, useEffect } from 'react';
+import MyHeader from '../../component/common/MyHeader';
+import { Colors, Sizes, Fonts } from '../../assets/style';
+import MyStatusBar from '../../component/common/MyStatusBar';
+import LinearGradient from 'react-native-linear-gradient';
+import { api_url, pooja_booking_customer_detail } from '../../config/Constants';
+import Loader from '../../component/common/Loader';
 
 const BookingDetails = ({ navigation, route }) => {
   const [state, setState] = useState({
@@ -24,42 +22,27 @@ const BookingDetails = ({ navigation, route }) => {
     poojaData: route?.params?.poojaData,
   });
 
-  useEffect(() => {
-    get_booking_data();
-  }, []);
+  const { isLoading } = state;
 
-  const get_booking_data = async () => {
-    updateState({ isLoading: true });
-    await axios({
-      method: 'post',
-      url: api_url + pooja_booking_customer_detail,
-      headers: {
-        'Content-Type': 'multipart/form-data',
-      },
-      data: {
-        pooja_id: poojaData?.pooja_id,
-      },
-    })
-      .then(res => {
-        console.log(res.data);
-        updateState({ isLoading: false });
-        if (res.data.status) {
-          updateState({ bookingData: res.data.data[0] });
-        }
-      })
-      .catch(err => {
-        updateState({ isLoading: false });
-        console.log(err);
-      });
+  // Example poojaData (passed through route params)
+  const poojaData = {
+    title: 'Durgesh Chaudhary',
+    date: '2024-06-01',  // date string
+    time: '08:00 AM',    // time string
+    price: '500',
+    pooja_id: '1',
   };
 
-  const updateState = data => {
-    setState(prevState => {
-      const newData = { ...prevState, ...data };
-      return newData;
-    });
+  // Example bookingData (retrieved from the API)
+  const bookingData = {
+    username: 'Durgesh Chaudhary',
+    gender: '1',  // '1' for Male, '2' for Female, or other values
+    date_of_birth: '1990-01-01',  // date string
+    time_of_birth: '07:30',       // time string in 'hh:mm' format
+    birth_place: 'New York',
+    current_address: '123 Main St, New York, NY',
+    occupation: 'Software Engineer',
   };
-  const { isLoading, bookingData, poojaData } = state;
 
   return (
     <View style={{ flex: 1, backgroundColor: Colors.bodyColor }}>
@@ -120,6 +103,7 @@ const BookingDetails = ({ navigation, route }) => {
           padding: Sizes.fixPadding * 1.5,
           backgroundColor: Colors.whiteDark,
           borderRadius: Sizes.fixPadding * 1.5,
+          elevation:2
         }}>
         <Text style={{ ...Fonts.black18RobotoMedium, color: Colors.blackLight }}>
           Paid Amount
@@ -196,7 +180,6 @@ const BookingDetails = ({ navigation, route }) => {
         }}>
         <View
           style={{
-            backgroundColor: Colors.gray4,
             marginHorizontal: Sizes.fixPadding * 2,
             borderRadius: Sizes.fixPadding * 1.4,
             padding: Sizes.fixPadding * 1.5,
@@ -204,11 +187,13 @@ const BookingDetails = ({ navigation, route }) => {
             shadowColor: Colors.blackLight,
             justifyContent: 'center',
             alignItems: 'center',
+            backgroundColor: Colors.whiteDark,
           }}>
           <Text
             style={{
               ...Fonts.primaryDark18RobotoMedium,
               marginBottom: Sizes.fixPadding * 0.5,
+              fontWeight:"700"
             }}>
             {poojaData?.title}
           </Text>
@@ -241,6 +226,7 @@ const BookingDetails = ({ navigation, route }) => {
             ...Fonts.black18RobotoMedium,
             color: '#5DC709',
             textAlign: 'center',
+            fontWeight:"600"
           }}>
           You’ve been Booked for Pooja !!
         </Text>

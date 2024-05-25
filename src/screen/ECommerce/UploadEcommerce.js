@@ -29,7 +29,6 @@ import Loader from '../../component/common/Loader';
 import MyHeader from '../../component/common/MyHeader';
 
 const UploadEcommerce = ({navigation, route}) => {
-  console.log(route?.params?.poojaData);
   const [state, setState] = useState({
     imageData: null,
     vedioData: null,
@@ -262,7 +261,6 @@ const UploadEcommerce = ({navigation, route}) => {
       <TouchableOpacity
         activeOpacity={0.8}
         onPress={() => handleUploadVedio()}
-        // onPress={() => navigation.navigate('poojaHistory')}
         style={{
           marginHorizontal: Sizes.fixPadding * 3,
           marginVertical: Sizes.fixPadding,
