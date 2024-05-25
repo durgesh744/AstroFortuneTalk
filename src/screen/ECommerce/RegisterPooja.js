@@ -12,12 +12,13 @@ import { connect } from 'react-redux';
 import React, { useState } from 'react';
 import { Colors, Sizes, Fonts } from '../../assets/style';
 import Ionicons from 'react-native-vector-icons/Ionicons';
-import LinearGradient from 'react-native-reanimated-carousel';
 import { DateTimePickerAndroid } from '@react-native-community/datetimepicker';
 import { showToastWithGravityAndOffset } from '../../methods/toastMessage';
 import { api_url, schedule_a_pooja } from '../../config/Constants';
 import MyStatusBar from '../../component/common/MyStatusBar';
 import Loader from '../../component/common/Loader';
+import MyHeader from '../../component/common/MyHeader';
+import LinearGradient from 'react-native-linear-gradient';
 
 const RegisterPooja = ({ navigation, route, providerData }) => {
   const [state, setState] = useState({
@@ -97,6 +98,7 @@ const RegisterPooja = ({ navigation, route, providerData }) => {
               {header()}
               {dateTimeInfo()}
               {priceInfo()}
+              {attachment()}
             </>
           }
         />
@@ -104,6 +106,32 @@ const RegisterPooja = ({ navigation, route, providerData }) => {
       {continueButtonInfo()}
     </View>
   );
+
+  function attachment() {
+    return (
+      <View
+        style={{
+          paddingLeft: 20,
+          paddingTop: 10
+        }}
+      >
+        <Text
+          style={{
+            color: Colors.black,
+            paddingBottom: 10,
+            fontSize: 18
+          }}
+        >Attachment(Add Photos)</Text>
+        <TouchableOpacity
+          activeOpacity={0.8}
+          onPress={() => open_time_picker()}
+          style={[styles.attachment, { marginBottom: 20 }]}
+        >
+          <Ionicons name="add" color={Colors.gray} size={80} />
+        </TouchableOpacity>
+      </View>
+    )
+  }
 
   function continueButtonInfo() {
     return (
@@ -133,7 +161,7 @@ const RegisterPooja = ({ navigation, route, providerData }) => {
         <View
           style={[
             styles.row,
-            { justifyContent: 'space-between', marginTop: Sizes.fixPadding * 2 },
+            { justifyContent: 'space-between' },
           ]}>
           <Text style={{ ...Fonts.black16RobotoRegular }}>Price of Pooja</Text>
           <Input
@@ -143,7 +171,7 @@ const RegisterPooja = ({ navigation, route, providerData }) => {
             onChangeText={text => updateState({ price: text })}
             rightIcon={<Text style={{ ...Fonts.gray16RobotoMedium }}>/-</Text>}
             inputStyle={{ ...Fonts.gray14RobotoMedium, textAlign: 'right' }}
-            containerStyle={{ margin: 0, height: 45 }}
+            containerStyle={{ height: 45 }}
             inputContainerStyle={styles.input}
             leftIcon={
               <View style={styles.row}>
@@ -159,23 +187,6 @@ const RegisterPooja = ({ navigation, route, providerData }) => {
               </View>
             }
           />
-          <TouchableOpacity
-            activeOpacity={0.8}
-            style={[
-              styles.dataTimeContainer,
-              { width: '60%', justifyContent: 'flex-start' },
-            ]}>
-            <Text style={{ ...Fonts.gray18RobotoRegular }}>₹</Text>
-            <View
-              style={{
-                width: 1,
-                height: 20,
-                backgroundColor: Colors.gray,
-                marginHorizontal: Sizes.fixPadding * 2,
-              }}
-            />
-            <Text style={{ ...Fonts.gray16RobotoMedium }}>21199/-</Text>
-          </TouchableOpacity>
         </View>
       </View>
     );
@@ -223,11 +234,12 @@ const RegisterPooja = ({ navigation, route, providerData }) => {
             activeOpacity={0.8}
             onPress={() => open_date_picker()}
             style={styles.dataTimeContainer}>
-            <Text style={{ ...Fonts.gray14RobotoMedium }}>
+            <Text style={{ ...Fonts.gray14RobotoMedium, color: Colors.Dark_grayish_red }}>
               {date == null ? 'Date' : moment(date).format('Do MMM YYYY')}
             </Text>
             <Ionicons name="chevron-down" color={Colors.gray} size={20} />
           </TouchableOpacity>
+
           <TouchableOpacity
             activeOpacity={0.8}
             onPress={() => open_time_picker()}
@@ -269,7 +281,7 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     alignItems: 'center',
     justifyContent: 'space-between',
-    padding: Sizes.fixPadding,
+    padding: Sizes.fixPadding * 1.4,
     backgroundColor: Colors.gray4,
     borderRadius: Sizes.fixPadding,
     elevation: 5,
@@ -286,4 +298,12 @@ const styles = StyleSheet.create({
     shadowColor: Colors.blackLight,
     paddingHorizontal: Sizes.fixPadding,
   },
+  attachment: {
+    width: '30%',
+    padding: Sizes.fixPadding,
+    backgroundColor: Colors.gray4,
+    borderRadius: Sizes.fixPadding,
+    elevation: 5,
+    shadowColor: Colors.blackLight,
+  }
 });
