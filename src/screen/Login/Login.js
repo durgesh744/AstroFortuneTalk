@@ -18,9 +18,10 @@ import {
 import axios from 'axios';
 import Loader from '../../component/common/Loader';
 import MyStatusBar from '../../component/common/MyStatusBar';
-import AsyncStorage from '@react-native-async-storage/async-storage';
 import { SCREEN_HEIGHT, SCREEN_WIDTH } from '../../config/Screen';
 import messaging from '@react-native-firebase/messaging';
+import { setItemToLocalStorage } from '../../helper/useLocalStorage';
+import { showToastWithGravityAndOffset } from '../../methods/toastMessage';
 
 const Login = ({ navigation, dispatch }) => {
     const [email, setEmail] = useState('');
@@ -34,7 +35,6 @@ const Login = ({ navigation, dispatch }) => {
 
     const get_token = async () => {
         let fcm_token = await messaging().getToken();
-        console.log(fcm_token)
         setFcmToken(fcm_token);
     };
 
@@ -80,8 +80,9 @@ const Login = ({ navigation, dispatch }) => {
         })
             .then(async res => {
                 if (res.data.success) {
-                    await AsyncStorage.setItem('userData', JSON.stringify(res.data.data));
+                    setItemToLocalStorage("userData", res.data.data)
                     setIsLoading(false);
+                    showToastWithGravityAndOffset("Login successfully")
                     navigation.navigate("Home");
                 } else {
                     setIsLoading(false);

@@ -9,6 +9,6 @@ export const showToastWithGravityAndOffset = (text: string) => {
       25,
       10,
     );
-  } 
+  }
 };
 

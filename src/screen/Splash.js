@@ -2,12 +2,11 @@ import {
   View,
   Image,
 } from 'react-native';
-import { connect } from 'react-redux';
 import React, { useEffect } from 'react';
 import { Colors } from '../assets/style';
 import { SCREEN_WIDTH } from '../config/Screen';
-import LinearGradient from 'react-native-linear-gradient';
 import MyStatusBar from '../component/common/MyStatusBar';
+import LinearGradient from 'react-native-linear-gradient';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 
 const Splash = ({ navigation, route }) => {
@@ -46,12 +45,5 @@ const Splash = ({ navigation, route }) => {
   );
 };
 
-const mapStateToProps = state => ({
-  chatRequestData: state.chat.chatRequestData
-})
-
-const mapDispatchToProps = dispatch => ({ dispatch });
-
-export default connect(mapStateToProps, mapDispatchToProps)(Splash);
-
+export default Splash
 

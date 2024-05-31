@@ -7,21 +7,20 @@ import {
   Alert,
 } from 'react-native';
 import React, { useState } from 'react';
-import axios from 'axios';
+import fetcher from '../../helper/fetcher';
 import Loader from '../../component/common/Loader';
 import { settingsTabsData } from '../../config/Data';
 import { SCREEN_WIDTH } from '../../config/Screen';
-import { useAuth } from '../../context/AuthContext';
 import MyHeader from '../../component/common/MyHeader';
 import { Colors, Sizes, Fonts } from '../../assets/style';
 import MyStatusBar from '../../component/common/MyStatusBar';
-import { api_url, astrologer_logout } from '../../config/Constants';
 import AsyncStorage from '@react-native-async-storage/async-storage';
+import { api_base_url, astrologer_logout } from '../../config/Constants';
+import { showToastWithGravityAndOffset } from '../../methods/toastMessage';
 
 const Settings = ({ navigation }) => {
-  const { user } = useAuth()
-
   const [isLoading, setIsLoading] = useState(false);
+
   const showalert = title => {
     Alert.alert(title, `Are You sure to ${title}`, [
       {
@@ -35,16 +34,7 @@ const Settings = ({ navigation }) => {
 
   const logout = async () => {
     setIsLoading(true);
-    await axios({
-      method: 'post',
-      url: api_url + astrologer_logout,
-      headers: {
-        'Content-Type': 'multipart/form-data',
-      },
-      data: {
-        user_id: user?.data?.user?.id,
-      },
-    })
+    await fetcher.post(api_base_url + astrologer_logout)
       .then(res => {
         setIsLoading(false);
         if (res.status) {
@@ -57,9 +47,10 @@ const Settings = ({ navigation }) => {
       });
   };
 
-  const cleardata = async ({ navigation }) => {
+  const cleardata = async () => {
     await AsyncStorage.clear();
     navigation.navigate('login');
+    showToastWithGravityAndOffset("Logout Successfully")
   };
 
   return (

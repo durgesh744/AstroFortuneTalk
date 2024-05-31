@@ -163,30 +163,12 @@ export const settingsTabsData = [
   },
   {
     id: 9,
-    name: 'Pooja',
-    icon: require('../assets/icon/link.png'),
-    navigate_to: 'poojaList',
-  },
-  {
-    id: 10,
-    name: 'Scheduled Pooja',
-    icon: require('../assets/icon/link.png'),
-    navigate_to: 'sceduledList',
-  },
-  {
-    id: 11,
-    name: 'Pooja History',
-    icon: require('../assets/icon/link.png'),
-    navigate_to: 'poojaHistory',
-  },
-  {
-    id: 15,
     name: 'Delete Account',
     icon: require('../assets/icon/deleteaccount_icon.png'),
     navigate_to: 'classHistory',
   },
   {
-    id: 16,
+    id: 10,
     name: 'Logout',
     icon: require('../assets/icon/logout_icon.png'),
     navigate_to: 'classHistory',
