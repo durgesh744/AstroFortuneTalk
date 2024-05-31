@@ -21,7 +21,7 @@ const Pooja = ({ navigation }) => {
         {
             id: 2,
             name: 'Pooja/Spell History',
-            navigate_to: 'poojaList',
+            navigate_to: 'poojaHistory',
         },
     ]
 

@@ -12,11 +12,11 @@ import React, {useState, useEffect} from 'react';
 import {Colors, Sizes, Fonts} from '../../assets/style';
 import LinearGradient from 'react-native-linear-gradient';
 import {SCREEN_WIDTH} from '../../config/Screen';
-import ImageView from '../../component/ImageView';
-import VedioPlayer from '../../component/VedioPlayer';
+import ImageView from '../../component/ui/ImageView';
 import {createThumbnail} from 'react-native-create-thumbnail';
 import {ActivityIndicator} from 'react-native-paper';
 import MyStatusBar from '../../component/common/MyStatusBar';
+import CustomVideoPlayer from '../../component/ui/VideoPlayer';
 
 const VedioComponent = ({item, updateState}) => {
   const [imageData, setImageData] = useState(null);
@@ -120,7 +120,7 @@ const HistoryDetails = ({navigation, route}) => {
         image={image}
         imageVisible={imageVisible}
       />
-      <VedioPlayer
+      <CustomVideoPlayer
         videoVisible={videoVisible}
         updateState={updateState}
         uri={vedioUri}

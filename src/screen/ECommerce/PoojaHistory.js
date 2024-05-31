@@ -13,6 +13,7 @@ import {Colors, Sizes, Fonts} from '../../assets/style';
 import {api_url, astro_history_pooja} from '../../config/Constants';
 import MyStatusBar from '../../component/common/MyStatusBar';
 import Loader from '../../component/common/Loader';
+import MyHeader from '../../component/common/MyHeader';
 
 const listData = [
   {
@@ -36,7 +37,7 @@ const listData = [
 const PoojaHistory = ({navigation, providerData}) => {
   const [state, setState] = useState({
     isLoading: false,
-    historyData: null,
+    historyData: listData,
   });
 
   useEffect(() => {
@@ -56,10 +57,9 @@ const PoojaHistory = ({navigation, providerData}) => {
       },
     })
       .then(res => {
-        console.log(res.data.data);
         updateState({isLoading: false});
         if (res.data.status) {
-          updateState({historyData: res.data.data});
+          // updateState({historyData: res.data.data});
         }
       })
       .catch(err => {
@@ -111,7 +111,7 @@ const PoojaHistory = ({navigation, providerData}) => {
                 ...Fonts.primaryDark16RobotoMedium,
                 marginBottom: Sizes.fixPadding,
               }}>
-              {item?.pooja_detail[0]?.title}
+              {item?.pooja_name}
             </Text>
             <Text
               style={{

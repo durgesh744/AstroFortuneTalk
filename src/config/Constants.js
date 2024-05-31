@@ -1,6 +1,7 @@
 // export const base_url = 'http://10.0.2.2:6000/api/v1';
 // export const base_url = 'https://fortunetalk-backend.onrender.com/api/v1';
 export const base_url = 'https://fortunetalk.co/fortunetalktest/'
+export const api_base_url = 'https://fortund-backend.onrender.com/api/app'
 
 export const api_url = 'https://fortunetest.fortunetalk.co.in/api/';
 
@@ -11,7 +12,7 @@ export const chat_base_url = "http://10.0.2.2:3000/";
 export const terms = 'api/terms';
 export const astrologer_logout = 'api2/logout';
 export const get_request = 'api/get_call_chat_req';
-export const astrologer_login = '/astrologer/login';
+export const astrologer_login = '/login-astrologer';
 export const get_PDF = 'AstroController/getAstrologerPdf';
 export const update_mobile_mumber = 'AstroController/mobileNoUpdate';
 export const upload_gallery_photo = 'AstroController/uploadImage';

@@ -7,24 +7,36 @@ import {
     Alert,
     ScrollView,
 } from 'react-native';
-import React, { createRef, useState } from 'react';
+import React, { createRef, useState, useEffect } from 'react';
 import { Colors, Fonts, Sizes } from '../../assets/style';
 import LinearGradient from 'react-native-linear-gradient';
 import { Divider, Input } from '@rneui/themed';
 import {
+    api_base_url,
     astrologer_login,
-    base_url,
 } from '../../config/Constants';
 import axios from 'axios';
 import Loader from '../../component/common/Loader';
 import MyStatusBar from '../../component/common/MyStatusBar';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import { SCREEN_HEIGHT, SCREEN_WIDTH } from '../../config/Screen';
+import messaging from '@react-native-firebase/messaging';
 
 const Login = ({ navigation, dispatch }) => {
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
     const [isLoading, setIsLoading] = useState(false);
+    const [fcmToken, setFcmToken] = useState('testok');
+
+    useEffect(() => {
+        get_token();
+    }, []);
+
+    const get_token = async () => {
+        let fcm_token = await messaging().getToken();
+        console.log(fcm_token)
+        setFcmToken(fcm_token);
+    };
 
     const email_validation = e => {
         let email = e;
@@ -56,18 +68,19 @@ const Login = ({ navigation, dispatch }) => {
         setIsLoading(true);
         await axios({
             method: 'post',
-            url: base_url + astrologer_login,
+            url: api_base_url + astrologer_login,
             headers: {
                 'Content-Type': 'application/json',
             },
             data: {
                 email: email,
                 password: password,
+                fcmToken: fcmToken
             },
         })
             .then(async res => {
-                if (res.data?.success) {
-                    await AsyncStorage.setItem('user', JSON.stringify(res?.data));
+                if (res.data.success) {
+                    await AsyncStorage.setItem('userData', JSON.stringify(res.data.data));
                     setIsLoading(false);
                     navigation.navigate("Home");
                 } else {

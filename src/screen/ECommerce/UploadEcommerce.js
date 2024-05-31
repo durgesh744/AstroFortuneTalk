@@ -13,7 +13,6 @@ import * as ImagePicker from 'react-native-image-picker';
 import AntDesign from 'react-native-vector-icons/AntDesign';
 import LinearGradient from 'react-native-linear-gradient';
 import {TextInput} from 'react-native';
-import VedioPlayer from '../../component/VedioPlayer';
 import * as Progress from 'react-native-progress';
 import RNFetchBlob from 'rn-fetch-blob';
 import {
@@ -27,6 +26,7 @@ import {CommonActions} from '@react-navigation/native';
 import MyStatusBar from '../../component/common/MyStatusBar';
 import Loader from '../../component/common/Loader';
 import MyHeader from '../../component/common/MyHeader';
+import CustomVideoPlayer from '../../component/ui/VideoPlayer';
 
 const UploadEcommerce = ({navigation, route}) => {
   const [state, setState] = useState({
@@ -248,7 +248,7 @@ const UploadEcommerce = ({navigation, route}) => {
 
   function vedioPlayerInfo() {
     return (
-      <VedioPlayer
+      <CustomVideoPlayer
         videoVisible={videoVisible}
         updateState={updateState}
         uri={vedioUri}

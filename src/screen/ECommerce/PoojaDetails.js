@@ -23,6 +23,7 @@ const PoojaDetails = ({ navigation, route }) => {
     paginationIndex: 0,
     poojaData: route?.params?.poojaData,
   });
+  
   useEffect(() => { }, [paginationIndex]);
 
   const updateState = data => {
