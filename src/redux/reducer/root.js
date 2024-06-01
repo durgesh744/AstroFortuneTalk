@@ -1,10 +1,8 @@
-import chat from './chat';
-import provider from './provider';
 import {combineReducers} from 'redux';
 import {CLEAN_STORE} from '../actionTypes/ProviderActionTypes';
+import provider from './provider';
 
 const rootReducer = combineReducers({
-  chat,
   provider,
 });
 

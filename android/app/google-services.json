@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "772063637988",
+    "project_id": "astrofortunetalk",
+    "storage_bucket": "astrofortunetalk.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:772063637988:android:3e2c19eccf49654f4057f1",
+        "android_client_info": {
+          "package_name": "com.AstroFortuneTalk"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDUSbGbkCjl7LGWBPDg98DwsfgZbvNfcKA"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

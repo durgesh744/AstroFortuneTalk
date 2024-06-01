@@ -7,19 +7,19 @@ import {
     Alert,
     ScrollView,
 } from 'react-native';
+import axios from 'axios';
+import { Divider, Input } from '@rneui/themed';
+import Loader from '../../component/common/Loader';
+import messaging from '@react-native-firebase/messaging';
 import React, { createRef, useState, useEffect } from 'react';
 import { Colors, Fonts, Sizes } from '../../assets/style';
 import LinearGradient from 'react-native-linear-gradient';
-import { Divider, Input } from '@rneui/themed';
 import {
     api_base_url,
     astrologer_login,
 } from '../../config/Constants';
-import axios from 'axios';
-import Loader from '../../component/common/Loader';
 import MyStatusBar from '../../component/common/MyStatusBar';
 import { SCREEN_HEIGHT, SCREEN_WIDTH } from '../../config/Screen';
-import messaging from '@react-native-firebase/messaging';
 import { setItemToLocalStorage } from '../../helper/useLocalStorage';
 import { showToastWithGravityAndOffset } from '../../methods/toastMessage';
 

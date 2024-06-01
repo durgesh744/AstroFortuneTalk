@@ -29,12 +29,6 @@ const provider = (state = initialState, action) => {
         firebaseId: payload,
       };
 
-    case actionTypes.SET_CHAT_REQUEST:
-      return {
-        ...state,
-        requestData: payload,
-      };
-
     case actionTypes.IS_LOADING:
       return {
         ...state,

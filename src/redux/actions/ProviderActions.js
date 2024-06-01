@@ -20,11 +20,3 @@ export const setIsLoading = payload => ({
   payload,
 });
 
-export const setChatRequest = payload => ({
-  type: actionTypes.SET_CHAT_REQUEST,
-  payload,
-});
-
-export const setCleanStore = () => ({
-  type: actionTypes.CLEAN_STORE,
-});
