@@ -1,30 +1,30 @@
 import React from 'react'
-import { Dimensions, Text, TouchableOpacity, View } from 'react-native'
-import { Colors, Fonts } from '../../assets/style'
-
-const { width, height } = Dimensions.get('screen');
+import { Text, TouchableOpacity, View } from 'react-native'
+import { Colors, Fonts, Sizes } from '../../assets/style'
+import LinearGradient from 'react-native-linear-gradient';
 
 const CustomButton = ({ handleSend, btnName }) => {
     return (
-        <View
+        <TouchableOpacity
+            onPress={() => handleSend()}
             style={{
-                justifyContent: 'flex-end',
-                alignItems: 'center',
+                width: '70%',
+                marginVertical: Sizes.fixPadding * 2,
+                alignSelf: 'center',
+                marginBottom: Sizes.fixPadding * 7.0,
             }}>
-            <TouchableOpacity
-                onPress={() => handleSend()}
+            <LinearGradient
+                colors={[Colors.primaryLight, Colors.primaryDark]}
                 style={{
-                    backgroundColor: Colors.primaryDark,
-                    alignItems: 'center',
-                    justifyContent: 'center',
-                    borderRadius: 30,
-                    height: width * 0.13,
-                    width: '70%',
-                    paddingHorizontal: 15,
+                    width: '100%',
+                    paddingVertical: Sizes.fixPadding,
+                    borderRadius: Sizes.fixPadding * 1.5,
                 }}>
-                <Text style={Fonts.white16RobotoMedium}>{btnName}</Text>
-            </TouchableOpacity>
-        </View>
+                <Text style={{ ...Fonts.white18RobotBold, textAlign: 'center' }}>
+                    {btnName}
+                </Text>
+            </LinearGradient>
+        </TouchableOpacity>
     )
 }
 

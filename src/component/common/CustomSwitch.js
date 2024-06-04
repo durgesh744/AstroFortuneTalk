@@ -3,7 +3,7 @@ import { View } from 'react-native'
 import { Switch } from 'react-native-switch';
 import { Colors } from '../../assets/style';
 
-const CustomSwitch = ({active, change_status}) => {
+const CustomSwitch = ({ active, change_status }) => {
     return (
         <View
             style={{ flex: 0.2, justifyContent: 'center', alignItems: 'center' }}>

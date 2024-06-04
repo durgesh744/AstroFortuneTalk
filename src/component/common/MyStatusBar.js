@@ -1,7 +1,7 @@
-import {View, Text, StatusBar} from 'react-native';
+import { StatusBar } from 'react-native';
 import React from 'react';
 
-const MyStatusBar = ({backgroundColor, barStyle, translucent}) => {
+const MyStatusBar = ({ backgroundColor, barStyle, translucent }) => {
   return (
     <StatusBar
       backgroundColor={backgroundColor}

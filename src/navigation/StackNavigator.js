@@ -1,6 +1,5 @@
 import React from 'react';
 import Splash from '../screen/Splash';
-import Remedy from '../screen/Remedy';
 import Home from '../screen/Home/Home';
 import Login from '../screen/Login/Login';
 import Pooja from '../screen/Pooja/Pooja';
@@ -27,7 +26,7 @@ import ScheduledList from '../screen/ECommerce/ScheduledList';
 import BookingDetails from '../screen/ECommerce/BookingDetails';
 import UploadEcommerce from '../screen/ECommerce/UploadEcommerce';
 import PoojaHistory from '../screen/ECommerce/PoojaHistory';
-// import HistoryDetails from '../screen/ECommerce/HistoryDetails';
+import Remedy from '../screen/Remedy/Remedy';
 
 const Stack = createNativeStackNavigator();
 
@@ -66,7 +65,6 @@ const StackNavigator = () => {
       <Stack.Screen name="bookingDetails" component={BookingDetails} />
       <Stack.Screen name="uploadEcommerce" component={UploadEcommerce} />
       <Stack.Screen name="poojaHistory" component={PoojaHistory} />
-      {/* <Stack.Screen name="historyDetails" component={HistoryDetails} /> */}
 
     </Stack.Navigator>
   );

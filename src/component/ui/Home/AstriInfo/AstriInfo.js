@@ -1,6 +1,5 @@
-import { Divider } from '@rneui/themed';
 import { Image, Text, TouchableOpacity, View } from 'react-native';
-import { Colors, Fonts, Sizes } from '../../../../assets/style';
+import { Colors, Fonts } from '../../../../assets/style';
 import { SCREEN_HEIGHT, SCREEN_WIDTH } from '../../../../config/Screen';
 
 const AstriInfo = ({ providerData }) => {
@@ -76,18 +75,6 @@ const AstriInfo = ({ providerData }) => {
                             ID-
                             {/* {providerData?.unique_id} */}
                         </Text>
-                    </View>
-                    <View style={{ flexDirection: 'row', justifyContent: 'center' }}>
-                        <Divider
-                            orientation="vertical"
-                            style={{ marginHorizontal: Sizes.fixPadding }}
-                            width={1}
-                            color={Colors.grayLight}
-                        />
-                        <Image
-                            source={require('../../../../assets/icon/search.png')}
-                            style={{ alignSelf: 'center' }}
-                        />
                     </View>
                 </View>
             </View>

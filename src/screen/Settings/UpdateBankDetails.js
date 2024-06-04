@@ -15,7 +15,7 @@ import Ionicons from 'react-native-vector-icons/Ionicons';
 import { Menu, MenuItem, MenuDivider } from 'react-native-material-menu';
 import { api_url, update_bank_details } from '../../config/Constants';
 import { Checkbox } from 'react-native-paper';
-import { commonStyles } from '../../assets/commonStyle';
+import { commonStyles } from '../../assets/global';
 import MyStatusBar from '../../component/common/MyStatusBar';
 import MyHeader from '../../component/common/MyHeader';
 import Loader from '../../component/common/Loader';
