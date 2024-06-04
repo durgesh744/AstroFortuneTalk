@@ -1,6 +1,6 @@
-import { Dimensions, StyleSheet } from "react-native";
+import { StyleSheet } from "react-native";
 import { Colors } from "./style";
-const { width, height } = Dimensions.get('screen');
+import { SCREEN_WIDTH } from "../config/Screen";
 
 export const commonStyles = StyleSheet.create({
     inputbox1: {
@@ -10,7 +10,7 @@ export const commonStyles = StyleSheet.create({
         justifyContent: 'space-between',
         borderRadius: 15,
         elevation: 5,
-        height: width * 0.14,
+        height: SCREEN_WIDTH * 0.14,
         width: '100%',
         marginVertical: 10,
         paddingHorizontal: 10,
