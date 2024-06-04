@@ -1,6 +1,6 @@
 import {combineReducers} from 'redux';
-import {CLEAN_STORE} from '../actionTypes/ProviderActionTypes';
-import provider from './provider';
+import {CLEAN_STORE} from '../actionTypes/actionTypes';
+import provider from './auth';
 
 const rootReducer = combineReducers({
   provider,

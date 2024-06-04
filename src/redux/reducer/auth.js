@@ -1,4 +1,4 @@
-import * as actionTypes from '../actionTypes/ProviderActionTypes';
+import * as actionTypes from '../actionTypes/actionTypes';
 
 const initialState = {
   id: null,

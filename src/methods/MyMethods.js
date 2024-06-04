@@ -6,7 +6,6 @@ class _MyMethods {
     //const yesterday = new Date();
     const yesterday = new Date(today);
     yesterday.setDate(today.getDate() - 1);
-    console.log(yesterday);
     const months = [];
 
     // Add current month
@@ -35,9 +34,6 @@ class _MyMethods {
         value: nextMonth.toISOString().split('T')[0],
       });
     }
-
-    // Add custom month (e.g., 7 months from today)
-
     return months;
   };
 
