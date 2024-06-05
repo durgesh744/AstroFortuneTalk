@@ -7,13 +7,13 @@ import {
 } from 'react-native';
 import axios from 'axios';
 import moment from 'moment';
-import {connect} from 'react-redux';
-import React, {useState, useEffect} from 'react';
-import {Colors, Sizes, Fonts} from '../../assets/style';
-import {api_url, astro_history_pooja} from '../../config/Constants';
-import MyStatusBar from '../../component/common/MyStatusBar';
+import { connect } from 'react-redux';
 import Loader from '../../component/common/Loader';
+import React, { useState, useEffect } from 'react';
 import MyHeader from '../../component/common/MyHeader';
+import { Colors, Sizes, Fonts } from '../../assets/style';
+import MyStatusBar from '../../component/common/MyStatusBar';
+import { api_url, astro_history_pooja } from '../../config/Constants';
 
 const listData = [
   {
@@ -34,7 +34,7 @@ const listData = [
   },
 ];
 
-const PoojaHistory = ({navigation, providerData}) => {
+const PoojaHistory = ({ navigation, providerData }) => {
   const [state, setState] = useState({
     isLoading: false,
     historyData: listData,
@@ -45,7 +45,7 @@ const PoojaHistory = ({navigation, providerData}) => {
   }, []);
 
   const get_pooja_history = async () => {
-    updateState({isLoading: true});
+    updateState({ isLoading: true });
     await axios({
       method: 'post',
       url: api_url + astro_history_pooja,
@@ -57,34 +57,34 @@ const PoojaHistory = ({navigation, providerData}) => {
       },
     })
       .then(res => {
-        updateState({isLoading: false});
+        updateState({ isLoading: false });
         if (res.data.status) {
           // updateState({historyData: res.data.data});
         }
       })
       .catch(err => {
         console.log(err);
-        updateState({isLoading: false});
+        updateState({ isLoading: false });
       });
   };
 
   const updateState = data => {
     setState(prevState => {
-      const newData = {...prevState, ...data};
+      const newData = { ...prevState, ...data };
       return newData;
     });
   };
 
-  const {isLoading, historyData} = state;
+  const { isLoading, historyData } = state;
 
   return (
-    <View style={{flex: 1, backgroundColor: Colors.bodyColor}}>
+    <View style={{ flex: 1, backgroundColor: Colors.bodyColor }}>
       <MyStatusBar
         backgroundColor={Colors.primaryDark}
         barStyle={'light-content'}
       />
       <Loader visible={isLoading} />
-      <View style={{flex: 1}}>
+      <View style={{ flex: 1 }}>
         {header()}
         <FlatList ListHeaderComponent={<>{historyData && listInfo()}</>} />
       </View>
@@ -92,11 +92,11 @@ const PoojaHistory = ({navigation, providerData}) => {
   );
 
   function listInfo() {
-    const renderItem = ({item, index}) => {
+    const renderItem = ({ item, index }) => {
       return (
         <TouchableOpacity
           onPress={() =>
-            navigation.navigate('historyDetails', {poojaData: item})
+            navigation.navigate('historyDetails', { poojaData: item })
           }
           style={styles.itemContainer}>
           <View
@@ -184,8 +184,7 @@ const PoojaHistory = ({navigation, providerData}) => {
 };
 
 const mapStateToProps = state => ({
-  providerData: state.provider.providerData,
-  dashboard: state.provider.dashboard,
+  authData: state.authProvider.authData,
 });
 
 export default connect(mapStateToProps, null)(PoojaHistory);

@@ -8,7 +8,7 @@ const CustomButton = ({ handleSend, btnName }) => {
         <TouchableOpacity
             onPress={handleSend}
             style={{
-                width: '70%',
+                width: '80%',
                 marginVertical: Sizes.fixPadding * 0.5,
                 alignSelf: 'center',
             }}>

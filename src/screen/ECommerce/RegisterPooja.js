@@ -44,7 +44,7 @@ const RegisterPooja = ({ navigation, route, authData }) => {
   };
 
   const update_pooja_details = async () => {
-    navigation.navigate('sceduledList');
+    navigation.navigate('scheduledList');
     // if (validation()) {
     //   updateState({ isLoading: true });
     //   await axios({

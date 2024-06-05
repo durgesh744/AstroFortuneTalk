@@ -16,6 +16,7 @@ import { SafeAreaView } from 'react-native-safe-area-context';
 import { useSharedValue } from 'react-native-reanimated';
 import Carousel from 'react-native-reanimated-carousel';
 import { provider_img_url } from '../../config/Constants';
+import CustomButton from '../../component/common/CustomButton';
 
 const PoojaDetails = ({ navigation, route }) => {
   const progressValue = useSharedValue(0);
@@ -23,7 +24,7 @@ const PoojaDetails = ({ navigation, route }) => {
     paginationIndex: 0,
     poojaData: route?.params?.poojaData,
   });
-  
+
   useEffect(() => { }, [paginationIndex]);
 
   const updateState = data => {
@@ -61,25 +62,12 @@ const PoojaDetails = ({ navigation, route }) => {
 
   function continueButtonInfo() {
     return (
-      <TouchableOpacity
-        activeOpacity={0.8}
-        onPress={() =>
-          navigation.navigate('registerPooja', { pooja_id: poojaData?.id })
-        }
-        style={{
-          marginHorizontal: Sizes.fixPadding * 3,
-          marginVertical: Sizes.fixPadding,
-          borderRadius: 1000,
-          overflow: 'hidden',
-        }}>
-        <LinearGradient
-          colors={[Colors.primaryDark, Colors.primaryDark]}
-          style={{ paddingVertical: Sizes.fixPadding }}>
-          <Text style={{ ...Fonts.white18RobotMedium, textAlign: 'center' }}>
-            Schedule a Pooja
-          </Text>
-        </LinearGradient>
-      </TouchableOpacity>
+      <View>
+        <CustomButton
+          handleSend={() => navigation.navigate('registerPooja', { pooja_id: poojaData?.id })}
+          btnName={"Schedule a Pooja "}
+        />
+      </View>
     );
   }
 

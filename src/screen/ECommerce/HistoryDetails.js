@@ -8,75 +8,18 @@ import {
   ImageBackground,
 } from 'react-native';
 import moment from 'moment';
-import React, {useState, useEffect} from 'react';
-import {Colors, Sizes, Fonts} from '../../assets/style';
+import React, { useState, useEffect } from 'react';
+import { Colors, Sizes, Fonts } from '../../assets/style';
 import LinearGradient from 'react-native-linear-gradient';
-import {SCREEN_WIDTH} from '../../config/Screen';
+import { SCREEN_WIDTH } from '../../config/Screen';
 import ImageView from '../../component/ui/ImageView';
-import {createThumbnail} from 'react-native-create-thumbnail';
-import {ActivityIndicator} from 'react-native-paper';
+import { createThumbnail } from 'react-native-create-thumbnail';
+import { ActivityIndicator } from 'react-native-paper';
 import MyStatusBar from '../../component/common/MyStatusBar';
 import CustomVideoPlayer from '../../component/ui/VideoPlayer';
+import MyHeader from '../../component/common/MyHeader';
 
-const VedioComponent = ({item, updateState}) => {
-  const [imageData, setImageData] = useState(null);
-  const [imageLoading, setImageLoading] = useState(false);
-
-  useEffect(() => {
-    try {
-      setImageLoading(true);
-      createThumbnail({
-        url: `http://fortunetest.fortunetalk.co.in/api/uploads/pooja_uploads/${item.video}`,
-        timeStamp: 10000,
-      })
-        .then(response => setImageData(response.path), setImageLoading(false))
-        .catch(err => console.log({err}), setImageLoading(false));
-    } catch (e) {
-      setImageLoading(false);
-      console.log(e);
-    }
-  }, []);
-
-  return (
-    <TouchableOpacity
-      activeOpacity={0.8}
-      onPress={() =>
-        updateState({
-          vedioUri: `http://fortunetest.fortunetalk.co.in/api/uploads/pooja_uploads/${item.video}`,
-          videoVisible: true,
-        })
-      }
-      style={{
-        width: SCREEN_WIDTH * 0.42,
-        height: SCREEN_WIDTH * 0.42,
-        justifyContent: 'center',
-        alignItems: 'center',
-        marginBottom: Sizes.fixPadding,
-      }}>
-      {imageLoading ? (
-        <ActivityIndicator size="small" color={Colors.primaryDark} />
-      ) : (
-        <ImageBackground
-          source={{
-            uri: imageData,
-          }}
-          style={{
-            width: '100%',
-            height: '100%',
-            justifyContent: 'center',
-            alignItems: 'center',
-          }}>
-          <Image
-            source={require('../../assets/icon/vedio_play.png')}
-            style={{width: 40, height: 40}}
-          />
-        </ImageBackground>
-      )}
-    </TouchableOpacity>
-  );
-};
-
-const HistoryDetails = ({navigation, route}) => {
+const HistoryDetails = ({ navigation, route }) => {
   const [state, setState] = useState({
     poojaData: route?.params?.poojaData,
     imageVisible: false,
@@ -87,20 +30,20 @@ const HistoryDetails = ({navigation, route}) => {
 
   const updateState = data => {
     setState(prevState => {
-      const newData = {...prevState, ...data};
+      const newData = { ...prevState, ...data };
       return newData;
     });
   };
 
-  const {poojaData, imageVisible, image, vedioUri, videoVisible} = state;
+  const { poojaData, imageVisible, image, vedioUri, videoVisible } = state;
 
   return (
-    <View style={{flex: 1, backgroundColor: Colors.bodyColor}}>
+    <View style={{ flex: 1, backgroundColor: Colors.bodyColor }}>
       <MyStatusBar
         backgroundColor={Colors.primaryDark}
         barStyle={'light-content'}
       />
-      <View style={{flex: 1}}>
+      <View style={{ flex: 1 }}>
         {header()}
         <FlatList
           ListHeaderComponent={
@@ -136,11 +79,11 @@ const HistoryDetails = ({navigation, route}) => {
           marginVertical: Sizes.fixPadding,
         }}>
         <Text
-          style={{...Fonts.gray16RobotoMedium, marginBottom: Sizes.fixPadding}}>
+          style={{ ...Fonts.gray16RobotoMedium, marginBottom: Sizes.fixPadding }}>
           Message received from Astrologer
         </Text>
 
-        <Text style={{...Fonts.gray12RobotoMedium, color: Colors.blackLight}}>
+        <Text style={{ ...Fonts.gray12RobotoMedium, color: Colors.blackLight }}>
           {poojaData?.desc?.description}
         </Text>
       </View>
@@ -148,7 +91,7 @@ const HistoryDetails = ({navigation, route}) => {
   }
 
   function vedioGallaryInfo() {
-    const renderItem = ({item, index}) => {
+    const renderItem = ({ item, index }) => {
       return <VedioComponent item={item} updateState={updateState} />;
     };
     return (
@@ -158,21 +101,21 @@ const HistoryDetails = ({navigation, route}) => {
           marginVertical: Sizes.fixPadding,
         }}>
         <Text
-          style={{...Fonts.gray16RobotoMedium, marginBottom: Sizes.fixPadding}}>
+          style={{ ...Fonts.gray16RobotoMedium, marginBottom: Sizes.fixPadding }}>
           Videos
         </Text>
         <FlatList
           data={poojaData?.video}
           renderItem={renderItem}
           numColumns={3}
-          columnWrapperStyle={{justifyContent: 'space-evenly'}}
+          columnWrapperStyle={{ justifyContent: 'space-evenly' }}
         />
       </View>
     );
   }
 
   function photoGallaryInfo() {
-    const renderItem = ({item, index}) => {
+    const renderItem = ({ item, index }) => {
       return (
         <TouchableOpacity
           activeOpacity={0.8}
@@ -182,14 +125,14 @@ const HistoryDetails = ({navigation, route}) => {
               imageVisible: true,
             })
           }
-          style={{width: SCREEN_WIDTH * 0.3, height: SCREEN_WIDTH * 0.3}}>
+          style={{ width: SCREEN_WIDTH * 0.3, height: SCREEN_WIDTH * 0.3 }}>
           <Image
             source={{
               uri:
                 'http://fortunetest.fortunetalk.co.in/api/uploads/pooja_uploads/' +
                 item.image,
             }}
-            style={{width: '100%', height: '100%'}}
+            style={{ width: '100%', height: '100%' }}
           />
         </TouchableOpacity>
       );
@@ -201,14 +144,14 @@ const HistoryDetails = ({navigation, route}) => {
           marginVertical: Sizes.fixPadding,
         }}>
         <Text
-          style={{...Fonts.gray16RobotoMedium, marginBottom: Sizes.fixPadding}}>
+          style={{ ...Fonts.gray16RobotoMedium, marginBottom: Sizes.fixPadding }}>
           Photos
         </Text>
         <FlatList
           data={poojaData?.pooja_image}
           renderItem={renderItem}
           numColumns={3}
-          columnWrapperStyle={{justifyContent: 'space-evenly'}}
+          columnWrapperStyle={{ justifyContent: 'space-evenly' }}
         />
       </View>
     );
@@ -236,11 +179,11 @@ const HistoryDetails = ({navigation, route}) => {
             shadowColor: Colors.blackLight,
           }}>
           <Text
-            style={{...Fonts.black16RobotoMedium, color: Colors.blackLight}}>
+            style={{ ...Fonts.black16RobotoMedium, color: Colors.blackLight }}>
             Paid Amount
           </Text>
           <Text
-            style={{...Fonts.black16RobotoMedium, color: Colors.blackLight}}>
+            style={{ ...Fonts.black16RobotoMedium, color: Colors.blackLight }}>
             ₹ {poojaData?.price}/-
           </Text>
         </View>
@@ -255,7 +198,7 @@ const HistoryDetails = ({navigation, route}) => {
           margin: Sizes.fixPadding * 2,
           marginBottom: Sizes.fixPadding,
         }}>
-        <Text style={{...Fonts.gray16RobotoMedium}}>Profile Details:</Text>
+        <Text style={{ ...Fonts.gray16RobotoMedium }}>Profile Details:</Text>
         <View style={styles.itemContainer}>
           <Text style={styles.child}>Name</Text>
           <Text style={styles.colon}>:</Text>
@@ -268,8 +211,8 @@ const HistoryDetails = ({navigation, route}) => {
             {poojaData?.customer?.gender == '1'
               ? 'Male'
               : poojaData?.customer?.gender == '2'
-              ? 'Female'
-              : poojaData?.customer?.gender}
+                ? 'Female'
+                : poojaData?.customer?.gender}
           </Text>
         </View>
         <View style={styles.itemContainer}>
@@ -317,7 +260,7 @@ const HistoryDetails = ({navigation, route}) => {
     return (
       <LinearGradient
         colors={[Colors.primaryLight, Colors.primaryDark]}
-        style={{padding: Sizes.fixPadding * 1.5}}>
+        style={{ padding: Sizes.fixPadding * 1.5 }}>
         <Text
           style={{
             ...Fonts.white14RobotoMedium,
@@ -335,6 +278,64 @@ const HistoryDetails = ({navigation, route}) => {
   }
 };
 
+const VedioComponent = ({ item, updateState }) => {
+  const [imageData, setImageData] = useState(null);
+  const [imageLoading, setImageLoading] = useState(false);
+
+  useEffect(() => {
+    try {
+      setImageLoading(true);
+      createThumbnail({
+        url: `http://fortunetest.fortunetalk.co.in/api/uploads/pooja_uploads/${item.video}`,
+        timeStamp: 10000,
+      })
+        .then(response => setImageData(response.path), setImageLoading(false))
+        .catch(err => console.log({ err }), setImageLoading(false));
+    } catch (e) {
+      setImageLoading(false);
+      console.log(e);
+    }
+  }, []);
+
+  return (
+    <TouchableOpacity
+      activeOpacity={0.8}
+      onPress={() =>
+        updateState({
+          vedioUri: `http://fortunetest.fortunetalk.co.in/api/uploads/pooja_uploads/${item.video}`,
+          videoVisible: true,
+        })
+      }
+      style={{
+        width: SCREEN_WIDTH * 0.42,
+        height: SCREEN_WIDTH * 0.42,
+        justifyContent: 'center',
+        alignItems: 'center',
+        marginBottom: Sizes.fixPadding,
+      }}>
+      {imageLoading ? (
+        <ActivityIndicator size="small" color={Colors.primaryDark} />
+      ) : (
+        <ImageBackground
+          source={{
+            uri: imageData,
+          }}
+          style={{
+            width: '100%',
+            height: '100%',
+            justifyContent: 'center',
+            alignItems: 'center',
+          }}>
+          <Image
+            source={require('../../assets/icon/vedio_play.png')}
+            style={{ width: 40, height: 40 }}
+          />
+        </ImageBackground>
+      )}
+    </TouchableOpacity>
+  );
+};
+
 export default HistoryDetails;
 
 const styles = StyleSheet.create({
@@ -348,7 +349,7 @@ const styles = StyleSheet.create({
     ...Fonts.black14RobotoRegular,
     fontSize: 13,
   },
-  colon: {...Fonts.black16RobotoMedium},
+  colon: { ...Fonts.black16RobotoMedium },
   childValue: {
     flex: 0.6,
     ...Fonts.black14RobotoRegular,

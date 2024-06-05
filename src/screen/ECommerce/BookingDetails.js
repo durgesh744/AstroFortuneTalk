@@ -2,16 +2,13 @@ import {
   View,
   Text,
   FlatList,
-  TouchableOpacity,
   StyleSheet,
 } from 'react-native';
 import moment from 'moment';
-import axios from 'axios';
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import MyHeader from '../../component/common/MyHeader';
 import { Colors, Sizes, Fonts } from '../../assets/style';
 import MyStatusBar from '../../component/common/MyStatusBar';
-import LinearGradient from 'react-native-linear-gradient';
 import Loader from '../../component/common/Loader';
 import CustomButton from '../../component/common/CustomButton';
 

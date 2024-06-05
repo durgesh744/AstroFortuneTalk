@@ -28,6 +28,7 @@ import ScheduledList from '../screen/ECommerce/ScheduledList';
 import BookingDetails from '../screen/ECommerce/BookingDetails';
 import UploadEcommerce from '../screen/ECommerce/UploadEcommerce';
 import PoojaHistory from '../screen/ECommerce/PoojaHistory';
+import HistoryDetails from '../screen/ECommerce/HistoryDetails';
 
 const Stack = createNativeStackNavigator();
 
@@ -62,11 +63,12 @@ const StackNavigator = () => {
       <Stack.Screen name="chatHistory" component={ChatHistory} />
       <Stack.Screen name="walletHistory" component={WalletHistory} />
       <Stack.Screen name="pooja" component={Pooja}/>
-      <Stack.Screen name="scheduledList" component={ScheduledList} />
       <Stack.Screen name="bookingDetails" component={BookingDetails} />
       <Stack.Screen name="uploadEcommerce" component={UploadEcommerce} />
       <Stack.Screen name="poojaHistory" component={PoojaHistory} />
       <Stack.Screen name="profile" component={Profile} />
+      <Stack.Screen name="historyDetails" component={HistoryDetails} />
+      <Stack.Screen name="scheduledList" component={ScheduledList} />
 
     </Stack.Navigator>
   );
