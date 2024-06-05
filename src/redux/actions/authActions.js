@@ -1,7 +1,7 @@
 import * as actionTypes from '../actionTypes/actionTypes';
 
-export const setProviderData = payload => ({
-  type: actionTypes.SET_PROVIDER_DATA,
+export const setAuthData = payload => ({
+  type: actionTypes.SET_AUTH_DATA,
   payload,
 });
 
@@ -18,5 +18,9 @@ export const setFirebaseId = payload => ({
 export const setIsLoading = payload => ({
   type: actionTypes.IS_LOADING,
   payload,
+});
+
+export const setCleanStore = () => ({
+  type: actionTypes.CLEAN_STORE,
 });
 

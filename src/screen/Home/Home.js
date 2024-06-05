@@ -5,7 +5,10 @@ import { tabsData } from '../../config/Data';
 import Loader from '../../component/common/Loader';
 import Offer from '../../component/ui/Home/Offer/Offer';
 import Header from '../../component/ui/Home/Header/Header';
+import MyStatusBar from '../../component/common/MyStatusBar';
 import SendView from '../../component/ui/Home/SendView/SendView';
+import { SCREEN_HEIGHT, SCREEN_WIDTH } from '../../config/Screen';
+import FontAwesome6 from 'react-native-vector-icons/FontAwesome6'
 import AstriInfo from '../../component/ui/Home/AstriInfo/AstriInfo';
 import { GestureHandlerRootView } from 'react-native-gesture-handler';
 import Performance from '../../component/ui/Home/Performance/Performance';
@@ -15,9 +18,6 @@ import FortuneStoreInfo from '../../component/ui/Home/FortuneStoreInfo/FortuneSt
 import TrandingInfoOnOff from '../../component/ui/Home/TrandingInfoOnOff/TrandingInfoOnOff';
 import TrainingReelsInfo from '../../component/ui/Home/TrainingReelsInfo/TrainingReelsInfo';
 import ChatCallStatusInfo from '../../component/ui/Home/ChatCallStatusInfo/ChatCallStatusInfo';
-import MyStatusBar from '../../component/common/MyStatusBar';
-import { SCREEN_HEIGHT, SCREEN_WIDTH } from '../../config/Screen';
-import FontAwesome6 from 'react-native-vector-icons/FontAwesome6'
 
 const Home = ({ navigation }) => {
 
@@ -48,7 +48,7 @@ const Home = ({ navigation }) => {
         scrollEnabled={true}
         ListHeaderComponent={
           <>
-            <AstriInfo />
+            <AstriInfo navigation={navigation} />
             {GoForPolicies()}
             <Performance />
             <Offer />

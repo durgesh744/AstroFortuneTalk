@@ -27,6 +27,7 @@ import BookingDetails from '../screen/ECommerce/BookingDetails';
 import UploadEcommerce from '../screen/ECommerce/UploadEcommerce';
 import PoojaHistory from '../screen/ECommerce/PoojaHistory';
 import Remedy from '../screen/Remedy/Remedy';
+import Profile from '../screen/Profile';
 
 const Stack = createNativeStackNavigator();
 
@@ -65,6 +66,7 @@ const StackNavigator = () => {
       <Stack.Screen name="bookingDetails" component={BookingDetails} />
       <Stack.Screen name="uploadEcommerce" component={UploadEcommerce} />
       <Stack.Screen name="poojaHistory" component={PoojaHistory} />
+      <Stack.Screen name="profile" component={Profile} />
 
     </Stack.Navigator>
   );

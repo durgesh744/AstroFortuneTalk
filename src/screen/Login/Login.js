@@ -22,6 +22,8 @@ import MyStatusBar from '../../component/common/MyStatusBar';
 import { SCREEN_HEIGHT, SCREEN_WIDTH } from '../../config/Screen';
 import { setItemToLocalStorage } from '../../helper/useLocalStorage';
 import { showToastWithGravityAndOffset } from '../../methods/toastMessage';
+import * as AuthActions from '../../redux/actions/authActions.js'
+import { connect } from 'react-redux';
 
 const Login = ({ navigation, dispatch }) => {
     const [email, setEmail] = useState('');
@@ -80,6 +82,7 @@ const Login = ({ navigation, dispatch }) => {
         })
             .then(async res => {
                 if (res.data.success) {
+                    dispatch(AuthActions.setAuthData(res.data.data))
                     setItemToLocalStorage("userData", res.data.data)
                     setIsLoading(false);
                     showToastWithGravityAndOffset("Login successfully")
@@ -294,5 +297,6 @@ const styles = StyleSheet.create({
     },
 });
 
+const mapDispatchToProps = dispatch => ({ dispatch });
 
-export default Login
+export default connect(null, mapDispatchToProps)(Login);

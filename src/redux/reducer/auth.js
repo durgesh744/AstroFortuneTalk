@@ -2,20 +2,20 @@ import * as actionTypes from '../actionTypes/actionTypes';
 
 const initialState = {
   id: null,
-  providerData: null,
+  authData: [],
   dashboard: null,
   firebaseId: null,
   requestData: null,
   isLoading: false,
 };
 
-const provider = (state = initialState, action) => {
-  const {type, payload} = action;
+const authProvider = (state = initialState, action) => {
+  const { type, payload } = action;
   switch (type) {
-    case actionTypes.SET_PROVIDER_DATA:
+    case actionTypes.SET_AUTH_DATA:
       return {
         ...state,
-        providerData: payload,
+        authData: payload,
       };
     case actionTypes.SET_DASHBOARD:
       return {
@@ -40,4 +40,4 @@ const provider = (state = initialState, action) => {
   }
 };
 
-export default provider;
+export default authProvider;

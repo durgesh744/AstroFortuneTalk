@@ -1,8 +1,9 @@
 import { Image, Text, TouchableOpacity, View } from 'react-native';
 import { Colors, Fonts } from '../../../../assets/style';
 import { SCREEN_HEIGHT, SCREEN_WIDTH } from '../../../../config/Screen';
+import { connect } from 'react-redux';
 
-const AstriInfo = ({ providerData }) => {
+const AstriInfo = ({ navigation, authData }) => {
     return (
         <View
             style={{
@@ -29,9 +30,9 @@ const AstriInfo = ({ providerData }) => {
                         bottom: 0,
                         alignSelf: 'center',
                     }}>
-                    {providerData?.img_url ? (
+                    {authData?.profileImage ? (
                         <Image
-                            source={{ uri: img_url_2 + providerData?.img_url }}
+                            source={{ uri: authData.astrologer.profileImage }}
                             style={{
                                 width: 30,
                                 height: 30,
@@ -68,12 +69,10 @@ const AstriInfo = ({ providerData }) => {
                             style={{
                                 ...Fonts.grayA14RobotoMedium,
                             }}>
-                            {/* {providerData?.owner_name} */}
-                            Durgesh
+                            {authData.astrologer.displayName}
                         </Text>
                         <Text style={{ ...Fonts.grayA14RobotoMedium }}>
-                            ID-
-                            {/* {providerData?.unique_id} */}
+                            ID-{authData.astrologer.displayName}
                         </Text>
                     </View>
                 </View>
@@ -82,4 +81,10 @@ const AstriInfo = ({ providerData }) => {
     );
 }
 
-export default AstriInfo
+const mapStateToProps = state => ({
+    authData: state.authProvider.authData,
+});
+
+const mapDispatchToProps = dispatch => ({ dispatch });
+
+export default connect(mapStateToProps, mapDispatchToProps)(AstriInfo);

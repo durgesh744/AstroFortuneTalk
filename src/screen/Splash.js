@@ -8,9 +8,11 @@ import { SCREEN_WIDTH } from '../config/Screen';
 import MyStatusBar from '../component/common/MyStatusBar';
 import LinearGradient from 'react-native-linear-gradient';
 import AsyncStorage from '@react-native-async-storage/async-storage';
+import { connect } from 'react-redux';
+import * as AuthActions from '../redux/actions/authActions.js'
 
-const Splash = ({ navigation, route }) => {
-  
+const Splash = ({ navigation, dispatch }) => {
+
   useEffect(() => {
     setTimeout(() => {
       navigate();
@@ -19,7 +21,8 @@ const Splash = ({ navigation, route }) => {
 
   const navigate = async () => {
     let providerData = await AsyncStorage.getItem('userData');
-    let data = JSON.parse(providerData);    
+    let data = JSON.parse(providerData);
+    dispatch(AuthActions.setAuthData(data))
     if (data) {
       navigation.navigate("Home");
     } else {
@@ -45,5 +48,11 @@ const Splash = ({ navigation, route }) => {
   );
 };
 
-export default Splash
+const mapStateToProps = state => ({
+
+})
+
+const mapDispatchToProps = dispatch => ({ dispatch })
+
+export default connect(mapStateToProps, mapDispatchToProps)(Splash)
 

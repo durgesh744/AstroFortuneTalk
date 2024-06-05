@@ -1,49 +1,15 @@
-import axios from 'axios';
-import { useEffect, useState } from 'react';
-import { View, Text, FlatList, StyleSheet } from 'react-native';
-import { Colors, Fonts, Sizes } from '../assets/style';
-import MyStatusBar from '../component/MyStatusBar';
-import MyHeader from '../component/MyHeader';
-import { connect } from 'react-redux';
+import moment from 'moment';
+import { useState } from 'react';
 import { Image } from '@rneui/base';
-import {
-  api_url,
-  get_provider_details,
-  img_url_2,
-} from '../config/Constants';
-import Loader from '../component/Loader';
+import { connect } from 'react-redux';
 import { SCREEN_WIDTH } from '../config/Screen';
+import MyHeader from '../component/common/MyHeader';
+import { Colors, Fonts, Sizes } from '../assets/style';
+import MyStatusBar from '../component/common/MyStatusBar';
+import { View, Text, FlatList, StyleSheet } from 'react-native';
 
 const Profile = props => {
-  const [isLoading, setIsLoading] = useState();
-  const [profileData, setProfileData] = useState();
-
-  useEffect(() => {
-    fetch_user_details();
-  }, []);
-
-  const fetch_user_details = async () => {
-    setIsLoading(true);
-    await axios({
-      method: 'post',
-      url: api_url + get_provider_details,
-      headers: {
-        'Content-Type': 'multipart/form-data',
-      },
-      data: {
-        astrologer_id: props.providerData.id,
-      },
-    })
-      .then(async res => {
-        if (res.data?.status) {
-          setProfileData(res.data.data);
-          setIsLoading(false);
-        }
-      })
-      .catch(err => {
-        setIsLoading(false);
-      });
-  };
+  const [profileData, setProfileData] = useState(props?.authData?.astrologer);
 
   return (
     <View style={{ flex: 1, backgroundColor: Colors.gray4 }}>
@@ -52,7 +18,6 @@ const Profile = props => {
         barStyle={'light-content'}
       />
       <MyHeader title={'Astrologer Profile'} navigation={props.navigation} />
-      <Loader visible={isLoading} />
       <View style={{ flex: 1, marginTop: Sizes.fixPadding * 1.5 }}>
         <FlatList
           ListHeaderComponent={
@@ -85,9 +50,9 @@ const Profile = props => {
                   elevation: 5,
                   borderColor: Colors.primaryLight,
                 }}>
-                {profileData?.img_url && (
+                {profileData && (
                   <Image
-                    source={{ uri: img_url_2 + profileData.img_url }}
+                    source={{ uri: profileData.profileImage }}
                     resizeMode="cover"
                     style={{ height: '100%', width: '100%' }}
                   />
@@ -112,25 +77,22 @@ const Profile = props => {
                   paddingTop: SCREEN_WIDTH * 0.05,
                 }}>
                 <Text style={[Fonts.gray16RobotoMedium, styles.txt]}>
-                  Real Name : {profileData.shop_name}
+                  Real Name : {profileData.name}
                 </Text>
                 <Text style={[Fonts.gray16RobotoMedium, styles.txt]}>
-                  Display Name : {profileData.nic_name}
+                  Display Name : {profileData.displayName}
                 </Text>
                 <Text style={[Fonts.gray16RobotoMedium, styles.txt]}>
                   Mail ID : {profileData.email}
                 </Text>
                 <Text style={[Fonts.gray16RobotoMedium, styles.txt]}>
-                  Registered No. : {profileData.phone}
+                  Primary No. : {profileData.phoneNumber}
                 </Text>
                 <Text style={[Fonts.gray16RobotoMedium, styles.txt]}>
-                  Date Of Birth : {profileData.dob}
+                  Date Of Birth : {moment(profileData.dateOfBirth).format("DD MMM YYYY")}
                 </Text>
                 <Text style={[Fonts.gray16RobotoMedium, styles.txt]}>
-                  Time of Birth : 1:55 PM
-                </Text>
-                <Text style={[Fonts.gray16RobotoMedium, styles.txt]}>
-                  Place of birth :
+                  Place of birth : {profileData.address}
                 </Text>
               </View>
             </View>
@@ -151,7 +113,7 @@ const Profile = props => {
 };
 
 const mapStateToProps = state => ({
-  providerData: state.provider.providerData,
+  authData: state.authProvider?.authData,
 });
 
 const mapDispatchToProps = dispatch => ({ dispatch });

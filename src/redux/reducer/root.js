@@ -1,9 +1,9 @@
 import {combineReducers} from 'redux';
+import authProvider from './auth';
 import {CLEAN_STORE} from '../actionTypes/actionTypes';
-import provider from './auth';
 
 const rootReducer = combineReducers({
-  provider,
+  authProvider,
 });
 
 const appReducer = (state, action) => {
