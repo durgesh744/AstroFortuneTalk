@@ -5,22 +5,21 @@ import {
   TouchableOpacity,
   StyleSheet,
 } from 'react-native';
-import axios from 'axios';
 import moment from 'moment';
 import { Input } from '@rneui/themed';
 import { connect } from 'react-redux';
 import React, { useState } from 'react';
-import { Colors, Sizes, Fonts } from '../../assets/style';
-import Ionicons from 'react-native-vector-icons/Ionicons';
-import { DateTimePickerAndroid } from '@react-native-community/datetimepicker';
-import { showToastWithGravityAndOffset } from '../../methods/toastMessage';
-import { api_url, schedule_a_pooja } from '../../config/Constants';
-import MyStatusBar from '../../component/common/MyStatusBar';
 import Loader from '../../component/common/Loader';
 import MyHeader from '../../component/common/MyHeader';
+import Ionicons from 'react-native-vector-icons/Ionicons';
 import LinearGradient from 'react-native-linear-gradient';
+import { Colors, Sizes, Fonts } from '../../assets/style';
+import MyStatusBar from '../../component/common/MyStatusBar';
+import { showToastWithGravityAndOffset } from '../../methods/toastMessage';
+import { DateTimePickerAndroid } from '@react-native-community/datetimepicker';
+import CustomButton from '../../component/common/CustomButton';
 
-const RegisterPooja = ({ navigation, route, providerData }) => {
+const RegisterPooja = ({ navigation, route, authData }) => {
   const [state, setState] = useState({
     imageData: null,
     date: null,
@@ -45,34 +44,35 @@ const RegisterPooja = ({ navigation, route, providerData }) => {
   };
 
   const update_pooja_details = async () => {
-    if (validation()) {
-      updateState({ isLoading: true });
-      await axios({
-        method: 'post',
-        url: api_url + schedule_a_pooja,
-        headers: {
-          'Content-Type': 'multipart/form-data',
-        },
-        data: {
-          date: date,
-          time: time,
-          astro_id: providerData?.id,
-          pooja_id: route?.params?.pooja_id,
-          price: price,
-        },
-      })
-        .then(res => {
-          updateState({ isLoading: false });
-          if (res.data.status) {
-            showToastWithGravityAndOffset('Pooja scheduled');
-            navigation.navigate('sceduledList');
-          }
-        })
-        .catch(err => {
-          updateState({ isLoading: false });
-          console.log(err);
-        });
-    }
+    navigation.navigate('sceduledList');
+    // if (validation()) {
+    //   updateState({ isLoading: true });
+    //   await axios({
+    //     method: 'post',
+    //     url: api_url + schedule_a_pooja,
+    //     headers: {
+    //       'Content-Type': 'multipart/form-data',
+    //     },
+    //     data: {
+    //       date: date,
+    //       time: time,
+    //       astro_id: providerData?.id,
+    //       pooja_id: route?.params?.pooja_id,
+    //       price: price,
+    //     },
+    //   })
+    //     .then(res => {
+    //       updateState({ isLoading: false });
+    //       if (res.data.status) {
+    //         showToastWithGravityAndOffset('Pooja scheduled');
+    //         navigation.navigate('sceduledList');
+    //       }
+    //     })
+    //     .catch(err => {
+    //       updateState({ isLoading: false });
+    //       console.log(err);
+    //     });
+    // }
   };
 
   const updateState = data => {
@@ -124,7 +124,7 @@ const RegisterPooja = ({ navigation, route, providerData }) => {
         >Attachment(Add Photos)</Text>
         <TouchableOpacity
           activeOpacity={0.8}
-          onPress={() => open_time_picker()}
+          // onPress={() => open_time_picker()}
           style={[styles.attachment, { marginBottom: 20 }]}
         >
           <Ionicons name="add" color={Colors.gray} size={80} />
@@ -135,23 +135,12 @@ const RegisterPooja = ({ navigation, route, providerData }) => {
 
   function continueButtonInfo() {
     return (
-      <TouchableOpacity
-        activeOpacity={0.8}
-        onPress={update_pooja_details}
-        style={{
-          marginHorizontal: Sizes.fixPadding * 3,
-          marginVertical: Sizes.fixPadding,
-          borderRadius: 1000,
-          overflow: 'hidden',
-        }}>
-        <LinearGradient
-          colors={[Colors.primaryDark, Colors.primaryDark]}
-          style={{ paddingVertical: Sizes.fixPadding }}>
-          <Text style={{ ...Fonts.white16RobotoMedium, textAlign: 'center' }}>
-            Submit
-          </Text>
-        </LinearGradient>
-      </TouchableOpacity>
+      <View>
+        <CustomButton
+          handleSend={update_pooja_details}
+          btnName={"Submit"}
+        />
+      </View>
     );
   }
 
@@ -260,8 +249,7 @@ const RegisterPooja = ({ navigation, route, providerData }) => {
 };
 
 const mapStateToProps = state => ({
-  providerData: state.provider.providerData,
-  dashboard: state.provider.dashboard,
+  authData: state.authProvider.authData,
 });
 
 export default connect(mapStateToProps, null)(RegisterPooja);

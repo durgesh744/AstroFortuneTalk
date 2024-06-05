@@ -12,7 +12,6 @@ import MyHeader from '../../component/common/MyHeader';
 import { Colors, Sizes, Fonts } from '../../assets/style';
 import MyStatusBar from '../../component/common/MyStatusBar';
 import LinearGradient from 'react-native-linear-gradient';
-import { api_url, pooja_booking_customer_detail } from '../../config/Constants';
 import Loader from '../../component/common/Loader';
 
 const BookingDetails = ({ navigation, route }) => {

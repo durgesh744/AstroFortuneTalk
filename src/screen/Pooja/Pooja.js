@@ -1,9 +1,9 @@
 import React from 'react'
 import { Colors } from '../../assets/style'
+import { FlatList, View } from 'react-native'
 import MyHeader from '../../component/common/MyHeader'
-import LinearGradient from 'react-native-linear-gradient'
 import MyStatusBar from '../../component/common/MyStatusBar'
-import { FlatList, Text, View, TouchableOpacity } from 'react-native'
+import CustomButton from '../../component/common/CustomButton'
 
 const Pooja = ({ navigation }) => {
 
@@ -27,22 +27,10 @@ const Pooja = ({ navigation }) => {
 
     const renderItem = ({ item, index }) => {
         return (
-            <LinearGradient
-                key={index}
-                colors={[Colors.primaryLight, Colors.primaryDark]}
-                style={{
-                    padding: 10,
-                    borderRadius: 10,
-                    marginTop: 10,
-                    marginHorizontal: 30
-                }}
-            >
-                <TouchableOpacity
-                    onPress={() => navigation.navigate(item.navigate_to)}
-                >
-                    <Text style={{ color: Colors.white, textAlign: "center" }} > {item.name}</Text>
-                </TouchableOpacity>
-            </LinearGradient>
+            <CustomButton
+                handleSend={() => navigation.navigate(item.navigate_to)}
+                btnName={item.name}
+            />
         )
     }
 

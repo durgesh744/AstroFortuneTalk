@@ -1,9 +1,11 @@
 import React from 'react';
 import Splash from '../screen/Splash';
 import Home from '../screen/Home/Home';
+import Profile from '../screen/Profile';
 import Login from '../screen/Login/Login';
 import Pooja from '../screen/Pooja/Pooja';
 import Terms from '../screen/Settings/Terms';
+import Remedy from '../screen/Remedy/Remedy';
 import Settings from '../screen/Settings/Settings';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import PoojaList from '../screen/ECommerce/PoojaList';
@@ -26,8 +28,6 @@ import ScheduledList from '../screen/ECommerce/ScheduledList';
 import BookingDetails from '../screen/ECommerce/BookingDetails';
 import UploadEcommerce from '../screen/ECommerce/UploadEcommerce';
 import PoojaHistory from '../screen/ECommerce/PoojaHistory';
-import Remedy from '../screen/Remedy/Remedy';
-import Profile from '../screen/Profile';
 
 const Stack = createNativeStackNavigator();
 
@@ -73,3 +73,4 @@ const StackNavigator = () => {
 };
 
 export default StackNavigator;
+

@@ -9,9 +9,8 @@ const CustomButton = ({ handleSend, btnName }) => {
             onPress={() => handleSend()}
             style={{
                 width: '70%',
-                marginVertical: Sizes.fixPadding * 2,
+                marginVertical: Sizes.fixPadding * 0.5,
                 alignSelf: 'center',
-                marginBottom: Sizes.fixPadding * 7.0,
             }}>
             <LinearGradient
                 colors={[Colors.primaryLight, Colors.primaryDark]}
@@ -20,7 +19,7 @@ const CustomButton = ({ handleSend, btnName }) => {
                     paddingVertical: Sizes.fixPadding,
                     borderRadius: Sizes.fixPadding * 1.5,
                 }}>
-                <Text style={{ ...Fonts.white18RobotBold, textAlign: 'center' }}>
+                <Text style={{ ...Fonts.white18RobotBold, textAlign: 'center', fontSize: 16 }}>
                     {btnName}
                 </Text>
             </LinearGradient>

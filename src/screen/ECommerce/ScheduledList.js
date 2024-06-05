@@ -5,18 +5,16 @@ import {
   TouchableOpacity,
   StyleSheet,
 } from 'react-native';
-import axios from 'axios';
 import moment from 'moment';
 import { connect } from 'react-redux';
-import React, { useEffect, useState } from 'react';
+import React, { useState } from 'react';
 import { Colors, Sizes, Fonts } from '../../assets/style';
-import { api_url, schedule_a_pooja_astro } from '../../config/Constants';
 import LinearGradient from 'react-native-linear-gradient';
 import MyStatusBar from '../../component/common/MyStatusBar';
 import Loader from '../../component/common/Loader';
 import MyHeader from '../../component/common/MyHeader';
 
-const ScheduledList = ({ navigation, providerData }) => {
+const ScheduledList = ({ navigation }) => {
   const [state, setState] = useState({
     isLoading: false,
     poojaData: null,
@@ -317,8 +315,7 @@ const ScheduledList = ({ navigation, providerData }) => {
 };
 
 const mapStateToProps = state => ({
-  providerData: state.provider.providerData,
-  dashboard: state.provider.dashboard,
+  authData: state.authProvider.authData,
 });
 
 export default connect(mapStateToProps, null)(ScheduledList);

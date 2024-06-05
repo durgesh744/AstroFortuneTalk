@@ -72,7 +72,7 @@ const AstriInfo = ({ navigation, authData }) => {
                             {authData.astrologer.displayName}
                         </Text>
                         <Text style={{ ...Fonts.grayA14RobotoMedium }}>
-                            ID-{authData.astrologer.displayName}
+                            ID-{authData.astrologer.astroUniqueId}
                         </Text>
                     </View>
                 </View>

@@ -210,12 +210,6 @@ const BookPooja = ({navigation, route}) => {
             />
           }
         />
-        {/* <TouchableOpacity style={{flex: 0.2, marginLeft: Sizes.fixPadding}}>
-          <Image
-            source={require('../assets/images/icons/filter.png')}
-            style={{width: 20, height: 20}}
-          />
-        </TouchableOpacity> */}
       </View>
     );
   }

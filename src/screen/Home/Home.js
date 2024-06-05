@@ -1,8 +1,8 @@
 import { useState } from 'react';
-import { FlatList, Image, StyleSheet, Text, TouchableOpacity, View, TextInput } from 'react-native';
-import { Colors, Sizes, Fonts } from '../../assets/style';
 import { tabsData } from '../../config/Data';
 import Loader from '../../component/common/Loader';
+import { FlatList, Image, StyleSheet, Text, TouchableOpacity, View, TextInput } from 'react-native';
+import { Colors, Sizes, Fonts } from '../../assets/style';
 import Offer from '../../component/ui/Home/Offer/Offer';
 import Header from '../../component/ui/Home/Header/Header';
 import MyStatusBar from '../../component/common/MyStatusBar';

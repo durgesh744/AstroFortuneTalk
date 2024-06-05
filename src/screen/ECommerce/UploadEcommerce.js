@@ -6,13 +6,13 @@ import {
   Image,
   StyleSheet,
 } from 'react-native';
-import React, {useState} from 'react';
-import {Colors, Sizes, Fonts} from '../../assets/style';
-import {SCREEN_HEIGHT, SCREEN_WIDTH} from '../../config/Screen';
+import axios from 'axios';
+import React, { useState } from 'react';
+import { Colors, Sizes, Fonts } from '../../assets/style';
+import { SCREEN_HEIGHT, SCREEN_WIDTH } from '../../config/Screen';
 import * as ImagePicker from 'react-native-image-picker';
 import AntDesign from 'react-native-vector-icons/AntDesign';
-import LinearGradient from 'react-native-linear-gradient';
-import {TextInput} from 'react-native';
+import { TextInput } from 'react-native';
 import * as Progress from 'react-native-progress';
 import RNFetchBlob from 'rn-fetch-blob';
 import {
@@ -20,15 +20,15 @@ import {
   pooja_upload_attachments,
   pooja_upload_attachments_video,
 } from '../../config/Constants';
-import {showToastWithGravityAndOffset} from '../../methods/toastMessage';
-import axios from 'axios';
-import {CommonActions} from '@react-navigation/native';
+import { showToastWithGravityAndOffset } from '../../methods/toastMessage';
+import { CommonActions } from '@react-navigation/native';
 import MyStatusBar from '../../component/common/MyStatusBar';
 import Loader from '../../component/common/Loader';
 import MyHeader from '../../component/common/MyHeader';
 import CustomVideoPlayer from '../../component/ui/VideoPlayer';
+import CustomButton from '../../component/common/CustomButton';
 
-const UploadEcommerce = ({navigation, route}) => {
+const UploadEcommerce = ({ navigation, route }) => {
   const [state, setState] = useState({
     imageData: null,
     vedioData: null,
@@ -55,7 +55,7 @@ const UploadEcommerce = ({navigation, route}) => {
       } else if (response.errorCode) {
         console.log(response.errorCode, response.errorMessage, 'asdfghjk');
       } else {
-        updateState({imageData: response.assets});
+        updateState({ imageData: response.assets });
       }
     });
   };
@@ -74,7 +74,7 @@ const UploadEcommerce = ({navigation, route}) => {
       } else if (response.errorCode) {
         console.log(response.errorCode, response.errorMessage, 'asdfghjk');
       } else {
-        updateState({vedioData: response.assets});
+        updateState({ vedioData: response.assets });
       }
     });
   };
@@ -96,7 +96,7 @@ const UploadEcommerce = ({navigation, route}) => {
 
   const upload_vedio = async fileUri => {
     try {
-      updateState({vedioUploading: true});
+      updateState({ vedioUploading: true });
       const data = [
         {
           name: 'video_file',
@@ -122,12 +122,12 @@ const UploadEcommerce = ({navigation, route}) => {
       )
         .uploadProgress((written, total) => {
           const progress = written / total;
-          updateState({uploadProgress: progress});
+          updateState({ uploadProgress: progress });
         })
         .then(response => {
-          updateState({vedioUploading: false});
+          updateState({ vedioUploading: false });
           if (response.info().status === 200) {
-            updateState({uploadProgress: 1});
+            updateState({ uploadProgress: 1 });
             console.log('Upload successful');
           } else {
             console.error('Upload failed');
@@ -135,17 +135,17 @@ const UploadEcommerce = ({navigation, route}) => {
           }
         })
         .catch(error => {
-          updateState({vedioUploading: false});
+          updateState({ vedioUploading: false });
           console.error('Error during upload:', error);
         });
     } catch (error) {
-      updateState({vedioUploading: false});
+      updateState({ vedioUploading: false });
       console.error('Error during upload:', error);
     }
   };
 
   const upload_image_description = async () => {
-    updateState({isLoading: true});
+    updateState({ isLoading: true });
     let data = new FormData();
     data.append('desc', description);
     data.append('pooja_book_id', poojaData?.id);
@@ -168,13 +168,13 @@ const UploadEcommerce = ({navigation, route}) => {
     })
       .then(res => {
         console.log(res.data);
-        updateState({isLoading: false});
+        updateState({ isLoading: false });
         showToastWithGravityAndOffset('Successfully uploaded!');
         home();
       })
       .catch(err => {
         console.log(err);
-        updateState({isLoading: false});
+        updateState({ isLoading: false });
       });
   };
 
@@ -183,7 +183,6 @@ const UploadEcommerce = ({navigation, route}) => {
       for (let i = 0; i < vedioData.length; i++) {
         await upload_vedio(vedioData[i].uri);
       }
-
       await upload_image_description();
     }
   };
@@ -203,7 +202,7 @@ const UploadEcommerce = ({navigation, route}) => {
 
   const updateState = data => {
     setState(prevState => {
-      const newData = {...prevState, ...data};
+      const newData = { ...prevState, ...data };
       return newData;
     });
   };
@@ -221,13 +220,13 @@ const UploadEcommerce = ({navigation, route}) => {
   } = state;
 
   return (
-    <View style={{flex: 1, backgroundColor: Colors.bodyColor}}>
+    <View style={{ flex: 1, backgroundColor: Colors.bodyColor }}>
       <MyStatusBar
         backgroundColor={Colors.primaryDark}
         barStyle={'light-content'}
       />
       <Loader visible={isLoading} />
-      <View style={{flex: 1}}>
+      <View style={{ flex: 1 }}>
         {header()}
         <FlatList
           ListHeaderComponent={
@@ -258,34 +257,23 @@ const UploadEcommerce = ({navigation, route}) => {
 
   function continueButtonInfo() {
     return (
-      <TouchableOpacity
-        activeOpacity={0.8}
-        onPress={() => handleUploadVedio()}
-        style={{
-          marginHorizontal: Sizes.fixPadding * 3,
-          marginVertical: Sizes.fixPadding,
-          borderRadius: 1000,
-          overflow: 'hidden',
-        }}>
-        <LinearGradient
-          colors={[Colors.primaryDark, Colors.primaryDark]}
-          style={{paddingVertical: Sizes.fixPadding}}>
-          <Text style={{...Fonts.white16RobotoMedium, textAlign: 'center'}}>
-            Submit
-          </Text>
-        </LinearGradient>
-      </TouchableOpacity>
+      <View style={{ paddingVertical: Sizes.fixPadding * 0.5 }}>
+        <CustomButton
+          handleSend={handleUploadVedio}
+          btnName={" Submit"}
+        />
+      </View>
     );
   }
 
   function discriptionInfo() {
     return (
-      <View style={{marginHorizontal: Sizes.fixPadding * 2}}>
-        <Text style={{...Fonts.black16RobotoMedium}}>Description</Text>
+      <View style={{ marginHorizontal: Sizes.fixPadding * 2 }}>
+        <Text style={{ ...Fonts.black16RobotoMedium }}>Description</Text>
         <TextInput
           placeholder="Enter here..."
           placeholderTextColor={Colors.gray}
-          onChangeText={text => updateState({description: text})}
+          onChangeText={text => updateState({ description: text })}
           multiline
           style={[
             styles.input,
@@ -302,7 +290,7 @@ const UploadEcommerce = ({navigation, route}) => {
 
   function vedioUploadInfo() {
     return (
-      <View style={{marginHorizontal: Sizes.fixPadding * 2.5}}>
+      <View style={{ marginHorizontal: Sizes.fixPadding * 2.5 }}>
         <Text
           style={{
             ...Fonts.black16RobotoRegular,
@@ -346,7 +334,7 @@ const UploadEcommerce = ({navigation, route}) => {
                 <TouchableOpacity
                   key={index}
                   onPress={() =>
-                    updateState({vedioUri: item.uri, videoVisible: true})
+                    updateState({ vedioUri: item.uri, videoVisible: true })
                   }
                   style={{
                     width: SCREEN_WIDTH * 0.15,
@@ -355,7 +343,7 @@ const UploadEcommerce = ({navigation, route}) => {
                     marginBottom: Sizes.fixPadding,
                   }}>
                   <Image
-                    source={{uri: item.uri}}
+                    source={{ uri: item.uri }}
                     style={{
                       width: '100%',
                       height: '100%',
@@ -371,7 +359,7 @@ const UploadEcommerce = ({navigation, route}) => {
 
   function imageUploadInfo() {
     return (
-      <View style={{margin: Sizes.fixPadding * 2.5}}>
+      <View style={{ margin: Sizes.fixPadding * 2.5 }}>
         <Text
           style={{
             ...Fonts.black16RobotoRegular,
@@ -414,7 +402,7 @@ const UploadEcommerce = ({navigation, route}) => {
               imageData.map((item, index) => (
                 <Image
                   key={index}
-                  source={{uri: item.uri}}
+                  source={{ uri: item.uri }}
                   style={{
                     width: SCREEN_WIDTH * 0.15,
                     height: SCREEN_WIDTH * 0.15,
@@ -431,7 +419,7 @@ const UploadEcommerce = ({navigation, route}) => {
 
   function topMessageInfo() {
     return (
-      <View style={{margin: Sizes.fixPadding * 2}}>
+      <View style={{ margin: Sizes.fixPadding * 2 }}>
         <Text
           style={{
             ...Fonts.primaryDark18RobotoMedium,
