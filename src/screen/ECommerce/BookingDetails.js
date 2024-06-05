@@ -13,6 +13,7 @@ import { Colors, Sizes, Fonts } from '../../assets/style';
 import MyStatusBar from '../../component/common/MyStatusBar';
 import LinearGradient from 'react-native-linear-gradient';
 import Loader from '../../component/common/Loader';
+import CustomButton from '../../component/common/CustomButton';
 
 const BookingDetails = ({ navigation, route }) => {
   const [state, setState] = useState({
@@ -69,25 +70,13 @@ const BookingDetails = ({ navigation, route }) => {
 
   function continueButtonInfo() {
     return (
-      <TouchableOpacity
-        activeOpacity={0.8}
-        onPress={() =>
-          navigation.navigate('uploadEcommerce', { poojaData: poojaData })
-        }
-        style={{
-          marginHorizontal: Sizes.fixPadding * 3,
-          marginVertical: Sizes.fixPadding,
-          borderRadius: 1000,
-          overflow: 'hidden',
-        }}>
-        <LinearGradient
-          colors={[Colors.primaryDark, Colors.primaryDark]}
-          style={{ paddingVertical: Sizes.fixPadding }}>
-          <Text style={{ ...Fonts.white16RobotoMedium, textAlign: 'center' }}>
-            Upload a Attachment
-          </Text>
-        </LinearGradient>
-      </TouchableOpacity>
+      <View style={{ paddingBottom: Sizes.fixPadding * 0.5 }} >
+        <CustomButton
+          btnName={"Upload a Attachment"}
+          handleSend={() => navigation.navigate('uploadEcommerce', { poojaData: poojaData })}
+        />
+      </View>
+
     );
   }
 
@@ -102,7 +91,7 @@ const BookingDetails = ({ navigation, route }) => {
           padding: Sizes.fixPadding * 1.5,
           backgroundColor: Colors.whiteDark,
           borderRadius: Sizes.fixPadding * 1.5,
-          elevation:2
+          elevation: 2
         }}>
         <Text style={{ ...Fonts.black18RobotoMedium, color: Colors.blackLight }}>
           Paid Amount
@@ -192,7 +181,7 @@ const BookingDetails = ({ navigation, route }) => {
             style={{
               ...Fonts.primaryDark18RobotoMedium,
               marginBottom: Sizes.fixPadding * 0.5,
-              fontWeight:"700"
+              fontWeight: "700"
             }}>
             {poojaData?.title}
           </Text>
@@ -225,7 +214,7 @@ const BookingDetails = ({ navigation, route }) => {
             ...Fonts.black18RobotoMedium,
             color: '#5DC709',
             textAlign: 'center',
-            fontWeight:"600"
+            fontWeight: "600"
           }}>
           You’ve been Booked for Pooja !!
         </Text>

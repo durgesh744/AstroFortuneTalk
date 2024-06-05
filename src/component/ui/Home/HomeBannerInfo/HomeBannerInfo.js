@@ -1,10 +1,7 @@
-import { Dimensions, SafeAreaView } from "react-native";
+import { SafeAreaView } from "react-native";
 import { Colors, Sizes } from "../../../../assets/style";
 import { SCREEN_WIDTH } from "../../../../config/Screen";
 import Carousel from 'react-native-reanimated-carousel';
-
-const width = Dimensions.get('window').width;
-
 
 const HomeBannerInfo = ({ bannerData }) => {
     const baseOptions = {
@@ -40,7 +37,7 @@ const HomeBannerInfo = ({ bannerData }) => {
 
     return (
         <SafeAreaView style={{ flex: 1, height: 158 }}>
-           <Carousel
+            <Carousel
                 loop
                 width={width}
                 height={width / 2}
