@@ -12,7 +12,6 @@ import React, { useState } from 'react';
 import Loader from '../../component/common/Loader';
 import MyHeader from '../../component/common/MyHeader';
 import Ionicons from 'react-native-vector-icons/Ionicons';
-import LinearGradient from 'react-native-linear-gradient';
 import { Colors, Sizes, Fonts } from '../../assets/style';
 import MyStatusBar from '../../component/common/MyStatusBar';
 import { showToastWithGravityAndOffset } from '../../methods/toastMessage';

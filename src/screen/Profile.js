@@ -113,7 +113,7 @@ const Profile = props => {
 };
 
 const mapStateToProps = state => ({
-  authData: state.authProvider?.authData,
+  authData: state.authProvider.authData,
 });
 
 const mapDispatchToProps = dispatch => ({ dispatch });
