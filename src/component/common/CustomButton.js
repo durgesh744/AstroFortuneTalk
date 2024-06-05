@@ -6,7 +6,7 @@ import LinearGradient from 'react-native-linear-gradient';
 const CustomButton = ({ handleSend, btnName }) => {
     return (
         <TouchableOpacity
-            onPress={() => handleSend()}
+            onPress={handleSend}
             style={{
                 width: '70%',
                 marginVertical: Sizes.fixPadding * 0.5,

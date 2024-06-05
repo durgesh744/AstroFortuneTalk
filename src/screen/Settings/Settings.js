@@ -36,6 +36,7 @@ const Settings = ({ navigation }) => {
     setIsLoading(true);
     await fetcher.post(api_base_url + astrologer_logout)
       .then(res => {
+        console.log(res.data)
         setIsLoading(false);
         if (res.status) {
           cleardata();

@@ -24,6 +24,7 @@ import { setItemToLocalStorage } from '../../helper/useLocalStorage';
 import { showToastWithGravityAndOffset } from '../../methods/toastMessage';
 import * as AuthActions from '../../redux/actions/authActions.js'
 import { connect } from 'react-redux';
+import CustomButton from '../../component/common/CustomButton.js';
 
 const Login = ({ navigation, dispatch }) => {
     const [email, setEmail] = useState('');
@@ -158,26 +159,16 @@ const Login = ({ navigation, dispatch }) => {
 
     function submiteButtonInfo() {
         return (
-            <TouchableOpacity
-                onPress={() => (validation() ? login() : null)}
+            <View
                 style={{
-                    width: '70%',
-                    marginVertical: Sizes.fixPadding * 2,
-                    alignSelf: 'center',
                     marginBottom: Sizes.fixPadding * 7.0,
-                }}>
-                <LinearGradient
-                    colors={[Colors.primaryLight, Colors.primaryDark]}
-                    style={{
-                        width: '100%',
-                        paddingVertical: Sizes.fixPadding,
-                        borderRadius: Sizes.fixPadding * 1.5,
-                    }}>
-                    <Text style={{ ...Fonts.white18RobotBold, textAlign: 'center' }}>
-                        Sign in
-                    </Text>
-                </LinearGradient>
-            </TouchableOpacity>
+                }}
+            >
+                <CustomButton
+                    handleSend={()=> validation() ? login() : null}
+                    btnName={"Sign in"}
+                />
+            </View>
         );
     }
 
