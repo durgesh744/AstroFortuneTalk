@@ -36,6 +36,7 @@ import Products from '../screen/ECommerce/Products';
 import Reviews from '../screen/Reviews';
 import Offer from '../screen/Offer';
 import WaitList from '../screen/WaitList';
+import LiveEvent from '../screen/LiveEvent';
 
 const Stack = createNativeStackNavigator();
 
@@ -84,6 +85,7 @@ const StackNavigator = () => {
       <Stack.Screen name="products" component={Products} />
       <Stack.Screen name="ReviwList" component={Reviews} />
       <Stack.Screen name="Offer" component={Offer} />
+      <Stack.Screen name="LiveEvent" component={LiveEvent} />
 
     </Stack.Navigator>
   );
