@@ -34,6 +34,8 @@ import AddCourseDetails from '../screen/Courses/AddCourseDetails';
 import Followers from '../screen/Followers';
 import Products from '../screen/ECommerce/Products';
 import Reviews from '../screen/Reviews';
+import Offer from '../screen/Offer';
+import WaitList from '../screen/WaitList';
 
 const Stack = createNativeStackNavigator();
 
@@ -42,7 +44,8 @@ const StackNavigator = () => {
     <Stack.Navigator
       initialRouteName="splash"
       screenOptions={{ headerShown: false }}>
-
+        
+      <Stack.Screen name="waitList" component={WaitList} />
       <Stack.Screen name="splash" component={Splash} />
       <Stack.Screen name="login" component={Login} />
       <Stack.Screen name="Home" component={Home} />
@@ -62,12 +65,12 @@ const StackNavigator = () => {
 
       <Stack.Screen name="kundliInfo" component={KundliCategory} />
       <Stack.Screen name="Remedy" component={Remedy} />
-      <Stack.Screen name="addRemedy" component={AddRemedy}/>
+      <Stack.Screen name="addRemedy" component={AddRemedy} />
 
       <Stack.Screen name="astromall" component={Astromall} />
       <Stack.Screen name="chatHistory" component={ChatHistory} />
       <Stack.Screen name="walletHistory" component={WalletHistory} />
-      <Stack.Screen name="pooja" component={Pooja}/>
+      <Stack.Screen name="pooja" component={Pooja} />
       <Stack.Screen name="bookingDetails" component={BookingDetails} />
       <Stack.Screen name="uploadEcommerce" component={UploadEcommerce} />
       <Stack.Screen name="poojaHistory" component={PoojaHistory} />
@@ -80,6 +83,7 @@ const StackNavigator = () => {
       <Stack.Screen name="Followers" component={Followers} />
       <Stack.Screen name="products" component={Products} />
       <Stack.Screen name="ReviwList" component={Reviews} />
+      <Stack.Screen name="Offer" component={Offer} />
 
     </Stack.Navigator>
   );
