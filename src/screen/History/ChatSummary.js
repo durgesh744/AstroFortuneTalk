@@ -1,20 +1,19 @@
-import {View, Text, Image, TouchableOpacity} from 'react-native';
-import React, {useEffect, useState} from 'react';
-import {Colors, Fonts, Sizes} from '../../assets/style';
+import { View, Text, Image, TouchableOpacity } from 'react-native';
+import React, { useEffect, useState } from 'react';
+import { Colors, Fonts, Sizes } from '../../assets/style';
 import MyStatusBar from '../../component/MyStatusBar';
 import MyHeader from '../../component/MyHeader';
 import Loader from '../../component/Loader';
-import AsyncStorage from '@react-native-async-storage/async-storage';
 import database from '@react-native-firebase/database';
-import {Bubble, GiftedChat, Send} from 'react-native-gifted-chat';
+import { Bubble, GiftedChat } from 'react-native-gifted-chat';
 import Documets from '../../component/Chat/Documets';
 import Voice from '../../component/Chat/Voice';
 import Ionicons from 'react-native-vector-icons/Ionicons';
-import {img_url_2} from '../../config/Constants';
-import {connect} from 'react-redux';
+import { img_url_2 } from '../../config/Constants';
+import { connect } from 'react-redux';
 import { SCREEN_WIDTH } from '../../config/Screen';
 
-const ChatSummary = ({navigation, route, providerData}) => {
+const ChatSummary = ({ navigation, route, authData }) => {
   const [state, setState] = useState({
     isLoading: false,
     chatData: null,
@@ -22,12 +21,12 @@ const ChatSummary = ({navigation, route, providerData}) => {
   });
 
   useEffect(() => {
-    get_chats(); 
+    get_chats();
   }, []);
 
   const get_chats = async () => {
     try {
-      updateState({isLoading: true});
+      updateState({ isLoading: true });
 
       const chat_id = `customer${userData?.user_id}+astro${providerData.id}`;
       const messagesRef = database()
@@ -39,29 +38,29 @@ const ChatSummary = ({navigation, route, providerData}) => {
         dataSnapshot.forEach(childSnapshot => {
           const message = childSnapshot.val();
 
-          messages.push({...message});
+          messages.push({ ...message });
         });
 
-        updateState({chatData: messages.reverse()});
+        updateState({ chatData: messages.reverse() });
       });
-      updateState({isLoading: false});
+      updateState({ isLoading: false });
     } catch (e) {
       console.log(e);
-      updateState({isLoading: false});
+      updateState({ isLoading: false });
     }
   };
 
   const updateState = data => {
     setState(prevState => {
-      const newData = {...prevState, ...data};
+      const newData = { ...prevState, ...data };
       return newData;
     });
   };
 
-  const {isLoading, chatData, historyData} = state;
+  const { isLoading, chatData, historyData } = state;
 
   return (
-    <View style={{flex: 1, backgroundColor: Colors.bodyColor}}>
+    <View style={{ flex: 1, backgroundColor: Colors.bodyColor }}>
       <MyStatusBar
         backgroundColor={Colors.primaryLight}
         barStyle={'light-content'}
@@ -77,11 +76,11 @@ const ChatSummary = ({navigation, route, providerData}) => {
             avatar: img_url_2 + providerData?.img_url,
             name: providerData?.owner_name,
           }}
-          renderInputToolbar={()=>{
+          renderInputToolbar={() => {
             return null
           }}
           renderBubble={props => {
-            const {currentMessage} = props;
+            const { currentMessage } = props;
             if (currentMessage?.type == 'file') {
               return (
                 <Bubble
@@ -97,8 +96,7 @@ const ChatSummary = ({navigation, route, providerData}) => {
                       backgroundColor: Colors.whiteDark,
                     },
                   }}
-                  textStyle={{right: {...Fonts.black14RobotoRegular}}}
-                  // tickStyle={{left: colors.white_color}}
+                  textStyle={{ right: { ...Fonts.black14RobotoRegular } }}
                 />
               );
             } else if (currentMessage?.type == 'voice') {
@@ -116,8 +114,7 @@ const ChatSummary = ({navigation, route, providerData}) => {
                       backgroundColor: Colors.whiteDark,
                     },
                   }}
-                  textStyle={{right: {...Fonts.black14RobotoRegular}}}
-                  // tickStyle={{left: colors.white_color}}
+                  textStyle={{ right: { ...Fonts.black14RobotoRegular } }}
                 />
               );
             } else if (currentMessage?.type == 'tarot') {
@@ -149,8 +146,7 @@ const ChatSummary = ({navigation, route, providerData}) => {
                       backgroundColor: Colors.whiteDark,
                     },
                   }}
-                  textStyle={{right: {...Fonts.black14RobotoRegular}}}
-                  // tickStyle={{left: colors.white_color}}
+                  textStyle={{ right: { ...Fonts.black14RobotoRegular } }}
                 />
               );
             } else if (
@@ -169,7 +165,7 @@ const ChatSummary = ({navigation, route, providerData}) => {
                           flexDirection: 'row',
                           alignItems: 'center',
                         }}>
-                        <View style={{flex: 1}}>
+                        <View style={{ flex: 1 }}>
                           <Text
                             style={{
                               ...Fonts.white14RobotoMedium,
@@ -194,8 +190,7 @@ const ChatSummary = ({navigation, route, providerData}) => {
                       backgroundColor: Colors.whiteDark,
                     },
                   }}
-                  textStyle={{right: {...Fonts.black14RobotoRegular}}}
-                  // tickStyle={{left: colors.white_color}}
+                  textStyle={{ right: { ...Fonts.black14RobotoRegular } }}
                 />
               );
             } else {
@@ -210,8 +205,7 @@ const ChatSummary = ({navigation, route, providerData}) => {
                       backgroundColor: Colors.grayLight,
                     },
                   }}
-                  textStyle={{right: {...Fonts.white14RobotoMedium}}}
-                  // tickStyle={{left: colors.white_color}}
+                  textStyle={{ right: { ...Fonts.white14RobotoMedium } }}
                 />
               );
             }
@@ -223,8 +217,7 @@ const ChatSummary = ({navigation, route, providerData}) => {
 };
 
 const mapStateToProps = state => ({
-  providerData: state.provider.providerData,
-  dashboard: state.provider.dashboard,
+  authData: state.authProvider.authData,
 });
 
 export default connect(mapStateToProps, null)(ChatSummary);

@@ -10,7 +10,7 @@ import { Sizes, Colors } from '../../assets/style';
 import MyStatusBar from '../../component/common/MyStatusBar';
 import HistoryInfo from '../../component/ui/History/HistoryInfo';
 
-const CallHistory = ({ navigation, providerData }) => {
+const CallHistory = ({ navigation, authData }) => {
   const [CallHistoryData, setCallHistoryData] = useState(
     [
       {
@@ -102,8 +102,7 @@ const CallHistory = ({ navigation, providerData }) => {
 };
 
 const mapStateToProps = state => ({
-  providerData: state.provider.providerData,
-  dashboard: state.provider.dashboard,
+  authData: state.authProvider.authData,
 });
 
 const mapDispatchToProps = dispatch => ({ dispatch });

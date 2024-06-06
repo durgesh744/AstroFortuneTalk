@@ -135,7 +135,8 @@ const PoojaList = ({ navigation }) => {
               top: -Sizes.fixPadding * 1.5,
               zIndex: -1,
             }}
-            resizeMode="contain">
+            resizeMode="contain"
+            >
             <Text
               style={{
                 ...Fonts.white14RobotoMedium,

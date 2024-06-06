@@ -6,7 +6,6 @@ import {
   StyleSheet,
   Platform,
 } from 'react-native';
-import axios from 'axios';
 import moment from 'moment';
 import { connect } from 'react-redux';
 import React, { useState, useEffect } from 'react';
@@ -17,17 +16,13 @@ import { Dropdown } from 'react-native-element-dropdown';
 import { ImageBackground } from 'react-native';
 import { MyMethods } from '../../methods/MyMethods';
 import { Modal } from 'react-native-paper';
-import {
-  api_url,
-  astro_all_wallet_history_new,
-} from '../../config/Constants';
 import Loader from '../../component/common/Loader';
 import { SCREEN_WIDTH } from '../../config/Screen';
 import LinearGradient from 'react-native-linear-gradient';
 import { DateTimePickerAndroid } from '@react-native-community/datetimepicker';
 import AmountInfo from '../../component/ui/History/AmountInfo';
 
-const WalletHistory = ({ navigation, providerData }) => {
+const WalletHistory = ({ navigation, authData }) => {
   const dashboard = {
     data: {
       Walletbalance: 100
@@ -473,15 +468,13 @@ const WalletHistory = ({ navigation, providerData }) => {
 };
 
 const mapStateToProps = state => ({
-  providerData: state.provider.providerData,
-  dashboard: state.provider.dashboard,
+  authData: state.authProvider.authData,
 });
 
 const mapDispatchToProps = dispatch => ({ dispatch });
 
 export default connect(mapStateToProps, mapDispatchToProps)(WalletHistory);
 
-// export default WalletHistory;
 const styles = StyleSheet.create({
   txt: {
     paddingVertical: Sizes.fixPadding - 4,

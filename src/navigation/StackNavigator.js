@@ -29,6 +29,7 @@ import BookingDetails from '../screen/ECommerce/BookingDetails';
 import UploadEcommerce from '../screen/ECommerce/UploadEcommerce';
 import PoojaHistory from '../screen/ECommerce/PoojaHistory';
 import HistoryDetails from '../screen/ECommerce/HistoryDetails';
+import CourseList from '../screen/Courses/CourseList';
 
 const Stack = createNativeStackNavigator();
 
@@ -69,6 +70,8 @@ const StackNavigator = () => {
       <Stack.Screen name="profile" component={Profile} />
       <Stack.Screen name="historyDetails" component={HistoryDetails} />
       <Stack.Screen name="scheduledList" component={ScheduledList} />
+
+      <Stack.Screen name="courseList" component={CourseList} />
 
     </Stack.Navigator>
   );
