@@ -2,7 +2,6 @@ import {
   View,
   Text,
   FlatList,
-  Dimensions,
   TouchableOpacity,
   TextInput,
   Alert,
@@ -10,17 +9,16 @@ import {
 import axios from 'axios';
 import { connect } from 'react-redux';
 import React, { useState } from 'react';
+import { Checkbox } from 'react-native-paper';
 import { Colors, Fonts } from '../../assets/style';
+import { commonStyles } from '../../assets/global';
 import Ionicons from 'react-native-vector-icons/Ionicons';
 import { Menu, MenuItem, MenuDivider } from 'react-native-material-menu';
 import { api_url, update_bank_details } from '../../config/Constants';
-import { Checkbox } from 'react-native-paper';
-import { commonStyles } from '../../assets/global';
 import MyStatusBar from '../../component/common/MyStatusBar';
 import MyHeader from '../../component/common/MyHeader';
 import Loader from '../../component/common/Loader';
-
-const { width, height } = Dimensions.get('screen');
+import { SCREEN_HEIGHT, SCREEN_WIDTH } from '../../config/Screen';
 
 const UpdateBankDetails = props => {
   const [isLoading, setIsLoading] = useState(false);
@@ -74,7 +72,7 @@ const UpdateBankDetails = props => {
           'Content-Type': 'multipart/form-data',
         },
         data: {
-          astro_id: props.providerData.id,
+          astro_id: props.authData.id,
           bank: bankName,
           account_no: accoountNumber,
           account_name: name,
@@ -122,7 +120,7 @@ const UpdateBankDetails = props => {
 
   function bankDetailsForm() {
     return (
-      <View style={{ justifyContent: 'space-between', height: height * 0.82 }}>
+      <View style={{ justifyContent: 'space-between', height: SCREEN_HEIGHT * 0.82 }}>
         <View style={{ marginHorizontal: 20, paddingTop: 10 }}>
           <Text style={[Fonts.black14InterMedium]}>Bank Name</Text>
           <TextInput
@@ -172,7 +170,7 @@ const UpdateBankDetails = props => {
               visible={visible}
               animationDuration={100}
               style={{
-                width: width * 0.5,
+                width: SCREEN_WIDTH * 0.5,
                 position: 'absolute',
                 top: '72%',
               }}
@@ -216,7 +214,7 @@ const UpdateBankDetails = props => {
               alignItems: 'center',
               justifyContent: 'center',
               borderRadius: 30,
-              height: width * 0.13,
+              height: SCREEN_WIDTH * 0.13,
               width: '70%',
               paddingHorizontal: 15,
             }}>
@@ -229,7 +227,7 @@ const UpdateBankDetails = props => {
 };
 
 const mapStateToProps = state => ({
-  providerData: state.provider.providerData,
+  authData: state.authProvider.authData,
 });
 
 const mapDispatchToProps = dispatch => ({ dispatch });

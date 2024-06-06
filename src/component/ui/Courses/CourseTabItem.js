@@ -1,28 +1,39 @@
 import React from 'react';
-import { View, Image, Text, ImageBackground, StyleSheet } from 'react-native';
+import { View, Image, Text, ImageBackground, StyleSheet, TouchableOpacity } from 'react-native';
 import { SCREEN_WIDTH } from '../../../config/Screen';
 import { Colors, Sizes } from '../../../assets/style';
 
-const TabItem = ({ text }) => (
-  <ImageBackground
-    source={require('../../../assets/images/schedule_pooja.png')}
-    style={styles.imageBackground}
-    resizeMode="contain"
+const TabItem = ({ text, tab, handleSet }) => (
+  <TouchableOpacity
+    onPress={() => handleSet(tab)}
   >
-    <Image
-      source={require("../../../assets/icon/history_icon.png")}
-      style={styles.icon}
-    />
-    <Text style={styles.text}>{text}</Text>
-  </ImageBackground>
+    <ImageBackground
+      source={require('../../../assets/images/schedule_pooja.png')}
+      style={styles.imageBackground}
+      resizeMode="contain"
+    >
+      <Image
+        source={require("../../../assets/icon/history_icon.png")}
+        style={styles.icon}
+      />
+      <Text style={styles.text}>{text}</Text>
+    </ImageBackground>
+  </TouchableOpacity>
 );
 
-const CourseTabItem = () => (
-  <View style={styles.container}>
-    <TabItem text="Demo Class" />
-    <TabItem text="Live Class" />
-  </View>
-);
+const CourseTabItem = ({ setActiveTab }) => {
+  
+  const handleSet = (tab) => {
+    setActiveTab(tab)
+  }
+
+  return (
+    <View style={styles.container}>
+      <TabItem text="Demo Class" tab={0} handleSet={handleSet} />
+      <TabItem text="Live Class" tab={1} handleSet={handleSet} />
+    </View>
+  )
+}
 
 const styles = StyleSheet.create({
   container: {

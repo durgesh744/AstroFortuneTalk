@@ -6,11 +6,11 @@ import {
   Image,
   ImageBackground,
 } from 'react-native';
-import {Input} from '@rneui/themed';
-import {FlatList} from 'react-native';
-import React, {useEffect, useState} from 'react';
-import {Colors, Fonts, Sizes} from '../../assets/style';
-import {SCREEN_WIDTH} from '../../config/Screen';
+import { Input } from '@rneui/themed';
+import { FlatList } from 'react-native';
+import React, { useEffect, useState } from 'react';
+import { Colors, Fonts, Sizes } from '../../assets/style';
+import { SCREEN_WIDTH } from '../../config/Screen';
 import LinearGradient from 'react-native-linear-gradient';
 import {
   api_url,
@@ -20,8 +20,9 @@ import {
 import axios from 'axios';
 import MyStatusBar from '../../component/common/MyStatusBar';
 import Loader from '../../component/common/Loader';
+import MyHeader from '../../component/common/MyHeader';
 
-const Products = ({navigation, route}) => {
+const Products = ({ navigation, route }) => {
   const [state, setState] = useState({
     categoryData: route.params?.categoryData,
     screeType: route.params?.categoryData?.name,
@@ -34,7 +35,7 @@ const Products = ({navigation, route}) => {
   }, []);
 
   const get_products = async () => {
-    updateState({isLoading: true});
+    updateState({ isLoading: true });
     await axios({
       method: 'post',
       url: api_url + post_mall_sub_category,
@@ -46,36 +47,36 @@ const Products = ({navigation, route}) => {
       },
     })
       .then(res => {
-        updateState({isLoading: false});
+        updateState({ isLoading: false });
         if (res.data.status) {
-          updateState({productData: res.data.data});
+          updateState({ productData: res.data.data });
         }
       })
       .catch(err => {
-        updateState({isLoading: false});
+        updateState({ isLoading: false });
         console.log(err);
       });
   };
 
-  const search_product = search => {};
+  const search_product = search => { };
 
   const updateState = data => {
     setState(prevState => {
-      const newData = {...prevState, ...data};
+      const newData = { ...prevState, ...data };
       return newData;
     });
   };
 
-  const {categoryData, screeType, productData, isLoading} = state;
+  const { categoryData, screeType, productData, isLoading } = state;
 
   return (
-    <View style={{flex: 1, backgroundColor: Colors.bodyColor}}>
+    <View style={{ flex: 1, backgroundColor: Colors.bodyColor }}>
       <MyStatusBar
         backgroundColor={Colors.primaryLight}
         barStyle={'light-content'}
       />
       <Loader visible={isLoading} />
-      <View style={{flex: 1}}>
+      <View style={{ flex: 1 }}>
         {header()}
         <FlatList
           ListHeaderComponent={
@@ -85,14 +86,14 @@ const Products = ({navigation, route}) => {
               {productData && productsInfo()}
             </>
           }
-          contentContainerStyle={{paddingVertical: Sizes.fixPadding}}
+          contentContainerStyle={{ paddingVertical: Sizes.fixPadding }}
         />
       </View>
     </View>
   );
 
   function productsInfo() {
-    const renderItem = ({item, index}) => {
+    const renderItem = ({ item, index }) => {
       return (
         <TouchableOpacity
           activeOpacity={1}
@@ -116,7 +117,7 @@ const Products = ({navigation, route}) => {
             borderColor: Colors.primaryLight,
           }}>
           <ImageBackground
-            source={{uri: base_url + 'admin/' + item?.image}}
+            source={{ uri: base_url + 'admin/' + item?.image }}
             resizeMode="cover"
             style={{
               width: '100%',
@@ -139,7 +140,7 @@ const Products = ({navigation, route}) => {
                   },
                 ]}>
                 <Text
-                  style={{...Fonts.white11InterMedium, fontSize: 9, flex: 0.6}}>
+                  style={{ ...Fonts.white11InterMedium, fontSize: 9, flex: 0.6 }}>
                   {item?.title}
                 </Text>
                 <Text
@@ -165,7 +166,7 @@ const Products = ({navigation, route}) => {
           keyExtractor={item => item.id}
           numColumns={2}
           contentContainerStyle={{}}
-          columnWrapperStyle={{justifyContent: 'space-evenly'}}
+          columnWrapperStyle={{ justifyContent: 'space-evenly' }}
         />
       </View>
     );
@@ -189,8 +190,8 @@ const Products = ({navigation, route}) => {
             overflow: 'hidden',
           }}>
           <Image
-            source={{uri: base_url + 'admin/' + categoryData.banner}}
-            style={{width: '100%', height: 110, resizeMode: 'cover'}}
+            source={{ uri: base_url + 'admin/' + categoryData.banner }}
+            style={{ width: '100%', height: 110, resizeMode: 'cover' }}
           />
         </View>
       </View>
@@ -210,7 +211,7 @@ const Products = ({navigation, route}) => {
         <Input
           placeholder={`Search for ${categoryData?.name}`}
           placeholderTextColor={Colors.gray}
-          inputStyle={{...Fonts.black14InterMedium}}
+          inputStyle={{ ...Fonts.black14InterMedium }}
           containerStyle={{
             height: 36,
             flex: 1,
@@ -227,19 +228,7 @@ const Products = ({navigation, route}) => {
             paddingHorizontal: Sizes.fixPadding,
             height: 36,
           }}
-          // rightIcon={
-          //   <Image
-          //     source={require('../../assets/images/icons/search.png')}
-          //     style={{width: 20, height: 20}}
-          //   />
-          // }
         />
-        {/* <TouchableOpacity style={{flex: 0.2, marginLeft: Sizes.fixPadding}}>
-              <Image
-                source={require('../assets/images/icons/filter.png')}
-                style={{width: 20, height: 20}}
-              />
-            </TouchableOpacity> */}
       </View>
     );
   }

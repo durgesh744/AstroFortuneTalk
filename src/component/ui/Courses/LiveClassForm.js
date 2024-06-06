@@ -7,22 +7,20 @@ import {
   FlatList,
 } from 'react-native';
 import React, {useState} from 'react';
-import {Colors, Fonts, Sizes} from '../../assets/style';
+import {Colors, Fonts, Sizes} from '../../../assets/style';
 import MaterialIcons from 'react-native-vector-icons/MaterialIcons';
 import moment from 'moment';
 import Ionicons from 'react-native-vector-icons/Ionicons';
-import {SCREEN_WIDTH} from '../../config/Screen';
+import {SCREEN_WIDTH} from '../../../config/Screen';
 import {DateTimePickerAndroid} from '@react-native-community/datetimepicker';
 import {Image} from 'react-native';
 import * as ImagePicker from 'react-native-image-picker';
 
-import {showToastWithGravityAndOffset} from '../../methods/toastMessage';
-import axios from 'axios';
+import {showToastWithGravityAndOffset} from '../../../methods/toastMessage';
 import {
   api_url,
   live_class,
-  live_class_according_id,
-} from '../../config/Constants';
+} from '../../../config/Constants';
 import RNFetchBlob from 'rn-fetch-blob';
 
 const LiveClassForm = ({updateState, providerData, courseId, navigation}) => {

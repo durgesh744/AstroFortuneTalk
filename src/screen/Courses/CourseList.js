@@ -22,6 +22,7 @@ import {
 import CourseTabItem from '../../component/ui/Courses/CourseTabItem';
 
 const CourseList = ({ navigation }) => {
+  const [activeTab, setActiveTab] = useState(0)
   const [state, setState] = useState({
     visible: false,
     courseData: null,
@@ -85,9 +86,14 @@ const CourseList = ({ navigation }) => {
         barStyle={'light-content'}
       />
       {myHeader()}
-      <CourseTabItem />
+      <CourseTabItem setActiveTab={setActiveTab} />
       <View style={{ flex: 1 }}>
-        <FlatList ListHeaderComponent={<>{courseList()}</>} />
+        <FlatList ListHeaderComponent=
+          {<>
+            {activeTab == 1 && courseList()}
+            {activeTab == 0 && courseList()}
+          </>}
+        />
       </View>
     </View>
   );
@@ -171,6 +177,7 @@ const CourseList = ({ navigation }) => {
       </View>
     );
   }
+
 
   function courseList() {
     const renderItem = ({ item }) => (

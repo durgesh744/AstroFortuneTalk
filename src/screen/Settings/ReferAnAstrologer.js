@@ -19,7 +19,7 @@ import MyHeader from '../../component/common/MyHeader';
 import Loader from '../../component/common/Loader';
 import { SCREEN_HEIGHT, SCREEN_WIDTH } from '../../config/Screen';
 
-const ReferAnAstrologer = props => {
+const ReferAnAstrologer = ({  navigation  , authData}) => {
   const [isLoading, setIsLoading] = useState(false);
   const [name, setName] = useState('');
   const [email, setEmail] = useState('');
@@ -62,7 +62,7 @@ const ReferAnAstrologer = props => {
           'Content-Type': 'multipart/form-data',
         },
         data: {
-          referal_id: props.providerData.id,
+          referal_id: authData.astrologer._id,
           name: name,
           email: email,
           phone: mobileNumber,
@@ -101,7 +101,7 @@ const ReferAnAstrologer = props => {
         backgroundColor={Colors.primaryLight}
         barStyle={'light-content'}
       />
-      <MyHeader title={'Refer an Astrologer'} navigation={props.navigation} />
+      <MyHeader title={'Refer an Astrologer'} navigation={navigation} />
       <Loader visible={isLoading} />
       <View style={{ flex: 1 }}>
         <FlatList ListHeaderComponent={<>{astrologerdetailsform()}</>} />
@@ -199,7 +199,7 @@ const ReferAnAstrologer = props => {
 };
 
 const mapStateToProps = state => ({
-  providerData: state.provider.providerData,
+  authData: state.authProvider.authData,
 });
 
 const mapDispatchToProps = dispatch => ({ dispatch });

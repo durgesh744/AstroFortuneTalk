@@ -20,7 +20,7 @@ export const commonStyles = StyleSheet.create({
         flexDirection: 'row',
         alignItems: 'center',
         justifyContent: 'space-between',
-        height: width * 0.12,
+        height: SCREEN_WIDTH * 0.12,
         width: '100%',
         marginBottom: 15,
         borderBottomColor: Colors.gray2,

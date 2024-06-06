@@ -20,7 +20,7 @@ import Loader from '../../component/common/Loader';
 
 const AddRemedy = ({
   navigation,
-  providerData,
+  authData,
   route,
 }) => {
   const [state, setState] = useState({
@@ -73,7 +73,7 @@ const AddRemedy = ({
     if (free_remedy_validation()) {
       updateState({isLoading: true});
       let data = new FormData();
-      data.append('astro_id', providerData?.id);
+      data.append('astro_id', authData.astrologer._id);
       data.append('product_name', free_product_name);
       data.append('des', free_product_description);
       data.append('status', '1');
@@ -93,7 +93,7 @@ const AddRemedy = ({
     if (paid_remedy_validation()) {
       updateState({isLoading: true});
       let data = new FormData();
-      data.append('astro_id', providerData?.id);
+      data.append('astro_id', authData.astrologer._id);
       data.append('product_name', paid_product_name);
       data.append('des', paid_product_description);
       data.append('price', paid_product_price);
@@ -609,10 +609,7 @@ const AddRemedy = ({
 };
 
 const mapStateToProps = state => ({
-  providerData: state.provider.providerData,
-  dashboard: state.provider.dashboard,
-  astroFirebaseID: state.chat.astroFirebaseID,
-  customerFirebaseID: state.chat.customerFirebaseID,
+  authData: state.authProvider.authData,
 });
 
 export default connect(mapStateToProps, null)(AddRemedy);

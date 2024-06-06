@@ -6,17 +6,17 @@ import {
   TouchableOpacity,
 } from 'react-native';
 import React, { useState } from 'react';
-import { Colors, Fonts, Sizes } from '../../assets/style';
+import { Colors, Fonts, Sizes } from '../../../assets/style';
 import Ionicons from 'react-native-vector-icons/Ionicons';
 import {
   DateTimePickerAndroid,
 } from '@react-native-community/datetimepicker';
-import { SCREEN_WIDTH } from '../../config/Screen';
+import { SCREEN_WIDTH } from '../../../config/Screen';
 import * as ImagePicker from 'react-native-image-picker';
 import { Image } from 'react-native';
-import { showToastWithGravityAndOffset } from '../../methods/toastMessage';
+import { showToastWithGravityAndOffset } from '../../../methods/toastMessage';
 import RNFetchBlob from 'rn-fetch-blob';
-import { api_url, demo_class } from '../../config/Constants';
+import { api_url, demo_class } from '../../../config/Constants';
 import moment from 'moment';
 import * as Progress from 'react-native-progress';
 

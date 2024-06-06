@@ -17,7 +17,7 @@ import MyHeader from '../../component/common/MyHeader';
 import CustomLine from '../../component/common/CustomLine';
 import { SCREEN_HEIGHT, SCREEN_WIDTH } from '../../config/Screen';
 
-const PriceChange = ({ navigation, providerData }) => {
+const PriceChange = ({ navigation, authData }) => {
   const [isLoading, setIsLoading] = useState(false);
   const [his, sethis] = useState();
   const [state, setState] = useState({
@@ -198,8 +198,7 @@ const PriceChange = ({ navigation, providerData }) => {
 };
 
 const mapStateToProps = state => ({
-  providerData: state.provider.providerData,
-  dashboard: state.provider.dashboard,
+  authData: state.authProvider.authData,
 });
 
 export default connect(mapStateToProps, null)(PriceChange);

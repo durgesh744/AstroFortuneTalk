@@ -18,14 +18,14 @@ import { SCREEN_WIDTH } from '../../config/Screen';
 import LinearGradient from 'react-native-linear-gradient';
 import DocumentPicker from 'react-native-document-picker';
 import { api_url, upload_free_pdf } from '../../config/Constants';
-import DemoClass from '../../component/Courses/DemoClass';
-import LiveClassForm from '../../component/Courses/LiveClassForm';
 import * as Progress from 'react-native-progress';
 import MyStatusBar from '../../component/common/MyStatusBar';
 import MyHeader from '../../component/common/MyHeader';
 import Loader from '../../component/common/Loader';
+import DemoClass from '../../component/ui/Courses/DemoClass';
+import LiveClassForm from '../../component/ui/Courses/LiveClassForm';
 
-const AddCourseDetails = ({ navigation, route, providerData }) => {
+const AddCourseDetails = ({ navigation, route, authData }) => {
   const [freePDFTitle, setFreePDFTitle] = useState('');
   const [freePDF, setFreePDF] = useState(null);
 
@@ -105,7 +105,7 @@ const AddCourseDetails = ({ navigation, route, providerData }) => {
           'Content-Type': 'multipart/form-data',
         },
         [
-          { name: 'astro_id', data: providerData.id },
+          { name: 'astro_id', data: authData.id },
           { name: 'title', data: freePDFTitle },
           { name: 'type', data: 'free_pdf' },
           { name: 'amount', data: '' },
@@ -159,7 +159,7 @@ const AddCourseDetails = ({ navigation, route, providerData }) => {
           'Content-Type': 'multipart/form-data',
         },
         [
-          { name: 'astro_id', data: providerData.id },
+          { name: 'astro_id', data: authData.id },
           { name: 'title', data: paidPDFTitle },
           { name: 'type', data: 'paid_pdf' },
           { name: 'amount', data: paidPDFAmount },
@@ -230,14 +230,14 @@ const AddCourseDetails = ({ navigation, route, providerData }) => {
               {selectedTab === 'demoClass' && (
                 <DemoClass
                   navigation={navigation}
-                  providerData={providerData}
+                  providerData={authData}
                   courseId={route?.params?.course_id}
                 />
               )}
               {selectedTab === 'liveClass' && (
                 <LiveClassForm
                   updateState={updateState}
-                  providerData={providerData}
+                  providerData={authData}
                   courseId={route?.params?.course_id}
                   navigation={navigation}
                   uploading={uploading}

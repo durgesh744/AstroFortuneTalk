@@ -45,9 +45,9 @@ const Terms = ({ navigation }) => {
   const { isLoading, policyData } = state;
 
   return (
-    <View style={{ flex: 1, backgroundColor: Colors.bodyColor }}>
+    <View style={{ flex: 1, backgroundColor:"#fff" }}>
       <MyStatusBar
-        backgroundColor={Colors.primaryLight}
+        backgroundColor={"#9D6BC7"}
         barStyle={'light-content'}
       />
       <MyHeader title="Terms and Conditions" navigation={navigation} />

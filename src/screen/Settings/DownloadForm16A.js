@@ -15,11 +15,9 @@ import Loader from '../../component/common/Loader';
 import MyHeader from '../../component/common/MyHeader';
 import MyStatusBar from '../../component/common/MyStatusBar';
 import { api_url, get_PDF, provider_img_url } from '../../config/Constants';
-import { useAuth } from '../../context/AuthContext';
 import { SCREEN_WIDTH } from '../../config/Screen';
 
-const DownloadForm16A = props => {
-  const { user } = useAuth()
+const DownloadForm16A = ({ navigation, authData }) => {
   const [isLoading, setIsLoading] = useState(false);
   const [pdf, setPDF] = useState();
 
@@ -36,7 +34,7 @@ const DownloadForm16A = props => {
         'Content-Type': 'multipart/form-data',
       },
       data: {
-        astrologer_id: user?.data?.user?.id,
+        astrologer_id: authData?.astrologer?._id,
       },
     })
       .then(async res => {
@@ -59,7 +57,7 @@ const DownloadForm16A = props => {
         backgroundColor={Colors.primaryLight}
         barStyle={'light-content'}
       />
-      <MyHeader title="Download Form 16A" navigation={props.navigation} />
+      <MyHeader title="Download Form 16A" navigation={navigation} />
       <Loader visible={isLoading} />
       <View style={{ flex: 1, marginTop: Sizes.fixPadding * 1.5 }}>
         <FlatList ListHeaderComponent={<>{filesList()}</>} />
@@ -105,7 +103,7 @@ const DownloadForm16A = props => {
 };
 
 const mapStateToProps = state => ({
-  providerData: state.provider.providerData,
+  authData: state.authProvider.authData,
 });
 
 const mapDispatchToProps = dispatch => ({ dispatch });

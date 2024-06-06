@@ -30,6 +30,10 @@ import UploadEcommerce from '../screen/ECommerce/UploadEcommerce';
 import PoojaHistory from '../screen/ECommerce/PoojaHistory';
 import HistoryDetails from '../screen/ECommerce/HistoryDetails';
 import CourseList from '../screen/Courses/CourseList';
+import AddCourseDetails from '../screen/Courses/AddCourseDetails';
+import Followers from '../screen/Followers';
+import Products from '../screen/ECommerce/Products';
+import Reviews from '../screen/Reviews';
 
 const Stack = createNativeStackNavigator();
 
@@ -72,6 +76,10 @@ const StackNavigator = () => {
       <Stack.Screen name="scheduledList" component={ScheduledList} />
 
       <Stack.Screen name="courseList" component={CourseList} />
+      <Stack.Screen name="addCourseDetails" component={AddCourseDetails} />
+      <Stack.Screen name="Followers" component={Followers} />
+      <Stack.Screen name="products" component={Products} />
+      <Stack.Screen name="ReviwList" component={Reviews} />
 
     </Stack.Navigator>
   );

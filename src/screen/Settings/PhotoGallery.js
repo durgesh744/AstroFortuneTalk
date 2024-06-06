@@ -23,15 +23,13 @@ import {
   upload_gallery_photo,
 } from '../../config/Constants';
 import RNFetchBlob from 'rn-fetch-blob';
-import { useAuth } from '../../context/AuthContext';
-import MyStatusBar from '../../component/common/MyStatusBar';
-import MyHeader from '../../component/common/MyHeader';
-import Loader from '../../component/common/Loader';
 import { SCREEN_WIDTH } from '../../config/Screen';
+import Loader from '../../component/common/Loader';
+import MyHeader from '../../component/common/MyHeader';
+import MyStatusBar from '../../component/common/MyStatusBar';
 import CustomSwitch from '../../component/common/CustomSwitch';
 
-const PhotoGallery = props => {
-  const { user } = useAuth()
+const PhotoGallery = ({ navigation, authData }) => {
   const [isLoading, setIsLoading] = useState(false);
   const [galleryPhotos, setGalleryPhotos] = useState();
   const [modalVisible, setModalVisible] = useState(false);
@@ -105,7 +103,7 @@ const PhotoGallery = props => {
         'Content-Type': 'multipart/form-data',
       },
       [
-        { name: 'astrologer_id', data: user.data.user.id },
+        { name: 'astrologer_id', data: authData.astrologer._id },
         {
           name: 'image',
           filename: `${filename}`,
@@ -135,7 +133,7 @@ const PhotoGallery = props => {
         'Content-Type': 'multipart/form-data',
       },
       data: {
-        astrologer_id: user.data.user.id,
+        astrologer_id: authData.astrologer._id ,
       },
     })
       .then(async res => {
@@ -208,7 +206,7 @@ const PhotoGallery = props => {
         backgroundColor={Colors.primaryLight}
         barStyle={'light-content'}
       />
-      <MyHeader title="Photo Gallery" navigation={props.navigation} />
+      <MyHeader title="Photo Gallery" navigation={navigation} />
       <Loader visible={isLoading} />
       <View style={{ flex: 0.8 }}>{photosList()}</View>
       <View style={{ flex: 0.1 }}>{notelabel()}</View>
@@ -375,7 +373,7 @@ const PhotoGallery = props => {
   }
 };
 const mapStateToProps = state => ({
-  providerData: state.provider.providerData,
+  authData: state.authProvider.authData,
 });
 
 const mapDispatchToProps = dispatch => ({ dispatch });

@@ -17,7 +17,7 @@ import Loader from '../../component/common/Loader';
 import MyHeader from '../../component/common/MyHeader';
 import { SCREEN_HEIGHT } from '../../config/Screen';
 
-const PriceChangeRequest = ({ navigation, providerData }) => {
+const PriceChangeRequest = ({ navigation }) => {
   const [dropdown, setDropdown] = useState(null)
   const [state, setState] = useState({
     isLoading: false,
@@ -141,8 +141,7 @@ const PriceChangeRequest = ({ navigation, providerData }) => {
 }
 
 const mapStateToProps = state => ({
-  providerData: state.provider.providerData,
-  dashboard: state.provider.dashboard,
+  authData: state.authProvider.authData,
 });
 
 export default connect(mapStateToProps, null)(PriceChangeRequest);
