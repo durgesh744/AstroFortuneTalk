@@ -50,15 +50,15 @@ const Home = ({ navigation }) => {
           <>
             <AstriInfo navigation={navigation} />
             {GoForPolicies()}
-            <Performance />
-            <Offer />
+            <Performance navigation={navigation} />
+            <Offer navigation={navigation} />
             {/* <HomeBannerInfo/> */}
-            <ChatCallStatusInfo />
-            <TrandingInfoOnOff />
-            <GoLiveNowInfo />
-            <TrainingReelsInfo />
-            <ScheduleCourse />
-            <FortuneStoreInfo />
+            <ChatCallStatusInfo navigation={navigation} />
+            <TrandingInfoOnOff navigation={navigation} />
+            <GoLiveNowInfo navigation={navigation} />
+            <TrainingReelsInfo navigation={navigation} />
+            <ScheduleCourse navigation={navigation} />
+            <FortuneStoreInfo navigation={navigation} />
             {TabsInfo()}
             {noticeBoard()}
             {reportIssue()}

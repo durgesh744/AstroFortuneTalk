@@ -39,6 +39,7 @@ import LiveEvent from '../screen/LiveEvent';
 import SupportChat from '../screen/SupportChat/SupportChat';
 import Login from '../screen/Auth/Login';
 import SupportChatScreen from '../screen/SupportChat/SupportChatScreen';
+import Performance from '../screen/Performance/Performance';
 
 const Stack = createNativeStackNavigator();
 
@@ -90,6 +91,7 @@ const StackNavigator = () => {
       <Stack.Screen name="LiveEvent" component={LiveEvent} />
       <Stack.Screen name="SupportChat" component={SupportChat} />
       <Stack.Screen name="supportChatScreen" component={SupportChatScreen} />
+      <Stack.Screen name="performanceDashboard" component={Performance} />
 
     </Stack.Navigator>
   );

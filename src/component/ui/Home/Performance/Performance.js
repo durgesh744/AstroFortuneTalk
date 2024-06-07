@@ -35,7 +35,7 @@ const Performance = ({ navigation }) => {
                             padding: Sizes.fixPadding,
                         }}>
                         <TouchableOpacity
-                            onPress={() => navigation.navigate('performance')}>
+                            onPress={() => navigation.navigate('performanceDashboard')}>
                             <AntDesign name="right" size={26} color={Colors.white} />
                         </TouchableOpacity>
                     </LinearGradient>

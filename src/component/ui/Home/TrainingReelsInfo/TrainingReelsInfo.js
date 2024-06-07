@@ -4,20 +4,15 @@ import { FlatList } from "react-native";
 import { Text, TouchableOpacity, View } from "react-native";
 import { SCREEN_WIDTH } from "../../../../config/Screen";
 import { Colors, Fonts, Sizes } from "../../../../assets/style";
-import { provider_img_url } from "../../../../config/Constants";
 
 function TrainingReelsInfo() {
     const on_navigate = item => {
-        //   const arr = trainingVedioData.filter(e => e.id != item.id);
-        //   const new_arr = [item, ...arr];
-        //   navigation.navigate('reels', {data: new_arr});
     };
 
     const [trainingVedioData, setTrainingVedioData] = useState([
         { id: '1', image: 'https://yt3.googleusercontent.com/4JmWfgEiUAhyV9id6ys4o9_Fl0TYevULhKZFhDWVGFg_K9vwF0IpEVKepLJDvrbUERkeDAsouQ=s160-c-k-c0x00ffffff-no-rj' },
         { id: '2', image: 'https://yt3.googleusercontent.com/4JmWfgEiUAhyV9id6ys4o9_Fl0TYevULhKZFhDWVGFg_K9vwF0IpEVKepLJDvrbUERkeDAsouQ=s160-c-k-c0x00ffffff-no-rj' },
         { id: '3', image: 'https://yt3.googleusercontent.com/4JmWfgEiUAhyV9id6ys4o9_Fl0TYevULhKZFhDWVGFg_K9vwF0IpEVKepLJDvrbUERkeDAsouQ=s160-c-k-c0x00ffffff-no-rj' },
-        // Add more training reel items as needed
     ])
 
     const renderItem = ({ item, index }) => {
@@ -25,8 +20,8 @@ function TrainingReelsInfo() {
             <TouchableOpacity
                 onPress={() => on_navigate(item)}
                 style={{
-                    width: SCREEN_WIDTH * 0.4,
-                    height: SCREEN_WIDTH * 0.5,
+                    width: SCREEN_WIDTH * 0.3,
+                    height: SCREEN_WIDTH * 0.35,
                     borderRadius: Sizes.fixPadding,
                     overflow: 'hidden',
                     marginRight: Sizes.fixPadding * 1.5,
