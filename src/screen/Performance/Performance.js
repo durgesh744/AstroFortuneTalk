@@ -1,265 +1,402 @@
-import React, { useState } from 'react'
-import { StyleSheet, Text, TouchableOpacity, View } from 'react-native'
-import { Colors, Sizes } from '../../assets/style'
-import Loader from '../../component/common/Loader'
-import MyStatusBar from '../../component/common/MyStatusBar'
-import MyHeader from '../../component/common/MyHeader'
-import { FlatList } from 'react-native'
-import LinearGradient from 'react-native-linear-gradient'
-import TableComponent from './PerformaceTable'
-import { Divider } from 'react-native-paper'
-import PerformanceRate from './PerformanceRate'
-import CustomButton from '../../component/common/CustomButton'
+import {
+    Text,
+    FlatList,
+    View,
+    TouchableOpacity,
+} from 'react-native';
+import React, { useState, useEffect } from 'react';
+import { Colors, Fonts, Sizes } from '../../assets/style';
+import { connect } from 'react-redux';
+import LinearGradient from 'react-native-linear-gradient';
+import Feather from 'react-native-vector-icons/Feather';
+import MyStatusBar from '../../component/common/MyStatusBar';
+import Loader from '../../component/common/Loader';
+import MyHeader from '../../component/common/MyHeader';
+import Doublecont from '../../component/ui/Performance/Doublecont';
+import Singlecont from '../../component/ui/Performance/Singlecont';
+import Performancecont from '../../component/ui/Performance/Performancecont';
 
-const Performance = ({ navigation }) => {
-    const [isLoading, setIsLoading] = useState(false)
+const Performance = ({ navigation, providerData }) => {
+    const [performanceData, setPerformanceData] = useState();
+    const [isLoading, setIsLoading] = useState(false);
 
-    const tableData = {
-        rows: [
-            ['Busy Time (in mins)', 256.17, 'N/A', "N/A"],
-            ['Online Time (in mins)', 256.17, 'N/A', "N/A"],
-        ],
-    };
+    useEffect(() => {
+        get_performance();
+    }, []);
 
-    const otherPerformanceData = {
-        rows: [
-            ['Total no of followers', 432, 'N/A', "N/A"],
-        ],
+    const get_performance = async () => {
+
     };
 
     return (
-        <View style={{
-            flex: 1,
-            backgroundColor: Colors.white,
-        }} >
+        <View style={{ flex: 1 }}>
             <MyStatusBar
-                backgroundColor={Colors.primaryDark}
+                backgroundColor={Colors.primaryLight}
                 barStyle={'light-content'}
             />
             <Loader visible={isLoading} />
-            <MyHeader navigation={navigation} title={"Performance Dashboard"} />
-            <FlatList
-                scrollEnabled={true}
-                ListHeaderComponent={
-                    <>
-                        {Score()}
-                        <TableComponent tableData={tableData} heading={"Chat"} />
-                        <TableComponent tableData={tableData} heading={"Call"} />
-                        <TableComponent tableData={tableData} heading={"Live Events Call"} />
-                        <TableComponent tableData={tableData} heading={"Video Call"} />
-                        {otherPerformance()}
-                        <TableComponent tableData={otherPerformanceData} heading={"This Month Earnings"} />
-                        <TableComponent tableData={otherPerformanceData} heading={"Live Events"} />
-                        <TableComponent tableData={otherPerformanceData} heading={"Followers"} />
 
-                        <TableComponent tableData={tableData} heading={"Chat"} />
-                        <TableComponent tableData={tableData} heading={"Call"} />
-                        <TableComponent tableData={tableData} heading={"Live Events Call"} />
-                        <TableComponent tableData={tableData} heading={"Video Call"} />
+            <MyHeader title="Performance" navigation={navigation} />
 
-                        <PerformanceRate heading={"PO retention %"} />
-                        <PerformanceRate heading={"PO retention %"} />
-                        <PerformanceRate heading={"PO retention %"} />
-                        <PerformanceRate heading={"PO retention %"} />
-                        <PerformanceRate heading={"PO retention %"} />
-                        {availability()}
-                        <PerformanceRate heading={"PO retention %"} />
-                    </>
-                }
-            />
+            <View style={{ flex: 1, marginTop: Sizes.fixPadding * 1.5 }}>
+                <FlatList
+                    ListHeaderComponent={
+                        <>
+                            {impactscore()}
+                            <Doublecont
+                                title="Chat"
+                                value1={performanceData && performanceData.chat_busy_duration}
+                                value2={performanceData && performanceData.chat_earn_amount}
+                            />
+                            <Doublecont
+                                title="Call"
+                                value1={performanceData && performanceData.call_busy_duration}
+                                value2={performanceData && performanceData.call_earn_amount}
+                            />
+                            <Doublecont
+                                title="Live Event Call"
+                                value1={performanceData && performanceData.chat_busy_duration}
+                                value2={performanceData && performanceData.chat_earn_amount}
+                            />
+                            <Doublecont
+                                title="Video Call"
+                                value1={performanceData && performanceData.chat_busy_duration}
+                                value2={performanceData && performanceData.chat_earn_amount}
+                            />
+                            {headerborder()}
+                            <Singlecont
+                                title="This Month Earning"
+                                value1={performanceData && performanceData.chat_busy_duration}
+                            />
+                            <Singlecont
+                                title="Live Events"
+                                value1={performanceData && performanceData.chat_busy_duration}
+                            />
+                            <Singlecont
+                                title="Followers"
+                                value1={performanceData && performanceData.query_fol_count}
+                            />
+                            {border1()}
+                            <Doublecont
+                                title="Chat"
+                                value1={performanceData && performanceData.chat_busy_duration}
+                                value2={performanceData && performanceData.chat_earn_amount}
+                            />
+                            <Doublecont
+                                title="Call"
+                                value1={performanceData && performanceData.chat_busy_duration}
+                                value2={performanceData && performanceData.chat_earn_amount}
+                            />
+                            <Doublecont
+                                title="Live Event Call"
+                                value1={performanceData && performanceData.chat_busy_duration}
+                                value2={performanceData && performanceData.chat_earn_amount}
+                            />
+                            <Doublecont
+                                title="Video Call"
+                                value1={performanceData && performanceData.chat_busy_duration}
+                                value2={performanceData && performanceData.chat_earn_amount}
+                            />
+                            {border2()}
+                            <Performancecont
+                                title="PO retention %"
+                                performanceData={performanceData}
+                            />
+                            <Performancecont
+                                title="PO Served Properly Percentage"
+                                performanceData={performanceData}
+                            />
+                            <Performancecont
+                                title="Average Availability for Chat (hours)"
+                                performanceData={performanceData}
+                            />
+                            <Performancecont
+                                title="Average Availability for Call (hours)"
+                                performanceData={performanceData}
+                            />
+                            <Performancecont
+                                title="Average rating call"
+                                performanceData={performanceData}
+                            />
+                            <Performancecont
+                                title="Customer satisfaction"
+                                performanceData={performanceData}
+                            />
+                            {performancedashboard()}
+                            <Performancecont
+                                title="Average rating chat"
+                                performanceData={performanceData}
+                            />
+                        </>
+                    }
+                />
+            </View>
         </View>
-    )
+    );
 
-    function availability() {
+    function impactscore() {
         return (
             <View
                 style={{
-                    marginHorizontal: Sizes.fixPadding * 2,
-                    marginVertical: Sizes.fixPadding * 2,
-                }} >
-                <View
+                    marginHorizontal: 15,
+                    marginBottom: 10,
+                    marginTop: 10,
+                }}>
+                <LinearGradient
+                    colors={[Colors.primaryLight, Colors.primaryDark]}
                     style={{
-                        borderWidth: 1,
-                        borderColor: Colors.primaryDark,
-                        borderStyle: "dotted",
-                        borderRadius: 10
-                    }}>
-
-                    <Text style={{
-                        textAlign: "center",
-                        paddingTop: Sizes.fixPadding * 1,
-                        fontSize: 18,
-                        color: Colors.black,
-                        fontWeight: "600"
-                    }}>Performance Dashboard</Text>
-                    <View style={{
-                        marginHorizontal: Sizes.fixPadding * 5,
-                        paddingVertical: Sizes.fixPadding * 2
-                    }} >
-                        <CustomButton btnName={"Last 30 days availability"} />
-                    </View>
-
-                    <View 
-                    style={{
-                        display: "flex",
-                        justifyContent: "space-between",
-                        flexDirection: "row",
-                        alignItems: "center",
-                        paddingHorizontal: Sizes.fixPadding * 2,
-                        paddingBottom: Sizes.fixPadding * 1,
-
-                    }} >
-                        <View 
-                        style={{
-                            display: "flex",
-                            justifyContent: "space-between",
-                            flexDirection: "row",
-                            alignItems: "center",
-                            gap:5,
-                        }} >
-                            <View style={[styles.square, { backgroundColor: 'red', }]} />
-                            <Text style={{color:Colors.black, fontWeight:"600"}}>Poor</Text>
-                        </View>
-                        <View
-                         style={{
-                            display: "flex",
-                            justifyContent: "space-between",
-                            flexDirection: "row",
-                            alignItems: "center",
-                            gap:5,
-                        }} >
-                            <View style={[styles.square, { backgroundColor: 'yellow', }]} />
-                            <Text style={{color:Colors.black, fontWeight:"600"}} >Average</Text>
-                        </View>
-                        <View 
-                        style={{
-                            display: "flex",
-                            justifyContent: "space-between",
-                            flexDirection: "row",
-                            alignItems: "center",
-                            gap:5,
-                        }} >
-                            <View style={[styles.square, { backgroundColor: 'green', }]} />
-                            <Text style={{color:Colors.black, fontWeight:"600"}}>Excellent</Text>
-                        </View>
-                    </View>
-                </View>
-            </View>
-        )
-    }
-
-    function otherPerformance() {
-        return (
-            <View style={{ paddingTop: Sizes.fixPadding * 0.5 }}>
-                <Divider />
-                <View
-                    style={{
-                        display: "flex",
-                        justifyContent: "space-between",
-                        flexDirection: "row",
-                        alignItems: "center",
-                        marginHorizontal: Sizes.fixPadding * 2,
-                        paddingTop: Sizes.fixPadding * 1.5
+                        borderRadius: 20,
+                        flex: 0,
+                        backgroundColor: Colors.dullWhite,
+                        borderRadius: 10,
+                        padding: 15,
+                        elevation: 5,
+                        width: '100%',
+                        height: 140,
                     }}>
                     <Text
                         style={{
-                            color: Colors.primaryDark,
-                            fontSize: 14, fontWeight: "600",
-                            paddingBottom: 5
-                        }}
-                    >
-                        Other Performance
-                    </Text>
-                    <Text
-                        style={{
-                            color: Colors.primaryDark,
-                            fontSize: 14, fontWeight: "600",
-                            paddingBottom: 5
-                        }}
-                    >
-                        Rank
-                    </Text>
-                    <Text
-                        style={{
-                            color: Colors.primaryDark,
-                            fontSize: 14, fontWeight: "600",
-                            paddingBottom: 5
-                        }}
-                    >
-                        Score
-                    </Text>
-                </View>
-            </View>
-        )
-    }
-
-    function Score() {
-        return (
-            <LinearGradient
-                colors={[Colors.primaryLight, Colors.primaryDark]}
-                style={{
-                    height: 120,
-                    marginVertical: Sizes.fixPadding * 1,
-                    marginHorizontal: Sizes.fixPadding * 2,
-                    elevation: 5,
-                    borderRadius: Sizes.fixPadding * 1
-                }}
-            >
-                <View
-                    style={{
-                        flex: 1,
-                        paddingHorizontal: Sizes.fixPadding * 2,
-                        paddingVertical: Sizes.fixPadding * 1,
-                    }}>
-                    <Text
-                        style={{
+                            ...Fonts.primaryLight15RobotoMedium,
+                            fontSize: 20,
                             color: Colors.white,
-                            fontWeight: "600",
-                            fontSize: 16
                         }}>
                         Impact of Score
                     </Text>
                     <Text
                         style={{
+                            ...Fonts.primaryLight15RobotoMedium,
+                            fontSize: 17.5,
                             color: Colors.white,
-                            fontWeight: "600",
-                            fontSize: 14
                         }}>
-                        We provide maximum opportunities to astrologers who are scoring excellent in every Field
+                        We provide maximum opportunities to astrologers who are scoring
+                        excellent in every Field
                     </Text>
+                    <TouchableOpacity
+                        style={{
+                            height: 25,
+                            padding: 1,
+                            width: 100,
+                            marginTop: -10,
+                            borderRadius: 20,
+                            backgroundColor: Colors.white,
+                            marginLeft: 200,
+                            alignItems: 'center',
+                        }}>
+                        <Text
+                            style={{
+                                ...Fonts.primaryLight15RobotoMedium,
+                                fontSize: 15,
+                                color: Colors.primaryDark,
+                            }}>
+                            Know more
+                        </Text>
+                    </TouchableOpacity>
+                </LinearGradient>
+            </View>
+        );
+    }
 
+    function headerborder() {
+        return (
+            <View
+                style={{
+                    borderTopWidth: 2,
+                    borderColor: Colors.gray_back,
+                    width: 330,
+                    flexDirection: 'row',
+                    marginHorizontal: 15,
+                    marginTop: 10,
+                }}>
+                <Text
+                    style={{
+                        marginTop: 10,
+                        ...Fonts.primaryLight15RobotoMedium,
+                        fontSize: 17.5,
+                        color: Colors.primaryDark,
+                    }}>
+                    Other Performance
+                </Text>
+                <View style={{ marginTop: 10, flexDirection: 'row', marginLeft: 65 }}>
+                    <Text
+                        style={{
+                            ...Fonts.primaryLight15RobotoMedium,
+                            fontSize: 17.5,
+                            color: Colors.primaryDark,
+                        }}>
+                        Rank
+                    </Text>
+                    <Text
+                        style={{
+                            marginLeft: 25,
+                            ...Fonts.primaryLight15RobotoMedium,
+                            fontSize: 17.5,
+                            color: Colors.primaryDark,
+                        }}>
+                        Score
+                    </Text>
+                </View>
+            </View>
+        );
+    }
+
+    function border1() {
+        return (
+            <View
+                style={{
+                    borderTopWidth: 2,
+                    borderColor: Colors.gray_back,
+                    width: 330,
+                    marginHorizontal: 15,
+                    marginVertical: 10,
+                    flexDirection: 'row',
+                }}></View>
+        );
+    }
+
+    function border2() {
+        return (
+            <View
+                style={{
+                    borderTopWidth: 2,
+                    borderColor: Colors.gray_back,
+                    width: 360,
+                    flexDirection: 'row',
+                    marginTop: 10,
+                    marginBottom: 10,
+                }}></View>
+        );
+    }
+
+    function performancedashboard() {
+        return (
+            <View
+                style={{
+                    marginHorizontal: 15,
+                    marginVertical: 15,
+                }}>
+                <View
+                    style={{
+                        borderStyle: 'dashed',
+                        borderWidth: 1.5,
+                        borderColor: Colors.primarymidLight,
+                        borderRadius: 20,
+                        flex: 0,
+                        borderRadius: 10,
+                        width: 330,
+                        height: 180,
+                    }}>
                     <View
                         style={{
-                            display: "flex",
-                            justifyContent: "flex-end",
-                            flexDirection: "row"
+                            flexDirection: 'row',
+                            justifyContent: 'space-between',
+                            marginHorizontal: 15,
+                            marginVertical: 20,
+                            alignItems: 'center',
                         }}>
-                        <TouchableOpacity
+                        <Text
                             style={{
-                                backgroundColor: Colors.white,
-                                width: "30%",
-                                alignItems: "center",
-                                elevation: 5,
-                                borderRadius: 10,
-                                paddingVertical: 2,
-                            }}
-                        >
-                            <Text style={{ color: Colors.primaryDark }} >Know more</Text>
-                        </TouchableOpacity>
+                                marginLeft: 25,
+                                fontWeight: 'bold',
+                                fontSize: 20,
+                                color: Colors.black,
+                            }}>
+                            Performance Dashboard
+                        </Text>
+                        <Feather name="info" color={Colors.gray} size={25} />
+                    </View>
+                    <TouchableOpacity
+                        style={{ alignItems: 'center', justifyContent: 'center' }}>
+                        <LinearGradient
+                            colors={[Colors.primaryLight, Colors.primaryDark]}
+                            style={{
+                                borderRadius: 25,
+                                height: 40,
+                                width: 250,
+                                marginBottom: 20,
+                            }}>
+                            <Text
+                                style={{
+                                    ...Fonts.white14RobotoMedium,
+                                    textAlign: 'center',
+                                    fontSize: 17.5,
+                                    paddingVertical: 6.5,
+                                }}>
+                                Last 30 days availability
+                            </Text>
+                        </LinearGradient>
+                    </TouchableOpacity>
+                    <View
+                        style={{
+                            flexDirection: 'row',
+                            justifyContent: 'space-between',
+                            marginHorizontal: 15,
+                        }}>
+                        <View style={{ flexDirection: 'row', alignItems: 'center' }}>
+                            <View
+                                style={{
+                                    height: 25,
+                                    width: 25,
+                                    backgroundColor: Colors.red,
+                                    borderRadius: 5,
+                                }}
+                            />
+                            <Text
+                                style={{
+                                    fontWeight: 'bold',
+                                    color: Colors.black,
+                                    fontSize: 15,
+                                    marginLeft: 5,
+                                }}>
+                                Poor
+                            </Text>
+                        </View>
+                        <View style={{ flexDirection: 'row', alignItems: 'center' }}>
+                            <View
+                                style={{
+                                    height: 25,
+                                    width: 25,
+                                    backgroundColor: Colors.yellow,
+                                    borderRadius: 5,
+                                }}
+                            />
+                            <Text
+                                style={{
+                                    fontWeight: 'bold',
+                                    color: Colors.black,
+                                    fontSize: 15,
+                                    marginLeft: 5,
+                                }}>
+                                Average
+                            </Text>
+                        </View>
+                        <View style={{ flexDirection: 'row', alignItems: 'center' }}>
+                            <View
+                                style={{
+                                    height: 25,
+                                    width: 25,
+                                    backgroundColor: Colors.greenDark,
+                                    borderRadius: 5,
+                                }}
+                            />
+                            <Text
+                                style={{
+                                    fontWeight: 'bold',
+                                    color: Colors.black,
+                                    fontSize: 15,
+                                    marginLeft: 5,
+                                }}>
+                                Excellent
+                            </Text>
+                        </View>
                     </View>
                 </View>
-            </LinearGradient>
-        )
+            </View>
+        );
     }
-}
+};
 
-const styles = StyleSheet.create({
-    square: {
-        width: 25,
-        height: 25,
-        borderRadius: 3,
-        elevation: 2
-    },
+const mapStateToProps = state => ({
+    authData: state.authProvider.authData,
 });
 
-export default Performance
+export default connect(mapStateToProps)(Performance);
