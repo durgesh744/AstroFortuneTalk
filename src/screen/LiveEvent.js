@@ -19,13 +19,6 @@ import AntDesign from 'react-native-vector-icons/AntDesign';
 import moment from 'moment';
 import { BlurView } from '@react-native-community/blur';
 import { connect } from 'react-redux';
-import {
-  api_url,
-  go_live_astro,
-  go_live_astro_event,
-  live_astro_id_list,
-} from '../config/Constants';
-import axios from 'axios';
 import { showToastWithGravityAndOffset } from '../methods/toastMessage';
 import Loader from '../component/common/Loader';
 import { SCREEN_HEIGHT, SCREEN_WIDTH } from '../config/Screen';
@@ -46,57 +39,9 @@ const LiveEvent = ({ navigation, authData }) => {
   }, []);
 
   const go_live_now = async event_id => {
-    // updateState({ isLoading: true });
-    // await axios({
-    //   method: 'post',
-    //   url: api_url + go_live_astro,
-    //   headers: {
-    //     'Content-Type': 'multipart/form-data',
-    //   },
-    //   data: {
-    //     astro_id: authData.astrologer?._id,
-    //     status: 'live',
-    //     event_id: event_id,
-    //   },
-    // })
-    //   .then(res => {
-    //     updateState({ isLoading: false });
-    //     if (res.data.status == '200') {
-    //       navigation.navigate('goLive', {
-    //         userID: authData.astrologer?._id,
-    //         userName: providerData?.displayName,
-    //         liveID: res.data.data.live_id,
-    //       });
-    //     }
-    //   })
-    //   .catch(err => {
-    //     updateState({ isLoading: false });
-    //     console.log(err);
-    //   });
   };
 
   const get_created_events = async () => {
-    // updateState({ isLoading: true });
-    // await axios({
-    //   method: 'post',
-    //   url: api_url + live_astro_id_list,
-    //   headers: {
-    //     'Content-Type': 'multipart/form-data',
-    //   },
-    //   data: {
-    //     astro_id: providerData?.id,
-    //   },
-    // })
-    //   .then(res => {
-    //     updateState({ isLoading: false });
-    //     if (res.data.status == '200') {
-    //       updateState({ eventsData: res.data.data });
-    //     }
-    //   })
-    //   .catch(err => {
-    //     updateState({ isLoading: false });
-    //     console.log(err);
-    //   });
   };
 
   const validataion = () => {
@@ -115,32 +60,6 @@ const LiveEvent = ({ navigation, authData }) => {
   };
 
   const create_live_events = async () => {
-    // if (validataion()) {
-    //   updateState({ isLoading: true });
-    //   await axios({
-    //     method: 'post',
-    //     url: api_url + go_live_astro_event,
-    //     headers: {
-    //       'Content-Type': 'multipart/form-data',
-    //     },
-    //     data: {
-    //       astro_id: authData.astrologer?._id,
-    //       start_time: moment(startTime).format('YYYY-MM-DD HH:mm:ss'),
-    //       start_date: startDate,
-    //       event_name: eventName,
-    //       status: 'pending',
-    //     },
-    //   })
-    //     .then(res => {
-    //       updateState({ isLoading: false, modalVisible: false });
-    //       showToastWithGravityAndOffset('Created Successfully.');
-    //       get_created_events();
-    //     })
-    //     .catch(err => {
-    //       console.log(err);
-    //       updateState({ isLoading: false });
-    //     });
-    // }
   };
 
   const updateState = data => {
@@ -216,9 +135,8 @@ const LiveEvent = ({ navigation, authData }) => {
         }}>
         <BlurView
           style={styles.blurContainer}
-          blurType="light" // Adjust the blur intensity (light, dark, extra-light, extra-dark)
+          blurType="light"
           blurAmount={1}
-        // Adjust the blur amount (integer)
         >
           <TouchableOpacity
             activeOpacity={1}
