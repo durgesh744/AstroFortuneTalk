@@ -13,7 +13,6 @@ import MyStatusBar from '../component/common/MyStatusBar';
 import MyHeader from '../component/common/MyHeader';
 import { Colors, Fonts, Sizes } from '../assets/style';
 import LinearGradient from 'react-native-linear-gradient';
-import { api_url, call_waiting_user_list } from '../config/Constants';
 import { SCREEN_WIDTH } from '../config/Screen';
 
 const WaitList = ({ navigation, authData, dispatch }) => {
@@ -25,25 +24,7 @@ const WaitList = ({ navigation, authData, dispatch }) => {
     chatData: null,
   });
 
-  // useEffect(() => {
-  //   database()
-  //     .ref(`CurrentRequest/${providerData?.id}`)
-  //     .on('value', snapshot => {
-  //       if (snapshot.val()?.status == 'AceeptedbyUser') {
-  //         updateState({isActiveChat: true});
-  //       } else {
-  //         updateState({isActiveChat: false});
-  //       }
-  //     });
-  // }, []);
-
   const get_chat_data = async () => {
-    // const data = await AsyncStorage.getItem('chatData');
-    // const parsedData = JSON.parse(data);
-    // dispatch(ChatActions.setChatRequestData(parsedData))
-    // navigation.navigate('ChatScreen', {
-    //   customerData: parsedData, 
-    // });
   };
 
   useEffect(() => {
@@ -56,7 +37,7 @@ const WaitList = ({ navigation, authData, dispatch }) => {
 
   const getDateOrTime = timestamp => {
     const date1 = new Date(new Date().getTime() / 1000);
-    const date2 = new Date(timestamp / 1000); // Current timestamp in seconds
+    const date2 = new Date(timestamp / 1000);
     const timeDifference = Math.abs(date1 - date2);
 
     const hours = Math.floor(timeDifference / 3600);
@@ -89,7 +70,7 @@ const WaitList = ({ navigation, authData, dispatch }) => {
     }
   ]
 
-  const { waitListData, isLoading, isRefreshing, isActiveChat, chatData } = state;
+  const { isLoading, isRefreshing, isActiveChat } = state;
 
   return (
     <View style={{ flex: 1 }}>

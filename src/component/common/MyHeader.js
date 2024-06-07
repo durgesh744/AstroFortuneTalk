@@ -37,6 +37,7 @@ const styles = StyleSheet.create({
     paddingVertical: Sizes.fixPadding,
     borderBottomWidth: 1,
     borderBottomColor: Colors.grayLight,
+    backgroundColor:Colors.white
   },
   textContainer: {
     width: SCREEN_WIDTH,

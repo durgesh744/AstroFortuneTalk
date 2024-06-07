@@ -1,5 +1,4 @@
 import moment from 'moment';
-import { useState } from 'react';
 import { Image } from '@rneui/base';
 import { connect } from 'react-redux';
 import { SCREEN_WIDTH } from '../config/Screen';
@@ -9,8 +8,7 @@ import MyStatusBar from '../component/common/MyStatusBar';
 import { View, Text, FlatList, StyleSheet } from 'react-native';
 
 const Profile = props => {
-  const [profileData, setProfileData] = useState(props?.authData?.astrologer);
-
+  const profileData = props?.authData?.astrologer
   return (
     <View style={{ flex: 1, backgroundColor: Colors.gray4 }}>
       <MyStatusBar

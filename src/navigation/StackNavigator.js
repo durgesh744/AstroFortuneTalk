@@ -2,7 +2,6 @@ import React from 'react';
 import Splash from '../screen/Splash';
 import Home from '../screen/Home/Home';
 import Profile from '../screen/Profile';
-import Login from '../screen/Login/Login';
 import Pooja from '../screen/Pooja/Pooja';
 import Terms from '../screen/Settings/Terms';
 import Remedy from '../screen/Remedy/Remedy';
@@ -37,6 +36,9 @@ import Reviews from '../screen/Reviews';
 import Offer from '../screen/Offer';
 import WaitList from '../screen/WaitList';
 import LiveEvent from '../screen/LiveEvent';
+import SupportChat from '../screen/SupportChat/SupportChat';
+import Login from '../screen/Auth/Login';
+import SupportChatScreen from '../screen/SupportChat/SupportChatScreen';
 
 const Stack = createNativeStackNavigator();
 
@@ -86,6 +88,8 @@ const StackNavigator = () => {
       <Stack.Screen name="ReviwList" component={Reviews} />
       <Stack.Screen name="Offer" component={Offer} />
       <Stack.Screen name="LiveEvent" component={LiveEvent} />
+      <Stack.Screen name="SupportChat" component={SupportChat} />
+      <Stack.Screen name="supportChatScreen" component={SupportChatScreen} />
 
     </Stack.Navigator>
   );

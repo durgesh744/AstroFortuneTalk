@@ -6,7 +6,6 @@ import {
   TouchableOpacity,
   StyleSheet,
 } from 'react-native';
-import axios from 'axios';
 import {connect} from 'react-redux';
 import { SCREEN_WIDTH } from '../config/Screen';
 import Loader from '../component/common/Loader';
@@ -15,39 +14,16 @@ import MyStatusBar from '../component/common/MyStatusBar';
 import MyHeader from '../component/common/MyHeader';
 import {Colors, Fonts, Sizes} from '../assets/style';
 import LinearGradient from 'react-native-linear-gradient';
-import {api_url, get_followers, provider_img_url} from '../config/Constants';
+import {provider_img_url} from '../config/Constants';
 
 const Followers = props => {
   const [isLoading, setIsLoading] = useState(false);
-  // const [followersList, setFollowersList] = useState();
 
   useEffect(() => {
     fetch_Followers();
   }, []);
 
   const fetch_Followers = async () => {
-    // setIsLoading(true);
-    // await axios({
-    //   method: 'post',
-    //   url: api_url + get_followers,
-    //   headers: {
-    //     'Content-Type': 'multipart/form-data',
-    //   },
-    //   data: {
-    //     astrologer_id: 2403531,
-    //   },
-    // })
-    //   .then(async res => {
-    //     if (res.data?.status) {
-    //       setFollowersList(res.data.data);
-    //       setIsLoading(false);
-    //       console.log('not found');
-    //     }
-    //   })
-    //   .catch(err => {
-    //     setIsLoading(false);
-    //     console.log(err);
-    //   });
   };
 
   const followersList = [
@@ -65,7 +41,6 @@ const Followers = props => {
         username: 'user2'
       }
     },
-    // Add more followers as needed
   ];
   
 

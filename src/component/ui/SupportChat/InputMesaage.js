@@ -1,11 +1,11 @@
 import BottomModal from './BottomModal';
-import { actions } from '../../config/data';
 import {Divider, Input} from '@rneui/themed';
 import React, {useEffect, useState} from 'react';
-import {Colors, Fonts, Sizes} from '../../assets/style';
+import {Colors, Fonts, Sizes} from '../../../assets/style';
 import Ionicons from 'react-native-vector-icons/Ionicons';
 import {View, Text, TouchableOpacity, StyleSheet} from 'react-native';
 import AudioRecorderPlayer from 'react-native-audio-recorder-player';
+import { actions } from '../../../config/Data';
 
 const audioRecorderPlayer = new AudioRecorderPlayer();
 audioRecorderPlayer.setSubscriptionDuration(0.1);
@@ -32,8 +32,6 @@ const InputMesaage = ({
     };
   }, []);
 
-
-
   return (
     <View>
       <Input
@@ -49,14 +47,13 @@ const InputMesaage = ({
         containerStyle={{
           backgroundColor: Colors.white,
           marginTop: Sizes.fixPadding,
-          height: 45,
+          height: 55,
           paddingBottom: Sizes.fixPadding,
         }}
         leftIcon={
           <View style={[styles.row]}>
             <TouchableOpacity 
               onPress={() => get_profile_pick(actions[1].type, actions[1].options)}
-              // onPress={showMenu}
               style={{transform: [{rotate: '0deg'}]}}>
               <Ionicons name="attach" color={Colors.blackLight} size={28} />
             </TouchableOpacity>
@@ -82,7 +79,7 @@ const InputMesaage = ({
               paddingHorizontal: Sizes.fixPadding * 2,
               paddingVertical: Sizes.fixPadding * 0.7,
               borderRadius: 1000,
-              backgroundColor: Colors.primaryLight,
+              backgroundColor: Colors.primaryDark,
             }}>
             <Text style={{...Fonts.white14RobotoMedium}}>Send</Text>
           </TouchableOpacity>
@@ -93,7 +90,6 @@ const InputMesaage = ({
         onClose={hideMenu}
         onSelectOption={handleMenuOptionSelect}
       />
-      
     </View>
   );
 };

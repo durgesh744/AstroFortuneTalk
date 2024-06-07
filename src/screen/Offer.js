@@ -1,4 +1,3 @@
-import axios from 'axios';
 import { connect } from 'react-redux';
 import { View, Text, FlatList } from 'react-native';
 import React, { useEffect, useState } from 'react';
@@ -6,73 +5,20 @@ import MyStatusBar from '../component/common/MyStatusBar';
 import MyHeader from '../component/common/MyHeader';
 import { Colors, Fonts } from '../assets/style';
 import { Switch } from 'react-native-switch';
-import {
-  api_url,
-  get_all_offers,
-  update_offer_status,
-} from '../config/Constants';
 import Loader from '../component/common/Loader';
 import { SCREEN_WIDTH } from '../config/Screen';
 
 const Offer = ({ authData, navigation }) => {
   const [isLoading, setIsLoading] = useState(false);
-  const [offersList, setOffersList] = useState();
 
   useEffect(() => {
     fetch_all_offers();
   }, []);
 
   const fetch_all_offers = async () => {
-    // setIsLoading(true);
-    // await axios({
-    //   method: 'post',
-    //   url: api_url + get_all_offers,
-    //   headers: {
-    //     'Content-Type': 'multipart/form-data',
-    //   },
-    //   data: {
-    //     astro_id: authData.astrologer._id,
-    //   },
-    // })
-    //   .then(async res => {
-    //     console.log(res.data);
-    //     if (res.data?.status == 1) {
-    //       setOffersList(res.data.records);
-    //       setIsLoading(false);
-    //     }
-    //   })
-    //   .catch(err => {
-    //     setIsLoading(false);
-    //   });
   };
 
-  const change_status = async (offer_id, offer_status) => {
-    // setIsLoading(true);
-    // console.log({
-    //   offer_id: offer_id,
-    //   status: offer_status == '1' ? '0' : '1',
-    //   astro_id: authData.astrologer._id,
-    // });
-    // await axios({
-    //   method: 'post',
-    //   url: api_url + update_offer_status,
-    //   headers: {
-    //     'Content-Type': 'multipart/form-data',
-    //   },
-    //   data: {
-    //     offer_id: offer_id,
-    //     status: offer_status == '1' ? '0' : '1',
-    //     astro_id: authData.astrologer._id,
-    //   },
-    // })
-    //   .then(async res => {
-    //     fetch_all_offers();
-    //     setIsLoading(false);
-    //   })
-    //   .catch(err => {
-    //     setIsLoading(false);
-    //     console.log(err);
-    //   });
+  const change_status = async () => {
   };
 
   const data = [
@@ -105,9 +51,7 @@ const Offer = ({ authData, navigation }) => {
     },
 
   ]
-
-
-
+  
   return (
     <View style={{ flex: 1 }}>
       <MyStatusBar

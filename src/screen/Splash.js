@@ -48,9 +48,7 @@ const Splash = ({ navigation, dispatch }) => {
   );
 };
 
-const mapStateToProps = state => ({
-
-})
+const mapStateToProps = state => ({})
 
 const mapDispatchToProps = dispatch => ({ dispatch })
 

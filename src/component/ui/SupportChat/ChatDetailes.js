@@ -11,10 +11,10 @@ import Voice from '../Chat/Voice';
 import {FlatList} from 'react-native';
 import Documets from '../Chat/Documets';
 import * as Progress from 'react-native-progress';
-import { SCREEN_WIDTH} from '../../config/Screen';
-import {tarotValue} from '../../config/TarotValue';
+import { SCREEN_WIDTH} from '../../../config/Screen';
+import {tarotValue} from '../../../config/TarotValue';
 import LinearGradient from 'react-native-linear-gradient';
-import {Colors, Fonts, Sizes} from '../../assets/style';
+import {Colors, Fonts, Sizes} from '../../../assets/style';
 
 const ChatDetailes = ({
   memorizedChat,
@@ -197,7 +197,7 @@ const ChatDetailes = ({
         {item?.is_first ? (
           <View style={{width: '70%'}}>
             <LinearGradient
-              colors={[Colors.primaryLight, Colors.primaryDark]}
+              colors={[Colors.whiteDark, Colors.primaryDark]}
               style={{
                 width: '100%',
                 alignSelf: 'flex-start',
@@ -255,13 +255,14 @@ const ChatDetailes = ({
               ...styles.row,
               alignItems: 'flex-start',
             }}>
-            <View style={{width: '75%', marginLeft: Sizes.fixPadding}}>
+            <View style={{width: '75%', marginLeft: Sizes.fixPadding, }}>
               <View
                 style={{
                   padding: Sizes.fixPadding,
                   borderRadius: Sizes.fixPadding,
                   backgroundColor: Colors.white,
                   borderTopLeftRadius: 0,
+                  opacity:1
                 }}>
                 {showCustomerChats(item?.type, item)}
               </View>

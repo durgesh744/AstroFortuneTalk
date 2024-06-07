@@ -1,35 +1,33 @@
 import React from 'react';
-import {connect} from 'react-redux';
-import {Colors, Fonts, Sizes} from '../../assets/style';
-import LinearGradient from 'react-native-linear-gradient';
-import {useNavigation} from '@react-navigation/native';
+import { connect } from 'react-redux';
+import { Colors, Fonts, Sizes } from '../../assets/style';
 import MyHeader from '../../component/common/MyHeader';
 import MyStatusBar from '../../component/common/MyStatusBar';
-import {View, Text, StyleSheet, TouchableOpacity} from 'react-native';
+import { View, Text } from 'react-native';
+import CustomButton from '../../component/common/CustomButton';
 
-const SupportChat = props => {
-  const navigation = useNavigation();
+const SupportChat = ({ navigation }) => {
 
-  const create_chat = ({props, firebaseId}) => {
-    props.navigation.navigate('supportChatScreen');
+  const create_chat = ({ props, firebaseId }) => {
+    navigation.navigate('supportChatScreen');
   };
 
   // Example usage:
   const chatParams = {
     props: {
-      firebaseId: props.firebaseId,
+      firebaseId: 57578,
       navigation: navigation,
     },
-    firebaseId: props.firebaseId,
+    firebaseId: 687646,
   };
 
   return (
-    <View style={{flex: 1}}>
+    <View style={{ flex: 1 }}>
       <MyStatusBar
         backgroundColor={Colors.primaryLight}
         barStyle={'light-content'}
       />
-      <MyHeader title={'Support Chat'} navigation={props.navigation} />
+      <MyHeader title={'Support Chat'} navigation={navigation} />
       <View
         style={{
           justifyContent: 'center',
@@ -38,7 +36,7 @@ const SupportChat = props => {
           flex: 0.1,
         }}>
         <Text
-          style={{...Fonts.white14RobotBold, color: Colors.Dark_grayish_red}}>
+          style={{ ...Fonts.white14RobotBold, color: Colors.Dark_grayish_red }}>
           Data shown for last 3 days only
         </Text>
       </View>
@@ -50,20 +48,17 @@ const SupportChat = props => {
           alignItems: 'center',
         }}>
         <Text
-          style={{...Fonts.white14RobotBold, color: Colors.Dark_grayish_red}}>
+          style={{ ...Fonts.white14RobotBold, color: Colors.Dark_grayish_red }}>
           No Ticket Available
         </Text>
       </View>
-      <View>
-        <LinearGradient
-          colors={[Colors.primaryLight, Colors.primaryDark]}
-          style={style.gradient}>
-          <TouchableOpacity onPress={() => create_chat(chatParams)}>
-            <Text style={{...Fonts.white18RobotBold, fontSize: 16}}>
-              + Create New Chat
-            </Text>
-          </TouchableOpacity>
-        </LinearGradient>
+      <View
+        style={{
+          backgroundColor: Colors.white,
+           paddingHorizontal:Sizes.fixPadding * 5,
+           paddingVertical:Sizes.fixPadding * 0.5
+        }}>
+        <CustomButton handleSend={() => create_chat(chatParams)} btnName={" + Create New Chat"} />
       </View>
     </View>
   );
@@ -74,15 +69,3 @@ const mapStateToProps = state => ({
 });
 
 export default connect(mapStateToProps, null)(SupportChat);
-
-const style = StyleSheet.create({
-  gradient: {
-    padding: Sizes.fixPadding,
-    borderRadius: 30,
-    width: '60%',
-    marginVertical: Sizes.fixPadding,
-    justifyContent: 'center',
-    alignItems: 'center',
-    alignSelf: 'center',
-  },
-});
