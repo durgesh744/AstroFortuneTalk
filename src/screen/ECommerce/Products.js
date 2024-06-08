@@ -18,9 +18,9 @@ import {
   post_mall_sub_category,
 } from '../../config/constants';
 import axios from 'axios';
-import MyStatusBar from '../../component/common/MyStatusBar';
-import Loader from '../../component/common/Loader';
-import MyHeader from '../../component/common/MyHeader';
+import MyStatusBar from '../../component/MyStatusBar';
+import Loader from '../../component/Loader';
+import MyHeader from '../../component/MyHeader';
 
 const Products = ({ navigation, route }) => {
   const [state, setState] = useState({

@@ -7,8 +7,8 @@ import {
 } from 'react-native';
 import React, { useState } from 'react';
 import Stars from 'react-native-stars';
-import MyStatusBar from '../component/common/MyStatusBar';
-import MyHeader from '../component/common/MyHeader';
+import MyStatusBar from '../component/MyStatusBar';
+import MyHeader from '../component/MyHeader';
 import { Colors, Fonts, Sizes } from '../assets/style';
 import Icon from 'react-native-vector-icons/MaterialCommunityIcons';
 import MaterialIcons from 'react-native-vector-icons/MaterialIcons';

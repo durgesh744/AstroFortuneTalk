@@ -8,11 +8,11 @@ import {
 import axios from 'axios';
 import moment from 'moment';
 import { connect } from 'react-redux';
-import Loader from '../../component/common/Loader';
+import Loader from '../../component/Loader';
 import React, { useState, useEffect } from 'react';
-import MyHeader from '../../component/common/MyHeader';
+import MyHeader from '../../component/MyHeader';
 import { Colors, Sizes, Fonts } from '../../assets/style';
-import MyStatusBar from '../../component/common/MyStatusBar';
+import MyStatusBar from '../../component/MyStatusBar';
 import { api_url, astro_history_pooja } from '../../config/constants';
 
 const listData = [

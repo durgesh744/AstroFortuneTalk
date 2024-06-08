@@ -11,10 +11,10 @@ import { useState, useEffect } from 'react';
 import { Colors, Fonts, Sizes } from '../../assets/style';
 import LinearGradient from 'react-native-linear-gradient';
 import { api_url, get_request } from '../../config/constants';
-import MyStatusBar from '../../component/common/MyStatusBar';
-import Loader from '../../component/common/Loader';
-import MyHeader from '../../component/common/MyHeader';
-import CustomLine from '../../component/common/CustomLine';
+import MyStatusBar from '../../component/MyStatusBar';
+import Loader from '../../component/Loader';
+import MyHeader from '../../component/MyHeader';
+import CustomLine from '../../component/CustomLine';
 import { SCREEN_HEIGHT, SCREEN_WIDTH } from '../../config/Screen';
 
 const PriceChange = ({ navigation, authData }) => {

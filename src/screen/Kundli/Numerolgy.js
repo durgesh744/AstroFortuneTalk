@@ -11,7 +11,7 @@ import { connect } from 'react-redux';
 import {SCREEN_WIDTH} from '../../config/Screen';
 import {Colors, Sizes, Fonts} from '../../assets/style';
 import AntDesign from 'react-native-vector-icons/AntDesign';
-import MyStatusBar from '../../component/common/MyStatusBar';
+import MyStatusBar from '../../component/MyStatusBar';
 
 const numerology_data = [
   {

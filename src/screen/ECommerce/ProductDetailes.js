@@ -16,7 +16,7 @@ import LinearGradient from 'react-native-linear-gradient';
 import {base_url} from '../../config/constants';
 import database from '@react-native-firebase/database';
 import {MyMethods} from '../../methods/MyMethods';
-import MyStatusBar from '../../component/common/MyStatusBar';
+import MyStatusBar from '../../component/MyStatusBar';
 
 const astrologerData = [
   {

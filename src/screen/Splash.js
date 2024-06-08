@@ -4,7 +4,7 @@ import {
 } from 'react-native';
 import React, { useEffect } from 'react';
 import { Colors } from '../assets/style';
-import MyStatusBar from '../component/common/MyStatusBar';
+import MyStatusBar from '../component/MyStatusBar.js';
 import LinearGradient from 'react-native-linear-gradient';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import { connect } from 'react-redux';

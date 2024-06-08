@@ -2,8 +2,8 @@ import React from 'react';
 import {View, Text, ScrollView, TouchableOpacity} from 'react-native';
 import {Colors, Fonts, Sizes} from '../../assets/style';
 import LinearGradient from 'react-native-linear-gradient';
-import MyHeader from '../../component/common/MyHeader';
-import MyStatusBar from '../../component/common/MyStatusBar';
+import MyHeader from '../../component/MyHeader';
+import MyStatusBar from '../../component/MyStatusBar';
 
 const Remedy = ({navigation, route}) => {
   return (

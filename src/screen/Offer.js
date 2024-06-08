@@ -1,11 +1,11 @@
 import { connect } from 'react-redux';
 import { View, Text, FlatList } from 'react-native';
 import React, { useEffect, useState } from 'react';
-import MyStatusBar from '../component/common/MyStatusBar';
-import MyHeader from '../component/common/MyHeader';
+import MyStatusBar from '../component/MyStatusBar';
+import MyHeader from '../component/MyHeader';
 import { Colors, Fonts } from '../assets/style';
 import { Switch } from 'react-native-switch';
-import Loader from '../component/common/Loader';
+import Loader from '../component/Loader';
 import { SCREEN_WIDTH } from '../config/Screen';
 
 const Offer = ({ authData, navigation }) => {

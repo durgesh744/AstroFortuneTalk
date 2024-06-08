@@ -6,7 +6,7 @@ import {
   Svg,
   Text,
 } from 'react-native-svg';
-import { SCREEN_WIDTH } from '../../config/Screen';
+import { SCREEN_WIDTH } from '../config/Screen';
 
 const ShowSvg = ({ data }) => {
   return (

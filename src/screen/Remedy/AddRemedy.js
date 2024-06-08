@@ -10,13 +10,13 @@ import {
 import {connect} from 'react-redux';
 import React, {useState} from 'react';
 import {SCREEN_HEIGHT, SCREEN_WIDTH} from '../../config/Screen';
-import MyStatusBar from '../../component/common/MyStatusBar';
+import MyStatusBar from '../../component/MyStatusBar';
 import {Colors, Fonts, Sizes} from '../../assets/style';
 import LinearGradient from 'react-native-linear-gradient';
 import AntDesign from 'react-native-vector-icons/AntDesign';
 import * as ImagePicker from 'react-native-image-picker';
 import {showToastWithGravityAndOffset} from '../../methods/toastMessage';
-import Loader from '../../component/common/Loader';
+import Loader from '../../component/Loader';
 
 const AddRemedy = ({
   navigation,

@@ -8,9 +8,9 @@ import {
   TextInput,
 } from 'react-native';
 import { useState, useEffect } from 'react';
-import MyStatusBar from '../component/common/MyStatusBar';
+import MyStatusBar from '../component/MyStatusBar';
 import { Colors, Fonts, Sizes } from '../assets/style';
-import MyHeader from '../component/common/MyHeader';
+import MyHeader from '../component/MyHeader';
 import LinearGradient from 'react-native-linear-gradient';
 import {
   DateTimePickerAndroid,
@@ -20,9 +20,9 @@ import moment from 'moment';
 import { BlurView } from '@react-native-community/blur';
 import { connect } from 'react-redux';
 import { showToastWithGravityAndOffset } from '../methods/toastMessage';
-import Loader from '../component/common/Loader';
+import Loader from '../component/Loader';
 import { SCREEN_HEIGHT, SCREEN_WIDTH } from '../config/Screen';
-import CustomButton from '../component/common/CustomButton';
+import CustomButton from '../component/CustomButton';
 
 const LiveEvent = ({ navigation, authData }) => {
   const [state, setState] = useState({

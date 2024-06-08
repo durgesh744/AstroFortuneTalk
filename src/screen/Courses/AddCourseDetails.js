@@ -19,9 +19,9 @@ import LinearGradient from 'react-native-linear-gradient';
 import DocumentPicker from 'react-native-document-picker';
 import { api_url, upload_free_pdf } from '../../config/constants';
 import * as Progress from 'react-native-progress';
-import MyStatusBar from '../../component/common/MyStatusBar';
-import MyHeader from '../../component/common/MyHeader';
-import Loader from '../../component/common/Loader';
+import MyStatusBar from '../../component/MyStatusBar';
+import MyHeader from '../../component/MyHeader';
+import Loader from '../../component/Loader';
 import DemoClass from '../../component/ui/Courses/DemoClass';
 import LiveClassForm from '../../component/ui/Courses/LiveClassForm';
 

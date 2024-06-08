@@ -4,10 +4,10 @@ import {
 } from 'react-native';
 import { connect } from 'react-redux';
 import React, { useState } from 'react';
-import Loader from '../../component/common/Loader';
-import MyHeader from '../../component/common/MyHeader';
+import Loader from '../../component/Loader';
+import MyHeader from '../../component/MyHeader';
 import { Sizes, Colors } from '../../assets/style';
-import MyStatusBar from '../../component/common/MyStatusBar';
+import MyStatusBar from '../../component/MyStatusBar';
 import HistoryInfo from '../../component/ui/History/HistoryInfo';
 
 const ChatHistory = ({ navigation, authData }) => {

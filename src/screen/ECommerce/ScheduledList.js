@@ -10,9 +10,9 @@ import { connect } from 'react-redux';
 import React, { useState } from 'react';
 import { Colors, Sizes, Fonts } from '../../assets/style';
 import LinearGradient from 'react-native-linear-gradient';
-import MyStatusBar from '../../component/common/MyStatusBar';
-import Loader from '../../component/common/Loader';
-import MyHeader from '../../component/common/MyHeader';
+import MyStatusBar from '../../component/MyStatusBar';
+import Loader from '../../component/Loader';
+import MyHeader from '../../component/MyHeader';
 
 const ScheduledList = ({ navigation }) => {
   const [state, setState] = useState({

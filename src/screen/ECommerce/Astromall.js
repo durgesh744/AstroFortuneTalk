@@ -8,10 +8,10 @@ import {
 import axios from 'axios';
 import { SCREEN_WIDTH } from '../../config/Screen';
 import React, { useState, useEffect } from 'react';
-import Loader from '../../component/common/Loader';
+import Loader from '../../component/Loader';
 import { Colors, Sizes, Fonts } from '../../assets/style';
-import MyHeader from '../../component/common/MyHeader';
-import MyStatusBar from '../../component/common/MyStatusBar';
+import MyHeader from '../../component/MyHeader';
+import MyStatusBar from '../../component/MyStatusBar';
 import { api_url, base_url, get_mall_cat } from '../../config/constants';
 
 const Astromall = ({ navigation, route }) => {

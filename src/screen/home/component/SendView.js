@@ -2,7 +2,7 @@ import Stars from 'react-native-stars';
 import { Image, StyleSheet, TextInput } from 'react-native';
 import LinearGradient from 'react-native-linear-gradient';
 import { Text, TouchableOpacity, View } from 'react-native';
-import { Colors, Sizes, Fonts } from '../../../../assets/style';
+import { Colors, Sizes, Fonts } from '../../../assets/style';
 import MaterialIcons from 'react-native-vector-icons/MaterialIcons';
 import Icon from 'react-native-vector-icons/MaterialCommunityIcons';
 
@@ -104,7 +104,7 @@ const SendView = () => {
                 }}>
                 <TouchableOpacity activeOpacity={0.8} onPress={submit_rating}>
                     <Image
-                        source={require('../../../../assets/images/send.png')}
+                        source={require('../../../assets/images/send.png')}
                         style={{ width: 40, height: 40 }}
                     />
                 </TouchableOpacity>

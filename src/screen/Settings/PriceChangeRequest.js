@@ -10,11 +10,11 @@ import { useState } from 'react';
 import { connect } from 'react-redux';
 import { Colors, Fonts, Sizes } from '../../assets/style';
 import LinearGradient from 'react-native-linear-gradient';
-import CustomLine from '../../component/common/CustomLine';
-import CustomDropdown from '../../component/common/CustomDropdown';
-import MyStatusBar from '../../component/common/MyStatusBar';
-import Loader from '../../component/common/Loader';
-import MyHeader from '../../component/common/MyHeader';
+import CustomLine from '../../component/CustomLine';
+import CustomDropdown from '../../component/CustomDropdown';
+import MyStatusBar from '../../component/MyStatusBar';
+import Loader from '../../component/Loader';
+import MyHeader from '../../component/MyHeader';
 import { SCREEN_HEIGHT } from '../../config/Screen';
 
 const PriceChangeRequest = ({ navigation }) => {

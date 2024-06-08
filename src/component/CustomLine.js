@@ -1,7 +1,7 @@
 import React from 'react'
 import { View } from 'react-native'
-import { Colors } from '../../assets/style';
-import { SCREEN_HEIGHT } from '../../config/Screen';
+import { Colors } from '../assets/style';
+import { SCREEN_HEIGHT } from '../config/Screen';
 
 const CustomLine = () => {
     return (

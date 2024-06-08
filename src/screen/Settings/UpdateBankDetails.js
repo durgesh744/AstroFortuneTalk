@@ -15,9 +15,9 @@ import { commonStyles } from '../../assets/global';
 import Ionicons from 'react-native-vector-icons/Ionicons';
 import { Menu, MenuItem, MenuDivider } from 'react-native-material-menu';
 import { api_url, update_bank_details } from '../../config/constants';
-import MyStatusBar from '../../component/common/MyStatusBar';
-import MyHeader from '../../component/common/MyHeader';
-import Loader from '../../component/common/Loader';
+import MyStatusBar from '../../component/MyStatusBar';
+import MyHeader from '../../component/MyHeader';
+import Loader from '../../component/Loader';
 import { SCREEN_HEIGHT, SCREEN_WIDTH } from '../../config/Screen';
 
 const UpdateBankDetails = props => {

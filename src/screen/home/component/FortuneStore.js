@@ -1,8 +1,8 @@
 import { Image, TouchableOpacity, View } from 'react-native';
-import { Colors, Sizes } from '../../../../assets/style';
-import { SCREEN_WIDTH } from '../../../../config/Screen';
+import { Colors, Sizes } from '../../../assets/style';
+import { SCREEN_WIDTH } from '../../../config/Screen';
 
-const FortuneStoreInfo = ({ navigation }) => {
+const FortuneStore = ({ navigation }) => {
   return (
     <View style={{
       elevation: 5,
@@ -25,7 +25,7 @@ const FortuneStoreInfo = ({ navigation }) => {
           backgroundColor: Colors.white
         }}>
         <Image
-          source={require('../../../../assets/images/fortune_store.png')}
+          source={require('../../../assets/images/fortune_store.png')}
           resizeMode="contain"
           style={{ height: '100%', width: '100%', justifyContent: 'center' }} />
       </TouchableOpacity>
@@ -33,4 +33,4 @@ const FortuneStoreInfo = ({ navigation }) => {
   );
 }
 
-export default FortuneStoreInfo
+export default FortuneStore

@@ -8,10 +8,10 @@ import {
 } from 'react-native';
 import {connect} from 'react-redux';
 import { SCREEN_WIDTH } from '../config/Screen';
-import Loader from '../component/common/Loader';
+import Loader from '../component/Loader';
 import React, {useEffect, useState} from 'react';
-import MyStatusBar from '../component/common/MyStatusBar';
-import MyHeader from '../component/common/MyHeader';
+import MyStatusBar from '../component/MyStatusBar';
+import MyHeader from '../component/MyHeader';
 import {Colors, Fonts, Sizes} from '../assets/style';
 import LinearGradient from 'react-native-linear-gradient';
 import {provider_img_url} from '../config/constants';

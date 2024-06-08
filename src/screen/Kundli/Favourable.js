@@ -7,9 +7,9 @@ import {
 } from 'react-native';
 import React, { useEffect, useState } from 'react';
 import { Colors, Fonts, Sizes } from '../../assets/style';
-import MyStatusBar from '../../component/common/MyStatusBar';
+import MyStatusBar from '../../component/MyStatusBar';
 import { SCREEN_WIDTH } from '../../config/Screen';
-import Loader from '../../component/common/Loader';
+import Loader from '../../component/Loader';
 import {
   api_url,
   get_fav,

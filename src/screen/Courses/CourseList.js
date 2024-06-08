@@ -7,7 +7,7 @@ import {
   StyleSheet,
 } from 'react-native';
 import React, { useEffect, useState } from 'react';
-import MyStatusBar from '../../component/common/MyStatusBar';
+import MyStatusBar from '../../component/MyStatusBar';
 import { Menu, MenuItem, MenuDivider } from 'react-native-material-menu';
 import AntDesign from 'react-native-vector-icons/AntDesign';
 import Entypo from 'react-native-vector-icons/Entypo';

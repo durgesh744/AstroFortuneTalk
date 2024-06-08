@@ -1,10 +1,10 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import { Colors, Fonts, Sizes } from '../../assets/style';
-import MyHeader from '../../component/common/MyHeader';
-import MyStatusBar from '../../component/common/MyStatusBar';
+import MyHeader from '../../component/MyHeader';
+import MyStatusBar from '../../component/MyStatusBar';
 import { View, Text } from 'react-native';
-import CustomButton from '../../component/common/CustomButton';
+import CustomButton from '../../component/CustomButton';
 
 const SupportChat = ({ navigation }) => {
 

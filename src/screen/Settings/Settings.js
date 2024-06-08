@@ -7,13 +7,12 @@ import {
   Alert,
 } from 'react-native';
 import React, { useState } from 'react';
-import fetcher from '../../helper/fetcher';
-import Loader from '../../component/common/Loader';
+import Loader from '../../component/Loader';
 import { SCREEN_WIDTH } from '../../config/Screen';
 import { settingsTabsData } from '../../config/Data';
-import MyHeader from '../../component/common/MyHeader';
+import MyHeader from '../../component/MyHeader';
 import { Colors, Sizes, Fonts } from '../../assets/style';
-import MyStatusBar from '../../component/common/MyStatusBar';
+import MyStatusBar from '../../component/MyStatusBar';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import { api_base_url, astrologer_logout } from '../../config/constants';
 import { showToastWithGravityAndOffset } from '../../methods/toastMessage';

@@ -1,9 +1,9 @@
 import { Image, StyleSheet, Text, TouchableOpacity, View } from 'react-native';
-import { Colors, Sizes, Fonts } from '../../../../assets/style';
+import { Colors, Sizes, Fonts } from '../../../assets/style';
 import LinearGradient from 'react-native-linear-gradient';
 import AntDesign from 'react-native-vector-icons/AntDesign';
 
-const GoLiveNowInfo = () => {
+const GoLiveNow = () => {
     const go_live_now = () => {
 
     }
@@ -39,7 +39,7 @@ const GoLiveNowInfo = () => {
                         },
                     ]}>
                     <Image
-                        source={require('../../../../assets/images/live_icon.png')}
+                        source={require('../../../assets/images/live_icon.png')}
                         style={{ width: 50, height: 50 }}
                     />
                     <Text
@@ -58,7 +58,7 @@ const GoLiveNowInfo = () => {
     );
 }
 
-export default GoLiveNowInfo
+export default GoLiveNow
 
 const styles = StyleSheet.create({
     row: {

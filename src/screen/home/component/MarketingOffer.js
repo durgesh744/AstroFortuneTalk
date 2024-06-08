@@ -3,9 +3,9 @@ import { Text, View } from "react-native";
 import { Colors, Sizes } from "../../../assets/style";
 import { SCREEN_WIDTH } from "../../../config/Screen";
 import LinearGradient from 'react-native-linear-gradient';
-import CustomSwitch from '../../../component/common/CustomSwitch';
+import CustomSwitch from '../../../component/CustomSwitch';
 
-const Offer = () => {
+const MarketingOffer = () => {
     const [free, setFree] = useState(true)
     return (
         <View
@@ -80,4 +80,4 @@ const Offer = () => {
     );
 }
 
-export default Offer
+export default MarketingOffer

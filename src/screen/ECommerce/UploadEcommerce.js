@@ -22,11 +22,11 @@ import {
 } from '../../config/constants';
 import { showToastWithGravityAndOffset } from '../../methods/toastMessage';
 import { CommonActions } from '@react-navigation/native';
-import MyStatusBar from '../../component/common/MyStatusBar';
-import Loader from '../../component/common/Loader';
-import MyHeader from '../../component/common/MyHeader';
+import MyStatusBar from '../../component/MyStatusBar';
+import Loader from '../../component/Loader';
+import MyHeader from '../../component/MyHeader';
 import CustomVideoPlayer from '../../component/ui/VideoPlayer';
-import CustomButton from '../../component/common/CustomButton';
+import CustomButton from '../../component/CustomButton';
 
 const UploadEcommerce = ({ navigation, route }) => {
   const [state, setState] = useState({

@@ -1,10 +1,10 @@
 import React from 'react';
 import { Colors, Fonts, } from '../../assets/style';
 import { SCREEN_HEIGHT } from '../../config/Screen';
-import MyHeader from '../../component/common/MyHeader';
+import MyHeader from '../../component/MyHeader';
 import LinearGradient from 'react-native-linear-gradient';
 import { Image, Text, FlatList, View } from 'react-native';
-import MyStatusBar from '../../component/common/MyStatusBar';
+import MyStatusBar from '../../component/MyStatusBar';
 
 const ForgetPassword = ({ navigation }) => {
   return (

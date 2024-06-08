@@ -14,8 +14,8 @@ import {
   api2_get_astro_detail,
 } from '../../config/constants';
 import axios from 'axios';
-import MyStatusBar from '../../component/common/MyStatusBar';
-import Loader from '../../component/common/Loader';
+import MyStatusBar from '../../component/MyStatusBar';
+import Loader from '../../component/Loader';
 
 const detailInfo = [
   {

@@ -3,7 +3,7 @@ import { Colors, Sizes } from "../../../../assets/style";
 import { SCREEN_WIDTH } from "../../../../config/Screen";
 import Carousel from 'react-native-reanimated-carousel';
 
-const HomeBannerInfo = ({ bannerData }) => {
+const BannerInfo = ({ bannerData }) => {
     const baseOptions = {
         vertical: false,
         width: SCREEN_WIDTH,
@@ -63,4 +63,4 @@ const HomeBannerInfo = ({ bannerData }) => {
     );
 }
 
-export default HomeBannerInfo
+export default BannerInfo

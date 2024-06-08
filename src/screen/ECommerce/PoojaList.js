@@ -16,9 +16,9 @@ import {
   category_pooja_list,
   provider_img_url,
 } from '../../config/constants';
-import MyStatusBar from '../../component/common/MyStatusBar';
-import Loader from '../../component/common/Loader';
-import MyHeader from '../../component/common/MyHeader';
+import MyStatusBar from '../../component/MyStatusBar';
+import Loader from '../../component/Loader';
+import MyHeader from '../../component/MyHeader';
 
 const PoojaList = ({ navigation }) => {
   const [state, setState] = useState({

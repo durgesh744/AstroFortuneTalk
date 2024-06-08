@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import { tabsData } from '../../config/Data';
-import Loader from '../../component/common/Loader';
+import Loader from '../../component/Loader';
 import {
   FlatList,
   Image,
@@ -12,23 +12,22 @@ import {
   ImageBackground
 } from 'react-native';
 import { Colors, Sizes, Fonts } from '../../assets/style';
-import Offer from './component/MarketingOffer';
-import Header from '../../component/ui/Home/Header/Header';
-import MyStatusBar from '../../component/common/MyStatusBar';
-import SendView from '../../component/ui/Home/SendView/SendView';
 import { SCREEN_HEIGHT, SCREEN_WIDTH } from '../../config/Screen';
 import FontAwesome6 from 'react-native-vector-icons/FontAwesome6'
 import AstriInfo from './component/AstriInfo';
 import { GestureHandlerRootView } from 'react-native-gesture-handler';
-import GoLiveNowInfo from '../../component/ui/Home/GoLiveNowInfo/GoLiveNowInfo';
-import ScheduleCourse from '../../component/ui/Home/ScheduleCourse/ScheduleCourse';
-import FortuneStoreInfo from '../../component/ui/Home/FortuneStoreInfo/FortuneStoreInfo';
-import TrandingInfoOnOff from './component/TrandingInfoOnOff';
-import TrainingReelsInfo from '../../component/ui/Home/TrainingReelsInfo/TrainingReelsInfo';
-import ChatCallStatusInfo from './component/ChatCallStatusInfo';
+import TrandingInfo from './component/TrandingInfo';
+import ChatCallStatus from './component/ChatCallStatus';
 import LinearGradient from 'react-native-linear-gradient';
 import AntDesign from "react-native-vector-icons/AntDesign"
 import MaterialIcons from "react-native-vector-icons/MaterialIcons"
+import MarketingOffer from './component/MarketingOffer';
+import MyStatusBar from '../../component/MyStatusBar';
+import HomeHeader from './component/HomeHeader';
+import GoLiveNow from './component/GoLiveNow';
+import FortuneStore from './component/FortuneStore';
+import ScheduleCourse from './component/ScheduleCourse';
+import SendView from './component/SendView';
 
 const Home = ({ navigation }) => {
 
@@ -54,7 +53,7 @@ const Home = ({ navigation }) => {
         barStyle={'light-content'}
       />
       <Loader visible={state.isLoading} />
-      <Header />
+      <HomeHeader />
       <FlatList
         scrollEnabled={true}
         ListHeaderComponent={
@@ -62,14 +61,13 @@ const Home = ({ navigation }) => {
             <AstriInfo />
             {GoForPolicies()}
             {performance()}
-            <Offer />
-            {/* <HomeBannerInfo/> */}
-            <ChatCallStatusInfo />
-            <TrandingInfoOnOff />
-            <GoLiveNowInfo />
-            <TrainingReelsInfo />
+            <MarketingOffer />
+            {/* <BannerInfo/> */}
+            <ChatCallStatus />
+            <TrandingInfo />
+            <GoLiveNow />
             <ScheduleCourse />
-            <FortuneStoreInfo />
+            <FortuneStore />
             {TabsInfo()}
             {noticeBoard()}
             {reportIssue()}
@@ -238,7 +236,7 @@ const Home = ({ navigation }) => {
             backgroundColor: Colors.primaryDark,
             height: SCREEN_HEIGHT * 0.12,
             borderRadius: 15,
-            elevation:10
+            elevation: 10
           }}>
           <View
             style={{
@@ -254,7 +252,7 @@ const Home = ({ navigation }) => {
                 resizeMode="contain"
                 style={{
                   width: 35,
-                  height:35,
+                  height: 35,
                   borderRadius: 25,
                   alignSelf: 'center',
                 }}

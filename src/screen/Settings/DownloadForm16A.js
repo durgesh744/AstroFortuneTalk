@@ -11,9 +11,9 @@ import axios from 'axios';
 import { connect } from 'react-redux';
 import React, { useEffect, useState } from 'react';
 import { Colors, Fonts, Sizes } from '../../assets/style';
-import Loader from '../../component/common/Loader';
-import MyHeader from '../../component/common/MyHeader';
-import MyStatusBar from '../../component/common/MyStatusBar';
+import Loader from '../../component/Loader';
+import MyHeader from '../../component/MyHeader';
+import MyStatusBar from '../../component/MyStatusBar';
 import { api_url, get_PDF, provider_img_url } from '../../config/constants';
 import { SCREEN_WIDTH } from '../../config/Screen';
 import Octicons from 'react-native-vector-icons/Octicons'

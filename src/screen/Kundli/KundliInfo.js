@@ -2,8 +2,8 @@ import { StyleSheet, Text, View, TouchableOpacity, FlatList } from 'react-native
 import React, { useState } from 'react'
 import { Colors, Fonts, Sizes } from '../../../src/assets/style';
 import AntDesign from 'react-native-vector-icons/AntDesign';
-import MyStatusBar from '../../component/common/MyStatusBar';
-import Loader from '../../component/common/Loader';
+import MyStatusBar from '../../component/MyStatusBar';
+import Loader from '../../component/Loader';
 import LinearGradient from 'react-native-linear-gradient';
 import { SCREEN_WIDTH } from '../../config/Screen';
 import KPChart from './KPChart';

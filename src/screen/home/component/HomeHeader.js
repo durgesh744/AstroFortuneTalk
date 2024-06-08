@@ -1,9 +1,9 @@
 import { View, Image, Text } from 'react-native';
-import { Colors, Sizes, Fonts } from '../../../../assets/style';
+import { Colors, Sizes, Fonts } from '../../../assets/style';
 import FontAwesome from "react-native-vector-icons/FontAwesome"
 import { TouchableOpacity } from 'react-native';
 
-const Header = () => {
+const HomeHeader = () => {
   return (
     <View
       style={{
@@ -18,7 +18,7 @@ const Header = () => {
         width: '100%',
       }}>
       <Image
-        source={require('../../../../assets/images/logo2.png')}
+        source={require('../../../assets/images/logo2.png')}
         style={{ width: 25, height: 25, borderRadius: 100 }}
       />
       <Text
@@ -37,7 +37,7 @@ const Header = () => {
               marginLeft: Sizes.fixPadding,
             }}>
             <Image
-              source={require('../../../../assets/icon/translate.png')}
+              source={require('../../../assets/icon/translate.png')}
               style={{ width: 25, height: 25 }}
             />
           </TouchableOpacity>
@@ -47,4 +47,4 @@ const Header = () => {
   );
 }
 
-export default Header
+export default HomeHeader

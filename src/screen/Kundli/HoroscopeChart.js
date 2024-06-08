@@ -6,9 +6,9 @@ import {
 } from 'react-native';
 import React, {useEffect, useState} from 'react';
 import {Colors, Fonts, Sizes} from '../../../src/assets/style';
-import MyStatusBar from '../../component/common/MyStatusBar';
+import MyStatusBar from '../../component/MyStatusBar';
 import { SCREEN_WIDTH} from '../../config/Screen';
-import Loader from '../../component/common/Loader';
+import Loader from '../../component/Loader';
 import {
   api_url,
   api2_get_horo_chart,
@@ -16,7 +16,7 @@ import {
 } from '../../config/constants';
 import axios from 'axios';
 import {Dropdown} from 'react-native-element-dropdown';
-import ShowSvg from '../../component/common/ShowSvg';
+import ShowSvg from '../../component/ShowSvg';
 
 const data = [
   {

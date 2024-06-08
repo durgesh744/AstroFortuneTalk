@@ -10,7 +10,7 @@ import {
 import axios from 'axios';
 import { connect } from 'react-redux';
 import { Divider, Input } from '@rneui/themed';
-import Loader from '../../component/common/Loader';
+import Loader from '../../component/Loader';
 import messaging from '@react-native-firebase/messaging';
 import React, { createRef, useState, useEffect } from 'react';
 import { Colors, Fonts, Sizes } from '../../assets/style';
@@ -19,12 +19,12 @@ import {
     api_base_url,
     astrologer_login,
 } from '../../config/constants.js';
-import MyStatusBar from '../../component/common/MyStatusBar';
+import MyStatusBar from '../../component/MyStatusBar.js';
 import { SCREEN_HEIGHT, SCREEN_WIDTH } from '../../config/Screen';
 import { setItemToLocalStorage } from '../../helper/useLocalStorage';
 import { showToastWithGravityAndOffset } from '../../methods/toastMessage';
 import * as AuthActions from '../../redux/actions/authActions.js'
-import CustomButton from '../../component/common/CustomButton.js';
+import CustomButton from '../../component/CustomButton.js';
 
 const Login = ({ navigation, dispatch }) => {
     const [email, setEmail] = useState('');

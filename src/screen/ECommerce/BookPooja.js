@@ -19,8 +19,8 @@ import {
 } from '../../config/constants';
 import {Colors, Sizes, Fonts} from '../../assets/style';
 import {SCREEN_WIDTH} from '../../config/Screen';
-import MyStatusBar from '../../component/common/MyStatusBar';
-import Loader from '../../component/common/Loader';
+import MyStatusBar from '../../component/MyStatusBar';
+import Loader from '../../component/Loader';
 import Ionicons from 'react-native-vector-icons/Ionicons'
 
 const BookPooja = ({navigation, route}) => {

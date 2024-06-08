@@ -1,9 +1,9 @@
 import React from 'react'
 import { Colors } from '../../assets/style'
 import { FlatList, View } from 'react-native'
-import MyHeader from '../../component/common/MyHeader'
-import MyStatusBar from '../../component/common/MyStatusBar'
-import CustomButton from '../../component/common/CustomButton'
+import MyHeader from '../../component/MyHeader'
+import MyStatusBar from '../../component/MyStatusBar'
+import CustomButton from '../../component/CustomButton'
 
 const Pooja = ({ navigation }) => {
 

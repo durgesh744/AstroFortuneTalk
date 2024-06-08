@@ -6,11 +6,11 @@ import {
 } from 'react-native';
 import moment from 'moment';
 import React, { useState } from 'react';
-import MyHeader from '../../component/common/MyHeader';
+import MyHeader from '../../component/MyHeader';
 import { Colors, Sizes, Fonts } from '../../assets/style';
-import MyStatusBar from '../../component/common/MyStatusBar';
-import Loader from '../../component/common/Loader';
-import CustomButton from '../../component/common/CustomButton';
+import MyStatusBar from '../../component/MyStatusBar';
+import Loader from '../../component/Loader';
+import CustomButton from '../../component/CustomButton';
 
 const BookingDetails = ({ navigation, route }) => {
   const [state, setState] = useState({

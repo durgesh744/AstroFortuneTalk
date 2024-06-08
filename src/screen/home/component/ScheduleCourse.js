@@ -1,5 +1,5 @@
 import { ImageBackground, TouchableOpacity, View } from 'react-native';
-import { Colors, Sizes } from '../../../../assets/style';
+import { Colors, Sizes } from '../../../assets/style';
 
 const ScheduleCourse = ({ navigation }) => {
   return (
@@ -26,7 +26,7 @@ const ScheduleCourse = ({ navigation }) => {
           shadowColor: Colors.gray,
         }}>
         <ImageBackground
-          source={require('../../../../assets/images/homedownbanner.png')}
+          source={require('../../../assets/images/homedownbanner.png')}
           resizeMode="cover"
           style={{ height: '100%', width: '100%', justifyContent: 'center' }}>
 

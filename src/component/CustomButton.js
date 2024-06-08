@@ -1,6 +1,6 @@
 import React from 'react'
-import { Text, TouchableOpacity, View } from 'react-native'
-import { Colors, Fonts, Sizes } from '../../assets/style'
+import { Text, TouchableOpacity } from 'react-native'
+import { Colors, Fonts, Sizes } from '../assets/style'
 import LinearGradient from 'react-native-linear-gradient';
 
 const CustomButton = ({ handleSend, btnName }) => {

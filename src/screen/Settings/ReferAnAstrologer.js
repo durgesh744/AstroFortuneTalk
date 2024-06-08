@@ -13,10 +13,10 @@ import { connect } from 'react-redux';
 import { Colors, Fonts } from '../../assets/style';
 import { api_url, refer_an_astrologer } from '../../config/constants';
 import { commonStyles } from '../../assets/global';
-import CustomButton from '../../component/common/CustomButton';
-import MyStatusBar from '../../component/common/MyStatusBar';
-import MyHeader from '../../component/common/MyHeader';
-import Loader from '../../component/common/Loader';
+import CustomButton from '../../component/CustomButton';
+import MyStatusBar from '../../component/MyStatusBar';
+import MyHeader from '../../component/MyHeader';
+import Loader from '../../component/Loader';
 import { SCREEN_HEIGHT, SCREEN_WIDTH } from '../../config/Screen';
 
 const ReferAnAstrologer = ({  navigation  , authData}) => {

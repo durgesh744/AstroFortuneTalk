@@ -9,14 +9,14 @@ import {
 import moment from 'moment';
 import { connect } from 'react-redux';
 import React, { useState, useEffect } from 'react';
-import MyHeader from '../../component/common/MyHeader';
-import MyStatusBar from '../../component/common/MyStatusBar';
+import MyHeader from '../../component/MyHeader';
+import MyStatusBar from '../../component/MyStatusBar';
 import { Colors, Fonts, Sizes } from '../../assets/style';
 import { Dropdown } from 'react-native-element-dropdown';
 import { ImageBackground } from 'react-native';
 import { MyMethods } from '../../methods/MyMethods';
 import { Modal } from 'react-native-paper';
-import Loader from '../../component/common/Loader';
+import Loader from '../../component/Loader';
 import { SCREEN_WIDTH } from '../../config/Screen';
 import LinearGradient from 'react-native-linear-gradient';
 import { DateTimePickerAndroid } from '@react-native-community/datetimepicker';

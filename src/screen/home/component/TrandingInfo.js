@@ -4,7 +4,7 @@ import { Switch } from 'react-native-switch';
 import Ionicons from 'react-native-vector-icons/Ionicons';
 import { Colors, Fonts, Sizes } from "../../../assets/style";
 
-const TrandingInfoOnOf = () => {
+const TrandingInfo = () => {
     const [chatTrendingStatus, setChatTrendingStatus] = useState()
     const [callTrendingStatus, setCallTrendingStatus] = useState()
     const treding_chat_status_change = () => {
@@ -29,7 +29,7 @@ const TrandingInfoOnOf = () => {
                 borderColor: Colors.grayLight,
                 backgroundColor: Colors.white,
                 marginTop: 2,
-                paddingVertical:10
+                paddingVertical: 10
             }}>
             <Text
                 style={{
@@ -136,4 +136,4 @@ const TrandingInfoOnOf = () => {
     );
 }
 
-export default TrandingInfoOnOf
+export default TrandingInfo

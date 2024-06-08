@@ -1,7 +1,7 @@
 import React from 'react';
-import { SCREEN_WIDTH } from '../../config/Screen';
-import { Colors, Sizes } from '../../assets/style';
-import { View, Modal, StyleSheet, TouchableWithoutFeedback, Text, TouchableOpacity } from 'react-native';
+import { SCREEN_WIDTH } from '../config/Screen';
+import { Colors, Sizes } from '../assets/style';
+import { View, Modal, StyleSheet, TouchableWithoutFeedback } from 'react-native';
 
 const CustomerModal = ({
   customerModalVisible,

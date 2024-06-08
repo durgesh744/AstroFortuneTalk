@@ -2,9 +2,9 @@ import moment from 'moment';
 import { Image } from '@rneui/base';
 import { connect } from 'react-redux';
 import { SCREEN_WIDTH } from '../config/Screen';
-import MyHeader from '../component/common/MyHeader';
+import MyHeader from '../component/MyHeader';
 import { Colors, Fonts, Sizes } from '../assets/style';
-import MyStatusBar from '../component/common/MyStatusBar';
+import MyStatusBar from '../component/MyStatusBar';
 import { View, Text, FlatList, StyleSheet } from 'react-native';
 
 const Profile = props => {

@@ -15,9 +15,9 @@ import { SCREEN_WIDTH } from '../../config/Screen';
 import ImageView from '../../component/ui/ImageView';
 import { createThumbnail } from 'react-native-create-thumbnail';
 import { ActivityIndicator } from 'react-native-paper';
-import MyStatusBar from '../../component/common/MyStatusBar';
+import MyStatusBar from '../../component/MyStatusBar';
 import CustomVideoPlayer from '../../component/ui/VideoPlayer';
-import MyHeader from '../../component/common/MyHeader';
+import MyHeader from '../../component/MyHeader';
 
 const HistoryDetails = ({ navigation, route }) => {
   const [state, setState] = useState({

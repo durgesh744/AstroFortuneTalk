@@ -16,8 +16,8 @@ import Carousel from 'react-native-reanimated-carousel';
 import {provider_img_url} from '../../config/constants';
 import database from '@react-native-firebase/database';
 import {connect} from 'react-redux';
-import MyStatusBar from '../../component/common/MyStatusBar';
-import MyHeader from '../../component/common/MyHeader';
+import MyStatusBar from '../../component/MyStatusBar';
+import MyHeader from '../../component/MyHeader';
 
 const SuggestedPoojaDetails = ({
   navigation,

@@ -9,14 +9,14 @@ import moment from 'moment';
 import { Input } from '@rneui/themed';
 import { connect } from 'react-redux';
 import React, { useState } from 'react';
-import Loader from '../../component/common/Loader';
-import MyHeader from '../../component/common/MyHeader';
+import Loader from '../../component/Loader';
+import MyHeader from '../../component/MyHeader';
 import Ionicons from 'react-native-vector-icons/Ionicons';
 import { Colors, Sizes, Fonts } from '../../assets/style';
-import MyStatusBar from '../../component/common/MyStatusBar';
+import MyStatusBar from '../../component/MyStatusBar';
 import { showToastWithGravityAndOffset } from '../../methods/toastMessage';
 import { DateTimePickerAndroid } from '@react-native-community/datetimepicker';
-import CustomButton from '../../component/common/CustomButton';
+import CustomButton from '../../component/CustomButton';
 
 const RegisterPooja = ({ navigation, route, authData }) => {
   const [state, setState] = useState({

@@ -24,10 +24,10 @@ import {
 } from '../../config/constants';
 import RNFetchBlob from 'rn-fetch-blob';
 import { SCREEN_WIDTH } from '../../config/Screen';
-import Loader from '../../component/common/Loader';
-import MyHeader from '../../component/common/MyHeader';
-import MyStatusBar from '../../component/common/MyStatusBar';
-import CustomSwitch from '../../component/common/CustomSwitch';
+import Loader from '../../component/Loader';
+import MyHeader from '../../component/MyHeader';
+import MyStatusBar from '../../component/MyStatusBar';
+import CustomSwitch from '../../component/CustomSwitch';
 
 const PhotoGallery = ({ navigation, authData }) => {
   const [isLoading, setIsLoading] = useState(false);

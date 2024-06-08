@@ -8,10 +8,10 @@ import {
 import axios from 'axios';
 import React, {useCallback, useEffect, useState} from 'react';
 import {Colors, Fonts, Sizes} from '../../assets/style';
-import MyStatusBar from '../../component/common/MyStatusBar';
+import MyStatusBar from '../../component/MyStatusBar';
 import { SCREEN_WIDTH} from '../../config/Screen';
 import LinearGradient from 'react-native-linear-gradient';
-import Loader from '../../component/common/Loader';
+import Loader from '../../component/Loader';
 import {
   api_url,
   api2_get_rudraksha_sugg,

@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { StyleSheet, View } from 'react-native';
 import { Dropdown } from 'react-native-element-dropdown';
-import { Colors } from '../../assets/style';
+import { Colors } from '../assets/style';
 
 const CustomDropdown = ({ data, value, setValue }) => {
     const [isFocus, setIsFocus] = useState(false);
