@@ -8,13 +8,13 @@ import {
 } from 'react-native';
 import React from 'react';
 import Voice from '../Chat/Voice';
-import {FlatList} from 'react-native';
+import { FlatList } from 'react-native';
 import Documets from '../Chat/Documets';
 import * as Progress from 'react-native-progress';
-import { SCREEN_WIDTH} from '../../../config/Screen';
-import {tarotValue} from '../../../config/TarotValue';
+import { SCREEN_WIDTH } from '../../../config/Screen';
 import LinearGradient from 'react-native-linear-gradient';
-import {Colors, Fonts, Sizes} from '../../../assets/style';
+import { Colors, Fonts, Sizes } from '../../../assets/style';
+import { tarotValue } from '../../../config/TarotValue';
 
 const ChatDetailes = ({
   memorizedChat,
@@ -22,7 +22,7 @@ const ChatDetailes = ({
   customerData,
   firebaseId,
   updateState,
-  
+
 }) => {
   const getDateOrTime = timestamp => {
     const now = Date.now();
@@ -36,9 +36,8 @@ const ChatDetailes = ({
       const minutes = date.getMinutes();
       const ampm = hours >= 12 ? 'PM' : 'AM';
       const formattedHours = hours % 12 || 12; // Convert 0 to 12 for noon/midnight
-      return `${formattedHours}:${
-        minutes < 10 ? '0' + minutes : minutes
-      } ${ampm}`;
+      return `${formattedHours}:${minutes < 10 ? '0' + minutes : minutes
+        } ${ampm}`;
     } else if (diff < 2 * oneDay) {
       // Between 24 and 48 hours ago, return "Yesterday" and time in AM/PM format
       const yesterday = new Date(timestamp);
@@ -46,9 +45,8 @@ const ChatDetailes = ({
       const minutes = yesterday.getMinutes();
       const ampm = hours >= 12 ? 'PM' : 'AM';
       const formattedHours = hours % 12 || 12; // Convert 0 to 12 for noon/midnight
-      return `Yesterday ${formattedHours}:${
-        minutes < 10 ? '0' + minutes : minutes
-      } ${ampm}`;
+      return `Yesterday ${formattedHours}:${minutes < 10 ? '0' + minutes : minutes
+        } ${ampm}`;
     } else {
       // Before yesterday, return date and time in AM/PM format
       const date = new Date(timestamp);
@@ -59,9 +57,8 @@ const ChatDetailes = ({
       const minutes = date.getMinutes();
       const ampm = hours >= 12 ? 'PM' : 'AM';
       const formattedHours = hours % 12 || 12; // Convert 0 to 12 for noon/midnight
-      return `${day}/${month}/${year} ${formattedHours}:${
-        minutes < 10 ? '0' + minutes : minutes
-      } ${ampm}`;
+      return `${day}/${month}/${year} ${formattedHours}:${minutes < 10 ? '0' + minutes : minutes
+        } ${ampm}`;
     }
   };
 
@@ -72,7 +69,7 @@ const ChatDetailes = ({
           item.message !== '' ? (
             <Text style={{ ...Fonts.black14InterMedium }}>{item.message}</Text>
           ) : null
-          
+
         );
       }
       case 'image': {
@@ -81,11 +78,11 @@ const ChatDetailes = ({
             activeOpacity={0.8}
             disabled={typeof item?.uploading != 'undefined'}
             onPress={() =>
-              updateState({imageVisible: true, imageViewData: item.message})
+              updateState({ imageVisible: true, imageViewData: item.message })
             }
-            style={{width: '100%'}}>
+            style={{ width: '100%' }}>
             <ImageBackground
-              source={{uri: item.message}}
+              source={{ uri: item.message }}
               style={{
                 width: '100%',
                 height: SCREEN_WIDTH * 0.7,
@@ -135,7 +132,7 @@ const ChatDetailes = ({
     switch (type) {
       case 'text': {
         return (
-          <Text style={{...Fonts.black14InterMedium}}>{item.message}</Text>
+          <Text style={{ ...Fonts.black14InterMedium }}>{item.message}</Text>
         );
       }
       case 'image': {
@@ -143,11 +140,11 @@ const ChatDetailes = ({
           <TouchableOpacity
             activeOpacity={0.8}
             onPress={() => {
-              updateState({imageVisible: true, imageViewData: item.image});
+              updateState({ imageVisible: true, imageViewData: item.image });
             }}
-            style={{width: '100%'}}>
+            style={{ width: '100%' }}>
             <Image
-              source={{uri: item.image}}
+              source={{ uri: item.image }}
               style={{
                 width: '100%',
                 height: SCREEN_WIDTH * 0.5,
@@ -190,100 +187,100 @@ const ChatDetailes = ({
     }
   };
 
-  const renderItem = ({item, index}) => {
+  const renderItem = ({ item, index }) => {
     return (
       item.message != '' ? (
-      <View style={{transform: [{scaleY: -1}]}}>
-        {item?.is_first ? (
-          <View style={{width: '70%'}}>
-            <LinearGradient
-              colors={[Colors.whiteDark, Colors.primaryDark]}
-              style={{
-                width: '100%',
-                alignSelf: 'flex-start',
-                padding: Sizes.fixPadding,
-                borderRadius: Sizes.fixPadding,
-                marginTop: Sizes.fixPadding * 2,
-              }}>
-              <Text style={{...Fonts.white14RobotoMedium}}>{item.message}</Text>
-            </LinearGradient>
-            <Text style={{...Fonts.gray12RobotoMedium, textAlign: 'left'}}>
-              {getDateOrTime(item.timestamp)}
-            </Text>
-          </View>
-        ) : item.from == firebaseId ? (
-          <View
-            style={{
-              alignSelf: 'flex-end',
-              marginTop: Sizes.fixPadding * 2,
-              ...styles.row,
-              alignItems: 'flex-start',
-            }}>
-            <View style={{width: '75%', marginRight: Sizes.fixPadding}}>
-              <View
+        <View style={{ transform: [{ scaleY: -1 }] }}>
+          {item?.is_first ? (
+            <View style={{ width: '70%' }}>
+              <LinearGradient
+                colors={[Colors.whiteDark, Colors.primaryDark]}
                 style={{
+                  width: '100%',
+                  alignSelf: 'flex-start',
                   padding: Sizes.fixPadding,
                   borderRadius: Sizes.fixPadding,
-
-                  backgroundColor: Colors.backgr_clr,
-
-                  borderTopRightRadius: 0,
+                  marginTop: Sizes.fixPadding * 2,
                 }}>
-                {showProviderChats(item.type, item)}
-              </View>
-              <Text style={{...Fonts.gray12RobotoMedium, textAlign: 'right'}}>
+                <Text style={{ ...Fonts.white14RobotoMedium }}>{item.message}</Text>
+              </LinearGradient>
+              <Text style={{ ...Fonts.gray12RobotoMedium, textAlign: 'left' }}>
                 {getDateOrTime(item.timestamp)}
               </Text>
             </View>
-
+          ) : item.from == firebaseId ? (
             <View
               style={{
-                backgroundColor: Colors.primaryLight,
-                width: 25,
-                height: 25,
-                ...styles.center,
-                borderRadius: 1000,
+                alignSelf: 'flex-end',
+                marginTop: Sizes.fixPadding * 2,
+                ...styles.row,
+                alignItems: 'flex-start',
               }}>
-              <Text style={{...Fonts.white12RobotoMedium}}>ME</Text>
-            </View>
-          </View>
-        ) : (
-          <View
-            style={{
-              alignSelf: 'flex-start',
-              marginTop: Sizes.fixPadding * 2,
-              ...styles.row,
-              alignItems: 'flex-start',
-            }}>
-            <View style={{width: '75%', marginLeft: Sizes.fixPadding, }}>
+              <View style={{ width: '75%', marginRight: Sizes.fixPadding }}>
+                <View
+                  style={{
+                    padding: Sizes.fixPadding,
+                    borderRadius: Sizes.fixPadding,
+
+                    backgroundColor: Colors.backgr_clr,
+
+                    borderTopRightRadius: 0,
+                  }}>
+                  {showProviderChats(item.type, item)}
+                </View>
+                <Text style={{ ...Fonts.gray12RobotoMedium, textAlign: 'right' }}>
+                  {getDateOrTime(item.timestamp)}
+                </Text>
+              </View>
+
               <View
                 style={{
-                  padding: Sizes.fixPadding,
-                  borderRadius: Sizes.fixPadding,
-                  backgroundColor: Colors.white,
-                  borderTopLeftRadius: 0,
-                  opacity:1
+                  backgroundColor: Colors.primaryLight,
+                  width: 25,
+                  height: 25,
+                  ...styles.center,
+                  borderRadius: 1000,
                 }}>
-                {showCustomerChats(item?.type, item)}
+                <Text style={{ ...Fonts.white12RobotoMedium }}>ME</Text>
               </View>
-              <Text style={{...Fonts.gray12RobotoMedium, textAlign: 'left'}}>
-                {getDateOrTime(item.timestamp)}
-              </Text>
             </View>
-          </View>
-        )}
-      </View>
-      ):null
+          ) : (
+            <View
+              style={{
+                alignSelf: 'flex-start',
+                marginTop: Sizes.fixPadding * 2,
+                ...styles.row,
+                alignItems: 'flex-start',
+              }}>
+              <View style={{ width: '75%', marginLeft: Sizes.fixPadding, }}>
+                <View
+                  style={{
+                    padding: Sizes.fixPadding,
+                    borderRadius: Sizes.fixPadding,
+                    backgroundColor: Colors.white,
+                    borderTopLeftRadius: 0,
+                    opacity: 1
+                  }}>
+                  {showCustomerChats(item?.type, item)}
+                </View>
+                <Text style={{ ...Fonts.gray12RobotoMedium, textAlign: 'left' }}>
+                  {getDateOrTime(item.timestamp)}
+                </Text>
+              </View>
+            </View>
+          )}
+        </View>
+      ) : null
     );
   };
 
   return (
-    <View style={{flex: 1, transform: [{scaleY: -1}]}}>
+    <View style={{ flex: 1, transform: [{ scaleY: -1 }] }}>
       <FlatList
         data={memorizedChat}
         renderItem={renderItem}
         keyExtractor={item => item.timestamp}
-        contentContainerStyle={{paddingHorizontal: Sizes.fixPadding * 2}}
+        contentContainerStyle={{ paddingHorizontal: Sizes.fixPadding * 2 }}
       />
     </View>
   );
