@@ -91,7 +91,7 @@ const StackNavigator = () => {
       <Stack.Screen name="LiveEvent" component={LiveEvent} />
       <Stack.Screen name="SupportChat" component={SupportChat} />
       <Stack.Screen name="supportChatScreen" component={SupportChatScreen} />
-      <Stack.Screen name="performanceDashboard" component={Performance} />
+      <Stack.Screen name="performance" component={Performance} />
 
     </Stack.Navigator>
   );

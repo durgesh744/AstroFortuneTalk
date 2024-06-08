@@ -29,7 +29,7 @@ const Performance = ({ navigation, providerData }) => {
     };
 
     return (
-        <View style={{ flex: 1 }}>
+        <View style={{ flex: 1, backgroundColor:Colors.white}}>
             <MyStatusBar
                 backgroundColor={Colors.primaryLight}
                 barStyle={'light-content'}
@@ -45,8 +45,8 @@ const Performance = ({ navigation, providerData }) => {
                             {impactscore()}
                             <Doublecont
                                 title="Chat"
-                                value1={performanceData && performanceData.chat_busy_duration}
-                                value2={performanceData && performanceData.chat_earn_amount}
+                                value1={225.17}
+                                value2={225.17}
                             />
                             <Doublecont
                                 title="Call"
@@ -165,7 +165,7 @@ const Performance = ({ navigation, providerData }) => {
                     <Text
                         style={{
                             ...Fonts.primaryLight15RobotoMedium,
-                            fontSize: 17.5,
+                            fontSize: 16,
                             color: Colors.white,
                         }}>
                         We provide maximum opportunities to astrologers who are scoring
@@ -282,7 +282,6 @@ const Performance = ({ navigation, providerData }) => {
                         borderRadius: 20,
                         flex: 0,
                         borderRadius: 10,
-                        width: 330,
                         height: 180,
                     }}>
                     <View
@@ -295,14 +294,14 @@ const Performance = ({ navigation, providerData }) => {
                         }}>
                         <Text
                             style={{
-                                marginLeft: 25,
+                                marginLeft: 50,
                                 fontWeight: 'bold',
                                 fontSize: 20,
                                 color: Colors.black,
                             }}>
                             Performance Dashboard
                         </Text>
-                        <Feather name="info" color={Colors.gray} size={25} />
+                        <Feather name="info" color={Colors.gray} size={20} />
                     </View>
                     <TouchableOpacity
                         style={{ alignItems: 'center', justifyContent: 'center' }}>

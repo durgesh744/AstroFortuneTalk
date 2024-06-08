@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import { tabsData } from '../../config/Data';
 import Loader from '../../component/common/Loader';
-import { FlatList, Image, StyleSheet, Text, TouchableOpacity, View, TextInput } from 'react-native';
+import { FlatList, Image, StyleSheet, Text, TouchableOpacity, View, TextInput, ImageBackground } from 'react-native';
 import { Colors, Sizes, Fonts } from '../../assets/style';
 import Offer from '../../component/ui/Home/Offer/Offer';
 import Header from '../../component/ui/Home/Header/Header';
@@ -11,16 +11,16 @@ import { SCREEN_HEIGHT, SCREEN_WIDTH } from '../../config/Screen';
 import FontAwesome6 from 'react-native-vector-icons/FontAwesome6'
 import AstriInfo from '../../component/ui/Home/AstriInfo/AstriInfo';
 import { GestureHandlerRootView } from 'react-native-gesture-handler';
-import Performance from '../../component/ui/Home/Performance/Performance';
 import GoLiveNowInfo from '../../component/ui/Home/GoLiveNowInfo/GoLiveNowInfo';
 import ScheduleCourse from '../../component/ui/Home/ScheduleCourse/ScheduleCourse';
 import FortuneStoreInfo from '../../component/ui/Home/FortuneStoreInfo/FortuneStoreInfo';
 import TrandingInfoOnOff from '../../component/ui/Home/TrandingInfoOnOff/TrandingInfoOnOff';
 import TrainingReelsInfo from '../../component/ui/Home/TrainingReelsInfo/TrainingReelsInfo';
 import ChatCallStatusInfo from '../../component/ui/Home/ChatCallStatusInfo/ChatCallStatusInfo';
+import LinearGradient from 'react-native-linear-gradient';
+import AntDesign from "react-native-vector-icons/AntDesign"
 
 const Home = ({ navigation }) => {
-
   const [state, setState] = useState({
     isLoading: false,
     moa: true,
@@ -50,7 +50,7 @@ const Home = ({ navigation }) => {
           <>
             <AstriInfo navigation={navigation} />
             {GoForPolicies()}
-            <Performance navigation={navigation} />
+            {performance()}
             <Offer navigation={navigation} />
             {/* <HomeBannerInfo/> */}
             <ChatCallStatusInfo navigation={navigation} />
@@ -68,6 +68,47 @@ const Home = ({ navigation }) => {
       />
     </GestureHandlerRootView>
   )
+
+  function performance() {
+    return (
+      <View
+        style={{
+          paddingVertical: Sizes.fixPadding,
+          width: '100%',
+          height: 130,
+          paddingHorizontal: Sizes.fixPadding,
+          backgroundColor: Colors.white,
+        }}>
+        <View style={{borderRadius: Sizes.fixPadding, overflow: 'hidden'}}>
+          <ImageBackground
+            source={require('../../assets/images/performance.png')}
+            style={{
+              height: '100%',
+              width: '100%',
+            }}
+            resizeMode="cover">
+            <LinearGradient
+              colors={['rgba(255,255,255,0)', Colors.primaryDark]}
+              start={{x: 0, y: 0}}
+              end={{x: 1, y: 0}}
+              locations={[0.8, 1]}
+              style={{
+                width: '100%',
+                height: '100%',
+                justifyContent: 'center',
+                alignItems: 'flex-end',
+                padding: Sizes.fixPadding,
+              }}>
+              <TouchableOpacity
+                onPress={() => navigation.navigate('performance')}>
+                <AntDesign name="right" size={26} color={Colors.white} />
+              </TouchableOpacity>
+            </LinearGradient>
+          </ImageBackground>
+        </View>
+      </View>
+    );
+  }
 
   function noticeBoard() {
     return (
@@ -178,6 +219,8 @@ const Home = ({ navigation }) => {
         style={{
           padding: 18,
           backgroundColor: Colors.white,
+          borderBottomWidth: 1,
+          borderColor: Colors.blackLight + '60',
         }}>
         <View
           style={{
