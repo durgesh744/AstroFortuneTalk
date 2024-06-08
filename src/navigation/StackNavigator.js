@@ -1,6 +1,6 @@
 import React from 'react';
 import Splash from '../screen/Splash';
-import Home from '../screen/Home/Home';
+import Home from '../screen/Home';
 import Profile from '../screen/Profile';
 import Pooja from '../screen/Pooja/Pooja';
 import Terms from '../screen/Settings/Terms';
@@ -39,7 +39,7 @@ import LiveEvent from '../screen/LiveEvent';
 import SupportChat from '../screen/SupportChat/SupportChat';
 import Login from '../screen/Auth/Login';
 import SupportChatScreen from '../screen/SupportChat/SupportChatScreen';
-import Performance from '../screen/Performance/Performance';
+import Performance from '../screen/Performance';
 
 const Stack = createNativeStackNavigator();
 

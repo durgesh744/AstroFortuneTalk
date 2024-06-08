@@ -1,5 +1,5 @@
 export const tarotValue = [
-  require('../../assets/images/tarot/1.png'),
+  require('../assets/images/tarot/1.png'),
   require('../assets/images/tarot/2.png'),
   require('../assets/images/tarot/3.png'),
   require('../assets/images/tarot/4.png'),

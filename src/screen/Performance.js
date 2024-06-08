@@ -5,16 +5,16 @@ import {
     TouchableOpacity,
 } from 'react-native';
 import React, { useState, useEffect } from 'react';
-import { Colors, Fonts, Sizes } from '../../assets/style';
+import { Colors, Fonts, Sizes } from '../assets/style';
 import { connect } from 'react-redux';
 import LinearGradient from 'react-native-linear-gradient';
 import Feather from 'react-native-vector-icons/Feather';
-import MyStatusBar from '../../component/common/MyStatusBar';
-import Loader from '../../component/common/Loader';
-import MyHeader from '../../component/common/MyHeader';
-import Doublecont from '../../component/ui/Performance/Doublecont';
-import Singlecont from '../../component/ui/Performance/Singlecont';
-import Performancecont from '../../component/ui/Performance/Performancecont';
+import MyStatusBar from '../component/common/MyStatusBar';
+import Loader from '../component/common/Loader';
+import MyHeader from '../component/common/MyHeader';
+import Doublecont from '../component/ui/Performance/Doublecont';
+import Singlecont from '../component/ui/Performance/Singlecont';
+import Performancecont from '../component/ui/Performance/Performancecont';
 
 const Performance = ({ navigation, providerData }) => {
     const [performanceData, setPerformanceData] = useState();
@@ -35,9 +35,7 @@ const Performance = ({ navigation, providerData }) => {
                 barStyle={'light-content'}
             />
             <Loader visible={isLoading} />
-
             <MyHeader title="Performance" navigation={navigation} />
-
             <View style={{ flex: 1, marginTop: Sizes.fixPadding * 1.5 }}>
                 <FlatList
                     ListHeaderComponent={
