@@ -1,8 +1,8 @@
 import { connect } from 'react-redux';
-import { Colors, Fonts } from '../../../../assets/style';
-import { navigate } from '../../../../utils/navigationServices';
+import { Colors, Fonts } from '../../../assets/style';
+import { navigate } from '../../../utils/navigationServices';
 import { Image, Text, TouchableOpacity, View } from 'react-native';
-import { SCREEN_HEIGHT, SCREEN_WIDTH } from '../../../../config/Screen';
+import { SCREEN_HEIGHT, SCREEN_WIDTH } from '../../../config/Screen';
 
 const AstriInfo = ({ authData }) => {
     return (
@@ -11,7 +11,7 @@ const AstriInfo = ({ authData }) => {
                 backgroundColor: Colors.white,
                 borderBottomWidth: 0.8,
                 borderColor: Colors.blackLight + '60',
-                elevation:5
+                elevation:10,
             }}>
             <View style={{ flexDirection: 'row', backgroundColor: Colors }}>
                 <TouchableOpacity

@@ -1,6 +1,6 @@
 import { useState } from 'react';
-import { tabsData } from '../config/Data';
-import Loader from '../component/common/Loader';
+import { tabsData } from '../../config/Data';
+import Loader from '../../component/common/Loader';
 import {
   FlatList,
   Image,
@@ -11,21 +11,21 @@ import {
   TextInput,
   ImageBackground
 } from 'react-native';
-import { Colors, Sizes, Fonts } from '../assets/style';
-import Offer from '../component/ui/Home/Offer/Offer';
-import Header from '../component/ui/Home/Header/Header';
-import MyStatusBar from '../component/common/MyStatusBar';
-import SendView from '../component/ui/Home/SendView/SendView';
-import { SCREEN_HEIGHT, SCREEN_WIDTH } from '../config/Screen';
+import { Colors, Sizes, Fonts } from '../../assets/style';
+import Offer from './component/MarketingOffer';
+import Header from '../../component/ui/Home/Header/Header';
+import MyStatusBar from '../../component/common/MyStatusBar';
+import SendView from '../../component/ui/Home/SendView/SendView';
+import { SCREEN_HEIGHT, SCREEN_WIDTH } from '../../config/Screen';
 import FontAwesome6 from 'react-native-vector-icons/FontAwesome6'
-import AstriInfo from '../component/ui/Home/AstriInfo/AstriInfo';
+import AstriInfo from './component/AstriInfo';
 import { GestureHandlerRootView } from 'react-native-gesture-handler';
-import GoLiveNowInfo from '../component/ui/Home/GoLiveNowInfo/GoLiveNowInfo';
-import ScheduleCourse from '../component/ui/Home/ScheduleCourse/ScheduleCourse';
-import FortuneStoreInfo from '../component/ui/Home/FortuneStoreInfo/FortuneStoreInfo';
-import TrandingInfoOnOff from '../component/ui/Home/TrandingInfoOnOff/TrandingInfoOnOff';
-import TrainingReelsInfo from '../component/ui/Home/TrainingReelsInfo/TrainingReelsInfo';
-import ChatCallStatusInfo from '../component/ui/Home/ChatCallStatusInfo/ChatCallStatusInfo';
+import GoLiveNowInfo from '../../component/ui/Home/GoLiveNowInfo/GoLiveNowInfo';
+import ScheduleCourse from '../../component/ui/Home/ScheduleCourse/ScheduleCourse';
+import FortuneStoreInfo from '../../component/ui/Home/FortuneStoreInfo/FortuneStoreInfo';
+import TrandingInfoOnOff from './component/TrandingInfoOnOff';
+import TrainingReelsInfo from '../../component/ui/Home/TrainingReelsInfo/TrainingReelsInfo';
+import ChatCallStatusInfo from './component/ChatCallStatusInfo';
 import LinearGradient from 'react-native-linear-gradient';
 import AntDesign from "react-native-vector-icons/AntDesign"
 import MaterialIcons from "react-native-vector-icons/MaterialIcons"
@@ -93,7 +93,7 @@ const Home = ({ navigation }) => {
         }}>
         <View style={{ borderRadius: Sizes.fixPadding, overflow: 'hidden' }}>
           <ImageBackground
-            source={require('../assets/images/performance.png')}
+            source={require('../../assets/images/performance.png')}
             style={{
               height: '100%',
               width: '100%',
@@ -250,7 +250,7 @@ const Home = ({ navigation }) => {
             }}>
             <View style={{ justifyContent: 'center' }}>
               <Image
-                source={require('../assets/icon/danger.png')}
+                source={require('../../assets/icon/danger.png')}
                 resizeMode="contain"
                 style={{
                   width: 35,

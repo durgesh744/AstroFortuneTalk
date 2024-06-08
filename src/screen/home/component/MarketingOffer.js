@@ -1,9 +1,9 @@
 import { useState } from "react";
 import { Text, View } from "react-native";
-import { Colors, Sizes } from "../../../../assets/style";
-import { SCREEN_WIDTH } from "../../../../config/Screen";
+import { Colors, Sizes } from "../../../assets/style";
+import { SCREEN_WIDTH } from "../../../config/Screen";
 import LinearGradient from 'react-native-linear-gradient';
-import CustomSwitch from '../../../common/CustomSwitch';
+import CustomSwitch from '../../../component/common/CustomSwitch';
 
 const Offer = () => {
     const [free, setFree] = useState(true)

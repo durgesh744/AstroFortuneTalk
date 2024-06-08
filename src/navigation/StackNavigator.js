@@ -1,6 +1,6 @@
 import React from 'react';
 import Splash from '../screen/Splash';
-import Home from '../screen/Home';
+import Home from '../screen/home/Home';
 import Profile from '../screen/Profile';
 import Pooja from '../screen/Pooja/Pooja';
 import Terms from '../screen/Settings/Terms';

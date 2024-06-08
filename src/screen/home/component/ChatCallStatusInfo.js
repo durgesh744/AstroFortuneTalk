@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { Text, TouchableOpacity, View } from "react-native";
-import CustomSwitch from "../../../common/CustomSwitch";
-import { Colors, Fonts, Sizes } from "../../../../assets/style";
+import CustomSwitch from "../../../component/common/CustomSwitch";
+import { Colors, Fonts, Sizes } from "../../../assets/style";
 
 const ChatCallStatusInfo = () => {
     const [chatStatus, setChatStatus] = useState(false)
