@@ -15,8 +15,9 @@ import MyHeader from '../../component/common/MyHeader';
 import { Colors, Sizes, Fonts } from '../../assets/style';
 import MyStatusBar from '../../component/common/MyStatusBar';
 import AsyncStorage from '@react-native-async-storage/async-storage';
-import { api_base_url, astrologer_logout } from '../../config/Constants';
+import { api_base_url, astrologer_logout } from '../../config/constants';
 import { showToastWithGravityAndOffset } from '../../methods/toastMessage';
+import { postRequest } from '../../utils/apiRequests';
 
 const Settings = ({ navigation }) => {
   const [isLoading, setIsLoading] = useState(false);
@@ -34,12 +35,12 @@ const Settings = ({ navigation }) => {
 
   const logout = async () => {
     setIsLoading(true);
-    await fetcher.post(api_base_url + astrologer_logout)
+    await postRequest({
+      url: api_base_url + astrologer_logout
+    })
       .then(res => {
         setIsLoading(false);
-        if (res.status) {
-          cleardata();
-        }
+        cleardata()
       })
       .catch(err => {
         setIsLoading(false);

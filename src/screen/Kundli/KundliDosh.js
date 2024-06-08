@@ -15,7 +15,7 @@ import {
   api2_get_manglik_dosha,
   api2_get_kalsarph_dosha,
   api2_get_sadhesati_status
-} from '../../config/Constants';
+} from '../../config/constants';
 
 const KundliDosh = ({id}) => {
   const [isLoading, setIsLoading] = useState(false);

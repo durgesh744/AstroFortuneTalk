@@ -13,7 +13,7 @@ import {
   api_url,
   api2_get_horo_chart,
   api2_get_planets
-} from '../../config/Constants';
+} from '../../config/constants';
 import axios from 'axios';
 import {Dropdown} from 'react-native-element-dropdown';
 import ShowSvg from '../../component/common/ShowSvg';

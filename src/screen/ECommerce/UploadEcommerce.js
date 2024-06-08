@@ -19,7 +19,7 @@ import {
   api_url,
   pooja_upload_attachments,
   pooja_upload_attachments_video,
-} from '../../config/Constants';
+} from '../../config/constants';
 import { showToastWithGravityAndOffset } from '../../methods/toastMessage';
 import { CommonActions } from '@react-navigation/native';
 import MyStatusBar from '../../component/common/MyStatusBar';

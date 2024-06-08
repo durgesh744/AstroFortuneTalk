@@ -1,7 +1,16 @@
 import { useState } from 'react';
 import { tabsData } from '../config/Data';
 import Loader from '../component/common/Loader';
-import { FlatList, Image, StyleSheet, Text, TouchableOpacity, View, TextInput, ImageBackground } from 'react-native';
+import {
+  FlatList,
+  Image,
+  StyleSheet,
+  Text,
+  TouchableOpacity,
+  View,
+  TextInput,
+  ImageBackground
+} from 'react-native';
 import { Colors, Sizes, Fonts } from '../assets/style';
 import Offer from '../component/ui/Home/Offer/Offer';
 import Header from '../component/ui/Home/Header/Header';
@@ -22,6 +31,7 @@ import AntDesign from "react-native-vector-icons/AntDesign"
 import MaterialIcons from "react-native-vector-icons/MaterialIcons"
 
 const Home = ({ navigation }) => {
+
   const [state, setState] = useState({
     isLoading: false,
     moa: true,
@@ -49,17 +59,17 @@ const Home = ({ navigation }) => {
         scrollEnabled={true}
         ListHeaderComponent={
           <>
-            <AstriInfo navigation={navigation} />
+            <AstriInfo />
             {GoForPolicies()}
             {performance()}
-            <Offer navigation={navigation} />
+            <Offer />
             {/* <HomeBannerInfo/> */}
-            <ChatCallStatusInfo navigation={navigation} />
-            <TrandingInfoOnOff navigation={navigation} />
-            <GoLiveNowInfo navigation={navigation} />
-            <TrainingReelsInfo navigation={navigation} />
-            <ScheduleCourse navigation={navigation} />
-            <FortuneStoreInfo navigation={navigation} />
+            <ChatCallStatusInfo />
+            <TrandingInfoOnOff />
+            <GoLiveNowInfo />
+            <TrainingReelsInfo />
+            <ScheduleCourse />
+            <FortuneStoreInfo />
             {TabsInfo()}
             {noticeBoard()}
             {reportIssue()}
@@ -74,15 +84,16 @@ const Home = ({ navigation }) => {
     return (
       <View
         style={{
-          paddingVertical: Sizes.fixPadding,
+          marginTop: Sizes.fixPadding * 0.6,
           width: '100%',
           height: 130,
           paddingHorizontal: Sizes.fixPadding,
+          paddingVertical: Sizes.fixPadding,
           backgroundColor: Colors.white,
         }}>
         <View style={{ borderRadius: Sizes.fixPadding, overflow: 'hidden' }}>
           <ImageBackground
-            source={require('../../assets/images/performance.png')}
+            source={require('../assets/images/performance.png')}
             style={{
               height: '100%',
               width: '100%',
@@ -218,16 +229,16 @@ const Home = ({ navigation }) => {
         activeOpacity={0.8}
         onPress={() => navigation.navigate('privacy')}
         style={{
-          padding: 18,
+          paddingHorizontal: 10,
+          paddingVertical: 18,
           backgroundColor: Colors.white,
-          borderBottomWidth: 1,
-          borderColor: Colors.blackLight + '60',
         }}>
         <View
           style={{
             backgroundColor: Colors.primaryDark,
-            height: SCREEN_HEIGHT * 0.1,
+            height: SCREEN_HEIGHT * 0.12,
             borderRadius: 15,
+            elevation:10
           }}>
           <View
             style={{
@@ -239,11 +250,11 @@ const Home = ({ navigation }) => {
             }}>
             <View style={{ justifyContent: 'center' }}>
               <Image
-                source={require('../../assets/icon/danger.png')}
+                source={require('../assets/icon/danger.png')}
                 resizeMode="contain"
                 style={{
-                  width: 26,
-                  height: 26,
+                  width: 35,
+                  height:35,
                   borderRadius: 25,
                   alignSelf: 'center',
                 }}
@@ -254,7 +265,8 @@ const Home = ({ navigation }) => {
                 style={{
                   fontFamily: 'Roboto-Medium',
                   color: Colors.white,
-                  fontSize: 16,
+                  fontSize: 20,
+                  fontWeight: "800",
                 }}>
                 Important Policies
               </Text>
@@ -268,7 +280,7 @@ const Home = ({ navigation }) => {
               </Text>
             </View>
             <View style={{ justifyContent: 'center' }}>
-              <MaterialIcons name="keyboard-arrow-down" size={26} color={Colors.white} />
+              <MaterialIcons name="keyboard-arrow-down" size={30} color={Colors.white} />
             </View>
           </View>
         </View>

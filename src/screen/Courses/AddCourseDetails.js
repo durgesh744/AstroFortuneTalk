@@ -17,7 +17,7 @@ import MaterialIcons from 'react-native-vector-icons/MaterialIcons';
 import { SCREEN_WIDTH } from '../../config/Screen';
 import LinearGradient from 'react-native-linear-gradient';
 import DocumentPicker from 'react-native-document-picker';
-import { api_url, upload_free_pdf } from '../../config/Constants';
+import { api_url, upload_free_pdf } from '../../config/constants';
 import * as Progress from 'react-native-progress';
 import MyStatusBar from '../../component/common/MyStatusBar';
 import MyHeader from '../../component/common/MyHeader';

@@ -16,7 +16,7 @@ import {
   api2_get_house_report,
   api2_get_house_cusps,
   api2_get_house_ruling,
-} from '../../config/Constants';
+} from '../../config/constants';
 import {Dropdown} from 'react-native-element-dropdown';
 import KPShowSvg from '../../component/common/KPShowSvg';
 

@@ -4,12 +4,12 @@ import {
 } from 'react-native';
 import React, { useEffect } from 'react';
 import { Colors } from '../assets/style';
-import { SCREEN_WIDTH } from '../config/Screen';
 import MyStatusBar from '../component/common/MyStatusBar';
 import LinearGradient from 'react-native-linear-gradient';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import { connect } from 'react-redux';
 import * as AuthActions from '../redux/actions/authActions.js'
+import LottieView from "lottie-react-native";
 
 const Splash = ({ navigation, dispatch }) => {
 
@@ -39,9 +39,11 @@ const Splash = ({ navigation, dispatch }) => {
       <LinearGradient
         colors={[Colors.primaryLight, Colors.primaryDark]}
         style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
-        <Image
-          source={require('../assets/videos/splash.gif')}
-          style={{ width: SCREEN_WIDTH * 0.9, height: SCREEN_WIDTH * 0.9 }}
+        <LottieView
+          source={require('../assets/animations/test.json')}
+          style={{ width: "100%", height: "100%" }}
+          autoPlay
+          loop
         />
       </LinearGradient>
     </View>

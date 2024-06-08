@@ -16,7 +16,7 @@ import {
   img_url_2,
   provider_img_url,
   schedule_a_pooja_id,
-} from '../../config/Constants';
+} from '../../config/constants';
 import {Colors, Sizes, Fonts} from '../../assets/style';
 import MyStatusBar from '../../component/common/MyStatusBar';
 import Loader from '../../component/common/Loader';

@@ -8,6 +8,7 @@ import {
     ScrollView,
 } from 'react-native';
 import axios from 'axios';
+import { connect } from 'react-redux';
 import { Divider, Input } from '@rneui/themed';
 import Loader from '../../component/common/Loader';
 import messaging from '@react-native-firebase/messaging';
@@ -17,13 +18,12 @@ import LinearGradient from 'react-native-linear-gradient';
 import {
     api_base_url,
     astrologer_login,
-} from '../../config/Constants';
+} from '../../config/constants.js';
 import MyStatusBar from '../../component/common/MyStatusBar';
 import { SCREEN_HEIGHT, SCREEN_WIDTH } from '../../config/Screen';
 import { setItemToLocalStorage } from '../../helper/useLocalStorage';
 import { showToastWithGravityAndOffset } from '../../methods/toastMessage';
 import * as AuthActions from '../../redux/actions/authActions.js'
-import { connect } from 'react-redux';
 import CustomButton from '../../component/common/CustomButton.js';
 
 const Login = ({ navigation, dispatch }) => {
@@ -162,10 +162,11 @@ const Login = ({ navigation, dispatch }) => {
             <View
                 style={{
                     marginBottom: Sizes.fixPadding * 7.0,
+                    marginHorizontal: Sizes.fixPadding * 4,
                 }}
             >
                 <CustomButton
-                    handleSend={()=> validation() ? login() : null}
+                    handleSend={() => validation() ? login() : null}
                     btnName={"Sign in"}
                 />
             </View>
@@ -182,7 +183,7 @@ const Login = ({ navigation, dispatch }) => {
                         right: SCREEN_WIDTH * 0.1,
                         marginVertical: Sizes.fixPadding,
                     }}>
-                    Forgot password
+                    Forgot password?
                 </Text>
             </TouchableOpacity>
         );

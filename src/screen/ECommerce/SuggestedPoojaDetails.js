@@ -13,7 +13,7 @@ import LinearGradient from 'react-native-linear-gradient';
 import {SafeAreaView} from 'react-native-safe-area-context';
 import {useSharedValue} from 'react-native-reanimated';
 import Carousel from 'react-native-reanimated-carousel';
-import {provider_img_url} from '../../config/Constants';
+import {provider_img_url} from '../../config/constants';
 import database from '@react-native-firebase/database';
 import {connect} from 'react-redux';
 import MyStatusBar from '../../component/common/MyStatusBar';

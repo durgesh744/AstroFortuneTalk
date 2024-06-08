@@ -17,7 +17,7 @@ import {
   api2_get_rudraksha_sugg,
   api2_get_gemstone_sugg,
   img_url_3,
-} from '../../config/Constants';
+} from '../../config/constants';
 
 
 const remediesInfo = [

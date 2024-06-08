@@ -21,7 +21,7 @@ import {
   get_gallery_photo,
   update_gallery_photo_status,
   upload_gallery_photo,
-} from '../../config/Constants';
+} from '../../config/constants';
 import RNFetchBlob from 'rn-fetch-blob';
 import { SCREEN_WIDTH } from '../../config/Screen';
 import Loader from '../../component/common/Loader';

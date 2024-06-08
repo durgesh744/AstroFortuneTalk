@@ -13,7 +13,7 @@ import React, { useState, useEffect } from 'react';
 import MyHeader from '../../component/common/MyHeader';
 import { Colors, Sizes, Fonts } from '../../assets/style';
 import MyStatusBar from '../../component/common/MyStatusBar';
-import { api_url, astro_history_pooja } from '../../config/Constants';
+import { api_url, astro_history_pooja } from '../../config/constants';
 
 const listData = [
   {

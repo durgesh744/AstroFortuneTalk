@@ -13,7 +13,7 @@ import {SCREEN_WIDTH} from '../../config/Screen';
 import Ionicons from 'react-native-vector-icons/Ionicons';
 import Stars from 'react-native-stars';
 import LinearGradient from 'react-native-linear-gradient';
-import {base_url} from '../../config/Constants';
+import {base_url} from '../../config/constants';
 import database from '@react-native-firebase/database';
 import {MyMethods} from '../../methods/MyMethods';
 import MyStatusBar from '../../component/common/MyStatusBar';

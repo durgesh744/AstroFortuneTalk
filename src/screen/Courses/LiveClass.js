@@ -15,7 +15,7 @@ import {
   complete_course_live,
   live_streaming_app_id,
   live_streaming_app_sign,
-} from '../../config/Constants';
+} from '../../config/constants';
 import ZegoExpressEngine, {
   ZegoTextureView,
   ZegoMixerTask,

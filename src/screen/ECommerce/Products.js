@@ -16,7 +16,7 @@ import {
   api_url,
   base_url,
   post_mall_sub_category,
-} from '../../config/Constants';
+} from '../../config/constants';
 import axios from 'axios';
 import MyStatusBar from '../../component/common/MyStatusBar';
 import Loader from '../../component/common/Loader';

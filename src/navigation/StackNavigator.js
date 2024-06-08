@@ -40,6 +40,7 @@ import SupportChat from '../screen/SupportChat/SupportChat';
 import Login from '../screen/Auth/Login';
 import SupportChatScreen from '../screen/SupportChat/SupportChatScreen';
 import Performance from '../screen/Performance';
+import ForgetPassword from '../screen/Auth/ForgetPassword';
 
 const Stack = createNativeStackNavigator();
 
@@ -92,6 +93,7 @@ const StackNavigator = () => {
       <Stack.Screen name="SupportChat" component={SupportChat} />
       <Stack.Screen name="supportChatScreen" component={SupportChatScreen} />
       <Stack.Screen name="performance" component={Performance} />
+      <Stack.Screen name="ForgetPassword" component={ForgetPassword} />
 
     </Stack.Navigator>
   );

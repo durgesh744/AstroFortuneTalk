@@ -5,7 +5,7 @@ import { ApiRequests } from '../../config/Requests';
 import RenderHtml from 'react-native-render-html';
 import { SCREEN_WIDTH } from '../../config/Screen';
 import Loader from '../../component/common/Loader';
-import { api_url, terms } from '../../config/Constants';
+import { api_url, terms } from '../../config/constants';
 import MyHeader from '../../component/common/MyHeader';
 import MyStatusBar from '../../component/common/MyStatusBar';
 

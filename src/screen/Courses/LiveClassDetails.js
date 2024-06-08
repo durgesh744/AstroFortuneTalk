@@ -18,7 +18,7 @@ import {
   api_url,
   base_url,
   complete_course_live_islive,
-} from '../../config/Constants';
+} from '../../config/constants';
 import moment from 'moment';
 import { connect } from 'react-redux';
 import { MyMethods } from '../../methods/MyMethods';

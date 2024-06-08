@@ -20,7 +20,7 @@ import {showToastWithGravityAndOffset} from '../../../methods/toastMessage';
 import {
   api_url,
   live_class,
-} from '../../../config/Constants';
+} from '../../../config/constants';
 import RNFetchBlob from 'rn-fetch-blob';
 
 const LiveClassForm = ({updateState, providerData, courseId, navigation}) => {

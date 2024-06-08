@@ -6,7 +6,7 @@ import {Colors, Fonts, Sizes} from '../../assets/style';
 import {SCREEN_WIDTH} from '../../config/Screen';
 import LinearGradient from 'react-native-linear-gradient';
 import {connect} from 'react-redux';
-import {api_url, pdf_course_demo_astro_history} from '../../config/Constants';
+import {api_url, pdf_course_demo_astro_history} from '../../config/constants';
 import {ApiRequests} from '../../config/requests';
 
 const DemoClassHistory = ({navigation, providerData}) => {

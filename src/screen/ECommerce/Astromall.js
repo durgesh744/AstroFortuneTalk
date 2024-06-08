@@ -12,7 +12,7 @@ import Loader from '../../component/common/Loader';
 import { Colors, Sizes, Fonts } from '../../assets/style';
 import MyHeader from '../../component/common/MyHeader';
 import MyStatusBar from '../../component/common/MyStatusBar';
-import { api_url, base_url, get_mall_cat } from '../../config/Constants';
+import { api_url, base_url, get_mall_cat } from '../../config/constants';
 
 const Astromall = ({ navigation, route }) => {
   const [state, setState] = useState({

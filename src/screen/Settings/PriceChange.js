@@ -10,7 +10,7 @@ import { connect } from 'react-redux';
 import { useState, useEffect } from 'react';
 import { Colors, Fonts, Sizes } from '../../assets/style';
 import LinearGradient from 'react-native-linear-gradient';
-import { api_url, get_request } from '../../config/Constants';
+import { api_url, get_request } from '../../config/constants';
 import MyStatusBar from '../../component/common/MyStatusBar';
 import Loader from '../../component/common/Loader';
 import MyHeader from '../../component/common/MyHeader';

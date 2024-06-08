@@ -15,7 +15,7 @@ import {
   api_url,
   category_pooja_list,
   provider_img_url,
-} from '../../config/Constants';
+} from '../../config/constants';
 import MyStatusBar from '../../component/common/MyStatusBar';
 import Loader from '../../component/common/Loader';
 import MyHeader from '../../component/common/MyHeader';

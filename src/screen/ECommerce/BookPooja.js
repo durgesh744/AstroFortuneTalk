@@ -16,7 +16,7 @@ import {
   base_url,
   category_pooja_list,
   provider_img_url,
-} from '../../config/Constants';
+} from '../../config/constants';
 import {Colors, Sizes, Fonts} from '../../assets/style';
 import {SCREEN_WIDTH} from '../../config/Screen';
 import MyStatusBar from '../../component/common/MyStatusBar';

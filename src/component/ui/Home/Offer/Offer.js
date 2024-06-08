@@ -6,7 +6,7 @@ import LinearGradient from 'react-native-linear-gradient';
 import CustomSwitch from '../../../common/CustomSwitch';
 
 const Offer = () => {
-    const [free , setFree] = useState(true)
+    const [free, setFree] = useState(true)
     return (
         <View
             style={{
@@ -31,6 +31,7 @@ const Offer = () => {
                     borderRadius: 20,
                     marginVertical: Sizes.fixPadding,
                     elevation: 3,
+                    flex: 1,
                 }}
             >
                 <Text
@@ -41,7 +42,7 @@ const Offer = () => {
                     }}>
                     M0@0-Free Users
                 </Text>
-                <View style={{ flexDirection: 'row', justifyContent: 'space-between' }}>
+                <View style={{ flexDirection: 'row', justifyContent: 'space-between', alignItems: "center" }}>
                     <View style={{ width: SCREEN_WIDTH * 0.7 }}>
                         <Text
                             style={{
@@ -70,7 +71,9 @@ const Offer = () => {
                             paid
                         </Text>
                     </View>
-                    <CustomSwitch active={free} />
+                    <View>
+                        <CustomSwitch active={free} />
+                    </View>
                 </View>
             </LinearGradient>
         </View>

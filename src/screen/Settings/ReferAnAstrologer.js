@@ -11,7 +11,7 @@ import axios from 'axios';
 import React, { useState } from 'react';
 import { connect } from 'react-redux';
 import { Colors, Fonts } from '../../assets/style';
-import { api_url, refer_an_astrologer } from '../../config/Constants';
+import { api_url, refer_an_astrologer } from '../../config/constants';
 import { commonStyles } from '../../assets/global';
 import CustomButton from '../../component/common/CustomButton';
 import MyStatusBar from '../../component/common/MyStatusBar';

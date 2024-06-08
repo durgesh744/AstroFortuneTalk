@@ -16,7 +16,7 @@ import * as ImagePicker from 'react-native-image-picker';
 import { Image } from 'react-native';
 import { showToastWithGravityAndOffset } from '../../../methods/toastMessage';
 import RNFetchBlob from 'rn-fetch-blob';
-import { api_url, demo_class } from '../../../config/Constants';
+import { api_url, demo_class } from '../../../config/constants';
 import moment from 'moment';
 import * as Progress from 'react-native-progress';
 

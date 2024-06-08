@@ -17,7 +17,7 @@ import LinearGradient from 'react-native-linear-gradient';
 import * as ProviderActions from '../../redux/actions/ProviderActions';
 import {connect} from 'react-redux';
 import axios from 'axios';
-import {api_url, pdf_course_demo_astro} from '../../config/Constants';
+import {api_url, pdf_course_demo_astro} from '../../config/constants';
 import Loader from '../../component/Loader';
 import moment from 'moment';
 import {MyMethods} from '../../methods/MyMethods';

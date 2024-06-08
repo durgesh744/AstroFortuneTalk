@@ -12,7 +12,7 @@ import {
   api_url,
   api2_get_birth_details,
   api2_get_astro_detail,
-} from '../../config/Constants';
+} from '../../config/constants';
 import axios from 'axios';
 import MyStatusBar from '../../component/common/MyStatusBar';
 import Loader from '../../component/common/Loader';

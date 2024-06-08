@@ -9,7 +9,7 @@ import { Bubble, GiftedChat } from 'react-native-gifted-chat';
 import Documets from '../../component/Chat/Documets';
 import Voice from '../../component/Chat/Voice';
 import Ionicons from 'react-native-vector-icons/Ionicons';
-import { img_url_2 } from '../../config/Constants';
+import { img_url_2 } from '../../config/constants';
 import { connect } from 'react-redux';
 import { SCREEN_WIDTH } from '../../config/Screen';
 

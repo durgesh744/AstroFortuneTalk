@@ -18,7 +18,7 @@ import {
   api_url,
   course_list,
   provider_img_url,
-} from '../../config/Constants';
+} from '../../config/constants';
 import CourseTabItem from '../../component/ui/Courses/CourseTabItem';
 
 const CourseList = ({ navigation }) => {

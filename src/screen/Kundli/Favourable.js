@@ -13,7 +13,7 @@ import Loader from '../../component/common/Loader';
 import {
   api_url,
   get_fav,
-} from '../../config/Constants'
+} from '../../config/constants'
 import axios from 'axios';
 
 const Favourable = ({ id }) => {

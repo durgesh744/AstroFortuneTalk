@@ -21,7 +21,7 @@ import {
   api2_get_sub_sub_sub_vdasha,
   api2_get_sub_sub_sub_sub_vdasha,
   api2_get_current_vdasha,
-} from '../../config/Constants';
+} from '../../config/constants';
 import Entypo from 'react-native-vector-icons/Entypo';
 
 const categoryData = [

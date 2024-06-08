@@ -18,7 +18,7 @@ import {
   api_url,
   base_url,
   complete_course_demo_islive,
-} from '../../config/Constants';
+} from '../../config/constants';
 import {connect} from 'react-redux';
 import {ApiRequests} from '../../config/requests';
 import Loader from '../../component/Loader';

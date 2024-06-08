@@ -11,7 +11,7 @@ import Loader from '../../component/common/Loader';
 import {
   api_url,
   api2_get_planet_details,
-} from '../../config/Constants';
+} from '../../config/constants';
 import axios from 'axios';
 
 const PlanetaryDetails = ({ id }) => {

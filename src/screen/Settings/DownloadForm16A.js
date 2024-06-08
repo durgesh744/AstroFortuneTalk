@@ -14,7 +14,7 @@ import { Colors, Fonts, Sizes } from '../../assets/style';
 import Loader from '../../component/common/Loader';
 import MyHeader from '../../component/common/MyHeader';
 import MyStatusBar from '../../component/common/MyStatusBar';
-import { api_url, get_PDF, provider_img_url } from '../../config/Constants';
+import { api_url, get_PDF, provider_img_url } from '../../config/constants';
 import { SCREEN_WIDTH } from '../../config/Screen';
 import Octicons from 'react-native-vector-icons/Octicons'
 

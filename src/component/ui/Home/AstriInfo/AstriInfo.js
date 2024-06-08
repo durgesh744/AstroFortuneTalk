@@ -1,20 +1,22 @@
-import { Image, Text, TouchableOpacity, View } from 'react-native';
-import { Colors, Fonts } from '../../../../assets/style';
-import { SCREEN_HEIGHT, SCREEN_WIDTH } from '../../../../config/Screen';
 import { connect } from 'react-redux';
+import { Colors, Fonts } from '../../../../assets/style';
+import { navigate } from '../../../../utils/navigationServices';
+import { Image, Text, TouchableOpacity, View } from 'react-native';
+import { SCREEN_HEIGHT, SCREEN_WIDTH } from '../../../../config/Screen';
 
-const AstriInfo = ({ navigation, authData }) => {
+const AstriInfo = ({ authData }) => {
     return (
         <View
             style={{
                 backgroundColor: Colors.white,
                 borderBottomWidth: 0.8,
                 borderColor: Colors.blackLight + '60',
+                elevation:5
             }}>
             <View style={{ flexDirection: 'row', backgroundColor: Colors }}>
                 <TouchableOpacity
                     activeOpacity={0.8}
-                    onPress={() => navigation.navigate('profile')}
+                    onPress={() => navigate('profile')}
                     style={{
                         width: SCREEN_WIDTH * 0.3,
                         justifyContent: 'center',

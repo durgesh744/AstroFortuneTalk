@@ -6,7 +6,7 @@ import {Colors, Fonts, Sizes} from '../../assets/style';
 import {SCREEN_WIDTH} from '../../config/Screen';
 import LinearGradient from 'react-native-linear-gradient';
 import {ApiRequests} from '../../config/requests';
-import {api_url, complete_courses_live_astro} from '../../config/Constants';
+import {api_url, complete_courses_live_astro} from '../../config/constants';
 import {connect} from 'react-redux';
 
 const ScheduleClassHistory = ({navigation, providerData}) => {

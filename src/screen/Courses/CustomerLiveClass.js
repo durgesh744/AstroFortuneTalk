@@ -10,7 +10,7 @@ import React, {Component} from 'react';
 import {
   live_streaming_app_id,
   live_streaming_app_sign,
-} from '../../config/Constants';
+} from '../../config/constants';
 import ZegoExpressEngine, {
   ZegoTextureView,
   ZegoMixerTask,

@@ -14,7 +14,7 @@ import {Colors, Fonts, Sizes} from '../../assets/style';
 const {width, height} = Dimensions.get('screen');
 import {SCREEN_WIDTH} from '../../config/Screen';
 import LinearGradient from 'react-native-linear-gradient';
-import {api_url, pdf_course_live_astro} from '../../config/Constants';
+import {api_url, pdf_course_live_astro} from '../../config/constants';
 import {connect} from 'react-redux';
 import axios from 'axios';
 import Loader from '../../component/Loader';

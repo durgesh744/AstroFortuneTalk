@@ -11,7 +11,7 @@ import {
 } from 'react-native';
 import React, { useState } from 'react';
 import { Colors, Fonts } from '../../assets/style';
-import { api_url, update_mobile_mumber } from '../../config/Constants';
+import { api_url, update_mobile_mumber } from '../../config/constants';
 import { useAuth } from '../../context/AuthContext';
 import Loader from '../../component/common/Loader';
 import MyStatusBar from '../../component/common/MyStatusBar';

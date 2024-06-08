@@ -3,12 +3,13 @@ import {SafeAreaView} from 'react-native';
 import StackNavigator from './src/navigation/StackNavigator';
 import {NavigationContainer} from '@react-navigation/native';
 import {AuthProvider} from './src/context/AuthContext';
+import { setTopLevelNavigator } from './src/utils/navigationServices';
 
 function App() {
   return (
     <SafeAreaView style={{flex: 1}}>
       <AuthProvider>
-        <NavigationContainer>
+        <NavigationContainer ref={ref => setTopLevelNavigator(ref)} >
           <StackNavigator />
         </NavigationContainer>
       </AuthProvider>
