@@ -16,6 +16,7 @@ import MyHeader from '../../component/common/MyHeader';
 import MyStatusBar from '../../component/common/MyStatusBar';
 import { api_url, get_PDF, provider_img_url } from '../../config/Constants';
 import { SCREEN_WIDTH } from '../../config/Screen';
+import Octicons from 'react-native-vector-icons/Octicons'
 
 const DownloadForm16A = ({ navigation, authData }) => {
   const [isLoading, setIsLoading] = useState(false);
@@ -74,7 +75,7 @@ const DownloadForm16A = ({ navigation, authData }) => {
         <Text numberOfLines={1} style={{ ...Fonts.grayDark16RobotoMedium, color: Colors.Dark_grayish_red }}>
           {item.title}
         </Text>
-        <Image source={require('../../assets/icon/download_purple.png')} />
+        <Octicons name="download" size={26} color={Colors.primaryLight} />
       </TouchableOpacity>
     );
 

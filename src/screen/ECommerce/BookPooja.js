@@ -21,6 +21,7 @@ import {Colors, Sizes, Fonts} from '../../assets/style';
 import {SCREEN_WIDTH} from '../../config/Screen';
 import MyStatusBar from '../../component/common/MyStatusBar';
 import Loader from '../../component/common/Loader';
+import Ionicons from 'react-native-vector-icons/Ionicons'
 
 const BookPooja = ({navigation, route}) => {
   const [state, setState] = useState({
@@ -204,10 +205,7 @@ const BookPooja = ({navigation, route}) => {
             height: 36,
           }}
           rightIcon={
-            <Image
-              source={require('../../assets/icon/search.png')}
-              style={{width: 20, height: 20}}
-            />
+            <Ionicons name="download" size={26} color={Colors.gray3} />
           }
         />
       </View>

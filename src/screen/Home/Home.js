@@ -19,6 +19,7 @@ import TrainingReelsInfo from '../../component/ui/Home/TrainingReelsInfo/Trainin
 import ChatCallStatusInfo from '../../component/ui/Home/ChatCallStatusInfo/ChatCallStatusInfo';
 import LinearGradient from 'react-native-linear-gradient';
 import AntDesign from "react-native-vector-icons/AntDesign"
+import MaterialIcons from "react-native-vector-icons/MaterialIcons"
 
 const Home = ({ navigation }) => {
   const [state, setState] = useState({
@@ -79,7 +80,7 @@ const Home = ({ navigation }) => {
           paddingHorizontal: Sizes.fixPadding,
           backgroundColor: Colors.white,
         }}>
-        <View style={{borderRadius: Sizes.fixPadding, overflow: 'hidden'}}>
+        <View style={{ borderRadius: Sizes.fixPadding, overflow: 'hidden' }}>
           <ImageBackground
             source={require('../../assets/images/performance.png')}
             style={{
@@ -89,8 +90,8 @@ const Home = ({ navigation }) => {
             resizeMode="cover">
             <LinearGradient
               colors={['rgba(255,255,255,0)', Colors.primaryDark]}
-              start={{x: 0, y: 0}}
-              end={{x: 1, y: 0}}
+              start={{ x: 0, y: 0 }}
+              end={{ x: 1, y: 0 }}
               locations={[0.8, 1]}
               style={{
                 width: '100%',
@@ -267,7 +268,7 @@ const Home = ({ navigation }) => {
               </Text>
             </View>
             <View style={{ justifyContent: 'center' }}>
-              <Image source={require('../../assets/icon/BottomArrow.png')} />
+              <MaterialIcons name="keyboard-arrow-down" size={26} color={Colors.white} />
             </View>
           </View>
         </View>

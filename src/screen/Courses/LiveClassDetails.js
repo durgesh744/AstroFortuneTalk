@@ -7,14 +7,12 @@ import {
   TouchableOpacity,
   StyleSheet,
 } from 'react-native';
-import React, {useState} from 'react';
+import React, { useState } from 'react';
 import MyStatusBar from '../../component/MyStatusBar';
 import MyHeader from '../../component/MyHeader';
-import {Colors, Fonts, Sizes} from '../../assets/style';
-const {width, height} = Dimensions.get('screen');
+import { Colors, Fonts } from '../../assets/style';
 import Ionicons from 'react-native-vector-icons/Ionicons';
-import {ImageBackground} from 'react-native';
-import {SCREEN_WIDTH} from '../../config/Screen';
+import { SCREEN_WIDTH } from '../../config/Screen';
 import Video from '../../component/Courses/Video';
 import {
   api_url,
@@ -22,12 +20,15 @@ import {
   complete_course_live_islive,
 } from '../../config/Constants';
 import moment from 'moment';
-import {connect} from 'react-redux';
-import {MyMethods} from '../../methods/MyMethods';
+import { connect } from 'react-redux';
+import { MyMethods } from '../../methods/MyMethods';
 import Loader from '../../component/Loader';
-import {ApiRequests} from '../../config/requests';
+import { ApiRequests } from '../../config/requests';
+import Octicons from 'react-native-vector-icons/Octicons'
 
-const LiveClassDetails = ({navigation, route, providerData}) => {
+const { width, height } = Dimensions.get('screen');
+
+const LiveClassDetails = ({ navigation, route, providerData }) => {
   const [classData] = useState(route?.params?.classData);
   const [isLoading, setIsLoading] = useState(false);
 
@@ -65,14 +66,14 @@ const LiveClassDetails = ({navigation, route, providerData}) => {
     }
   };
   return (
-    <View style={{flex: 1}}>
+    <View style={{ flex: 1 }}>
       <MyStatusBar
         backgroundColor={Colors.primaryLight}
         barStyle={'light-content'}
       />
       <Loader visible={isLoading} />
       <MyHeader title={'Live Class'} navigation={navigation} />
-      <View style={{flex: 1, backgroundColor: Colors.white}}>
+      <View style={{ flex: 1, backgroundColor: Colors.white }}>
         <FlatList
           ListHeaderComponent={
             <>
@@ -103,15 +104,15 @@ const LiveClassDetails = ({navigation, route, providerData}) => {
           <View style={styles.subContainer}>
             <Text
               style={[
-                {...Fonts.primaryDark16RobotoMedium},
-                {lineHeight: 25, textAlign: 'justify'},
+                { ...Fonts.primaryDark16RobotoMedium },
+                { lineHeight: 25, textAlign: 'justify' },
               ]}>
               {classData?.course_name}
             </Text>
             <Text
               style={[
                 Fonts.gray14RobotoRegular,
-                {marginTop: 2, lineHeight: 20, textAlign: 'justify'},
+                { marginTop: 2, lineHeight: 20, textAlign: 'justify' },
               ]}>
               {classData?.description}
             </Text>
@@ -122,8 +123,8 @@ const LiveClassDetails = ({navigation, route, providerData}) => {
   }
 
   function classesList() {
-    const renderItem = ({item, index}) => {
-      const isToday = MyMethods.check_current_day({date: item.start_date});
+    const renderItem = ({ item, index }) => {
+      const isToday = MyMethods.check_current_day({ date: item.start_date });
       return (
         <View
           style={{
@@ -145,10 +146,10 @@ const LiveClassDetails = ({navigation, route, providerData}) => {
                       flexDirection: 'row',
                       alignItems: 'center',
                     }}>
-                    <Text style={[{...Fonts.primaryDark16RobotoMedium}]}>
+                    <Text style={[{ ...Fonts.primaryDark16RobotoMedium }]}>
                       Class {index + 1}
                     </Text>
-                    <Text style={[Fonts.gray12RobotoMedium, {marginLeft: 10}]}>
+                    <Text style={[Fonts.gray12RobotoMedium, { marginLeft: 10 }]}>
                       {item.time_session_duration} min
                     </Text>
                   </View>
@@ -161,8 +162,8 @@ const LiveClassDetails = ({navigation, route, providerData}) => {
                     }}>
                     <Text
                       style={[
-                        {...Fonts.gray14RobotoMedium},
-                        {lineHeight: 25, marginRight: 5, textAlign: 'right'},
+                        { ...Fonts.gray14RobotoMedium },
+                        { lineHeight: 25, marginRight: 5, textAlign: 'right' },
                       ]}>
                       Completed
                     </Text>
@@ -182,7 +183,7 @@ const LiveClassDetails = ({navigation, route, providerData}) => {
                       flexDirection: 'row',
                       alignItems: 'center',
                     }}>
-                    <Text style={[{...Fonts.primaryDark16RobotoMedium}]}>
+                    <Text style={[{ ...Fonts.primaryDark16RobotoMedium }]}>
                       Class {index + 1}
                     </Text>
                   </View>
@@ -193,7 +194,7 @@ const LiveClassDetails = ({navigation, route, providerData}) => {
                       justifyContent: 'flex-end',
                       alignItems: 'center',
                     }}>
-                    <Text style={[Fonts.gray12RobotoMedium, {marginLeft: 10}]}>
+                    <Text style={[Fonts.gray12RobotoMedium, { marginLeft: 10 }]}>
                       {item.time_session_duration} min
                     </Text>
                   </View>
@@ -205,11 +206,11 @@ const LiveClassDetails = ({navigation, route, providerData}) => {
                   justifyContent: 'space-between',
                   alignItems: 'center',
                 }}>
-                <View style={{flex: 0.7}}>
+                <View style={{ flex: 0.7 }}>
                   <Text
                     style={[
-                      {...Fonts.gray16RobotoMedium},
-                      {lineHeight: 25, textAlign: 'justify'},
+                      { ...Fonts.gray16RobotoMedium },
+                      { lineHeight: 25, textAlign: 'justify' },
                     ]}>
                     {item.class_name}
                   </Text>
@@ -218,7 +219,7 @@ const LiveClassDetails = ({navigation, route, providerData}) => {
               <Text
                 style={[
                   Fonts.gray14RobotoRegular,
-                  {marginTop: 2, lineHeight: 20, textAlign: 'justify'},
+                  { marginTop: 2, lineHeight: 20, textAlign: 'justify' },
                 ]}>
                 {item?.description}
               </Text>
@@ -232,8 +233,8 @@ const LiveClassDetails = ({navigation, route, providerData}) => {
                       justifyContent: 'space-between',
                       alignItems: 'center',
                     }}>
-                    <View style={{flex: 0.6}}>
-                      <Text style={[{...Fonts.primaryDark16RobotoMedium}]}>
+                    <View style={{ flex: 0.6 }}>
+                      <Text style={[{ ...Fonts.primaryDark16RobotoMedium }]}>
                         Join class by{' '}
                         {moment(item?.start_time).format('hh:mm A')}
                       </Text>
@@ -265,8 +266,8 @@ const LiveClassDetails = ({navigation, route, providerData}) => {
                     }}>
                     <Text
                       style={[
-                        {...Fonts.primaryLight15RobotoMedium},
-                        {color: Colors.red, marginTop: 10},
+                        { ...Fonts.primaryLight15RobotoMedium },
+                        { color: Colors.red, marginTop: 10 },
                       ]}>
                       Next Session at{' '}
                       {moment(item?.start_date).format('Do MMM YYYY')},{' '}
@@ -284,7 +285,7 @@ const LiveClassDetails = ({navigation, route, providerData}) => {
       <FlatList
         data={classData?.course_live_tbl}
         renderItem={renderItem}
-        contentContainerStyle={{paddingVertical: 15}}
+        contentContainerStyle={{ paddingVertical: 15 }}
       />
     );
   }
@@ -317,7 +318,7 @@ const LiveClassDetails = ({navigation, route, providerData}) => {
           <Text
             style={[
               Fonts.gray16RobotoMedium,
-              {textAlign: 'center', marginTop: 10},
+              { textAlign: 'center', marginTop: 10 },
             ]}>
             Upload{'\n'}Question Paper
           </Text>
@@ -337,7 +338,7 @@ const LiveClassDetails = ({navigation, route, providerData}) => {
           <Text
             style={[
               Fonts.gray16RobotoMedium,
-              {textAlign: 'center', marginTop: 10},
+              { textAlign: 'center', marginTop: 10 },
             ]}>
             Upload{'\n'}MarkSheet
           </Text>
@@ -349,8 +350,8 @@ const LiveClassDetails = ({navigation, route, providerData}) => {
   function downloadPdf() {
     return (
       <View
-        style={{marginBottom: 10, paddingHorizontal: 20, paddingVertical: 5}}>
-        <Text style={[{...Fonts.gray16RobotoMedium}, {marginBottom: 10}]}>
+        style={{ marginBottom: 10, paddingHorizontal: 20, paddingVertical: 5 }}>
+        <Text style={[{ ...Fonts.gray16RobotoMedium }, { marginBottom: 10 }]}>
           {' '}
           Received Test PDF from Students
         </Text>
@@ -375,10 +376,10 @@ const LiveClassDetails = ({navigation, route, providerData}) => {
             }}>
             <Text
               numberOfLines={1}
-              style={[Fonts.gray16RobotoMedium, {textAlign: 'center'}]}>
+              style={[Fonts.gray16RobotoMedium, { textAlign: 'center' }]}>
               Suresh Singh
             </Text>
-            <Image source={require('../../assets/icon/downloadblue.png')} />
+            <Octicons name="download" size={20} color={Colors.blueFacebook} />
           </TouchableOpacity>
           <TouchableOpacity
             style={{
@@ -395,10 +396,10 @@ const LiveClassDetails = ({navigation, route, providerData}) => {
             }}>
             <Text
               numberOfLines={1}
-              style={[Fonts.gray16RobotoMedium, {textAlign: 'center'}]}>
+              style={[Fonts.gray16RobotoMedium, { textAlign: 'center' }]}>
               Suresh Singh
             </Text>
-            <Image source={require('../../assets/icon/downloadblue.png')} />
+            <Octicons name="download" size={20} color={Colors.blueFacebook} />
           </TouchableOpacity>
         </View>
       </View>
