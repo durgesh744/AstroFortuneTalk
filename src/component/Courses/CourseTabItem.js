@@ -1,19 +1,19 @@
 import React from 'react';
 import { View, Image, Text, ImageBackground, StyleSheet, TouchableOpacity } from 'react-native';
-import { SCREEN_WIDTH } from '../../../config/Screen';
-import { Colors, Sizes } from '../../../assets/style';
+import { SCREEN_WIDTH } from '../../config/Screen';
+import { Colors, Sizes } from '../../assets/style';
 
 const TabItem = ({ text, tab, handleSet }) => (
   <TouchableOpacity
     onPress={() => handleSet(tab)}
   >
     <ImageBackground
-      source={require('../../../assets/images/schedule_pooja.png')}
+      source={require('../../assets/images/schedule_pooja.png')}
       style={styles.imageBackground}
       resizeMode="contain"
     >
       <Image
-        source={require("../../../assets/icon/history_icon.png")}
+        source={require("../../assets/icon/history_icon.png")}
         style={styles.icon}
       />
       <Text style={styles.text}>{text}</Text>

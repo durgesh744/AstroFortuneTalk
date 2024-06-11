@@ -1,21 +1,21 @@
 import React from 'react';
-import {View, Text, ScrollView, TouchableOpacity} from 'react-native';
-import {Colors, Fonts, Sizes} from '../../assets/style';
+import { View, Text, ScrollView, TouchableOpacity } from 'react-native';
+import { Colors, Fonts, Sizes } from '../../assets/style';
 import LinearGradient from 'react-native-linear-gradient';
 import MyHeader from '../../component/MyHeader';
 import MyStatusBar from '../../component/MyStatusBar';
 
-const Remedy = ({navigation, route}) => {
+const Remedy = ({ navigation, route }) => {
   return (
-    <View style={{flex: 1}}>
+    <View style={{ flex: 1, backgroundColor: Colors.white }}>
       <MyStatusBar
         backgroundColor={Colors.primaryLight}
         barStyle={'light-content'}
       />
       <MyHeader title={'Suggest Remedy'} navigation={navigation} />
-      <ScrollView style={{flex: 1}}>
-        <View style={{padding: 15}}>
-          <Text style={{lineHeight: 40, ...Fonts.gray16RobotoMedium}}>
+      <ScrollView style={{ flex: 1 }}>
+        <View style={{ padding: 15 }}>
+          <Text style={{ lineHeight: 40, ...Fonts.gray16RobotoMedium }}>
             You can suggest any remedy to the customer (just like a doctor!).
             The remedy could be a free mantra, suggestion etc. Or it can be a
             paid product/service like gemstone, online puja, healing etc. When
@@ -30,7 +30,7 @@ const Remedy = ({navigation, route}) => {
           </Text>
         </View>
       </ScrollView>
-      <View style={{flex: 0, justifyContent: 'center', alignItems: 'center'}}>
+      <View style={{ flex: 0, justifyContent: 'center', alignItems: 'center' }}>
         <LinearGradient
           colors={[Colors.primaryLight, Colors.primaryDark]}
           style={{

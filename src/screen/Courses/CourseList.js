@@ -19,7 +19,7 @@ import {
   course_list,
   provider_img_url,
 } from '../../config/constants';
-import CourseTabItem from '../../component/ui/Courses/CourseTabItem';
+import CourseTabItem from '../../component/Courses/CourseTabItem';
 
 const CourseList = ({ navigation }) => {
   const [activeTab, setActiveTab] = useState(0)

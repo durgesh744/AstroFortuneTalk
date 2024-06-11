@@ -1,8 +1,8 @@
 import React from 'react';
 import {SafeAreaView} from 'react-native';
+import {AuthProvider} from './src/context/AuthContext';
 import StackNavigator from './src/navigation/StackNavigator';
 import {NavigationContainer} from '@react-navigation/native';
-import {AuthProvider} from './src/context/AuthContext';
 import { setTopLevelNavigator } from './src/utils/navigationServices';
 
 function App() {

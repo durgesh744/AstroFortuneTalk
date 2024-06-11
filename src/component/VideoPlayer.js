@@ -1,8 +1,8 @@
 import React, {Component} from 'react';
-import {Colors} from '../../assets/style';
+import {Colors} from '../assets/style';
 import {View, StyleSheet, Modal} from 'react-native';
 import VideoPlayer from 'react-native-video-controls';
-import {SCREEN_HEIGHT, SCREEN_WIDTH} from '../../config/Screen';
+import {SCREEN_HEIGHT, SCREEN_WIDTH} from '../config/Screen';
 
 export class CustomVideoPlayer extends Component {
   constructor(props) {

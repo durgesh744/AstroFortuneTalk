@@ -8,18 +8,19 @@ const GoLiveNow = () => {
 
     }
     return (
-        <View style={{
-            backgroundColor: Colors.white,
-            marginTop: 2,
-            paddingTop: 10,
-            paddingBottom: 15
-        }}>
+        <View
+            style={{
+                backgroundColor: Colors.white,
+                marginTop: 2,
+                paddingTop: 10,
+                paddingBottom: 15
+            }}>
             <TouchableOpacity
                 onPress={go_live_now}
                 style={{
                     marginHorizontal: Sizes.fixPadding,
                     borderRadius: Sizes.fixPadding,
-                    elevation: 3,
+
                 }}>
                 <LinearGradient
                     colors={[

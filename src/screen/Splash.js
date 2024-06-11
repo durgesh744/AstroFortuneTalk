@@ -1,15 +1,14 @@
 import {
   View,
-  Image,
 } from 'react-native';
+import { connect } from 'react-redux';
 import React, { useEffect } from 'react';
 import { Colors } from '../assets/style';
+import LottieView from "lottie-react-native";
 import MyStatusBar from '../component/MyStatusBar.js';
 import LinearGradient from 'react-native-linear-gradient';
-import AsyncStorage from '@react-native-async-storage/async-storage';
-import { connect } from 'react-redux';
 import * as AuthActions from '../redux/actions/authActions.js'
-import LottieView from "lottie-react-native";
+import AsyncStorage from '@react-native-async-storage/async-storage';
 
 const Splash = ({ navigation, dispatch }) => {
 
@@ -40,8 +39,8 @@ const Splash = ({ navigation, dispatch }) => {
         colors={[Colors.primaryLight, Colors.primaryDark]}
         style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
         <LottieView
-          source={require('../assets/animations/test.json')}
-          style={{ width: "100%", height: "100%" }}
+          source={require('../assets/animations/splash.json')}
+          style={{ width: "60%", height: "60%" }}
           autoPlay
           loop
         />

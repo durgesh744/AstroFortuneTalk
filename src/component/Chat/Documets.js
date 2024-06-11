@@ -5,10 +5,10 @@ import {
   TouchableOpacity,
 } from 'react-native';
 import React from 'react';
-import {SCREEN_WIDTH} from '../../../config/Screen';
-import {Sizes, Fonts, Colors} from '../../../assets/style';
+import {SCREEN_WIDTH} from '../../config/Screen';
+import {Sizes, Fonts, Colors} from '../../assets/style';
 import FontAwesome5 from 'react-native-vector-icons/FontAwesome5';
-import {showToastWithGravityAndOffset} from '../../../methods/toastMessage';
+import {showToastWithGravityAndOffset} from '../../methods/toastMessage';
 
 const Documets = ({item}) => {
   const on_download = url => {

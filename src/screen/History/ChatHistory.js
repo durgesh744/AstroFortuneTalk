@@ -8,7 +8,7 @@ import Loader from '../../component/Loader';
 import MyHeader from '../../component/MyHeader';
 import { Sizes, Colors } from '../../assets/style';
 import MyStatusBar from '../../component/MyStatusBar';
-import HistoryInfo from '../../component/ui/History/HistoryInfo';
+import HistoryInfo from '../../component/History/HistoryInfo';
 
 const ChatHistory = ({ navigation, authData }) => {
   const [CallHistoryData, setCallHistoryData] = useState(
@@ -76,7 +76,7 @@ const ChatHistory = ({ navigation, authData }) => {
   const { isLoading, isActiveCall, activeCallData } = state;
 
   return (
-    <View style={{ flex: 1 }}>
+    <View style={{ flex: 1, backgroundColor: Colors.white }}>
       <Loader visible={isLoading} />
       <MyStatusBar
         backgroundColor={Colors.primaryLight}
@@ -84,7 +84,7 @@ const ChatHistory = ({ navigation, authData }) => {
       />
       <Loader visible={isLoading} />
       <MyHeader title="Call History" navigation={navigation} />
-      <View style={{ flex: 1, marginTop: Sizes.fixPadding * 1.5 }}>
+      <View style={{ flex: 1}}>
         <FlatList
           ListHeaderComponent={
             <>
@@ -92,6 +92,7 @@ const ChatHistory = ({ navigation, authData }) => {
                 CallHistoryData={CallHistoryData}
                 navigation={navigation}
                 get_kundli_details={get_kundli_details}
+                viewChatActive={true}
               />
             </>
           }

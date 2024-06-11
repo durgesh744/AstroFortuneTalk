@@ -1,7 +1,7 @@
 import React from 'react';
-import {Colors} from '../../assets/style';
+import {Colors} from '../assets/style';
 import {Modal, ImageBackground} from 'react-native';
-import {SCREEN_HEIGHT, SCREEN_WIDTH} from '../../config/Screen';
+import {SCREEN_HEIGHT, SCREEN_WIDTH} from '../config/Screen';
 
 const ImageView = ({updateState, image, imageVisible}) => {
   return (

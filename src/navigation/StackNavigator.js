@@ -18,7 +18,6 @@ import ReferAnAstrologer from '../screen/Settings/ReferAnAstrologer';
 import UpdateNumber from '../screen/Settings/UpdateNumber';
 import PriceChangeRequest from '../screen/Settings/PriceChangeRequest';
 import CallHistory from '../screen/History/CallHistory';
-import KundliCategory from '../screen/Kundli/KundliInfo';
 import AddRemedy from '../screen/Remedy/AddRemedy';
 import Astromall from '../screen/ECommerce/Astromall';
 import ChatHistory from '../screen/History/ChatHistory';
@@ -68,7 +67,6 @@ const StackNavigator = () => {
       <Stack.Screen name="registerPooja" component={RegisterPooja} />
       <Stack.Screen name="callHistory" component={CallHistory} />
 
-      <Stack.Screen name="kundliInfo" component={KundliCategory} />
       <Stack.Screen name="Remedy" component={Remedy} />
       <Stack.Screen name="addRemedy" component={AddRemedy} />
 

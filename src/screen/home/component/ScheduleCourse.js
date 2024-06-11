@@ -1,7 +1,8 @@
-import { ImageBackground, TouchableOpacity, View } from 'react-native';
 import { Colors, Sizes } from '../../../assets/style';
+import { navigate } from '../../../utils/navigationServices';
+import { ImageBackground, TouchableOpacity, View } from 'react-native';
 
-const ScheduleCourse = ({ navigation }) => {
+const ScheduleCourse = () => {
   return (
     <View
       style={{
@@ -13,17 +14,17 @@ const ScheduleCourse = ({ navigation }) => {
     >
       <TouchableOpacity
         activeOpacity={0.8}
-        onPress={() => navigation.navigate('courseList')}
+        onPress={() => navigate('courseList')}
         style={{
-          borderRadius: Sizes.fixPadding,
           width: '90%',
+          borderRadius: Sizes.fixPadding,
           marginVertical: Sizes.fixPadding * 1.5,
           overflow: 'hidden',
           backgroundColor: 'red',
           height: 70,
           alignSelf: 'center',
-          elevation: 2,
-          shadowColor: Colors.gray,
+          elevation: 5,
+          backgroundColor: Colors.white
         }}>
         <ImageBackground
           source={require('../../../assets/images/homedownbanner.png')}

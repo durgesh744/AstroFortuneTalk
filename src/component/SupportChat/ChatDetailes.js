@@ -11,10 +11,10 @@ import Voice from '../Chat/Voice';
 import { FlatList } from 'react-native';
 import Documets from '../Chat/Documets';
 import * as Progress from 'react-native-progress';
-import { SCREEN_WIDTH } from '../../../config/Screen';
+import { SCREEN_WIDTH } from '../../config/Screen';
 import LinearGradient from 'react-native-linear-gradient';
-import { Colors, Fonts, Sizes } from '../../../assets/style';
-import { tarotValue } from '../../../config/TarotValue';
+import { Colors, Fonts, Sizes } from '../../assets/style';
+import { tarotValue } from '../../config/TarotValue';
 
 const ChatDetailes = ({
   memorizedChat,

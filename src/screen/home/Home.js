@@ -82,14 +82,20 @@ const Home = ({ navigation }) => {
     return (
       <View
         style={{
-          marginTop: Sizes.fixPadding * 0.6,
           width: '100%',
           height: 130,
+          marginTop: Sizes.fixPadding * 0.6,
           paddingHorizontal: Sizes.fixPadding,
           paddingVertical: Sizes.fixPadding,
           backgroundColor: Colors.white,
         }}>
-        <View style={{ borderRadius: Sizes.fixPadding, overflow: 'hidden' }}>
+          
+        <View style={{
+          borderRadius: Sizes.fixPadding,
+          shadowColor: Colors.blackLight,
+          overflow: 'hidden',
+          elevation: 5,
+        }}>
           <ImageBackground
             source={require('../../assets/images/performance.png')}
             style={{

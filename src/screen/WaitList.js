@@ -73,7 +73,7 @@ const WaitList = ({ navigation, authData, dispatch }) => {
   const { isLoading, isRefreshing, isActiveChat } = state;
 
   return (
-    <View style={{ flex: 1 }}>
+    <View style={{ flex: 1, backgroundColor:Colors.white }}>
       <MyStatusBar
         backgroundColor={Colors.primaryLight}
         barStyle={'light-content'}
@@ -112,7 +112,7 @@ const WaitList = ({ navigation, authData, dispatch }) => {
               backgroundColor: Colors.dullWhite,
               borderRadius: 10,
               padding: 15,
-              elevation: 5,
+              elevation: 8,
               shadowColor: Colors.blackLight,
             }}>
             <View

@@ -1,16 +1,18 @@
 import React from 'react'
 import moment from 'moment';
 import Ionicons from 'react-native-vector-icons/Ionicons';
+import { navigate } from '../../utils/navigationServices';
+import { Colors, Fonts, Sizes } from '../../assets/style';
+import { SCREEN_HEIGHT, SCREEN_WIDTH } from '../../config/Screen';
 import { FlatList, ImageBackground, Text, TouchableOpacity, View } from 'react-native'
-import { Colors, Fonts, Sizes } from '../../../assets/style';
-import { SCREEN_HEIGHT, SCREEN_WIDTH } from '../../../config/Screen';
 
-const HistoryInfo = ({ CallHistoryData, get_kundli_details, navigation }) => {
+const HistoryInfo = ({ CallHistoryData, get_kundli_details, viewChatActive }) => {
     const renderItem = ({ item }) => (
         <View
             style={{
                 marginHorizontal: 15,
                 marginBottom: 10,
+                paddingTop: Sizes.fixPadding * 1.5
             }}>
             <View
                 style={{
@@ -125,7 +127,7 @@ const HistoryInfo = ({ CallHistoryData, get_kundli_details, navigation }) => {
                     </View>
                     <View>
                         <ImageBackground
-                            source={require('../../../assets/images/back.png')}
+                            source={require('../../assets/images/back.png')}
                             resizeMode="contain"
                             style={{
                                 width: SCREEN_WIDTH * 0.3,
@@ -156,19 +158,22 @@ const HistoryInfo = ({ CallHistoryData, get_kundli_details, navigation }) => {
                         marginTop: SCREEN_HEIGHT * 0.03,
                         justifyContent: 'space-between',
                     }}>
+
+                    {viewChatActive &&
+                        <Text
+                            onPress={() =>
+                                navigate('Remedy', {
+                                    customer_id: item?.user_id,
+                                    screen_type: 'not_during_chat'
+                                })
+                            }
+                            style={{ ...Fonts.primaryLight14RobotoMedium, textDecorationLine: 'underline' }}>
+                            View Chat
+                        </Text>
+                    }
                     <Text
                         onPress={() =>
-                            navigation.navigate('Remedy', {
-                                customer_id: item?.user_id,
-                                screen_type: 'not_during_chat'
-                            })
-                        }
-                        style={{ ...Fonts.primaryLight14RobotoMedium, textDecorationLine: 'underline' }}>
-                        View Chat
-                    </Text>
-                    <Text
-                        onPress={() =>
-                            navigation.navigate('Remedy', {
+                            navigate('Remedy', {
                                 customer_id: item?.user_id,
                                 screen_type: 'not_during_chat'
                             })

@@ -22,8 +22,8 @@ import * as Progress from 'react-native-progress';
 import MyStatusBar from '../../component/MyStatusBar';
 import MyHeader from '../../component/MyHeader';
 import Loader from '../../component/Loader';
-import DemoClass from '../../component/ui/Courses/DemoClass';
-import LiveClassForm from '../../component/ui/Courses/LiveClassForm';
+import DemoClass from '../../component/Courses/DemoClass';
+import LiveClassForm from '../../component/Courses/LiveClassForm';
 
 const AddCourseDetails = ({ navigation, route, authData }) => {
   const [freePDFTitle, setFreePDFTitle] = useState('');

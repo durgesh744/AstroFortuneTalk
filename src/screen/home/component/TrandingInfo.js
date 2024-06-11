@@ -47,7 +47,7 @@ const TrandingInfo = () => {
                     padding: Sizes.fixPadding * 1.5,
                     backgroundColor: Colors.white,
                     elevation: 5,
-                    shadowColor: Colors.gray,
+                    shadowColor: Colors.blackLight,
                     marginHorizontal: Sizes.fixPadding * 2.0,
                     borderRadius: Sizes.fixPadding,
                     marginBottom: Sizes.fixPadding * 1.5,

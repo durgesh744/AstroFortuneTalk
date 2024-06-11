@@ -1,11 +1,11 @@
 import BottomModal from './BottomModal';
 import {Divider, Input} from '@rneui/themed';
 import React, {useEffect, useState} from 'react';
-import {Colors, Fonts, Sizes} from '../../../assets/style';
+import {Colors, Fonts, Sizes} from '../../assets/style';
 import Ionicons from 'react-native-vector-icons/Ionicons';
 import {View, Text, TouchableOpacity, StyleSheet} from 'react-native';
 import AudioRecorderPlayer from 'react-native-audio-recorder-player';
-import { actions } from '../../../config/Data';
+import { actions } from '../../config/Data';
 
 const audioRecorderPlayer = new AudioRecorderPlayer();
 audioRecorderPlayer.setSubscriptionDuration(0.1);

@@ -1,7 +1,7 @@
 import React from 'react'
-import { Colors } from '../../assets/style'
 import { FlatList, View } from 'react-native'
 import MyHeader from '../../component/MyHeader'
+import { Colors, Sizes } from '../../assets/style'
 import MyStatusBar from '../../component/MyStatusBar'
 import CustomButton from '../../component/CustomButton'
 
@@ -43,7 +43,8 @@ const Pooja = ({ navigation }) => {
             <MyHeader navigation={navigation} title={"Pooja"} />
             <View
                 style={{
-                    paddingTop: 10
+                    paddingTop: 10,
+                    paddingHorizontal: Sizes.fixPadding * 3
                 }}
             >
                 <FlatList

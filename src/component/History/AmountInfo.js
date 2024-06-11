@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
-import { Colors } from '../../../assets/style';
-import CustomerModal from '../../CustomerModal';
+import { Colors } from '../../assets/style';
+import CustomerModal from '../CustomerModal';
 import FontAwesome6 from 'react-native-vector-icons/FontAwesome6';
 import { StyleSheet, Text, TouchableOpacity, View } from 'react-native';
 import AntDesign from 'react-native-vector-icons/AntDesign'

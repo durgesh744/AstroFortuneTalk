@@ -13,11 +13,11 @@ import { Colors, Fonts, Sizes } from '../../assets/style';
 import AntDesign from 'react-native-vector-icons/AntDesign';
 import React, { useEffect, useMemo, useState, useCallback } from 'react';
 import { useFocusEffect } from '@react-navigation/native';
-import ImageView from '../../component/ui/ImageView';
+import ImageView from '../../component/ImageView';
 import Loader from '../../component/Loader';
 import MyStatusBar from '../../component/MyStatusBar';
-import ChatDetailes from '../../component/ui/SupportChat/ChatDetailes';
-import InputMesaage from '../../component/ui/SupportChat/InputMesaage';
+import ChatDetailes from '../../component/SupportChat/ChatDetailes';
+import InputMesaage from '../../component/SupportChat/InputMesaage';
 import LinearGradient from 'react-native-linear-gradient';
 import * as ImagePicker from 'react-native-image-picker';
 

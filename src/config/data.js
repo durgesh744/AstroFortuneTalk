@@ -46,7 +46,7 @@ export const tabsData = [
   },
   {
     id: 4,
-    name: 'LIve Events',
+    name: 'Live Events',
     icon: require('../assets/icon/zoom_icon.png'),
     navigate_to: 'LiveEvent',
   },

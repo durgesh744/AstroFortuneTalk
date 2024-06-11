@@ -25,7 +25,7 @@ import { CommonActions } from '@react-navigation/native';
 import MyStatusBar from '../../component/MyStatusBar';
 import Loader from '../../component/Loader';
 import MyHeader from '../../component/MyHeader';
-import CustomVideoPlayer from '../../component/ui/VideoPlayer';
+import CustomVideoPlayer from '../../component/VideoPlayer';
 import CustomButton from '../../component/CustomButton';
 
 const UploadEcommerce = ({ navigation, route }) => {

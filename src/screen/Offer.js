@@ -51,9 +51,9 @@ const Offer = ({ authData, navigation }) => {
     },
 
   ]
-  
+
   return (
-    <View style={{ flex: 1 }}>
+    <View style={{ flex: 1, backgroundColor: Colors.white }}>
       <MyStatusBar
         backgroundColor={Colors.primaryLight}
         barStyle={'light-content'}
@@ -74,10 +74,10 @@ const Offer = ({ authData, navigation }) => {
             marginHorizontal: 15,
             backgroundColor: Colors.dullWhite,
             marginBottom: 10,
+            borderRadius: 20,
           }}>
           <View
             style={{
-              borderRadius: 20,
               flex: 0,
               backgroundColor: Colors.dullWhite,
               borderRadius: 10,

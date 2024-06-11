@@ -12,11 +12,11 @@ import React, { useState, useEffect } from 'react';
 import { Colors, Sizes, Fonts } from '../../assets/style';
 import LinearGradient from 'react-native-linear-gradient';
 import { SCREEN_WIDTH } from '../../config/Screen';
-import ImageView from '../../component/ui/ImageView';
-import { createThumbnail } from 'react-native-create-thumbnail';
+import ImageView from '../../component/ImageView';
 import { ActivityIndicator } from 'react-native-paper';
 import MyStatusBar from '../../component/MyStatusBar';
-import CustomVideoPlayer from '../../component/ui/VideoPlayer';
+import { createThumbnail } from 'react-native-create-thumbnail';
+import CustomVideoPlayer from '../../component/VideoPlayer';
 import MyHeader from '../../component/MyHeader';
 
 const HistoryDetails = ({ navigation, route }) => {

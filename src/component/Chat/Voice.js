@@ -2,9 +2,9 @@ import {Slider} from '@rneui/themed';
 import {View, Text, TouchableOpacity, StyleSheet} from 'react-native';
 import React, {useState, useEffect} from 'react';
 import * as Progress from 'react-native-progress';
-import {Colors, Sizes} from '../../../assets/style';
+import {Colors, Sizes} from '../../assets/style';
+import { SCREEN_WIDTH } from '../../config/Screen';
 import Ionicons from 'react-native-vector-icons/Ionicons';
-import { SCREEN_WIDTH } from '../../../config/Screen';
 
 var Sound = require('react-native-sound');
 

@@ -61,7 +61,7 @@ const Reviews = props => {
   ];
 
   return (
-    <View style={{ flex: 1 }}>
+    <View style={{ flex: 1, backgroundColor: Colors.white }}>
       <MyStatusBar
         backgroundColor={Colors.primaryLight}
         barStyle={'light-content'}
@@ -121,8 +121,8 @@ const Reviews = props => {
           flex: 0,
           width: '100%',
           borderBottomWidth: 1,
-          borderColor: Colors.borderColor,
           top: -5,
+          borderColor: Colors.grayLight,
         }}>
         <FlatList
           data={DATA1}
@@ -185,7 +185,7 @@ const Reviews = props => {
                   ...Fonts.gray14RobotoMedium,
                   marginBottom: 5,
                   fontSize: 13,
-                  color: Colors.blacy_type,
+                  color: Colors.grayDark,
                 }}>
                 Monisha Lorina
               </Text>
@@ -195,7 +195,7 @@ const Reviews = props => {
                     ...Fonts.gray14RobotoMedium,
                     marginBottom: 5,
                     fontSize: 13,
-                    color: Colors.blacy_type,
+                    color: Colors.grayDark,
                   }}>
                   Service:
                 </Text>

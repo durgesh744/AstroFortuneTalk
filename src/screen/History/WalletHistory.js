@@ -20,7 +20,8 @@ import Loader from '../../component/Loader';
 import { SCREEN_WIDTH } from '../../config/Screen';
 import LinearGradient from 'react-native-linear-gradient';
 import { DateTimePickerAndroid } from '@react-native-community/datetimepicker';
-import AmountInfo from '../../component/ui/History/AmountInfo';
+import AmountInfo from '../../component/History/AmountInfo';
+import AntDesign from 'react-native-vector-icons/AntDesign'
 
 const WalletHistory = ({ navigation, authData }) => {
   const dashboard = {
@@ -28,7 +29,6 @@ const WalletHistory = ({ navigation, authData }) => {
       Walletbalance: 100
     }
   }
-  const astroId = 2403531
 
   const [value, setValue] = useState(null);
   const [isFocus, setIsFocus] = useState(false);
@@ -48,27 +48,7 @@ const WalletHistory = ({ navigation, authData }) => {
   }, []);
 
   const get_wallet_history = async ({ startDate, endDate }) => {
-    // updateState({ isLoading: true, modalVisible: false });
-    // await axios({
-    //   method: 'post',
-    //   url: api_url + astro_all_wallet_history_new,
-    //   headers: {
-    //     'Content-Type': 'multipart/form-data',
-    //   },
-    //   data: {
-    //     astro_id: astroId,
-    //     startDate: moment(startDate).format('YYYY-MM-DD'),
-    //     endDate: moment(endDate).format('YYYY-MM-DD'),
-    //   },
-    // })
-    //   .then(res => {
-    //     updateState({ isLoading: false });
-    //     updateState({ historyData: res.data.data });
-    //   })
-    //   .catch(err => {
-    //     updateState({ isLoading: false });
-    //     console.log(err);
-    //   });
+    updateState({ modalVisible: false })
   };
 
   const updateState = data => {
@@ -110,7 +90,6 @@ const WalletHistory = ({ navigation, authData }) => {
     },
   ];
 
-
   return (
     <View style={{ flex: 1 }}>
       <MyStatusBar
@@ -119,7 +98,7 @@ const WalletHistory = ({ navigation, authData }) => {
       />
       <Loader visible={isLoading} />
       <MyHeader title="Wallet History" navigation={navigation} />
-      <View style={{ flex: 1, marginTop: Sizes.fixPadding * 1.5 }}>
+      <View style={{ flex: 1 }}>
         <FlatList
           ListHeaderComponent={
             <>
@@ -150,7 +129,6 @@ const WalletHistory = ({ navigation, authData }) => {
           display: 'calendar',
           is24Hour: true,
         });
-      } else {
       }
     };
 
@@ -181,10 +159,20 @@ const WalletHistory = ({ navigation, authData }) => {
             padding: Sizes.fixPadding,
             alignSelf: 'center',
           }}>
-          <Text
-            style={{ ...Fonts.primaryLight15RobotoMedium, textAlign: 'center' }}>
-            Select Dates
-          </Text>
+          <View
+            style={{
+              paddingBottom: 10,
+              display: 'flex',
+              flexDirection: 'row',
+              justifyContent: 'space-between',
+              alignItems: 'center',
+            }}>
+            <Text
+              style={{ ...Fonts.primaryLight15RobotoMedium, textAlign: 'center' }}>
+              Select Dates
+            </Text>
+            <AntDesign size={20} color={Colors.black} name='close' onPress={() => updateState({ modalVisible: false })} />
+          </View>
           <View
             style={{
               flexDirection: 'row',
@@ -282,7 +270,6 @@ const WalletHistory = ({ navigation, authData }) => {
               get_wallet_history({ startDate: fdate, endDate: ldate });
             } else if (item.label == 'Yesterday') {
               get_wallet_history({ startDate: item.value, endDate: item.value });
-              // get_wallet_history({startDate: yesterday, endDate: new Date()});
             } else {
               get_wallet_history({ startDate: new Date(), endDate: new Date() });
             }
@@ -301,6 +288,7 @@ const WalletHistory = ({ navigation, authData }) => {
         colors={[Colors.primaryLight, Colors.primaryDark]}
         style={{
           paddingVertical: 15,
+          paddingTop: 10,
         }}
       >
         <View
