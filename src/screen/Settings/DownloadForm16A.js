@@ -2,58 +2,25 @@ import {
   View,
   Text,
   FlatList,
-  Image,
   TouchableOpacity,
   StyleSheet,
   Linking,
 } from 'react-native';
-import axios from 'axios';
 import { connect } from 'react-redux';
-import React, { useEffect, useState } from 'react';
-import { Colors, Fonts, Sizes } from '../../assets/style';
+import React, { useState } from 'react';
 import Loader from '../../component/Loader';
 import MyHeader from '../../component/MyHeader';
-import MyStatusBar from '../../component/MyStatusBar';
-import { api_url, get_PDF, provider_img_url } from '../../config/constants';
 import { SCREEN_WIDTH } from '../../config/Screen';
+import MyStatusBar from '../../component/MyStatusBar';
+import { Colors, Fonts, Sizes } from '../../assets/style';
+import { provider_img_url } from '../../config/constants';
 import Octicons from 'react-native-vector-icons/Octicons'
 
 const DownloadForm16A = ({ navigation, authData }) => {
   const [isLoading, setIsLoading] = useState(false);
   const [pdf, setPDF] = useState();
-
-  useEffect(() => {
-    fetch_PDF();
-  }, []);
-
-  const fetch_PDF = async () => {
-    setIsLoading(true);
-    await axios({
-      method: 'post',
-      url: api_url + get_PDF,
-      headers: {
-        'Content-Type': 'multipart/form-data',
-      },
-      data: {
-        astrologer_id: authData?.astrologer?._id,
-      },
-    })
-      .then(async res => {
-        if (res.data?.status) {
-          setPDF(res.data.data);
-          setIsLoading(false);
-        } else {
-          setGalleryPhotos(null);
-        }
-      })
-      .catch(err => {
-        setIsLoading(false);
-        console.log(err);
-      });
-  };
-
   return (
-    <View style={{ flex: 1 }}>
+    <View style={{ flex: 1, backgroundColor: Colors.white }}>
       <MyStatusBar
         backgroundColor={Colors.primaryLight}
         barStyle={'light-content'}

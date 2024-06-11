@@ -3,7 +3,7 @@ import {
   View,
 } from 'react-native';
 import React from 'react';
-import {Colors, Fonts} from '../../../assets/style';
+import {Colors, Fonts} from '../../assets/style';
 import LinearGradient from 'react-native-linear-gradient';
 
 const Performancecont = ({title}) => {

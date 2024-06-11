@@ -61,6 +61,7 @@ const styles = StyleSheet.create({
     },
     selectedTextStyle: {
         fontSize: 16,
+        color: Colors.Dark_grayish_red 
     },
     iconStyle: {
         width: 20,

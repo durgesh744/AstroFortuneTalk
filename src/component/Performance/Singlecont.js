@@ -1,6 +1,6 @@
 import React from 'react';
-import {StyleSheet, Text, View} from 'react-native';
-import {Colors, Fonts} from '../../../assets/style';
+import { Text, View} from 'react-native';
+import {Colors, Fonts} from '../../assets/style';
 
 const Singlecont = ({title, value1}) => {
   return (

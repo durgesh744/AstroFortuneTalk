@@ -44,14 +44,13 @@ const PriceChangeRequest = ({ navigation }) => {
   ]
 
   return (
-    <View style={{ flex: 1 }}>
+    <View style={{ flex: 1, backgroundColor:Colors.white }}>
       <MyStatusBar
         backgroundColor={Colors.primaryLight}
         barStyle={'light-content'}
       />
       <Loader visible={isLoading} />
       <MyHeader title={'Price Change Request'} navigation={navigation} />
-      <CustomLine />
       <FlatList ListHeaderComponent={
         <>
           {policy()}

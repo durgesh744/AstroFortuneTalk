@@ -1,6 +1,6 @@
-import {Text, View} from 'react-native';
 import React from 'react';
-import {Colors, Fonts} from '../../../assets/style';
+import {Text, View} from 'react-native';
+import {Colors, Fonts} from '../../assets/style';
 
 const Doublecont = ({title, value1, value2}) => {
   return (

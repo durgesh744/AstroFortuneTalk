@@ -90,14 +90,13 @@ const PriceChange = ({ navigation, authData }) => {
   }, [])
 
   return (
-    <View style={{ flex: 1 }}>
+    <View style={{ flex: 1, backgroundColor:Colors.white }}>
       <MyStatusBar
         backgroundColor={Colors.primaryLight}
         barStyle={'light-content'}
       />
       <Loader visible={isLoading} />
       <MyHeader title={'Price Change Request'} navigation={navigation} />
-      <CustomLine />
       <FlatList ListHeaderComponent={<>{eventsData && liveListInfo()}</>} />
       {BottonButton()}
     </View>
@@ -107,9 +106,6 @@ const PriceChange = ({ navigation, authData }) => {
     return (
       <View
         style={{
-          flex: 0,
-          borderTopWidth: 1,
-          borderColor: Colors.gray_light,
           justifyContent: 'center',
           marginBottom: SCREEN_HEIGHT * 0.04,
         }}>

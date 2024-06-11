@@ -4,17 +4,17 @@ import {
     View,
     TouchableOpacity,
 } from 'react-native';
+import { connect } from 'react-redux';
+import Loader from '../component/Loader';
+import MyHeader from '../component/MyHeader';
 import React, { useState, useEffect } from 'react';
 import { Colors, Fonts, Sizes } from '../assets/style';
-import { connect } from 'react-redux';
 import LinearGradient from 'react-native-linear-gradient';
 import Feather from 'react-native-vector-icons/Feather';
 import MyStatusBar from '../component/MyStatusBar';
-import Loader from '../component/Loader';
-import MyHeader from '../component/MyHeader';
-import Doublecont from '../component/ui/Performance/Doublecont';
-import Singlecont from '../component/ui/Performance/Singlecont';
-import Performancecont from '../component/ui/Performance/Performancecont';
+import Doublecont from '../component/Performance/Doublecont';
+import Singlecont from '../component/Performance/Singlecont';
+import Performancecont from '../component/Performance/Performancecont';
 
 const Performance = ({ navigation, providerData }) => {
     const [performanceData, setPerformanceData] = useState();
