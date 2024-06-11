@@ -7,11 +7,9 @@ import {
   Alert,
   Image,
 } from 'react-native';
-import axios from 'axios';
-import React, { useState } from 'react';
 import { connect } from 'react-redux';
-import { Colors, Fonts } from '../../assets/style';
-import { api_url, refer_an_astrologer } from '../../config/constants';
+import React, { useState } from 'react';
+import { Colors, Fonts, Sizes } from '../../assets/style';
 import { commonStyles } from '../../assets/global';
 import CustomButton from '../../component/CustomButton';
 import MyStatusBar from '../../component/MyStatusBar';
@@ -19,7 +17,7 @@ import MyHeader from '../../component/MyHeader';
 import Loader from '../../component/Loader';
 import { SCREEN_HEIGHT, SCREEN_WIDTH } from '../../config/Screen';
 
-const ReferAnAstrologer = ({  navigation  , authData}) => {
+const ReferAnAstrologer = ({ navigation, authData }) => {
   const [isLoading, setIsLoading] = useState(false);
   const [name, setName] = useState('');
   const [email, setEmail] = useState('');
@@ -53,38 +51,7 @@ const ReferAnAstrologer = ({  navigation  , authData}) => {
   };
 
   const handleSend = async () => {
-    if (validation()) {
-      setIsLoading(true);
-      await axios({
-        method: 'post',
-        url: api_url + refer_an_astrologer,
-        headers: {
-          'Content-Type': 'multipart/form-data',
-        },
-        data: {
-          referal_id: authData.astrologer._id,
-          name: name,
-          email: email,
-          phone: mobileNumber,
-          expertise: expertise,
-          experience: experience,
-          language: null,
-          skill: null,
-          location: null,
-        },
-      })
-        .then(async res => {
-          setIsLoading(false);
-          if (res.data?.status) {
-            Alert.alert('Sent Successfull');
-            clearFields();
-          }
-        })
-        .catch(err => {
-          setIsLoading(false);
-          console.log(err);
-        });
-    }
+   
   };
 
   const clearFields = () => {
@@ -96,7 +63,7 @@ const ReferAnAstrologer = ({  navigation  , authData}) => {
   };
 
   return (
-    <View style={{ flex: 1 }}>
+    <View style={{ flex: 1, backgroundColor: Colors.white }}>
       <MyStatusBar
         backgroundColor={Colors.primaryLight}
         barStyle={'light-content'}
@@ -192,7 +159,9 @@ const ReferAnAstrologer = ({  navigation  , authData}) => {
             placeholderTextColor={Colors.Dark_grayish_red}
           />
         </View>
-        <CustomButton btnName={"Submit"} handleSend={handleSend} />
+        <View style={{ paddingHorizontal: Sizes.fixPadding * 2 }}>
+          <CustomButton btnName={"Submit"} handleSend={handleSend} />
+        </View>
       </View>
     );
   }

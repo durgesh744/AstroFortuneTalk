@@ -1,4 +1,3 @@
-import axios from 'axios';
 import {
   View,
   Text,
@@ -11,15 +10,12 @@ import {
 } from 'react-native';
 import React, { useState } from 'react';
 import { Colors, Fonts } from '../../assets/style';
-import { api_url, update_mobile_mumber } from '../../config/constants';
-import { useAuth } from '../../context/AuthContext';
 import Loader from '../../component/Loader';
 import MyStatusBar from '../../component/MyStatusBar';
 import MyHeader from '../../component/MyHeader';
 import { SCREEN_WIDTH } from '../../config/Screen';
 
 const UpdateNumber = props => {
-  const { user } = useAuth()
   const [isLoading, setIsLoading] = useState(false);
   const [mobileNumber, setMobileNumber] = useState('');
 
@@ -42,29 +38,6 @@ const UpdateNumber = props => {
   const handleChange = async () => {
     if (validation()) {
       setIsLoading(true);
-      await axios({
-        method: 'post',
-        url: api_url + update_mobile_mumber,
-        headers: {
-          'Content-Type': 'multipart/form-data',
-        },
-        data: {
-          astrologer_id: user.data.user.id,
-          mobile_number: mobileNumber,
-        },
-      })
-        .then(async res => {
-          setIsLoading(false);
-          if (res.data?.status) {
-            Alert.alert(res.data.message);
-          } else {
-            Alert.alert('Please Check Your Internet');
-          }
-        })
-        .catch(err => {
-          setIsLoading(false);
-          console.log(err);
-        });
     }
   };
 

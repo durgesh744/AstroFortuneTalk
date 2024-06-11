@@ -22,13 +22,6 @@ const Terms = ({ navigation }) => {
   const get_policy = async () => {
     try {
       updateState({ isLoading: true });
-      const response = await ApiRequests.getRequest({
-        url: api_url + terms,
-      });
-      if (response?.status == 1) {
-        updateState({ policyData: response?.records[0]?.desc });
-      }
-      updateState({ isLoading: false });
     } catch (e) {
       updateState({ isLoading: false });
       console.log(e);
