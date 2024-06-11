@@ -9,7 +9,7 @@ import {
 import React, { useState } from 'react';
 import Loader from '../../component/Loader';
 import { SCREEN_WIDTH } from '../../config/Screen';
-import { settingsTabsData } from '../../config/Data';
+import { settingsTabsData } from '../../config/data';
 import MyHeader from '../../component/MyHeader';
 import { Colors, Sizes, Fonts } from '../../assets/style';
 import MyStatusBar from '../../component/MyStatusBar';

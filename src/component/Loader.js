@@ -1,6 +1,6 @@
 import React from 'react';
-import {View, Modal, ActivityIndicator} from 'react-native';
 import {Colors} from '../assets/style';
+import {View, Modal, ActivityIndicator} from 'react-native';
 
 const Loader = ({visible}) => {
   return (

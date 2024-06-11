@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { tabsData } from '../../config/Data';
+import { tabsData } from '../../config/data';
 import Loader from '../../component/Loader';
 import {
   FlatList,
